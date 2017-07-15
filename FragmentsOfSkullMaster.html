@@ -145,7 +145,9 @@ tw-link.visited {
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
 
 
 
@@ -941,7 +943,11 @@ Note: currently not working for some reason.
 
 //environmental actions//
 
-a list in relevant strings of variables that can be true or false. use these when a change in the environment matters, so that changes are recorded. really simple. REMEMBER TO SET HOW YOU WANT A THING TO BE IN THE INITIALISE DUNGEON PASSAGE</tw-passagedata>
+a list in relevant strings of variables that can be true or false. use these when a change in the environment matters, so that changes are recorded. really simple. REMEMBER TO SET HOW YOU WANT A THING TO BE IN THE INITIALISE DUNGEON PASSAGE
+
+//endgame//
+
+Any time you change the $ health value, make sure you account for what happens if $ health drops to 0 (or below). If that leads to a death screen (which should probably be relevant to the environment) make sure the death screen contains the text ENDGAME, so we can update all these passages later with something that takes all the end game screens to the final page of credits, play again etc. Same applies to non-death endgame screens</tw-passagedata>
 <tw-passagedata pid="66" name="sandals" tags="" position="66,1151">This was a fine pair of sandals, once. You wouldn&#39;t think so to look at them now.
 
 (link: &quot;put them on&quot;)[\
@@ -2901,5 +2907,7 @@ The grunting stops, and you hear a strange noise as though something is approach
 (if: $health&lt;1)[(link-goto: &quot;the impact is too much for your frail body&quot;, &quot;body cellar death&quot;)
 (else:)
 [[stunned, you begin to get up-&gt;servants approach]] </tw-passagedata>
-<tw-passagedata pid="294" name="body cellar death" tags="" position="3230,3760">dead among the corpses</tw-passagedata>
+<tw-passagedata pid="294" name="body cellar death" tags="" position="3230,3760">dead among the corpses
+
+ENDGAME</tw-passagedata>
 </tw-storydata>

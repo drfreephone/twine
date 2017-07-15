@@ -1,0 +1,1577 @@
+<tw-storydata name="The Protester" startnode="1" creator="Twine" creator-version="2.0.11" ifid="AC556708-346D-4FDE-8615-539A082E4F4A" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Arvo|Slabo+27px|Libre+Baskerville');
+
+html{
+	text-align: center;	
+	font-family: 'Slabo+27px', serif;
+}
+
+.phoneScreen {
+	border-style: solid;
+    border-width: 20px;
+	  border-bottom-width: 45px;
+		border-right-width: 10px;
+	  border-left-width: 10px;
+		border-radius: 15px;
+    width: 300px;
+    margin: auto;
+    background: lightblue;
+	  padding: 5px;
+		text-align: left;
+	font-family: 'Arvo', serif;
+}
+
+.pcScreen {
+	border-style: solid;
+    border-width: 20px;
+	  border-color: rgb(96, 96, 96);
+    width: 110%;
+    margin: auto;
+    background: lightblue;
+	  padding: 5px;
+		text-align: left;
+	font-family: 'Arvo', serif;
+	line-height: 0.8
+		word-spacing: -2px;
+	font-size: 0.875em;
+}
+
+.newbit {
+	background: lightgreen;
+}
+
+.boxout {
+		font-style: italic;
+		text-indent: 25px;
+}
+
+
+.dream {
+	background: rgb(234, 255, 131);
+	background-image: url(backgrounds/dream.png); 
+	background-position: top; 
+	background-size: 100%, 100%;
+	background-repeat: no-repeat;
+}
+
+.theatre {
+	background: rgb(249, 49, 49);
+			background-image: url(backgrounds/theatre.png); 
+	background-position: top; 
+	background-size: 100%, 100%;
+	background-repeat: no-repeat;
+}
+
+.flat{
+	background: rgb(191, 193, 242);
+		background-image: url(backgrounds/flat.png); 
+	background-position: top; 
+	background-size: 100%, 100%;
+	background-repeat: no-repeat;
+}
+
+tw-passage {
+	width: 90%;	
+}
+
+
+tw-sidebar {
+display: none;	
+}
+
+tw-link {
+	color: rgb(168, 20, 20)
+}
+
+tw-link, .enchantment-link,.enchantment-link:hover, tw-link:hover, .enchantment-link.visited:hover, tw-link.visited:hover, tw-link.visited {
+	color: rgb(130, 0, 0)
+}
+
+
+.title{
+	font-family: 'Libre Baskerville', serif;
+}
+
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.music = new Audio("sound/Hollow Hearts_dream.mp3");
+
+	window.play = function () {
+		music.volume = 1;
+	  music.play();
+	  music.loop = true;
+	};
+
+	window.playNoLoop = function () {
+	  music.play();
+	  music.loop = false;
+	};
+
+	window.pause = function () {
+	  music.pause();
+	};
+
+	window.loadTrackA = function () {
+	  window.music = new Audio("sound/Hollow Hearts_dream.mp3");
+	};
+
+	window.loadTrackB = function () {
+		window.music = new Audio("sound/Universe_flat.mp3");
+	};
+		
+  window.loadTrackC = function () {
+		window.music = new Audio("sound/Third Track_theatre.mp3");
+	};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="Data structure" tags="" position="221,17">(set: $dialogueoptions to (a:&quot;what&#39;s your name&quot;,&quot;you made me miss my morning off&quot;,&quot;so what are you protesting about&quot;,&quot;what are you going to do if you need a piss&quot;)) List of available topics
+
+(set: $blogtopics to (a:)) List of blog topics
+
+(set: $topicsdiscussed to 0) Number of convos had
+
+(set: $targetconversationtotal to 3) Number of convos before hometime
+
+(set: $endoftoday to &quot;TheatreEnd1&quot;) Place to go on hometime
+
+(goto: &quot;misc init&quot;)
+&lt;script&gt;
+play();
+&lt;/script&gt;</tw-passagedata>
+<tw-passagedata pid="2" name="Debug footer" tags="debug-footer" position="25,41">
+
+
+FOOTER BELOW HERE
+(print: $dialogueoptions)
+
+(print: $blogtopics)
+
+(print: &quot;name&quot; of (passage:))</tw-passagedata>
+<tw-passagedata pid="3" name="Intro" tags="" position="379,161">So I didn&#39;t get my morning off after all. Jace rang me at 6:58 all in a lather. I was awake anyway, but I winced when I saw the wall lit up by the screen and heard the phone buzz against the glass. Petra would rebuke me when we (link:&quot;talked later&quot;)[talked later, if we could get Skype to hold the line for five goddamn minutes].
+
+(click: &quot;Skype&quot;)[&lt;span class = &quot;boxout&quot;&gt;Our conversation would go like this - first, we&#39;d say we missed one another. Then, we&#39;d talk about how we&#39;re both depressed and resentful all the time because we can&#39;t get shit to work out for us. Then, we&#39;d maybe get snippy with one another for not looking after ourselves enough. One or both of us would cry. We&#39;d reaffirm our love, then both hang up, quietly glad the call was over.&lt;/span&gt;
+
+](click: &quot;anyway&quot;)[&lt;span class = &quot;boxout&quot;&gt;I get into crappy habits when Petra&#39;s not around, which is all of the time and possibly forever. I can&#39;t get into any kind of rhythm. Work ends late sometimes, starts early sometimes. Some mornings I&#39;m up with the lark well before I need to be. Some nights I&#39;ll be sat in my chair, unable to summon up the energy to walk five steps into bed. So yeah, this morning I was just lying there, in my sweaty bedsheets, just watching the ceiling.&lt;/span&gt;
+
+][[i answered the phone|IntroA]]
+
+
+
+
+&lt;script&gt;$(&#39;body&#39;).removeClass().addClass(&#39;flat&#39;)&lt;/script&gt;</tw-passagedata>
+<tw-passagedata pid="4" name="ConversationOptions" tags="" position="1936,46">(if: ($topicsdiscussed is $targetconversationtotal) or ($dialogueoptions&#39;s length is 0))[(linkgoto: &quot;that was the end of our conversation that day&quot;,$endoftoday)]\
+(else:)[\
+(print: $dialogueoptions.join(&quot;
+&quot;))]{
+
+
+
+
+
+
+
+
+(click: &quot;what&#39;s your name&quot;)[(goto:&quot;what&#39;s your name&quot;)]
+(click: &quot;what are you going to do if you need a piss&quot;)[(goto:&quot;what are you going to do if you need a piss&quot;)]
+(click: &quot;you made me miss my morning off&quot;)[(goto:&quot;you made me miss my morning off&quot;)]
+(click: &quot;so what are you protesting about&quot;)[(goto:&quot;so what are you protesting about&quot;)]
+(click:&quot;i&#39;m just trying to look after myself&quot;)[(goto:&quot;i&#39;m just trying to look after myself&quot;)]
+(click:&quot;so you&#39;re really not going to tell anyone your reasons for doing this&quot;)[(goto:&quot;so you&#39;re really not going to tell anyone your reasons for doing this&quot;)]
+(click: &quot;i&#39;m constantly angry because i can&#39;t live in the same country as the person i love&quot;)[(goto:&quot;i&#39;m constantly angry because i can&#39;t live in the same country as the person i love&quot;)]
+(click: &quot;i can&#39;t say no to work because without the money i might not see my fiance again&quot;)[(goto:&quot;i can&#39;t say no to work because without the money i might not see my fiance again&quot;)]
+(click: &quot;what are you going to do if you need a piss&quot;)[(goto:&quot;what are you going to do if you need a piss&quot;)]
+(click: &quot;are you protesting about literally everything&quot;)[(goto:&quot;are you protesting about literally everything&quot;)]
+(click: &quot;is it about the play&quot;)[(goto:&quot;is it about the play&quot;)]
+(click: &quot;what&#39;s the deal with that thing on your arm&quot;)[(goto: &quot;what&#39;s the deal with that thing on your arm&quot;)]
+(click:&quot;I respect what you&#39;re doing&quot;)[(goto:&quot;I respect what you&#39;re doing&quot;)]
+(click:&quot;I think you&#39;re wasting your time&quot;)[(goto:&quot;I think you&#39;re wasting your time&quot;)]
+(click:&quot;did you know President Beluga mentioned you in a speech last night&quot;)[(goto:&quot;did you know President Beluga mentioned you in a speech last night&quot;)]
+
+
+
+}</tw-passagedata>
+<tw-passagedata pid="5" name="NewConvoSegment" tags="" position="1808,48">{(set: $topicsdiscussed to it + 1)
+(set: $blogtopics to it + (a:(string: &quot;name&quot; of (passage:)+&quot;Blog&quot;)))
+(set: $dialogueoptions to it - (a:(string: &quot;name&quot; of (passage:))))}</tw-passagedata>
+<tw-passagedata pid="6" name="TheatreDay1" tags="" position="381,1270">So me and my friend the broom started making our rounds of the auditoreum. I made as much noise as I could, but the big hollow room swallowed the sound. At the back, in the dimness, I could make out the silhouette of our handcuffed interloper.
+
+There were a couple of cops talking to her. (if: $mentionedpolice is false)[Jace hadn&#39;t menioned the feds. I was relieved I hadn&#39;t brought any dope with me. Not that I would have had a problem, I&#39;m sure. But it would have made me feel anxious. ]I gave them as wide a berth as possible until the coppers left, which happened around 8. After that, it was just the two of us in the whole massive room. Still, I ignored her as long as I could.
+
+[[had to sweep the back row eventually|TheatreDay1A]]
+
+
+&lt;script&gt;$(&#39;body&#39;).removeClass().addClass(&#39;theatre&#39;)&lt;/script&gt;
+&lt;script&gt;
+pause();
+loadTrackC();
+play();
+&lt;/script&gt;</tw-passagedata>
+<tw-passagedata pid="7" name="TheatreEnd1" tags="" position="754,53">At that point, Jace finally let the press in, and our conversation was cut short as they gathered around her. I retreated to a safe distance.
+
+&quot;Come talk to me later!&quot; she called.
+
+She stood up to meet the journos. She was pretty tall, though, and the railing was pretty low down. This meant that she couldn&#39;t stand up straight. She was bent sideways a little, like an adult holding hands with a child.
+
+[[didn&#39;t get a chance to talk to her for the rest of the day|Evening1]]</tw-passagedata>
+<tw-passagedata pid="8" name="Evening1" tags="" position="751,178">{(set: $targetconversationtotal to 6)
+(set: $endoftoday to &quot;TheatreEnd2&quot;)
+(set: $todayMessages to (a:$messages&#39;s 1st, $messages&#39;s 2nd))
+(set: $messages to it -(a:$messages&#39;s 1st, $messages&#39;s 2nd))
+
+
+&lt;script&gt;$(&#39;body&#39;).removeClass().addClass(&#39;flat&#39;)&lt;/script&gt;
+&lt;script&gt;
+pause();
+loadTrackB();
+play();
+&lt;/script&gt;
+
+(set: $dialogueoptions to it + (a:&quot;did you know President Beluga mentioned you in a speech last night&quot;))
+(if: $dialogueoptions contains &quot;you made me miss my morning off&quot;)[(set: $dialogueoptions to it - (a:&quot;you made me miss my morning off&quot;))]
+(if: $dialogueoptions contains &quot;what&#39;s your name&quot;)[(set: $dialogueoptions to it - (a:&quot;what&#39;s your name&quot;))]}On my way home, I was restless. I felt like something had happened. I felt like maybe there was something I should do.
+
+Back at the flat, I fell into my routine. Roll a doob, visit the corner shop, try to get Petra on Skype.
+
+(click: &quot;Roll a doob&quot;)[&lt;span class = &quot;boxout&quot;&gt;My lucky tin. Just enough left for a good number. Make an L, roll a roach, break up some dry-ass baccy. Grind, blend, roll, lick, tuck. Autofire. Petra disapproves. Petra&#39;s not here.&lt;/span&gt;
+
+](click: &quot;visit the corner shop&quot;)[&lt;span class = &quot;boxout&quot;&gt;I buy biscuits, noodles, an energy drink, two beers. I resolve to have a chat with the guy behind the counter but balk at the last minute and just nod politely as we do the transaction.&lt;/span&gt;
+
+](click: &quot;Skype&quot;)[&lt;span class = &quot;boxout&quot;&gt;For a few minutes it looks like the call might actually work. I talk enthusiastically about my weird day with the handcuff lady. I touch the screen. Then, it becomes boxes. Our voices are lost. It sounds like the bottom of the sea. We switch to instant messaging. It&#39;s no substitute. I tell Petra about Rose. Petra says I should write about it. Eventually, we say goodbye, feeling no closer to one another than at any other point.
+
+&lt;/span&gt;]After that was all done, I sat at my computer. It looked at me with provocation. I&#39;m supposed to be blogging. It&#39;s supposed to be part of my strategy to get out of this way of life. And today //was// an interesting day. I crack my knuckles, fire up wordpress.
+
+{(set: $currentstring to &quot;Today, I met someone strange. There was this woman who&#39;d handcuffed herself to the back of the Theatre. Everyone was making a huge fuss about it but I figured I might as well talk to her a bit, sound her out. Turned out to be a pretty weird conversation.&quot;)
+(set: $currentblog to &quot;Blog1&quot;)
+(set: $currentblogexit to &quot;Blog1Finished&quot;)
+(display: $blogtopics&#39;s 1st)
+(set: $blogtopics to it - (a:$blogtopics&#39;s 1st))}[[i did some blogging|Blog1]]</tw-passagedata>
+<tw-passagedata pid="9" name="TheatreDay2" tags="" position="907,941">I wasn&#39;t expecting to see her again - I figured that someone would definitely have removed her overnight. But no, she was still there. Jace was still fretting about it, but there wasn&#39;t much he could do at that point.
+
+&quot;They can&#39;t cut her out,&quot; he said as I hung up my coat. &quot;She persuaded them that they couldn&#39;t damage the railings because they&#39;re all listed. We had to cancel last night&#39;s performance!&quot;
+
+&quot;Are they listed?&quot; I asked. &quot;What does that even mean?&quot;
+
+&quot;I don&#39;t know! Fuck knows. It means we&#39;ve got some red tape to figure out first. Can you go in there again and talk to her? Sound her out.&quot;
+
+I said I would, but I had no intention of snooping for Jace. I figured I&#39;d see how she was doing, though. It was kind of exciting. She was sort of a celebrity, and I had unlimited access to her.
+
+As I walked in, she was doing her makeup with a little compact. She clearly wanted to look respectable, but it was only partway sucessful. She looked tired, and dishevelled. Her suit was all creased up and the cuffs were grimy. And she needed a shower. That much was certain.
+
+She looked cheerful enough as I walked in, though.
+
+(if: $sheknowsjoname is false)[&quot;Jo!&quot; she said. &quot;Hello! Nice to see you. I found out your name from your boss,&quot; she added.
+
+&quot;I found out yours from the news,&quot; I said. &quot;It&#39;s nice to meet you, Rose.&quot;](else:)[
+&quot;Morning,&quot; she said. &quot;How&#39;s my favourite grumpy theatre employee?&quot;
+
+&quot;Fine,&quot; I said. &quot;How&#39;s my favourite deranged prisoner?&quot;
+
+She laughed.
+
+&quot;Hey,&quot; I said. &quot;So I learned your name from the news, so I guess we both know each other&#39;s names now. That&#39;s something.&quot;
+
+She laughed again. &quot;Drat! My plan to keep my identity a secret has failed. Once again, the news media has foiled me.&quot;]
+
+(display: &quot;ConversationOptions&quot;)&lt;script&gt;$(&#39;body&#39;).removeClass().addClass(&#39;theatre&#39;)&lt;/script&gt;
+&lt;script&gt;
+pause();
+loadTrackC();
+play();
+&lt;/script&gt;</tw-passagedata>
+<tw-passagedata pid="10" name="credits" tags="" position="28,166">**Written, scripted and produced by**
+Ed Sibley
+&lt;a href = &quot;https://twitter.com/thing_stuff&quot;&gt;@thing_stuff&lt;/a&gt;
+
+**Music by**
+Katt Strike
+&lt;a href = &quot;https://twitter.com/KattStrike&quot;&gt;@KattStrike&lt;/a&gt;
+
+**Thanks to**
+The organisers of `#`resistjam
+
+**Further Reading**
+&lt;a href = &quot;https://bogeye.bandcamp.com/album/no-ones-year&quot;&gt;No-One&#39;s Year&lt;/a&gt; by Fred Francis
+&lt;a href = &quot;https://www.nytimes.com/video/opinion/100000001183275/the-umbrella-man.html&quot;&gt;This&lt;/a&gt; short documentary about the Umbrella Man
+&lt;a href = &quot;https://emshort.blog/2017/01/29/this-situation-right-here/&quot;&gt;This piece&lt;/a&gt; about protest by Emily Short
+&lt;a href = &quot;https://www.rockpapershotgun.com/2017/02/13/stardew-valley-marriage-work/#more-429231&quot;&gt;This piece&lt;/a&gt; about being broke and working by Paul Dean
+
+&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-sa/4.0/&quot;&gt;&lt;img alt=&quot;Creative Commons Licence&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-sa/4.0/88x31.png&quot; /&gt;&lt;/a&gt;&lt;br /&gt;This work is licensed under a &lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-sa/4.0/&quot;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt;.</tw-passagedata>
+<tw-passagedata pid="11" name="TheatreEnd2" tags="" position="1076,70">Rose looked over my shoulder. &quot;We&#39;ve got company.&quot;
+
+Jace was standing in the doorway, gesturing at me. I rolled my eyes, went over.
+
+&quot;Jo, you can&#39;t be just talking to her all day. What the hell. Go get on with some work.&quot;
+
+[[he had his eye on me all day, until he sent me home|Evening2]]</tw-passagedata>
+<tw-passagedata pid="12" name="Evening2" tags="" position="1064,195">{(set: $targetconversationtotal to 9)
+(set: $endoftoday to &quot;TheatreEnd3&quot;)
+
+(set: $todayMessages to (a:$CircleStone, $messages&#39;s 1st, $messages&#39;s 2nd))
+(set: $messages to it -(a:$messages&#39;s 1st, $messages&#39;s 2nd))}I bought some chips and hummus for dinner and did my evening routine. Roll a doob, visit the corner shop, try to get Petra on Skype.
+
+(click: &quot;Roll a doob&quot;)[&lt;span class = &quot;boxout&quot;&gt;Nearly out of grass, but we&#39;ll be OK for tonight. Add that to the shopping list.&lt;/span&gt;
+
+](click: &quot;visit the corner shop&quot;)[&lt;span class = &quot;boxout&quot;&gt;There&#39;s a loud argument going down in the shop so I keep my head down. Delay my plan to befriend the shopkeeper by another day. Why would he want to be friends anyway? Waste of time.&lt;/span&gt;
+
+](click: &quot;Skype&quot;)[&lt;span class = &quot;boxout&quot;&gt;It says Petra&#39;s online but the call won&#39;t connect and nobody responds to my messages. Still, I type up a list of everything that&#39;s happened that day and send it across. I wonder if that helps.
+
+&lt;/span&gt;]Then, for lack of anything better to do, I fired off another blog post.{(set: $currentstring to &quot;So, it turns out the mysterious interloper&#39;s name is Rose. She was in the papers and stuff. She was still there today. We talked some more. I&#39;m... less sure about her than I was yesterday.&quot;)
+(set: $currentblog to &quot;Blog2&quot;)
+(set: $currentblogexit to &quot;Blog2Finished&quot;)
+(display: $blogtopics&#39;s 1st)
+(set: $blogtopics to it - (a:$blogtopics&#39;s 1st))
+
+}[[more blogging|Blog2]]
+
+&lt;script&gt;$(&#39;body&#39;).removeClass().addClass(&#39;flat&#39;)&lt;/script&gt;
+&lt;script&gt;
+pause();
+loadTrackB();
+play();
+&lt;/script&gt;</tw-passagedata>
+<tw-passagedata pid="13" name="TheatreDay3" tags="" position="1203,755">Jace had scrubbed up, for some reason. The backpack was gone from the admin office. He must have found somewhere to crash. I didn&#39;t want to hear the story.
+
+&quot;Is she still here?&quot; I asked.
+
+&quot;Yeah, but not for much longer. There&#39;s some dudes on their way here with an angle grinder. Going to remove her.&quot;
+
+&quot;What about the listed railings or whatever?&quot;
+
+&quot;Oh my God, don&#39;t even get me started on the listed railings. Turns out, they&#39;re not listed at all! We spent days chasing down the owner, who turns out to be on a yaught in the Bahamas, and he doesn&#39;t give a crap, and it was all just bullshit!&quot;
+
+He laughed and massaged his eyeballs with his thumbs.
+
+&quot;Got to hand it to her, though. She nailed that lie. I&#39;m glad we worked it out, though. Any more cancelled performances and we&#39;d have to start firing people.&quot;
+
+He looked at me.
+
+&quot;But you&#39;ve probably got a minute or two, if you want to say your goodbyes or whatever. Go on, be quick, and I promise I won&#39;t notice.&quot;
+
+[[i went through]]</tw-passagedata>
+<tw-passagedata pid="14" name="TheatreEnd3" tags="" position="1343,73">Well, that was it. At that point, two guys wearing tool belts and two policemen came in. They asked me to stand back and set-to cutting the handrail up in a shower of sparks. Rose covered her face with her free hand. Once she was free, the police picked her up under her arms and marched her out. She called out to me:
+
+&quot;Don&#39;t put up with it, Jo! You&#39;re a bright kid! Don&#39;t let them fuck with you! (if: $selfcaretalk is false)[Anything can be an act of resistance, Jo. It&#39;s only the context that matters. You&#39;ll see! (set: $blogtopics to it +(a:&quot;selfcare&quot;, &quot;selfcare1&quot;, &quot;selfcare2&quot;, &quot;selfcare3&quot;, &quot;selfcare4&quot;))]&quot;
+
+&quot;Quiet, you,&quot; said one of the police. She laughed.
+
+&quot;Thanks for keeping me company! Good luck with your lovely Petra!&quot;
+
+[[the rest of the day was kind of a daze|Evening3]]</tw-passagedata>
+<tw-passagedata pid="15" name="Evening3" tags="" position="1343,206">I arrived home that evening and contemplated the three straight days off that I had ahead of me. I had no idea what I was going to do with them. It was a beautiful evening, with crisp yellow light coming into my room, and the hedges outside the window deliciously green.
+
+I did my routine: Roll a doob, visit the corner shop, try to get Petra on Skype.
+
+(click: &quot;Roll a doob&quot;)[&lt;span class = &quot;boxout&quot;&gt;Only I couldn&#39;t, because I&#39;d run out. I thought about calling the dealer, decided against it for the time being.&lt;/span&gt;
+
+](click: &quot;visit the corner shop&quot;)[&lt;span class = &quot;boxout&quot;&gt;I just sucked it up and asked the dude how his day had been. He told me a story about a stray dog. I told him about Rose. We chatted for about five minutes. I couldn&#39;t work out why I&#39;d found the idea so difficult before.&lt;/span&gt;
+
+](click: &quot;Skype&quot;)[&lt;span class = &quot;boxout&quot;&gt;For once in our fucking lives, Skype worked without a hitch. We talked for hours. We laughed a lot. We talked about Rose, but we also talked about a bunch of other stuff. I&#39;d forgotten how good it is to talk to Petra about any random crap. The problem with this long-distance thing is that every interaction gets loaded with heavy fucking dramatic weight. There&#39;s no room for leivity in it, and that&#39;s bullshit because the leivity is the whole point of a relationship, isn&#39;t it? I think it is, anyway.
+
+&lt;/span&gt;]{(set: $currentstring to &quot;I spoke to Rose again today. I can&#39;t stop thinking about her. They carted her off. I guess she&#39;ll have a trial and stuff? I&#39;ve no idea. I wonder if I should try to contact her. It might be a waste of time.&quot;)
+(set: $currentblog to &quot;Blog3&quot;)
+(set: $currentblogexit to &quot;blog3Finished&quot;)
+(display: $blogtopics&#39;s 1st)
+(set: $blogtopics to it - (a:$blogtopics&#39;s 1st))}[[before I went to bed, I had one last blog to do|Blog3]]
+&lt;script&gt;$(&#39;body&#39;).removeClass().addClass(&#39;dream&#39;)&lt;/script&gt;
+&lt;script&gt;
+pause();
+loadTrackA();
+play();
+&lt;/script&gt;</tw-passagedata>
+<tw-passagedata pid="16" name="Outro" tags="" position="1498,198">The next time I went to the theatre, it was to quit. Jace begged me not to. I told him he should quit too. It didn&#39;t take me long to find another job.
+
+I never did contact Rose. Years later, there would be a stupid, pompous little plaque near where she&#39;d been sat, half-commemorating her.
+
+&quot;This railing was removed and repaired in March 2017 after it was damaged by members of the London Metropolitan Police, who were forced to cut it up in order to remove a protester who had chained herself to this spot.&quot;
+
+I didn&#39;t see it until years later, though. That evening, I finished my post, hit submit and closed my computer. Then I went over to the bed, lay back, looked up at the ceiling. I thought about Petra, and about Rose, and about the Prime Minister of the UK holding hands with the President of the USA. Then I thought long and hard about what I was going to do next.
+
+[[the end]]</tw-passagedata>
+<tw-passagedata pid="17" name="Blog1" tags="" position="755,309">(display: &quot;BlogEdit&quot;)</tw-passagedata>
+<tw-passagedata pid="18" name="BlogEdit" tags="" position="1893,225">&lt;div class = &quot;pcScreen&quot;&gt;
+(print: $currentstring) &lt;span class = &quot;newbit&quot;&gt;(print: $newsection)&lt;/span&gt;
+&lt;/div&gt;
+
+(link: (either:&quot;looks about right&quot;, &quot;fine&quot;, &quot;OK&quot;, &quot;next bit&quot;, &quot;what&#39;s next&quot;))[(set: $currentstring to it + &quot; &quot; + $newsection)
+
+(if: $blogtopics&#39;s length is 0)[(goto:$currentblogexit)]
+(else:)[
+(display: $blogtopics&#39;s 1st)
+(set: $blogtopics to it - (a:$blogtopics&#39;s 1st))
+(goto: $currentblog)]
+]
+
+(click: $contestedwords&#39;s 1st)[
+(set: $currentoptions to (rotated: -1, ...$currentoptions))
+(set: $contestedwords to (rotated: -1, ...$contestedwords))
+(set: $newsection to $currentoptions&#39;s 1st)
+(goto: $currentblog)]
+
+
+</tw-passagedata>
+<tw-passagedata pid="19" name="MorningDay2" tags="" position="909,556">The next day was just an ordinary work day, so no promised lie-in for Jace to thwart. The same kind of morning as the day before. I used up the little bit of shower gel water I&#39;d saved from the previous day. The bottle was now empty. I&#39;d have to remember to get some more that day.
+
+[[do the door|Front Door 2]] </tw-passagedata>
+<tw-passagedata pid="20" name="Blog1Finished" tags="" position="925,75">{(set: $currentstring to it + &quot;And that was my day. It was a weird one. I&#39;ll post an update tomorrow if she&#39;s still there.&quot;)
+
+}The finished blog post:
+
+&lt;div class = &quot;pcScreen&quot;&gt;
+(set: $blogtopics to (a:))
+(print: $currentstring)(set: $blog1complete to $currentstring)
+(set: $currentstring to &quot;&quot;)
+&lt;/div&gt;
+[[to bed|Bed2]]</tw-passagedata>
+<tw-passagedata pid="21" name="IntroA" tags="" position="385,286">Jace wanted me to work. I couldn&#39;t turn down a shift. That was that. Before I answered the phone, I reminded myself that this was my eleventh day in a row. I tried to quieten that thought, but it was there.
+
+Jace didn&#39;t say much - just that there was some kind of situation, he was calling everybody, that I had to hurry, that I had to get to the theatre quick as I could, that I wasn&#39;t to talk to any press.
+
+&#39;Press?&#39; I rubbed my eyes. &#39;Dude, what&#39;s going on? What press?&#39;
+
+&#39;Shit,&#39; he said. &#39;Shit, I don&#39;t know, there&#39;s this situation with a woman, I keep getting calls, I don&#39;t really know yet. Just get to stage door, quick, now, hurry.&#39;
+
+So I weighed the odds: 70/30 said this was some bullshit thing and not a real crisis. But I still couldn&#39;t turn down a shift.
+(set: $currentMorning to &quot;Bedroom Morning&quot;)
+[[look at phone|Emails]]
+[[out of bed|Bedroom Morning]]</tw-passagedata>
+<tw-passagedata pid="22" name="IntroB" tags="" position="380,669">A grey morning, windy. Crud blew across the empty road. Tarmac sky, lit with trace of toothache orange. Jace wasn&#39;t lying: There really were press outside the theatre. Quite a few of them - not enough to call it a crowd. They looked chilly. Several stood outside the box office, huddled up with cups of coffee and Pret croissants.(click: &quot;Pret&quot;)[&lt;span class = &quot;boxout&quot;&gt;
+
+There was a time when I disliked people just for having the spare income for that kind of crap, but the fucked thing about this income-dependant-spousal-visa situation is that you don&#39;t even have to save money or keep it - just achieve a certain income. I bust my ass all year trying to earn the magic sum of £18,600 but it doesn&#39;t much matter what I do with that money once I&#39;ve earned it. I buy Pret coffee myself, sometimes. These days, the people I resent aren&#39;t the ones with spare income. The people I resent are the ones with the good fortune not to fall in love with a foreigner.&lt;/span&gt;]
+
+[[i headed round to the stage door|IntroC]]</tw-passagedata>
+<tw-passagedata pid="23" name="IntroC" tags="" position="368,836">I hunched my shoulders and muscled past the handful of canny journos who were waiting outside the stage door. I closed it behind me, locked it. It was dead quiet.
+
+Jace heard me come in, and called me into the admin office. It was a pokey room, most of the floor space taken up by desks and filing cabinets and a ruined old sofa. Only one small window, high up on the wall. He was pacing around inside. He looked haggard and smelled of whiskey. He didn&#39;t look like he&#39;d had much sleep.(click: &quot;Jace&quot;)[&lt;span class = &quot;boxout&quot;&gt;
+
+Jace was an idiot and likeable enough, but he&#39;d never figured out that important managerial knack of giving instructions without being patronising as all god-damn. Partly, this was because we were about the same age. Partly, it was because he had this way of giving you instructions with this watery apologetic smile. He was only the manager because he&#39;d worked here for longer than anyone else. He wanted to be an actor, and he figured working admin in a theatre was a good start because, I don&#39;t know, it let him hang out with real actors, or something.&lt;/span&gt;]
+
+&quot;What&#39;s going on, dude?&quot; I asked.
+
+&quot;Jo,&quot; he said. &quot;Thank fuck. Thank fucking god you&#39;re here.&quot;
+
+&quot;What&#39;s going on?&quot;
+
+&quot;Shit, Jo, it&#39;s ridiculous. We have a situation. Listen.&quot; He paused, like an actor. &quot;There&#39;s a woman in the back of the theatre.&quot;
+
+&quot;What?&quot;
+
+&quot;A woman. At the back of the circle. She&#39;s been in there all night. She saw the play yesterday evening, and then she must have hidden somewhere, and she&#39;s there now.&quot;
+
+&quot;OK. There&#39;s a woman. I&#39;m still failing to see the crisis. Why don&#39;t we throw her out?&quot;
+
+&quot;Well, we can&#39;t.&quot;
+
+&quot;Why not?&quot;
+
+&quot;Because she&#39;s handcuffed herself to a fucking railing.&quot;
+
+My turn to pause.
+
+&quot;Why?&quot;
+
+&quot;She says it&#39;s a protest. She says she&#39;s a protester.&quot;
+
+[[why not just call the police|IntroCA]]
+[[what are you doing here|IntroCC]]
+[[why do you need me|IntroCB]]</tw-passagedata>
+<tw-passagedata pid="24" name="IntroCA" tags="" position="293,990">&quot;You should call the Police, let them figure it out. It&#39;s their job.&quot; (set: $mentionedpolice to true)
+
+&quot;You think I didn&#39;t do that already? They&#39;re in there now.&quot;
+
+I was feeling more redundant by the second. Good thing I hadn&#39;t brought any dope with me, if there were rozzers about.
+
+(if: not ((history:) contains &quot;IntroCC&quot;))[[[what are you doing here|IntroCC]]]
+[[why do you need me|IntroCB]]{
+(clickreplace: &quot;rozzers&quot;)[fuzz]
+(clickreplace: &quot;fuzz&quot;)[boobies]
+(clickreplace: &quot;boobies&quot;)[pigs]
+(clickreplace: &quot;pigs&quot;)[filth]
+(clickreplace: &quot;filth&quot;)[cops]
+(clickreplace: &quot;cops&quot;)[feds]
+(clickreplace: &quot;feds&quot;)[hard-working members of the London Metropolitan Police]
+(clickreplace:&quot;hard-working members of the London Metropolitan Police&quot;)[5-0]
+(clickreplace: &quot;5-0&quot;)[police]
+}</tw-passagedata>
+<tw-passagedata pid="25" name="IntroCB" tags="" position="383,1128">&quot;So why do you need me?&quot;
+
+&quot;To clean up! There&#39;s press outside, Jo. The theatre&#39;s going to be on display. It needs to look spotless! Fucking evening cleaners never do a proper job, you know that. We need to get it looking perfect before the press break the fucking door down.&quot;
+
+So that was it. My role in the crisis: Push the fucking broom around.
+
+[[get to work|TheatreDay1]]</tw-passagedata>
+<tw-passagedata pid="26" name="IntroCC" tags="" position="465,985">&quot;What are you here so early, anyway?&quot;
+
+He didn&#39;t answer. I looked around the room. The sofa was mussed. There was a large rucksack in one corner.
+
+&quot;Dude, have you been sleeping here?&quot;
+
+&quot;Shut up,&quot; he said. &quot;That&#39;s not the point. That&#39;s not what we&#39;re... Alright, yes. I&#39;ve been crashing on the sofa. Only for a couple of days. Don&#39;t tell anyone, man. I&#39;d only get in trouble.&quot;
+
+(if: not ((history:) contains &quot;IntroCA&quot;))[[[you should call the police|IntroCA]]]
+[[why do you need me|IntroCB]]</tw-passagedata>
+<tw-passagedata pid="27" name="misc init" tags="" position="226,155">(set: $mentionedpolice to false)
+(set: $selfcaretalk to false)
+(set: $sheknowsjoname to false)
+(set: $introducedPetraSituation to false)
+
+(set: $Message to (datamap:
+&quot;words&quot;,&quot;&quot;,
+&quot;response&quot;,&quot;&quot;,
+&quot;response2&quot;,&quot;&quot;,
+&quot;type&quot;,&quot;&quot;,))
+
+(set: $Petra1 to (datamap:
+&quot;words&quot;,&quot;just wanted to say I&#39;m thinking of you, don&#39;t work too hard, sending you maximum good love vibes&quot;,
+&quot;response&quot;,&quot;it&#39;s kind of glib&quot;,
+&quot;response2&quot;,&quot;it&#39;s kind of sweet&quot;,
+&quot;type&quot;,&quot;a short email from Petra&quot;,))
+
+(set: $Petra2 to (datamap:
+&quot;words&quot;,&quot;today is a good day because im listening to rubber soul in the bath and i just ate an apple and i was thinking about how your alive in london and i love you and im alive here and ill see you soon and we can do salsa and drink alcopops&quot;,
+&quot;response&quot;,&quot;i should do little messages like this&quot;,
+&quot;response2&quot;,&quot;a bit too sappy for this time in the morning&quot;,
+&quot;type&quot;,&quot;one of Petra&#39;s little daily snapshots&quot;,))
+
+(set: $Party to (datamap:
+&quot;words&quot;,&quot;Party Time again on Boundary Road! BYOB/BYOD (that&#39;s bring your own Dad). Music from 11 til late from our own DJ Juicy.&quot;,
+&quot;response&quot;,&quot;i might think about it&quot;,
+&quot;response2&quot;,&quot;absolutely fucking not&quot;,
+&quot;type&quot;,&quot;an invite to some party&quot;,))
+
+(set: $CircleStone to (datamap:
+&quot;words&quot;,&quot;hey jo!! i was just listening to this sick ep by my friend fred, remember him, from coventry or canterbury or something. he&#39;s made this dope record called No One&#39;s Year that reminded me of your whole situation with this rose woman (she was in the news here, too! saw her face!) you should listen to it, but also download it because it comes with this essay that says this: 
+
+At the same time, a strange divide has occurred in the most fertile ground for the production of experimental art that maybe has ever existed....It’s a culture that relies on getting it. If you don’t get it, it’s gone. A culture that thrives on this kind of art will inevitably turn away from the experimental, the conceptual, the art without purpose.
+
+like your girl! and it also says this:
+
+I encourage you to make your own art without purpose, without meaning. Make something challenging. Make something that requires a serious effort to make sense of. Make something within a tradition. Make something that doesn’t reward serious effort, just to throw people off the scent. Don’t let them kill postmodernism, or conceptualism, or experiment. Don’t let it kill itself by becoming institutionalised. Take it underground. Make it new.
+
+pretty good huh? maybe she&#39;s on that kind of vibe. hope you figure it out anyway. love you
+
+P&quot;,
+&quot;response&quot;,&quot;i&#39;ll check it out later&quot;,
+&quot;response2&quot;,&quot;meh&quot;,
+&quot;type&quot;,&quot;something from Petra about some album&quot;
+))
+
+(set: $Mum to (datamap:
+&quot;words&quot;,&quot;Hello Darling,
+
+I hope you&#39;re doing well. I just to remind you that your Father and I will be visiting London in two week&#39;s time, on the 3rd. Will you be available that day? It would be nice to see you and perhaps have some food or a coffee, if you&#39;re not too busy.
+
+Love,
+
+Mum xx&quot;,
+&quot;response&quot;,&quot;why so formal?&quot;,
+&quot;response2&quot;,&quot;nice to know someone&#39;s thinking about me I guess&quot;,
+&quot;type&quot;,&quot;a note from my Mum&quot;,
+))
+
+(set: $BlogViews to (datamap:
+&quot;words&quot;,&quot;... BOOST YOUR VIEWS with the PROVEN method to increase your influence, and connect to the people who want to ENGAGE with your STORY, for MAXIMUM RETENTION...&quot;,
+&quot;response&quot;,&quot;yeah right, that project&#39;s dead&quot;,
+&quot;response2&quot;,&quot;should do some more work on that blog&quot;,
+&quot;type&quot;,&quot;some advert about promoting my blog&quot;,))
+
+(set: $OldFriend to (datamap:
+&quot;words&quot;,&quot;Hey, not heard from you in a while, hope it&#39;s all going well. I was wondering if you&#39;re still working at that theatre, and do you know if they&#39;ve got any job openings?? I&#39;ve just graduated from drama school and...&quot;,
+&quot;response&quot;,&quot;spare them the grim reality&quot;,
+&quot;response2&quot;,&quot;tell it like it is&quot;,
+&quot;type&quot;,&quot;a twitter message from an friend from uni&quot;,))
+
+(set: $messages to (a:$Party, $Petra1, $BlogViews, $Petra2, $OldFriend,$Mum))
+(set: $messages to (shuffled: ...$messages))
+(set: $currentMessage to $messages&#39;s 1st)
+(set: $todayMessages to (a:$messages&#39;s 1st, $messages&#39;s 2nd))
+(set: $messages to it -(a:$messages&#39;s 1st, $messages&#39;s 2nd))
+
+(goto: &quot;Title page&quot;)</tw-passagedata>
+<tw-passagedata pid="28" name="TheatreDay1A" tags="" position="391,1396">She looked somewhere in her forties. She was wearing some kind of trouser-suit in navy blue, and had straightened hair, and a large cream-coloured handkerchief spilling out of her top pocket. She was sat on the floor, with her back to the theatre wall, next to a large backpack like a hiker would have. Kind of incongruous with her outfit, I guess. I couldn&#39;t see the handcuffs - her left arm was encased in a kind of thick plastic pipe that wrapped around the railing above her, in a position that reminded me of someone holding that handle above the passenger doors in a car. She wasn&#39;t what I&#39;d imagined.
+
+&quot;Hey,&quot; she said, as I came closer with my broom.
+
+I was a little wary of speaking to her. She kept her eyes on me as I worked along the row, so we made eye contact whenever I glanced her way. Eventually she said &quot;Go on, talk to me. You must have a question.&quot;
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="29" name="what are you going to do if you need a piss" tags="" position="3485,70">(display: &quot;NewConvoSegment&quot;)&quot;So my burning question is what&#39;s you plan viz going to the bathroom.&quot;
+
+&quot;Well,&quot; she says. &quot;Basically, have you heard of a camelback?&quot;
+
+&quot;Nope.&quot;
+
+&quot;It&#39;s a sort of water bag for hikers, you keep it in your backpack. I&#39;m just going to use that, but, um, in reverse.&quot;
+
+&quot;Well, don&#39;t make a mess. I&#39;m the one that&#39;ll have to clean it up.&quot;
+
+&quot;Don&#39;t worry. I did a couple of practice runs.&quot;
+
+&quot;Just as well. I was worried there would be a neat row of yellow bottles for me to dispose of.&quot;
+
+&quot;Oh, no, I thought all this out before I came down here. Hence this thing.&quot; She tapped the pipe-thing around her arm.(set: $dialogueoptions to it + (a:&quot;what&#39;s the deal with that thing on your arm&quot;))
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="30" name="you made me miss my morning off" tags="" position="2983,78">(set: $dialogueoptions to it + (a:&quot;i can&#39;t say no to work because without the money i might not see my fiance again&quot;))(display: &quot;NewConvoSegment&quot;)&quot;So yeah, I&#39;d be in bed right now if you weren&#39;t pulling this stunt.&quot;
+
+She did that face where you raise your eyebrows and make an O with your mouth. &quot;I&#39;m sorry to hear that,&quot; she said, high-pitched. &quot;I really am. I mean, little consolation I suppose. I figured I&#39;d put some people&#39;s days out of joint but I didn&#39;t, um. I&#39;m sorry. Do they work you hard here?&quot;
+
+[[yeah, the schedule is really fucked up|you made me miss my morning offB]]
+[[don&#39;t patronize me|you made me miss my morning offA]]
+
+</tw-passagedata>
+<tw-passagedata pid="31" name="so what are you protesting about" tags="" position="2711,76">(display: &quot;NewConvoSegment&quot;)&quot;So what&#39;s this all about? What&#39;s the point of your protest? Is it President Beluga or Brexit or something?&quot;
+
+She looked me dead in the eye. &quot;Try and guess,&quot; she said. &quot;See if you can figure it out.&quot; (set: $dialogueoptions to it + (a:&quot;is it about the play&quot;))
+
+[[try and guess|so what are you protesting aboutA]]
+[[nah|so what are you protesting aboutB]]</tw-passagedata>
+<tw-passagedata pid="32" name="what&#39;s your name" tags="" position="2425,83">(display: &quot;NewConvoSegment&quot;)&quot;What&#39;s your name?&quot; I asked.
+
+&quot;You know,&quot; she said, &quot;I&#39;m not telling anyone. It seems rude, doesn&#39;t it? But I&#39;m not going to tell anybody what my name is.&quot;
+
+She had a kind of dignity in the way she spoke. She had a small, encouraging smile, and she made a lot of eye contact. I didn&#39;t dislike her, I realised.
+
+[[why won&#39;t you tell anyone?|what&#39;s your nameA]]
+[[you&#39;re worried about being rude?|what&#39;s your nameB]]</tw-passagedata>
+<tw-passagedata pid="33" name="what&#39;s your nameBlog" tags="" position="2490,671">(set: $currentoptions to (a:&quot;Eventually, I asked her what her name was. She didn&#39;t want to tell me.&quot;, &quot;Eventually, I asked her what her name was. She said she wasn&#39;t going to tell anyone.&quot;))
+(set: $contestedwords to (a:&quot;She didn&#39;t want to tell me.&quot;, &quot;She said she wasn&#39;t going to tell anyone.&quot;))
+(set: $newsection to &quot;Eventually, I asked her what her name was. She didn&#39;t want to tell me.&quot;)</tw-passagedata>
+<tw-passagedata pid="34" name="what are you going to do if you need a pissBlog" tags="" position="3416,661">(set: $currentoptions to (a:&quot;So to answer the most important question, she&#39;s got a kind of bag for pissing into, so unless she&#39;s going to be here for weeks and weeks there&#39;s no real problem there. She&#39;s got it all figured out. I don&#39;t think she wants to inconvenience anyone more than necessary.
+
+&quot;, &quot;So to answer the most important question, she&#39;s got a kind of bag for pissing into, so unless she&#39;s going to be here for weeks and weeks there&#39;s no real problem there. She&#39;s got it all figured out. For such a zany plan, she&#39;s at least thought it all through.
+
+&quot;, &quot;So to answer the most important question, she&#39;s got a kind of bag for pissing into, so unless she&#39;s going to be here for weeks and weeks there&#39;s no real problem there. She&#39;s got it all figured out. I hope the bag is big enough.
+
+&quot;))
+(set: $contestedwords to (a:&quot;I don&#39;t think she wants to inconvenience anyone more than necessary.&quot;,&quot;For such a zany plan, she&#39;s at least thought it all through.&quot;,&quot;I hope the bag is big enough.&quot;))
+(set: $newsection to &quot;So to answer the most important question, she&#39;s got a kind of bag for pissing into, so unless she&#39;s going to be here for weeks and weeks there&#39;s no real problem there. She&#39;s got it all figured out. I don&#39;t think she wants to inconvenience anyone more than necessary.
+
+&quot;)</tw-passagedata>
+<tw-passagedata pid="35" name="you made me miss my morning offBlog" tags="" position="3001,668">(set: $currentoptions to (a:&quot;I ragged on her a bit because she made me miss my morning off, but I wasn&#39;t sleeping properly anyway so I wasn&#39;t that much worse off.&quot;, &quot;I ragged on her a bit because she made me miss my morning off, but I felt kind of petty afterwards.&quot;, &quot;I ragged on her a bit because she made me miss my morning off, which made me feel justifiably pissed off.&quot;))
+(set: $contestedwords to (a:&quot;but I wasn&#39;t sleeping properly anyway so I wasn&#39;t that much worse off&quot;,&quot;but I felt kind of petty afterwards&quot;,&quot;which made me feel justifiably pissed off&quot;))
+(set: $newsection to &quot;I ragged on her a bit because she made me miss my morning off, but I wasn&#39;t sleeping properly anyway so I wasn&#39;t that much worse off.&quot;)</tw-passagedata>
+<tw-passagedata pid="36" name="so what are you protesting aboutBlog" tags="" position="2804,664">(set: $currentoptions to (a:&quot;What&#39;s even the point of it? What is she protesting about? I asked her point-blank, but her answer was super vague.&quot;, &quot;What&#39;s even the point of it? What is she protesting about? I asked her point-blank, but she pretty much refused to answer.&quot;, &quot;What&#39;s even the point of it? What is she protesting about? I asked her point-blank, but maybe I missed the point.&quot;))
+(set: $contestedwords to (a:&quot;her answer was super vague&quot;,&quot;she pretty much refused to answer&quot;,&quot;maybe I missed the point&quot;))
+(set: $newsection to &quot;What&#39;s even the point of it? What is she protesting about? I asked her point-blank, but her answer was super vague.&quot;)</tw-passagedata>
+<tw-passagedata pid="37" name="what&#39;s your nameA" tags="" position="2365,226">(set: $blogtopics to it + (a:&quot;yourname&quot;))&quot;You say that like you&#39;ve got it all figured out. Go on, humour me. Why keep your name a secret?&quot;
+
+&quot;I do have it all figured out. It&#39;s all part of my grand master-plan.&quot; She raised her eyebrows and looked me in the eye, then looked away and laughed. &quot;No,&quot; she said, &quot;I don&#39;t really have a master plan. I&#39;m joking. I just don&#39;t want to make it easy for them. Let the police or the journalists waste a day chasing down leads. You&#39;re not supposed to make it easy for them, are you? Anyway, what&#39;s your name?&quot;
+
+[[i&#39;m not telling you!|what&#39;s your nameC]]
+[[my name&#39;s Jo|what&#39;s your nameD]]</tw-passagedata>
+<tw-passagedata pid="38" name="what&#39;s your nameB" tags="" position="2510,243">(set: $blogtopics to it + (a:&quot;rude&quot;, &quot;rude2&quot;, &quot;rude3&quot;))&quot;Well don&#39;t fucking apologise for that,&quot; I said. &quot;Isn&#39;t that ridiculous? I mean, you&#39;re doing this to inconvenience people, right? Why would you care about if you&#39;re being rude or not?&quot;
+
+&quot;Well,&quot; she said, &quot;No reason I can&#39;t be disruptive and still be polite. It&#39;s not your fault I&#39;m chained up here. No reason I can&#39;t observe normal etiquette. What&#39;s your name?&quot;
+
+[[i&#39;m not telling you!|what&#39;s your nameC]]
+[[my name&#39;s Jo|what&#39;s your nameD]]
+</tw-passagedata>
+<tw-passagedata pid="39" name="rude" tags="" position="2536,796">(set: $currentoptions to (a:&quot;She apologised for rudeness. It was really weird to me that she&#39;d be worried about coming across as rude, considering what she was doing.&quot;,&quot;She apologised for rudeness. It was intriguing to me that she&#39;d be worried about coming across as rude, considering what she was doing.&quot;,&quot;She apologised for rudeness. It was frustrating to me that she&#39;d be worried about coming across as rude, considering what she was doing.&quot;))
+(set: $contestedwords to (a:&quot;really weird&quot;, &quot;intriguing&quot;, &quot;frustrating&quot;))
+(set: $newsection to &quot;She apologised for rudeness. It was really weird to me that she&#39;d be worried about coming across as rude, considering what she was doing.&quot;)</tw-passagedata>
+<tw-passagedata pid="40" name="rude2" tags="" position="2530,921">(set: $currentoptions to (a:&quot;In my mind, being rude is kind of the whole point of doing a protest.&quot;,&quot;In my mind, being rude is not the point of doing a protest.&quot;))
+(set: $contestedwords to (a:&quot;kind of the whole&quot;, &quot;not the&quot;))
+(set: $newsection to &quot;In my mind, being rude is kind of the whole point of doing a protest.&quot;)</tw-passagedata>
+<tw-passagedata pid="41" name="rude3" tags="" position="2531,1046">(set: $currentoptions to (a:&quot;I guess she was just trying to be polite.
+
+&quot;, &quot;I guess she was just trying to avoid pissing me off.
+
+&quot;))
+(set: $contestedwords to (a:&quot;be polite&quot;, &quot;avoid pissing me off&quot;))
+(set: $newsection to &quot;I guess she was just trying to be polite.
+
+&quot;)</tw-passagedata>
+<tw-passagedata pid="42" name="i&#39;m just trying to look after myself" tags="" position="2565,76">(display: &quot;NewConvoSegment&quot;)&quot;And you have to!&quot; she laughed. &quot;Listen, Jo. There are dark days ahead. You can&#39;t let yourself shrivel up into a, into some kind of dried-out husk of anger. That&#39;s helping nobody. The thing is, anything at all can be an act of defiance. It&#39;s mostly a matter of context.&quot; (set: $blogtopics to it + (a:&quot;selfcare&quot;,&quot;selfcare1&quot;,&quot;selfcare2&quot;,&quot;selfcare3&quot;,&quot;selfcare4&quot;))(set: $selfcaretalk to true)
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="43" name="selfcare" tags="" position="2670,790">(set: $currentoptions to (a:&quot;One thing she said was that anything could be an act of resistance. She said it was only the context that mattered. Surely, that can&#39;t be right.&quot;,&quot;One thing she said was that anything could be an act of resistance. But that&#39;s ridiculous.&quot;,&quot;One thing she said was that anything could be an act of resistance. I think there&#39;s a bit of truth to that.&quot;))
+(set: $contestedwords to (a:&quot;Surely, that can&#39;t be right.&quot;, &quot;But that&#39;s ridiculous.&quot;, &quot;I think there&#39;s a bit of truth to that.&quot;))
+(set: $newsection to &quot;One thing she said was that anything could be an act of resistance. She said it was only the context that mattered. Surely, that can&#39;t be right.&quot;)</tw-passagedata>
+<tw-passagedata pid="44" name="selfcare1" tags="" position="2670,915">(set: $currentoptions to (a:&quot;I suppose it depends what your goals are. The point of protesting is to register your dissent.&quot;,&quot;I suppose it depends what your goals are. The point of protesting is to draw attention to a cause.&quot;,&quot;I suppose it depends what your goals are. The point of protesting is to try and change something in the world you don&#39;t like.&quot;,&quot;I suppose it depends what your goals are. The point of protesting is not very well-defined.&quot;,&quot;I suppose it depends what your goals are. The point of protesting is down to the protester.&quot;))
+(set: $contestedwords to (a:&quot;to register your dissent&quot;, &quot;to draw attention to a cause&quot;, &quot;to try and change something in the world you don&#39;t like&quot;,&quot;not very well-defined&quot;, &quot;down to the protester&quot;))
+(set: $newsection to &quot;I suppose it depends what your goals are. The point of protesting is to register your dissent.&quot;)
+</tw-passagedata>
+<tw-passagedata pid="45" name="selfcare2" tags="" position="2673,1040">(set: $currentoptions to (a:&quot;So if you&#39;re spending all this angry energy and all you do at the end is cheer yourself up, make yourself feel better, then you&#39;ve advanced a cause.&quot;,&quot;So if you&#39;re spending all this angry energy and all you do at the end is cheer yourself up, make yourself feel better, then you&#39;ve achieved nothing.&quot;,&quot;So if you&#39;re spending all this angry energy and all you do at the end is cheer yourself up, make yourself feel better, then you&#39;ve been vain.&quot;,&quot;So if you&#39;re spending all this angry energy and all you do at the end is cheer yourself up, make yourself feel better, then you&#39;ve done something good.&quot;))
+(set: $contestedwords to (a:&quot;advanced a cause&quot;, &quot;achieved nothing&quot;, &quot;been vain&quot;,&quot;done something good&quot;))
+(set: $newsection to &quot;So if you&#39;re spending all this angry energy and all you do at the end is cheer yourself up, make yourself feel better, then you&#39;ve advanced a cause.&quot;)</tw-passagedata>
+<tw-passagedata pid="46" name="selfcare3" tags="" position="2668,1165">(set: $currentoptions to (a:&quot;Because the truth is, I don&#39;t have time to plan and execute some hare-brained conceptual protest. I&#39;m fucking poor, and tired all the time, and I spend every spare minute of my life trying to scrimp enough money together so that the fucking British government will let me be with the person I love. And even though all this fucking heinous shit is happening like Brexit and President Beluga and Le Penne and fucking tiny Fascist cunts running around all over the place, I just really miss Petra. I just really miss her.&quot;,&quot;Because the truth is, I don&#39;t have time to plan and execute some hare-brained conceptual protest. I&#39;m fucking poor, and tired all the time, and I spend every spare minute of my life trying to scrimp enough money together so that the fucking British government will let me be with the person I love. And even though all this fucking heinous shit is happening like Brexit and President Beluga and Le Penne and fucking tiny Fascist cunts running around all over the place, I just really miss Petra. I just really miss him.&quot;,&quot;Because the truth is, I don&#39;t have time to plan and execute some hare-brained conceptual protest. I&#39;m fucking poor, and tired all the time, and I spend every spare minute of my life trying to scrimp enough money together so that the fucking British government will let me be with the person I love. And even though all this fucking heinous shit is happening like Brexit and President Beluga and Le Penne and fucking tiny Fascist cunts running around all over the place, I just really miss Petra. I just really miss them.&quot;))
+(set: $contestedwords to (a:&quot;I just really miss her.&quot;, &quot;I just really miss him.&quot;, &quot;I just really miss them.&quot;))
+(set: $newsection to &quot;Because the truth is, I don&#39;t have time to plan and execute some hare-brained conceptual protest. I&#39;m fucking poor, and tired all the time, and I spend every spare minute of my life trying to scrimp enough money together so that the fucking British government will let me be with the person I love. And even though all this fucking heinous shit is happening like Brexit and President Beluga and Le Penne and fucking tiny Fascist cunts running around all over the place, I just really miss Petra. I just really miss her.&quot;)</tw-passagedata>
+<tw-passagedata pid="47" name="selfcare4" tags="" position="2672,1290">(set: $currentoptions to (a:&quot;That&#39;s the only thing there&#39;s room for in my head. I have failed.
+
+&quot;,&quot;That&#39;s the only thing there&#39;s room for in my head. Have I failed?
+
+&quot;,&quot;That&#39;s the only thing there&#39;s room for in my head. One thing at a time.
+
+&quot;,&quot;That&#39;s the only thing there&#39;s room for in my head. But this too will pass.
+
+&quot;))
+(set: $contestedwords to (a:&quot;I have failed.&quot;, &quot;Have I failed&quot;, &quot;One thing at a time.&quot;, &quot;But this too will pass.&quot;))
+(set: $newsection to &quot;That&#39;s the only thing there&#39;s room for in my head. I have failed.
+
+&quot;)</tw-passagedata>
+<tw-passagedata pid="48" name="blogTemplate" tags="" position="2020,401">(set: $currentoptions to (a:&quot;&quot;,&quot;&quot;,&quot;&quot;))
+(set: $contestedwords to (a:&quot;&quot;,&quot;&quot;,&quot;&quot;))
+(set: $newsection to &quot;&quot;)
+
+
+
+
+(set: $currentoptions to (a:&quot;She looked happy.&quot;, &quot;She looked sad.&quot;, &quot;She looked powerful.&quot;))
+(set: $contestedwords to (a:&quot;happy&quot;,&quot;sad&quot;,&quot;powerful&quot;))
+(set: $newsection to &quot;She looked happy.&quot;)</tw-passagedata>
+<tw-passagedata pid="49" name="yourname" tags="" position="2393,801">(set: $currentoptions to (a:&quot;She thought that if she kept her name a secret, she could get the police or whoever to waste some time trying to figure it out. But it wasn&#39;t going to make any problems for anyone, not really. Just a bit of gravel under the steamroller of society. So it was pointless.
+
+&quot;,&quot;She thought that if she kept her name a secret, she could get the police or whoever to waste some time trying to figure it out. Every little helps, I guess.
+
+&quot;,&quot;She thought that if she kept her name a secret, she could get the police or whoever to waste some time trying to figure it out. I suppose when your protest is as open-ended as hers, you need to make every little detail work for you.
+
+&quot;))
+(set: $contestedwords to (a:&quot;But it wasn&#39;t going to make any problems for anyone, not really. Just a bit of gravel under the steamroller of society. So it was pointless.&quot;, &quot;Every little helps, I guess.&quot;, &quot;I suppose when your protest is as open-ended as hers, you need to make every little detail work for you.&quot;))
+(set: $newsection to &quot;She thought that if she kept her name a secret, she could get the police or whoever to waste some time trying to figure it out. But it wasn&#39;t going to make any problems for anyone, not really. Just a bit of gravel under the steamroller of society. So it was pointless.
+
+&quot;)</tw-passagedata>
+<tw-passagedata pid="50" name="what&#39;s your nameC" tags="" position="2355,391">&quot;I reckon I&#39;ll keep that a secret, you know,&quot; I said. &quot;Just so we&#39;ll be even.&quot; (set: $blogtopics to it + (a:&quot;notellname&quot;))
+
+&quot;Ha!&quot; she said. &quot;Fine.&quot;
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="51" name="what&#39;s your nameD" tags="" position="2512,395">(set: $sheknowsjoname to true)&quot;Whatever. My name&#39;s Jo.&quot;
+
+She grinned. She had one of those grins where her teeth looked like bathroom tiles, big and white and neatly lined up. &quot;Nice to meet you, Jo.&quot;
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="52" name="notellname" tags="" position="2396,933">(set: $currentoptions to (a:&quot;Anyway, I didn&#39;t tell her my name, out of pettiness.
+
+&quot;, &quot;Anyway, I didn&#39;t tell her my name, to make sure we were on the same level.
+
+&quot;, &quot;Anyway, I didn&#39;t tell her my name, just because.
+
+&quot;))
+(set: $contestedwords to (a:&quot;out of pettiness&quot;, &quot;to make sure we were on the same level&quot;, &quot;just because&quot;))
+(set: $newsection to &quot;Anyway, I didn&#39;t tell her my name, out of pettiness.
+
+&quot;)</tw-passagedata>
+<tw-passagedata pid="53" name="i&#39;m just trying to look after myselfBlog" tags="" position="2660,663">(set: $currentoptions to (a:&quot;I feel sort of guilty, really. Because even though her protest is this weird, ephemeral thing, I still feel like she&#39;s doing more than I am.
+
+&quot;,&quot;I feel sort of guilty, really. Because even though her protest is this weird, ephemeral thing, I still feel like I could do something better if I had the energy.
+
+&quot;,&quot;I feel sort of guilty, really. Because even though her protest is this weird, ephemeral thing, I still feel like my circumstances stop me from doing anything like what she&#39;s doing.
+
+&quot;))
+(set: $contestedwords to (a:&quot;she&#39;s doing more than I am&quot;, &quot;I could do something better if I had the energy&quot;, &quot;my circumstances stop me from doing anything like what she&#39;s doing&quot;))
+(set: $newsection to &quot;I feel sort of guilty, really. Because even though her protest is this weird, ephemeral thing, I still feel like she&#39;s doing more than I am.
+
+&quot;)</tw-passagedata>
+<tw-passagedata pid="54" name="so what are you protesting aboutA" tags="" position="2651,236">(set: $blogtopics to it + (a:&quot;triedtoguess&quot;))&quot;Is it about President Beluga?&quot; (click: &quot;President Beluga&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about the Tories?&quot;(click: &quot;the Tories&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about the pay gap?&quot;(click: &quot;the pay gap&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about women in STEM?&quot;(click: &quot;women in STEM&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about cops shooting black kids?&quot;(click: &quot;cops shooting black kids&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about the death of English Socialism?&quot;(click: &quot;death&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about fascism?&quot;(click: &quot;fascism&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about Brexit?&quot;(click: &quot;Brexit&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about some local thing, like roadworks?&quot;(click: &quot;some local thing, like roadworks&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about the bias in the BBC?&quot;(click: &quot;the bias in the BBC&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about free schools?&quot;(click: &quot;free schools&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about Scottish Independence?&quot;(click: &quot;Scottish Independence&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about the rise of the far-right in Europe?&quot;(click: &quot;the rise of the far-right in Europe&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about the wankers in the Daily Mail?&quot;(click: &quot; the wankers in the Daily Mail&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about the cost of public transport?&quot;(click: &quot;the cost of public transport&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it because Toby Gove is still alive?&quot;(click: &quot;Toby Gove is still alive&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about the way there are too many betting shops everywhere?(click: &quot;the way there are too many betting shops everywhere&quot;)&quot;[
+
+&quot;No.&quot;
+
+&quot;Is it about your parents?&quot;(click: &quot;your parents&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about funding the arts?&quot;(click: &quot;funding the arts&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about the NHS?&quot;(click: &quot;the NHS&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about Obamacare?&quot;(click: &quot;Obamacare&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about the muslim ban?&quot;(click: &quot; the muslim ban&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about the wall?&quot;(click: &quot; the wall&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about Spicy Sean?&quot;(click: &quot;Spicy Sean&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about gay marriage?&quot;(click: &quot;gay marriage&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about straight people getting civil partnerships?&quot;(click: &quot;straight people getting civil partnerships&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about legalising weed?&quot;(click: &quot;legalising weed&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about violent video games?&quot;(click: &quot;violent video games&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it because the Oscar movies are all shit?&quot;(click: &quot;the Oscar movies are all shit&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about Game of Thrones?&quot;(click: &quot;Game of Thrones&quot;)[
+
+&quot;No.&quot;
+
+&quot;Is it about anything?&quot;(click: &quot;anything&quot;)[
+
+&quot;Yes, it&#39;s certainly about something.&quot;
+
+&quot;Is it about literally everything?&quot;(click:&quot;literally everything&quot;)[
+
+&quot;You&#39;re getting warmer.&quot; (set: $dialogueoptions to it + (a:&quot;are you protesting about literally everything&quot;))
+
+&quot;I... I&#39;ve got nothing else.&quot;]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+
+[[i gave up|so what are you protesting aboutC]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tw-passagedata>
+<tw-passagedata pid="55" name="so what are you protesting aboutB" tags="" position="2795,236">&quot;No,&quot; I said. &quot;I can&#39;t be bothered to play a guessing game.&quot;
+
+&quot;That&#39;s your perogative,&quot; she said. &quot;And it&#39;s my perogative to keep my motivations a secret.&quot;
+
+&quot;But you said you&#39;re protesting about something.&quot;
+
+&quot;Yes.&quot;
+
+&quot;So how can you expect to achieve anything if you&#39;re not going to say what it is you&#39;re protesting about?&quot;
+
+&quot;It&#39;s an interesting question.&quot; (set: $dialogueoptions to it + (a:&quot;so you&#39;re really not going to tell anyone your reasons for doing this&quot;))
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="56" name="is it about the play" tags="" position="3895,50">(display: &quot;NewConvoSegment&quot;)&quot;Just tell me. Is it about this theatre? Is it about the play we&#39;re showing at the moment?&quot;
+
+&quot;What makes you ask?&quot;
+
+I looked at the stage. We were hosting a production of The Disappearance Of Yorgos Loizos, a play about a woman disappearing from the Natural History Museum.
+
+&quot;There were some people picketing it on opening night, something to do with the way the play whitewashes a real alien abduction.&quot;
+
+She raised her eyebrows. &quot;No,&quot; she says. &quot;I hadn&#39;t heard anything about that. And I thought the play was very good, incedentally.&quot;
+
+I wondered about this.
+
+[[why chain yourself somewhere so private|playA]]
+[[i thought the play was garbage|playB]]</tw-passagedata>
+<tw-passagedata pid="57" name="so you&#39;re really not going to tell anyone your reasons for doing this" tags="" position="3258,71">(display: &quot;NewConvoSegment&quot;)(set: $blogtopics to it + (a:&quot;reasonsBlogB&quot;, &quot;reasonsBlogC&quot;))&quot;You&#39;re really serious here, aren&#39;t you. You&#39;re not going to admit what this is about?&quot;
+
+Out of nowhere, inexplicably, I found myself becoming angry.
+
+&quot;But that&#39;s ridiculous! You know what this means, right? Maybe you&#39;ve got some highminded idea that you&#39;ll become, I don&#39;t know, some kind of symbol? Like this will all stand for something? You&#39;ll become a figurehead of some weird sort, because of your refusal? But it won&#39;t work like that! Everyone&#39;s going to put words into your mouth. Or else... Or else people will think you&#39;re some kind of crank, just a nutter. This won&#39;t be about anything. You&#39;ll become some... Some bit of weird apocrypha.&quot;
+
+She didn&#39;t respond, so I kept going.
+
+&quot;Are you just doing this because you think it&#39;s amusing? Does this make you feel better somehow? Is it even about the world outside? Is this just some thing you&#39;re doing for your own sake? Because it feels right, or something?&quot;
+
+She said nothing.
+
+&quot;Is this all some sort of joke?&quot;
+
+She looked down at her knees. I looked for her facial expression. Her eyes looked weary.
+
+[[say something for goodness sake|reasonA]]
+[[do you need help?|reasonB]]</tw-passagedata>
+<tw-passagedata pid="58" name="so you&#39;re really not going to tell anyone your reasons for doing thisBlog" tags="" position="3230,655">(set: $currentoptions to (a:&quot;So, then I suddenly got angry, and I yelled at her a bunch about how stupid the whole thing seemed to me. She deserved it.&quot;,&quot;So, then I suddenly got angry, and I yelled at her a bunch about how stupid the whole thing seemed to me. She didn&#39;t deserve it.&quot;,&quot;So, then I suddenly got angry, and I yelled at her a bunch about how stupid the whole thing seemed to me. She needed to hear it.&quot;))
+(set: $contestedwords to (a:&quot;deserved it&quot;, &quot;didn&#39;t deserve it&quot;, &quot;needed to hear it&quot;))
+(set: $newsection to &quot;So, then I suddenly got angry, and I yelled at her a bunch about how stupid the whole thing seemed to me. She deserved it.&quot;)</tw-passagedata>
+<tw-passagedata pid="59" name="is it about the playBlog" tags="" position="3706,665">(set: $currentoptions to (a:&quot;We talked a little about the play that the theatre&#39;s showing at the moment, that she&#39;d been to see before chaining herself up. I complained about it. I don&#39;t like the play, because I never like anything they show here, and seeing the same play every night of its run is a surefire way to put yourself off something.
+&quot;,&quot;We talked a little about the play that the theatre&#39;s showing at the moment, that she&#39;d been to see before chaining herself up. I complained about it. I don&#39;t like the play, because it&#39;s stupid and artsy and full of its own importance.
+&quot;,&quot;We talked a little about the play that the theatre&#39;s showing at the moment, that she&#39;d been to see before chaining herself up. I complained about it. I don&#39;t like the play, but mostly that&#39;s just because the director&#39;s a pretentious idiot who made a pass at me on opening night (but I didn&#39;t tell her that).
+&quot;))
+(set: $contestedwords to (a:&quot;because I never like anything they show here, and seeing the same play every night of its run is a surefire way to put yourself off something&quot;,&quot;because it&#39;s stupid and artsy and full of its own importance&quot;,&quot;but mostly that&#39;s just because the director&#39;s a pretentious idiot who made a pass at me on opening night (but I didn&#39;t tell her that)&quot;))
+(set: $newsection to &quot;We talked a little about the play that the theatre&#39;s showing at the moment, that she&#39;d been to see before chaining herself up. I complained about it. I don&#39;t like the play, because I never like anything they show here, and seeing the same play every night of its run is a surefire way to put yourself off something.
+&quot;)</tw-passagedata>
+<tw-passagedata pid="60" name="so what are you protesting aboutC" tags="" position="2651,386">&quot;I don&#39;t get this at all,&quot; I said. &quot;This is pointless. I don&#39;t know what you expect to get out of this.&quot;
+
+She didn&#39;t say anything in response to that, but she didn&#39;t seem very put-out by it either. (set: $dialogueoptions to it + (a:&quot;so you&#39;re really not going to tell anyone your reasons for doing this&quot;))
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="61" name="are you protesting about literally everything" tags="" position="3488,195">(display: &quot;NewConvoSegment&quot;)&quot;So I&#39;ve been thinking about the way you&#39;re refusing to admit what this is about. I think you&#39;re actually just protesting about everything. Like, a super vague protest about the entire world and everything in it.&quot;
+
+&quot;Maybe,&quot; she said, &quot;or maybe I&#39;m protesting about absolutely nothing? Maybe they&#39;re one and the same?&quot;
+
+&quot;I don&#39;t see what you mean.&quot;
+
+&quot;Maybe this is the most potent kind of protest! The kind that refuses to say its name. Maybe I&#39;m this about all of those things you mentioned before. Maybe it doesn&#39;t matter what I think this is about, because in the eyes of the world it could be anything.&quot;
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="62" name="are you protesting about literally everythingBlog" tags="" position="3565,666">(set: $currentoptions to (a:&quot;Later on, she pretty much admitted that she was full of shit.
+&quot;,&quot;Later on, she pretty much admitted that she was doing a kind of blank-canvas thing, like you could project onto her what you wanted.
+&quot;,&quot;Later on, she pretty much admitted that it was some kind of publicity exercise.
+&quot;))
+(set: $contestedwords to (a:&quot;she was full of shit&quot;,&quot;she was doing a kind of blank-canvas thing, like you could project onto her what you wanted&quot;,&quot;it was some kind of publicity exercise&quot;))
+(set: $newsection to &quot;Later on, she pretty much admitted that she was full of shit.
+&quot;)</tw-passagedata>
+<tw-passagedata pid="63" name="triedtoguess" tags="" position="2808,820">(set: $currentoptions to (a:&quot;I tried to guess like a hundred different things that she might have been protesting about, you know, all the big major issues, but I clearly wasn&#39;t getting it because she just kept saying &#39;No&#39; to all my guesses. Maybe that elusiveness was part of the point?
+
+&quot;, &quot;I tried to guess like a hundred different things that she might have been protesting about, you know, all the big major issues, but she must have had something more grand and conceptual in mind because she just kept saying &#39;No&#39; to all my guesses. Maybe that elusiveness was part of the point?
+
+&quot;, &quot;I tried to guess like a hundred different things that she might have been protesting about, you know, all the big major issues, but that clearly wasn&#39;t the right way to sound her out because she just kept saying &#39;No&#39; to all my guesses. Maybe that elusiveness was part of the point?
+
+&quot;))
+(set: $contestedwords to (a:&quot;I clearly wasn&#39;t getting it&quot;,&quot;she must have had something more grand and conceptual in mind&quot;,&quot;that clearly wasn&#39;t the right way to sound her out&quot;))
+(set: $newsection to &quot;I tried to guess like a hundred different things that she might have been protesting about, you know, all the big major issues, but I clearly wasn&#39;t getting it because she just kept saying &#39;No&#39; to all my guesses. Maybe that elusiveness was part of the point?
+
+&quot;)</tw-passagedata>
+<tw-passagedata pid="64" name="TO DO" tags="" position="1766,403">TO DO
+
+-- a bunch more conversations
+-- evening scenes with blog and something else meaningful
+-- opening: expand? let breathe?
+-- some cart life style stuff where you do daily mundane things? small acts of self-care? choosing meals? breakfast? sort of thing?
+-- emails from Petra (use letters)
+-- implement music?!?!
+-- circle around a stone somewhere
+
+
+
+-- layout: dreams, flat, corridors, theatre, screen
+-- interjections in italicised font
+</tw-passagedata>
+<tw-passagedata pid="65" name="I respect what you&#39;re doing" tags="" position="4170,60">{(if: $dialogueoptions contains &quot;I think you&#39;re wasting your time&quot;)[(set: $dialogueoptions to it - (a:&quot;I think you&#39;re wasting your time&quot;))]
+
+(set: $blogtopics to it + (a:&quot;respect2&quot;, &quot;respect3&quot;))
+
+(set: $dialogueoptions to it + (a:&quot;i&#39;m just trying to look after myself&quot;))(display: &quot;NewConvoSegment&quot;)}&quot;I... I really respect what you&#39;re doing,&quot; I said. &quot;It&#39;s actually kind of...&quot;
+
+I was quiet for a minute.
+
+&quot;What are //you// protesting about?&quot; she asked.
+
+&quot;Huh? I&#39;m not protesting about anything,&quot; I replied. &quot;You&#39;re the one wearing handcuffs.&quot;
+
+&quot;I&#39;m the one wearing handcuffs,&quot; she said, &quot;but you&#39;re the one still talking to me. And you&#39;re full of anger.&quot;
+
+&quot;But I&#39;m not, like, painting placards and marching or anything. I&#39;m not doing collective action. I&#39;m not organising. I didn&#39;t go on any marches this year, even.&quot;
+
+&quot;What, and that&#39;s the be-all and end-all of resistance? No. Come on. You think President Beluga cares about me and my handcuffs? My sleeping dragon? You think any of these goons care about marches down Whitehall? Six million people marched against the Iraq invasion. Did it stop the war? No. Did those people waste their effort? //No. Passionately, no.// But if you&#39;re going to be a member of the resistance, fighting for what&#39;s right, registering your dissent, that&#39;s something you do all day long. It&#39;s a lifestyle. You&#39;re either doing it all the time, or not at all. That&#39;s why looking after yourself is a revolutionary act, by the way. That&#39;s why self-care matters.&quot;
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="66" name="Front Door" tags="" position="378,536">[Getting it to lock takes a delicate touch. There&#39;s a window whose glazing has separated, filling with moss.]&lt;window|
+
+[First, you have to twist the handle down.]&lt;handle|
+
+[]&lt;shoulder|{
+(click:&quot;down&quot;)[(replace: ?shoulder)[When it&#39;s down you need to push on it with your shoulder.]]
+
+(click: &quot;shoulder&quot;)[(replace: ?window)[It&#39;s important to really lean your weight into it.](replace: ?handle)[Now you pull the handle up.]]
+
+(click: &quot;up&quot;)[(replace: ?shoulder)[This makes a compex thunking noise inside the doorframe.](replace: ?handle)[Keep the handle pointed upwards.]]
+
+(click: &quot;doorframe&quot;)[(replace: ?window)[Now use your free hand to turn the key.]]
+
+(click: &quot;key&quot;)[(replace: ?shoulder)[It&#39;s really stiff, but it&#39;ll twist into place if you push just right.]]
+
+(click: &quot;just right&quot;)[(replace: ?handle)[Just got to tweak the handle...]]
+
+(click: &quot;tweak&quot;)[(replace: ?window)[Push it just so...](replace: ?handle)[](replace: ?shoulder)[]]
+
+(click: &quot;just so&quot;)[(replace: ?window)[`Everything shudders into place. The door is locked. Eventually something will go wrong with this and I&#39;ll be locked out of the flat for good. I guess at that point I&#39;ll have to swallow my pride and call the landlord.
+
+Petra and I used to have a joke about it. Can&#39;t remember how it went, now.
+
+`[[off to work|IntroB]]]]}
+</tw-passagedata>
+<tw-passagedata pid="67" name="Bedroom Morning" tags="" position="385,411">I don&#39;t really bother much with my flat. It&#39;s a box with a window, full of objects. It smells of baked-in smoke and damp. The bathroom is a smaller box with a slick floor that feels cold underfoot. The shower shudders manfully. 
+
+I&#39;m out of shower gel but I pull the lid off the bottle and sluice some water in there to get the dregs. I&#39;ll need to get some more. 
+
+I won&#39;t remember to go to the shops. 
+
+I leave some soapy water in the bottle for tomorrow. 
+
+I find some clothes on the floor, smell them, good enough. There are some biscuits on the desk by the computer. I eat a couple. Put the rest in my bag. Get ready to leave.
+
+[[the door is its own particular beast|Front Door]]</tw-passagedata>
+<tw-passagedata pid="68" name="Emails" tags="" position="623,643">(if: $todayMessages&#39;s length is 3)[I had (link: &quot;type&quot; of $todayMessages&#39;s 1st)[(set: $currentMessage to $todayMessages&#39;s 1st)(goto: &quot;MessageView&quot;)], (link: &quot;type&quot; of $todayMessages&#39;s 2nd)[(set: $currentMessage to $todayMessages&#39;s 2nd)(goto: &quot;MessageView&quot;)] and (link: &quot;type&quot; of $todayMessages&#39;s 3rd)[(set: $currentMessage to $todayMessages&#39;s 3rd)(goto: &quot;MessageView&quot;)].
+](elseif: $todayMessages&#39;s length is 2)[I had (link: &quot;type&quot; of $todayMessages&#39;s 1st)[(set: $currentMessage to $todayMessages&#39;s 1st)(goto: &quot;MessageView&quot;)] and (link: &quot;type&quot; of $todayMessages&#39;s 2nd)[(set: $currentMessage to $todayMessages&#39;s 2nd)(goto: &quot;MessageView&quot;)].
+](elseif: $todayMessages&#39;s length is 1)[I had (link: &quot;type&quot; of $todayMessages&#39;s 1st)[(set: $currentMessage to $todayMessages&#39;s 1st)(goto: &quot;MessageView&quot;)].
+](else:)[Nothing else to read. Time to get out of bed.]
+
+(link: &quot;out of bed&quot;)[(goto: $currentMorning)]
+</tw-passagedata>
+<tw-passagedata pid="69" name="DreamIntro" tags="" position="135,448">So I&#39;m curled up with Petra (either:&quot;on top of a bright red building&quot;,&quot;in a deep blue airport&quot;,&quot;in a cellophane-green forest&quot;) and we&#39;re resting our heads on each other&#39;s shoulders, and there are (either: &quot;officials asking us questions&quot;,&quot;snowflakes settling on the ground&quot;,&quot;ugly dogs barking somewhere&quot;) but we ignore all of that. We&#39;re really happy. I can feel Petra&#39;s thumb rubbing against the palm of my hand, somewhere inside the tangle of our fingers.
+
+And then a train goes by outside and I&#39;m lying on my bed. My fingers are curled into a fist. The memory of Petra&#39;s thumb lingers on my palm. It&#39;s a double bed, but I&#39;m the only one in it.
+
+[[try to keep the dream going]]
+[[roll over and look at phone]]
+
+</tw-passagedata>
+<tw-passagedata pid="70" name="MessageView" tags="" position="618,770">&lt;div class = &quot;phoneScreen&quot;&gt;(print: &quot;words&quot; of $currentMessage)(set: $messages to it - (a: $currentMessage))(set: $todayMessages to it - (a:$currentMessage))
+
+&lt;/div&gt;
+
+(link: &quot;response&quot; of $currentMessage)[(goto:&quot;Emails&quot;)] / (link: &quot;response2&quot; of $currentMessage)[(goto:&quot;Emails&quot;)]</tw-passagedata>
+<tw-passagedata pid="71" name="i&#39;m constantly angry because i can&#39;t live in the same country as the person i love" tags="" position="3745,71">(display: &quot;NewConvoSegment&quot;)&quot;You want to know a secret about me? My entire life is an attempt to suppress this horrendous, howling rage that only abates when I&#39;m feeling too tired to feel anything.&quot;
+
+&quot;It sounds like you&#39;ve got a lot to be upset about.&quot;
+
+&quot;I fucking do. I mean, it&#39;s not like my life is in danger or anything, and I&#39;m not homeless, but it&#39;s like... I&#39;m in this stupid, artificial situation, where the state treats me and the person I love with such abject fucking contempt.&quot;
+
+I stopped and took a few breaths, blinked up at the light.
+
+(if: $introducedPetraSituation is false)[(display: &quot;PetraSituation&quot;)]&quot;But I&#39;m just so fucking angry about it! All the fucking time. Fuck this! How dare they? How dare some fucking politican tell me that I need to put love on hold until I have enough money in my pocket? Fuck them. Fuck that.&quot;
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="72" name="you made me miss my morning offB" tags="" position="2926,236">&quot;Yeah, I never know whether I&#39;m coming or going. I got the call to come in at like 5AM this morning. I thought I wasn&#39;t on until the afternoon shift.&quot;
+
+&quot;They got you on one of those zero-hour contracts?&quot;
+
+&quot;Yeah, everyone&#39;s on those.&quot;
+
+&quot;Why don&#39;t you get a job somewhere else?&quot;
+
+&quot;Mmm. I could but I don&#39;t want to deal with the uncertainty. I need to make a certain amount of money this year, and this job pays just about enough that I&#39;ll manage it if I do enough hours. So the looseness of the contract kind of works for me, in a weird way. I don&#39;t know why I&#39;m telling you all this.&quot;
+(set: $blogtopics to it + (a:&quot;morningOff2&quot;, &quot;morningOff3&quot;, &quot;morningOff4&quot;))
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="73" name="you made me miss my morning offA" tags="" position="3073,233">&quot;Don&#39;t apologize, for fuck&#39;s sake. Whatever. No, the work here is fine. I&#39;m just a mug because I always say yes to shifts when sometimes I ought to say no. I need the money.&quot;
+
+She nodded. &quot;That sounds like a complicated problem.&quot; She didn&#39;t pry.
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="74" name="morningOff2" tags="" position="2988,810">(set: $currentoptions to (a:&quot;I was still annoyed at her.&quot;, &quot;I wasn&#39;t really that annoyed at her.&quot;))
+(set: $contestedwords to (a:&quot;was still annoyed&quot;,&quot;wasn&#39;t really that annoyed&quot;))
+(set: $newsection to &quot;I was still annoyed at her.&quot;)</tw-passagedata>
+<tw-passagedata pid="75" name="morningOff3" tags="" position="2983,945">(set: $currentoptions to (a:&quot;She was curious about me. We talked about my job, but from the way she asked, it seemed like she was looking for some kind of political ammunition.&quot;,&quot;She was curious about me. We talked about my job, but from the way she asked, it seemed like she was just trying to be polite.&quot;,&quot;She was curious about me. We talked about my job, but from the way she asked, it seemed like she wanted to find some kind of common ground.&quot;))
+(set: $contestedwords to (a:&quot;she was looking for some kind of political ammunition&quot;, &quot;she was just trying to be polite&quot;, &quot;she wanted to find some kind of common ground&quot;))
+(set: $newsection to &quot;She was curious about me. We talked about my job, but from the way she asked, it seemed like she was looking for some kind of political ammunition.&quot;)</tw-passagedata>
+<tw-passagedata pid="76" name="morningOff4" tags="" position="2988,1075">(set: $currentoptions to (a:&quot;It kind of felt like the conversation was just vague, ordinary friendliness.
+
+&quot;,&quot;It kind of felt like the conversation was just happening because she was legitimately interested in me as a person.
+
+&quot;,&quot;It kind of felt like the conversation was just a pretense to make friends, in the hope that having someone on her side will make her weird ordeal easier.
+
+&quot;))
+(set: $contestedwords to (a:&quot;vague, ordinary friendliness&quot;, &quot;happening because she was legitimately interested in me as a person&quot;, &quot;a pretense to make friends, in the hope that having someone on her side will make her weird ordeal easier&quot;))
+(set: $newsection to &quot;It kind of felt like the conversation was just vague, ordinary friendliness.
+
+&quot;)</tw-passagedata>
+<tw-passagedata pid="77" name="reasonB" tags="" position="3336,230">(set: $dialogueoptions to it + (a:&quot;i&#39;m constantly angry because i can&#39;t live in the same country as the person i love&quot;))(set: $blogtopics to it + (a:&quot;upsetBlog&quot;))&quot;Is there something you want, or whatever?&quot;
+
+At that, she started to weep.
+
+&quot;Fuck, I&#39;m so sorry!&quot; I started apologising like an idiot, tripping over my words. &quot;Shit, shit, I&#39;m sorry. I should have...&quot;
+
+She had that quiet, open-mouthed style of crying. Her shoulders shook. Her cuffs darkened with tears. I hovered nearby, not sure if I should leave or try to say something.
+
+[[pat her on the back|reasonC]]
+[[give her some space|reasonD]]</tw-passagedata>
+<tw-passagedata pid="78" name="reasonA" tags="" position="3206,231">(set: $dialogueoptions to it + (a:&quot;i&#39;m constantly angry because i can&#39;t live in the same country as the person i love&quot;))She started talking, level tone of voice, eyes straight ahead.
+
+&quot;Did you ever hear about the umbrella man? He’s in a lot of those JFK assassination videos. He’s this guy, standing by the motorcade right where the shots were fired. He’s on the other side of the road to the knoll. It was a beautiful sunny day, everyone knows, but there is this one guy there, right where the thing happened, and he’s standing under a black umbrella. This is true. You look at the footage, you’ll see him. Well, people had all kinds of ideas about that guy. I remember seeing diagrams of umbrellas with guns attached in ingenious ways. Triggers hidden in the handle. Sightlines on the spokes. There was a big campaign to find him, because people had to have an answer. Maybe he was the missing piece of the puzzle. So anyway, they found him, eventually, after months and I mean months of research, calling around Dallas hotels, telephoning people who’d been there, or who’d been drinking in Dallas the night before, eventually it came good. They went and spoke to him. Was he the shooter? Was he someone dangerous, some criminal nut, some CIA man? Was he shit. Of course not. This guy, he was a protester. Get this - he was carrying that umbrella because it was a reference to Neville Chamberlain. Neville Chamberlain! Because he used to hold an umbrella. Who the fuck sees an umberlla and immediately thinks Neville Chamberlain? Well, the answer is this guy. This guy was protesting the policy of appeasement, from before the war, like 30 years out-of-date. Nothing to do with JFK, even. What did he hope to gain by turning up that day under an umbrella? I mean, it literally took months to figure out what he was about. Not a very effective protest, was it? Who knows. He was a crank, a real one. The truth of it was one million miles away from any idea that anyone had about what he was doing there. On the level of people, all kinds of eccentric shit happens. You can’t predict it, but you can’t count on it either. But here I am, sitting here, talking to you, talking to the press.&quot;
+
+She looked up at me.
+
+&quot;I refuse to answer your question. Please stop asking me.&quot;
+(set: $blogtopics to it + (a:&quot;umbrellaBlog&quot;, &quot;umbrellaBlog2&quot;))
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="79" name="umbrellaBlog" tags="" position="3180,1058">(set: $currentoptions to (a:&quot;Well, then she came over suddenly serious and started telling me about this dude with an umbrella and his link to the JFK assassination, of all things. It was nonsense.&quot;,&quot;Well, then she came over suddenly serious and started telling me about this dude with an umbrella and his link to the JFK assassination, of all things. It didn&#39;t seem to have anything to do with her.&quot;,&quot;Well, then she came over suddenly serious and started telling me about this dude with an umbrella and his link to the JFK assassination, of all things. It sounded like she was trying to make an oblique point.&quot;))
+(set: $contestedwords to (a:&quot;was nonsense&quot;,&quot;didn&#39;t seem to have anything to do with her&quot;,&quot;sounded like she was trying to make an oblique point&quot;))
+(set: $newsection to &quot;Well, then she came over suddenly serious and started telling me about this dude with an umbrella and his link to the JFK assassination, of all things. It was nonsense.&quot;)</tw-passagedata>
+<tw-passagedata pid="80" name="upsetBlog" tags="" position="3316,1050">(set: $currentoptions to (a:&quot;The next thing that happened was that she got upset and started to cry.
+
+&quot;,&quot;The next thing that happened was that she got upset and started crying, and I couldn&#39;t find any way to help her.
+
+&quot;,&quot;The next thing that happened was that she was quiet for a while.
+
+&quot;))
+(set: $contestedwords to (a:&quot;she got upset and started to cry&quot;,&quot;she got upset and started crying, and I couldn&#39;t find any way to help her&quot;,&quot;she was quiet for a while&quot;))
+(set: $newsection to &quot;The next thing that happened was that she got upset and started to cry.
+
+&quot;)</tw-passagedata>
+<tw-passagedata pid="81" name="i can&#39;t say no to work because without the money i might not see my fiance again" tags="" position="3615,73">(display: &quot;NewConvoSegment&quot;)&quot;So my situation is that I can&#39;t say no to work because without the money i might not see my fiance again.&quot;
+
+I smiled a little watery smile.
+
+(if: $introducedPetraSituation is false)[(display: &quot;PetraSituation&quot;)]&quot;So the upshot is that my life feels like this constant chase. It would be different if I had a rich mum or something who I could appeal to, but I don&#39;t. It&#39;s like all my generation - we get by just fine if we have someone older we can get help from, but other than that we just have to... Hope for the best, I guess. People get sniffy about millenials, right? Like that&#39;s a word you hear all the time from the older generation of cunts. Like we whinge all the time, and we&#39;re all these special delicate snowflakes who don&#39;t understand real suffering. The same exact people who think that political correctness of all things is the problem with society. We&#39;re just trying to find ways to be nice to one another and they&#39;re all &#39;fuck them, the precious cunts&#39;. But I&#39;m like, hey, I&#39;m just trying to be with the person I love. You guys got to take that for granted.&quot;
+
+I stopped to get my breath.
+
+&quot;Jesus,&quot; I said. &quot;Sorry, carried away.&quot;
+
+&quot;Don&#39;t worry,&quot; she said, an eyebrow raised. &quot;Good to get it off your chest.&quot;
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="82" name="PetraSituation" tags="" position="3681,198">(set: $introducedPetraSituation to true)&quot;Here&#39;s the bare bones of it. Petra and I met a couple of years ago, in London. We both lived here. We dated for a while, and figured out we wanted to be together. But, the problem is that Petra&#39;s from America. Once Petra&#39;s visa was up, we had to split apart. So normally the solution would be to get married, right? Only since 2012, in this country, you&#39;ve also had to meet this thing called the Financial Requirement. It&#39;s because we&#39;re all so shit-scared of immigration, I assume, but basically if you earn less that £18,600 then you&#39;re shit out of luck and you can&#39;t live with the person you love. That&#39;s how it is. It was the current Prime Minister that introduced it, back in 2012, when she was home secretary under Mr. Pigface. She&#39;s Prime Minister now, the evil fucking asshole. And I&#39;m on a fucked up contract, another Conservative legacy, so I don&#39;t have a rigid salary. So I basically need to earn enough in the next few months and then we can be together. I mean, I&#39;m nearly there, and soon we&#39;ll be able to hook it up, bring Petra back over here...&quot;
+
+I paused for breath.
+
+{(set: $dialogueoptions to it + (a:&quot;I respect what you&#39;re doing&quot;,
+&quot;I think you&#39;re wasting your time&quot;))}</tw-passagedata>
+<tw-passagedata pid="83" name="reasonsBlogB" tags="" position="3236,783">(set: $currentoptions to (a:&quot;She was quiet throughout my outburst, probably because I was right.&quot;,&quot;She was quiet throughout my outburst, probably because she didn&#39;t want to waste her breath on some rambling idiot.&quot;,&quot;She was quiet throughout my outburst, probably because I&#39;d upset her.&quot;))
+(set: $contestedwords to (a:&quot;I was right&quot;, &quot;she didn&#39;t want to waste her breath on some rambling idiot&quot;, &quot;I&#39;d upset her&quot;))
+(set: $newsection to &quot;She was quiet throughout my outburst, probably because I was right.&quot;)</tw-passagedata>
+<tw-passagedata pid="84" name="reasonsBlogC" tags="" position="3231,908">(set: $currentoptions to (a:&quot;I feel crappy about exploding like that.
+
+&quot;,&quot;I felt better after exploding like that.
+
+&quot;,&quot;I felt like my eyes were open, after exploding like that.
+
+&quot;))
+(set: $contestedwords to (a:&quot;feel crappy about&quot;, &quot;felt better after&quot;, &quot;felt like my eyes were open, after&quot;))
+(set: $newsection to &quot;I feel crappy about exploding like that.
+
+&quot;)</tw-passagedata>
+<tw-passagedata pid="85" name="umbrellaBlog2" tags="" position="3178,1183">(set: $currentoptions to (a:&quot;I think she was trying to express some kind of philosophy about mystery.
+
+&quot;,&quot;I think she was trying to get me to understand her perspective on this whole situation.
+
+&quot;,&quot;I think she was trying to mollify me and stop me asking more questions.
+
+&quot;))
+(set: $contestedwords to (a:&quot;express some kind of philosophy about mystery&quot;,&quot;get me to understand her perspective on this whole situation&quot;,&quot;mollify me and stop me asking more questions&quot;))
+(set: $newsection to &quot;I think she was trying to express some kind of philosophy about mystery.
+
+&quot;)</tw-passagedata>
+<tw-passagedata pid="86" name="what&#39;s the deal with that thing on your arm" tags="" position="4041,73">(display: &quot;NewConvoSegment&quot;)&quot;So what&#39;s this contraption wrapped around your wrist?&quot; I asked her. Up close, it looked like a bit of pvc pipe, shaped like a t-junction. The top of the T was around the railing, and her arm dangled out of the bottom of it.
+
+&quot;It&#39;s called a sleeping dragon,&quot; she said. &quot;It&#39;s to stop the authorities just cutting through the handcuffs. I&#39;m cuffed to the rail under here, too.&quot;
+
+&quot;How did you get it over the pipe?&quot;
+
+&quot;I brought it here cut into two parts, then glued it in place with epoxy overnight after I&#39;d attached my hand. Epoxy is good stuff. The only way you&#39;d get this off now is with a buzzsaw. And obviously, my hand&#39;s underneath, so they can&#39;t do that.&quot;
+
+&quot;So you&#39;re kind of holding your own arm hostage? Kind of like saying &#39;Don&#39;t cut this, or I&#39;ll bleed everywhere.&#39;&quot;
+
+&quot;Sure, if you want to think of it like that. People used to make more elaborate ones, full of concrete and stuff. They&#39;d use them to form human chains around a tree they didn&#39;t want felled, or whatever. This is a bit more unusual.&quot;
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="87" name="what&#39;s the deal with that thing on your armBlog" tags="" position="3860,664">(set: $currentoptions to (a:&quot;She explained that the bit of pipe on her arm is called a sleeping dragon, of all things. It&#39;s a tool used by activists to stop police cutting their handcuffs, if they&#39;re cuffing themselves to something or other. What does that tell me about her? That she&#39;s an old-school activist, who&#39;s done this kind of thing before.
+&quot;,&quot;She explained that the bit of pipe on her arm is called a sleeping dragon, of all things. It&#39;s a tool used by activists to stop police cutting their handcuffs, if they&#39;re cuffing themselves to something or other. What does that tell me about her? That she went to the V&amp;A exhibition a couple of years ago that mentioned them (I knew it looked familliar).
+&quot;,&quot;She explained that the bit of pipe on her arm is called a sleeping dragon, of all things. It&#39;s a tool used by activists to stop police cutting their handcuffs, if they&#39;re cuffing themselves to something or other. What does that tell me about her? That she really, really doesn&#39;t want to go anywhere.
+&quot;))
+(set: $contestedwords to (a:&quot;That she&#39;s an old-school activist, who&#39;s done this kind of thing before.&quot;,&quot;That she went to the V&amp;A exhibition a couple of years ago that mentioned them (I knew it looked familliar).&quot;,&quot;That she really, really doesn&#39;t want to go anywhere.&quot;))
+(set: $newsection to &quot;She explained that the bit of pipe on her arm is called a sleeping dragon, of all things. It&#39;s a tool used by activists to stop police cutting their handcuffs, if they&#39;re cuffing themselves to something or other. What does that tell me about her? That she&#39;s an old-school activist, who&#39;s done this kind of thing before.
+&quot;)</tw-passagedata>
+<tw-passagedata pid="88" name="reasonC" tags="" position="3323,373">I just rubbed her back for a while until she calmed down.
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="89" name="reasonD" tags="" position="3198,373">I gave her a bit of room. After a while, she calmed down. I was still cleaning up. She looked at me, expectantly. The silence grew a bit oppressive.
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="90" name="I think you&#39;re wasting your time" tags="" position="4501,58">{(if: $dialogueoptions contains &quot;I respect what you&#39;re doing&quot;)[(set: $dialogueoptions to it - (a:&quot;I respect what you&#39;re doing&quot;))]
+
+(set: $dialogueoptions to it + (a:&quot;i&#39;m just trying to look after myself&quot;))(display: &quot;NewConvoSegment&quot;)}&quot;It&#39;s a waste of time, all this. You could be doing something better. I&#39;m sure of it.&quot;
+
+&quot;Excuse me?&quot;
+
+&quot;You heard me. I think this is ridiculous. I think you should give up.&quot;
+
+&quot;Well if I&#39;m wasting //my// time, what are //you// doing? Working this job, moaning about your fiance you can&#39;t see, just rolling over in the face of life&#39;s challenges. How does that help? Waiting for the system to finally work for you? Letting yourself be walked all over by a world that doesn&#39;t care if you live or die?&quot;
+
+&quot;Hang on, damn it. That&#39;s not fair. That&#39;s not fair! I -&quot;
+
+&quot;Is that it? Is that all you&#39;ve got? Saying it&#39;s not fair. Pathetic. You know, there&#39;s something in that complaint people make about your generation. Of course it&#39;s not fair! Nobody ever said it should be fair! Fucking change it, then!&quot;
+
+She sat there, shaking slightly. I could hear the links of the handcuffs jingling in the pipe.
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="91" name="i can&#39;t say no to work because without the money i might not see my fiance againBlog" tags="" position="3416,801">(set: $currentoptions to (a:&quot;There&#39;s something kind of disarming about her. I mean, we&#39;ve basically only known each other for like an hour or something, but I just felt all this angst coming out of me. I explained all about the Petra situation, how strung out that&#39;s got me. It was like I thought she&#39;d want to know about it.
+&quot;,&quot;There&#39;s something kind of disarming about her. I mean, we&#39;ve basically only known each other for like an hour or something, but I just felt all this angst coming out of me. I explained all about the Petra situation, how strung out that&#39;s got me. It was like I wanted to see what she thought of the whole thing.
+&quot;,&quot;There&#39;s something kind of disarming about her. I mean, we&#39;ve basically only known each other for like an hour or something, but I just felt all this angst coming out of me. I explained all about the Petra situation, how strung out that&#39;s got me. It was like I knew she&#39;d be sympathetic, so I just unloaded for my own peace of mind.
+&quot;))
+(set: $contestedwords to (a:&quot;I thought she&#39;d want to know about it&quot;,&quot;I wanted to see what she thought of the whole thing&quot;,&quot;I knew she&#39;d be sympathetic, so I just unloaded for my own peace of mind&quot;))
+(set: $newsection to &quot;There&#39;s something kind of disarming about her. I mean, we&#39;ve basically only known each other for like an hour or something, but I just felt all this angst coming out of me. I explained all about the Petra situation, how strung out that&#39;s got me. It was like I thought she&#39;d want to know about it.
+&quot;)</tw-passagedata>
+<tw-passagedata pid="92" name="i&#39;m constantly angry because i can&#39;t live in the same country as the person i loveBlog" tags="" position="3558,793">(set: $currentoptions to (a:&quot;So we ended up talking about Petra situation, and I went off on this rant about how I&#39;m so fucking angry all the time, with fucking Theresa fucking May, and so on and so on and so on. I just blew off steam. It actually felt really good.
+&quot;,&quot;So we ended up talking about Petra situation, and I went off on this rant about how I&#39;m so fucking angry all the time, with fucking Theresa fucking May, and so on and so on and so on. I just blew off steam. It actually felt kind of empty.
+&quot;,&quot;So we ended up talking about Petra situation, and I went off on this rant about how I&#39;m so fucking angry all the time, with fucking Theresa fucking May, and so on and so on and so on. I just blew off steam. It actually felt a bit embarassing.
+&quot;))
+(set: $contestedwords to (a:&quot;really good&quot;,&quot;kind of empty&quot;,&quot;a bit embarassing&quot;))
+(set: $newsection to &quot;So we ended up talking about Petra situation, and I went off on this rant about how I&#39;m so fucking angry all the time, with fucking Theresa fucking May, and so on and so on and so on. I just blew off steam. It actually felt really good.
+&quot;)</tw-passagedata>
+<tw-passagedata pid="93" name="I respect what you&#39;re doingBlog" tags="" position="3992,664">(set: $currentoptions to (a:&quot;So I told her that I really respect what she&#39;s doing, and her immediate response to that was to flip the whole script and ask me what //I// was protesting about. It was like she&#39;d been waiting for a chance to ask it.&quot;,&quot;So I told her that I really respect what she&#39;s doing, and her immediate response to that was to flip the whole script and ask me what //I// was protesting about. It was absurd, because manifestly it wasn&#39;t me that was protesting, no matter how she might have framed it.&quot;,&quot;So I told her that I really respect what she&#39;s doing, and her immediate response to that was to flip the whole script and ask me what //I// was protesting about. Maybe she just fishing for a compliment. I can&#39;t work it out.&quot;))
+(set: $contestedwords to (a:&quot;It was like she&#39;d been waiting for a chance to ask it.&quot;,&quot;It was absurd, because manifestly it wasn&#39;t me that was protesting, no matter how she might have framed it.&quot;,&quot;Maybe she just fishing for a compliment. I can&#39;t work it out.&quot;))
+(set: $newsection to &quot;So I told her that I really respect what she&#39;s doing, and her immediate response to that was to flip the whole script and ask me what //I// was protesting about. It was like she&#39;d been waiting for a chance to ask it.&quot;)</tw-passagedata>
+<tw-passagedata pid="94" name="I think you&#39;re wasting your timeBlog" tags="" position="4305,655">(set: $currentoptions to (a:&quot;So I told her I thought she was wasting her time. She was upset, and she came back at me with some crap about being a millenial.&quot;,&quot;So I told her I thought she was wasting her time. I said some stupid stuff. She was cross. I deserved it.&quot;,&quot;So I told her I thought she was wasting her time. Whatever. I don&#39;t want to write about it.&quot;))
+(set: $contestedwords to (a:&quot;She was upset, and she came back at me with some crap about being a millenial.&quot;,&quot;I said some stupid stuff. She was cross. I deserved it.&quot;,&quot;Whatever. I don&#39;t want to write about it.&quot;))
+(set: $newsection to &quot;So I told her I thought she was wasting her time. She was upset, and she came back at me with some crap about being a millenial.&quot;)</tw-passagedata>
+<tw-passagedata pid="95" name="did you know President Beluga mentioned you in a speech last night" tags="" position="4296,63">(display: &quot;NewConvoSegment&quot;)&quot;So, you&#39;ve gone all the way to the top. Let me show you this.&quot;
+
+I took out my phone, found the clip. The tiny despot stood behind his lectern, yelling crap. I found the right bit.
+
+&quot;You know we&#39;re doing something right!&quot; he yelled. &quot;We must be doing something right because we&#39;ve got liberals all around the world falling over in confusion. They&#39;re so confused. They don&#39;t even know what to do. In England, they&#39;re chaining themselves to walls, to staircases, because they don&#39;t know what to do. I feel sorry for them! It&#39;s true.&quot;
+
+She had a narrow smile. &quot;They must have mentioned me on CNN. I think one of the people here yesterday was CNN.&quot; She sat back. &quot;That, right there, represents the awesome power of cable television.&quot;
+
+[[how does it feel?|President BelugaA]]
+[[you&#39;ve just given him something to gloat about|President BelugaB]]</tw-passagedata>
+<tw-passagedata pid="96" name="did you know President Beluga mentioned you in a speech last nightBlog" tags="" position="4128,662">
+
+
+
+
+
+
+(set: $currentoptions to (a:&quot;I showed her the clip where President Beluga mentions her. She didn&#39;t show it, but I think she was secretly pleased with herself.&quot;,&quot;I showed her the clip where President Beluga mentions her. I think she was trying to act like she didn&#39;t care.&quot;,&quot;I showed her the clip where President Beluga mentions her. I genuinely don&#39;t think she gave a damn.&quot;))
+(set: $contestedwords to (a:&quot;She didn&#39;t show it, but I think she was secretly pleased with herself.&quot;,&quot;I think she was trying to act like she didn&#39;t care.&quot;,&quot;I genuinely don&#39;t think she gave a damn.&quot;))
+(set: $newsection to &quot;I showed her the clip where President Beluga mentions her. She didn&#39;t show it, but I think she was secretly pleased with herself.&quot;)</tw-passagedata>
+<tw-passagedata pid="97" name="playA" tags="" position="3811,203">(set: $blogtopics to it + (a:&quot;playABlog&quot;))&quot;Then this is quite a weird place for you to choose. It&#39;s not very public. There are lots of places you could have done this where you wouldn&#39;t be alone. This room is entirely empty, most of the time.&quot;
+
+&quot;Well, it isn&#39;t empty now.&quot;
+
+&quot;What do you... Oh.&quot;
+
+&quot;And it&#39;s a bit more, ahem, theatrical, which helps with the press angle. But as a matter of fact I chose this place because it&#39;s full of original features. If I&#39;d chained myself to a railing somewhere in Picadilly Circus, they&#39;d just cut the railing, but this way they&#39;ll have to fret about some beauraucracy first.&quot;
+
+&quot;Is that true? They can&#39;t cut these railings?&quot;
+
+&quot;It&#39;s true enough for me. It should buy me some time, anyway.&quot;
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="98" name="playB" tags="" position="3945,205">(set: $blogtopics to it + (a:&quot;playBBlog1&quot;,&quot;playBBlog2&quot;))&quot;I think the current play is really dire. It&#39;s vauge and aimless, and nothing much happens, and it doesn&#39;t make a point, and then it just randomly ends, and the most interesting thing about it is the idea of this person disappearing into thin air, but it hardly matters to the plot in the end.&quot;
+
+&quot;That&#39;s a surprisingly childish attitude,&quot; she replied.
+
+&quot;What?&quot; I said, surprised.
+
+&quot;Yeah,&quot; she said. &quot;It&#39;s childish. All your criticisms there, they all revolve around the idea that the play didn&#39;t do the stuff that you expected it to do. It went off in its own direction, it ignored your expectations. That makes it a mature work of art, I think.&quot;
+
+&quot;Huh,&quot; I said. &quot;Figures.&quot;
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="99" name="playABlog" tags="" position="3718,798">(set: $currentoptions to (a:&quot;Turns out, part of the reason for staging her thing from a theatre was that the railings here are all grade-whatever listed, so the police need some special dispensation from the owner or someone to cut them. This is a clever stalling tactic because I&#39;ve never even seen the owner and I&#39;ve worked here forever. But at the same time, I almost got a sense for a moment that her whole mission was partly about talking to me. This was probably imaginary.
+&quot;,&quot;Turns out, part of the reason for staging her thing from a theatre was that the railings here are all grade-whatever listed, so the police need some special dispensation from the owner or someone to cut them. This is a clever stalling tactic because I&#39;ve never even seen the owner and I&#39;ve worked here forever. But at the same time, I almost got a sense for a moment that her whole mission was partly about talking to me. This was a really weird moment.
+&quot;))
+(set: $contestedwords to (a:&quot;probably imaginary&quot;,&quot;a really weird moment&quot;))
+(set: $newsection to &quot;Turns out, part of the reason for staging her thing from a theatre was that the railings here are all grade-whatever listed, so the police need some special dispensation from the owner or someone to cut them. This is a clever stalling tactic because I&#39;ve never even seen the owner and I&#39;ve worked here forever. But at the same time, I almost got a sense for a moment that her whole mission was partly about talking to me. This was probably imaginary.
+&quot;)</tw-passagedata>
+<tw-passagedata pid="100" name="playBBlog1" tags="" position="3718,931">(set: $currentoptions to (a:&quot;She seemed to like the Disappearance of Yorgos Loizos, anyway. She liked that it was aimless and didn&#39;t explain what it was about, which is just like her.
+&quot;,&quot;She seemed to like the Disappearance of Yorgos Loizos, anyway. She liked that it was aimless and didn&#39;t explain what it was about, which only makes me like them both more.
+&quot;,&quot;She seemed to like the Disappearance of Yorgos Loizos, anyway. She liked that it was aimless and didn&#39;t explain what it was about, which only makes me like them both less.
+&quot;,&quot;She seemed to like the Disappearance of Yorgos Loizos, anyway. She liked that it was aimless and didn&#39;t explain what it was about, which makes sense considering her mission I guess.
+&quot;))
+(set: $contestedwords to (a:&quot;which is just like her&quot;,&quot;which only makes me like them both more&quot;,&quot;which only makes me like them both less&quot;,&quot;which makes sense considering her mission I guess&quot;))
+(set: $newsection to &quot;She seemed to like the Disappearance of Yorgos Loizos, anyway. She liked that it was aimless and didn&#39;t explain what it was about, which is just like her.
+&quot;)</tw-passagedata>
+<tw-passagedata pid="101" name="playBBlog2" tags="" position="3724,1056">(set: $currentoptions to (a:&quot;Then she told me that my attitude was childish! The cheek!
+&quot;,&quot;Then she told me that my attitude was childish! Maybe it is!
+&quot;,&quot;Then she told me that my attitude was childish! And if it is, so what?
+&quot;))
+(set: $contestedwords to (a:&quot;The cheek&quot;,&quot;Maybe it is&quot;, &quot;And if it is, so what&quot;))
+(set: $newsection to &quot;Then she told me that my attitude was childish! The cheek!
+&quot;)</tw-passagedata>
+<tw-passagedata pid="102" name="Title page" tags="" position="221,289">&lt;span class = &quot;title&quot;&gt;WHATEVER YOU CAN&#39;T NOT DO&lt;/span&gt;
+
+(link: &quot;start&quot;)[(goto: &quot;DreamIntro&quot;)]
+(link: &quot;credits&quot;)[(display:&quot;credits&quot;)]
+
+&quot;You have to do whatever you can&#39;t not do.&quot;
+David Mitchell
+
+&lt;script&gt;$(&#39;body&#39;).removeClass().addClass(&#39;dream&#39;)&lt;/script&gt;</tw-passagedata>
+<tw-passagedata pid="103" name="respect2" tags="" position="3984,792">(set: $currentoptions to (a:&quot;She said that doing a one-off protest was all well and good, but then she said that to manage change you had to be protesting constantly, as lifestyle. Is that possible, without collapsing from exhaustion?&quot;,&quot;She said that doing a one-off protest was all well and good, but then she said that to manage change you had to be protesting constantly, as lifestyle. Is that compatible with living a happy, stable life?&quot;,&quot;She said that doing a one-off protest was all well and good, but then she said that to manage change you had to be protesting constantly, as lifestyle. Is that really necessary?&quot;, &quot;She said that doing a one-off protest was all well and good, but then she said that to manage change you had to be protesting constantly, as lifestyle. Or is that just some kind of maniac attitude that ends up with you chained up somewhere random, chatting with the cleaner, the only person sad enough to listen to you?&quot;))
+(set: $contestedwords to (a:&quot;Is that possible, without collapsing from exhaustion&quot;,&quot;Is that compatible with living a happy, stable life&quot;,&quot;Is that really necessary&quot;, &quot;Or is that just some kind of maniac attitude that ends up with you chained up somewhere random, chatting with the cleaner, the only person sad enough to listen to you&quot;))
+(set: $newsection to &quot;She said that doing a one-off protest was all well and good, but then she said that to manage change you had to be protesting constantly, as lifestyle. Is that possible, without collapsing from exhaustion?&quot;)</tw-passagedata>
+<tw-passagedata pid="104" name="respect3" tags="" position="3968,917">(set: $currentoptions to (a:&quot;At one point, she described the word &#39;revolutionary&#39; to describe her attitude. I think that&#39;s as close as we&#39;re going to get to an admission of her political stance.
+&quot;,&quot;At one point, she described the word &#39;revolutionary&#39; to describe her attitude. Funny way to court the revolution.
+&quot;,&quot;At one point, she described the word &#39;revolutionary&#39; to describe her attitude. And good for her.
+&quot;))
+(set: $contestedwords to (a:&quot;I think that&#39;s as close as we&#39;re going to get to an admission of her political stance.&quot;,&quot;Funny way to court the revolution.&quot;,&quot;And good for her.&quot;))
+(set: $newsection to &quot;At one point, she described the word &#39;revolutionary&#39; to describe her attitude. I think that&#39;s as close as we&#39;re going to get to an admission of her political stance.&quot;)</tw-passagedata>
+<tw-passagedata pid="105" name="President BelugaA" tags="" position="4219,206">(set: $blogtopics to it + (a:&quot;President BelugaABlog&quot;))&quot;Does that make you proud? You&#39;ve managed it. You&#39;ve broadcast your message all the way to the top.&quot;
+
+&quot;It does feel good,&quot; she said. &quot;It feels good.&quot;
+
+&quot;Doesn&#39;t exactly seem like you&#39;ve got him on the ropes, though.&quot;
+
+&quot;No,&quot; she said. &quot;But if the message made it all the way to him, there&#39;s no telling who it might meet along the way.&quot;
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="106" name="President BelugaB" tags="" position="4370,207">(set: $blogtopics to it + (a:&quot;President BelugaBBlog&quot;))&quot;You&#39;ve just given him something to gloat about, though. He&#39;s not deterred by... by this.&quot; I gestured around at her. &quot;He&#39;s a narcissist. He just loves the attention. All you&#39;re doing is empowering him.&quot;
+
+&quot;OK,&quot; she said. &quot;For one thing, whoever said what I&#39;m doing has anything to do with the Orange One? And second, I&#39;m not empowering anybody. I&#39;m just making a statement. If someone doesn&#39;t understand the statement, then fine. It probably wasn&#39;t meant for you anyway.&quot;
+
+&quot;Hm.&quot;
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="107" name="President BelugaABlog" tags="" position="4123,787">(set: $currentoptions to (a:&quot;She said that if the message made it all the way to him, there&#39;s no telling who it might meet along the way. She&#39;s right.&quot;,&quot;She said that if the message made it all the way to him, there&#39;s no telling who it might meet along the way. Not sure what the point of that is.&quot;,&quot;She said that if the message made it all the way to him, there&#39;s no telling who it might meet along the way. It&#39;s indulgent, to imagine that someone might see you on CNN and be inspired or whatever.&quot;))
+(set: $contestedwords to (a:&quot;She&#39;s right.&quot;,&quot;Not sure what the point of that is.&quot;,&quot;It&#39;s indulgent, to imagine that someone might see you on CNN and be inspired or whatever.&quot;))
+(set: $newsection to &quot;She said that if the message made it all the way to him, there&#39;s no telling who it might meet along the way. She&#39;s right.&quot;)</tw-passagedata>
+<tw-passagedata pid="108" name="President BelugaBBlog" tags="" position="4120,912">(set: $currentoptions to (a:&quot;She said that she just making a statement, and that if someone doesn&#39;t understand the statement, then it wasn&#39;t meant for them anyway. Before she said that, I felt like I had her sort of figured out. Now I&#39;m not so sure.
+&quot;,&quot;She said that she just making a statement, and that if someone doesn&#39;t understand the statement, then it wasn&#39;t meant for them anyway. But how can she expect anyone to understand it if she refuses to explain herself?
+&quot;,&quot;She said that she just making a statement, and that if someone doesn&#39;t understand the statement, then it wasn&#39;t meant for them anyway. I think I understand it, at this point.
+&quot;,&quot;She said that she just making a statement, and that if someone doesn&#39;t understand the statement, then it wasn&#39;t meant for them anyway. If I don&#39;t understand it now, after all this, then who will?
+&quot;))
+(set: $contestedwords to (a:&quot;Before she said that, I felt like I had her sort of figured out. Now I&#39;m not so sure.&quot;,&quot;But how can she expect anyone to understand it if she refuses to explain herself&quot;,&quot;I think I understand it, at this point.&quot;,&quot;If I don&#39;t understand it now, after all this, then who will&quot;))
+(set: $newsection to &quot;She said that she just making a statement, and that if someone doesn&#39;t understand the statement, then it wasn&#39;t meant for them anyway. Before she said that, I felt like I had her sort of figured out. Now I&#39;m not so sure.
+&quot;)</tw-passagedata>
+<tw-passagedata pid="109" name="try to keep the dream going" tags="" position="69,575">We&#39;re... On a sofa, and there are people nearby who are... Playing video games? And Petra&#39;s face is right by your ear, and you stroke it, but it&#39;s actually just a pillow, Petra&#39;s somewhere else...
+
+It didn&#39;t work. I got frustrated. This woke me up proper. The sun was still down. This was supposed to be my day off, too. I was supposed to spend it mostly sleeping.
+
+(link: &quot;stare at ceiling until something happens&quot;)[(goto: &quot;Intro&quot;)]</tw-passagedata>
+<tw-passagedata pid="110" name="roll over and look at phone" tags="" position="200,573">Here&#39;s a thing I do all the time: I look at pictures of Petra and I together, in the early days. My phone knows what I&#39;m doing - autocorrect and autofill are complicit as I navigate to facebook, to the little corner of it where London is still warm and convivival behind filters.
+
+Petra and me sat on top of a riverboat.
+
+Petra and me in a sideways embrace at a costume party wearing lobster hands.
+
+Petra and me at someone&#39;s house, holding murky drinks.
+
+I should stop doing this to myself at this time in the morning. Still, I didn&#39;t have to work that day. I decided that if Petra&#39;d emailed me, I was going to spend a few hours writing a really good reply. That would help.
+
+(link: &quot;stare at ceiling until something happens&quot;)[(goto: &quot;Intro&quot;)]</tw-passagedata>
+<tw-passagedata pid="111" name="Blog2" tags="" position="1076,435">(display: &quot;BlogEdit&quot;)</tw-passagedata>
+<tw-passagedata pid="112" name="Blog2Finished" tags="" position="1215,75">{(set: $currentstring to it + &quot;Anyway, I&#39;ll be amazed if she&#39;s still there tomorrow. I kind of hope she is, though. If only because there&#39;s still some stuff I want to talk to her about.&quot;)
+(set: $blogtopics to (a:))
+}The finished piece:
+
+&lt;div class = &quot;pcScreen&quot;&gt;
+(print: $currentstring)(set: $blog2complete to $currentstring)
+(set: $currentstring to &quot;&quot;)
+&lt;/div&gt;
+[[once it was posted i accidentally fall asleep in my chair|Bed3]]</tw-passagedata>
+<tw-passagedata pid="113" name="blog3Finished" tags="" position="1495,63">{(set: $currentstring to it + &quot;I&#39;m too tired now to keep writing. This has given me a lot to think about, though. A huge amount, really. I feel like maybe this is the start of something? I&#39;m not sure. I&#39;ll have to see how it looks in the cold light of morning.
+
+Jo out.&quot;)
+
+}The final post:
+
+&lt;div class = &quot;pcScreen&quot;&gt;
+(print: $currentstring)(set: $blog3complete to $currentstring)
+&lt;/div&gt;
+
+[[go to bed|Outro]]</tw-passagedata>
+<tw-passagedata pid="114" name="Blog3" tags="" position="1333,346">(display: &quot;BlogEdit&quot;)</tw-passagedata>
+<tw-passagedata pid="115" name="Bed2" tags="" position="911,215">I woke up to the sound of someone arguing outside. It was morning. No dreams last night. I felt like I hadn&#39;t slept at all. It&#39;s impossible to carry on like this.
+
+(set: $currentMorning to &quot;MorningDay2&quot;)\
+[[look at phone|Emails]]
+[[get out of bed|MorningDay2]]</tw-passagedata>
+<tw-passagedata pid="116" name="MorningDay3" tags="" position="1208,363">Obviously I&#39;d forgotten to buy shower gel so I just rinsed myself in hot water and hoped for the best. The laundry situation was getting untenable. I figured it would be OK if I just wore my lucky hoodie. Everyone knows hoodies don&#39;t get smelly. You can wear them forever.
+
+[[every day with this bloody door|Front Door 3]]</tw-passagedata>
+<tw-passagedata pid="117" name="Bed3" tags="" position="1211,216">(set: $currentMorning to &quot;MorningDay3&quot;)I woke up at my desk, still dressed, mouth tasting acidic, flat smelling of chips.
+
+I checked my calendar - another work day. It was getting unbearable. Just one more day to go until the weekend, I told myself. The weekend, and the end of the production, and then three whole days with no prospect of work or strange women in ragged suits. Just had to manage one more day.
+
+[[look at phone|Emails]]
+[[get up|MorningDay3]]</tw-passagedata>
+<tw-passagedata pid="118" name="Front Door 2" tags="" position="919,681">[Got to get past the door.]&lt;window|
+
+[Twist the handle down.]&lt;handle|
+
+[]&lt;shoulder|{
+(click:&quot;down&quot;)[(replace: ?shoulder)[Lean with your shoulder.]]
+
+(click: &quot;shoulder&quot;)[(replace: ?window)[Push into it.](replace: ?handle)[Now pull the handle up.]]
+
+(click: &quot;up&quot;)[(replace: ?shoulder)[Thunking noise inside the doorframe.](replace: ?handle)[Keep the handle up.]]
+
+(click: &quot;doorframe&quot;)[(replace: ?window)[Turn the key.]]
+
+(click: &quot;key&quot;)[(replace: ?shoulder)[Get it just right.]]
+
+(click: &quot;just right&quot;)[(replace: ?handle)[The magic tweak...]]
+
+(click: &quot;tweak&quot;)[(replace: ?window)[Push it just so...](replace: ?handle)[](replace: ?shoulder)[]]
+
+(click: &quot;just so&quot;)[(replace: ?window)[`At last it closes.
+
+`[[off to work|Papers]]]]}</tw-passagedata>
+<tw-passagedata pid="119" name="Papers" tags="" position="910,816">I grabbed the free papers to read on the bus. The woman was in the Metro. There was a picture of her looking gamely at the camera, and another one taken from the balcony of her sitting down. I learned her name. It was Rose. Someone had tracked her down, somehow. The bigger news was that President Beluga himself had alluded to her in some speech at some rally. He&#39;d said &quot;In England, they&#39;re chaining themselves to walls, to staircases, because they don&#39;t know what to do.&quot; There was a picture of him, obviously. Can&#39;t print newspapers without pictures of President Beluga.
+
+[[made it there on time|TheatreDay2]]</tw-passagedata>
+<tw-passagedata pid="120" name="Front Door 3" tags="" position="1205,505">[Got to get past the door.]&lt;window|
+
+[Twist the handle down.]&lt;handle|
+
+[]&lt;shoulder|{
+(click:&quot;down&quot;)[(replace: ?shoulder)[Lean with shoulder.]]
+
+(click: &quot;shoulder&quot;)[(replace: ?window)[Push it.](replace: ?handle)[Handle up.]]
+
+(click: &quot;up&quot;)[(replace: ?shoulder)[Thunking noise.]]
+
+(click: &quot;noise&quot;)[(replace: ?window)[Turn key.]]
+
+(click: &quot;key&quot;)[(replace: ?shoulder)[Get it right.]]
+
+(click: &quot;right&quot;)[(replace: ?handle)[Fucking thing...]]
+
+(click: &quot;thing&quot;)[(replace: ?window)[Push it...](replace: ?handle)[](replace: ?shoulder)[]]
+
+(click: &quot;Push it...&quot;)[(replace: ?window)[`Done.
+
+There was this dude painting the front of the flat next door who watched the whole fiasco. He caught my eye, looked at the door.
+
+&quot;It&#39;s getting worse,&quot; I said.
+
+&quot;Well, it&#39;s not getting any better,&quot; he said.
+
+I thought that was pretty funny.
+
+`[[off to work|Papers2]]]]}</tw-passagedata>
+<tw-passagedata pid="121" name="Papers2" tags="" position="1205,630">Today, there was nothing in the paper about Rose. I went through both the Standard and the Metro looking for any mention, but she&#39;s gone. The news cycle is brutal.
+
+[[i arrive near enough to on-time that nobody comments on it|TheatreDay3]]</tw-passagedata>
+<tw-passagedata pid="122" name="the end" tags="" position="1498,348">(link: &quot;Blog 1&quot;)[First day:
+(print: $blog1complete)
+
+]
+(link: &quot;Blog 2&quot;)[Second day:
+(print:$blog2complete)
+
+]
+(link: &quot;Blog 3&quot;)[Third day:
+(print:$blog3complete)
+
+]
+
+(link: &quot;credits&quot;)[(display:&quot;credits&quot;)]</tw-passagedata>
+<tw-passagedata pid="123" name="i went through" tags="" position="1205,905">She looked dishevelled yesterday, but she looked just straight-up awful today. Her hair was getting lank, and there was a smell. Suffice it to say that the camelback wasn&#39;t working as well as it might have. She was hunched up in this weird position, but she straightened up when she heard my footsteps.
+
+&quot;Jo!&quot; she said. &quot;Oh, it&#39;s good to see you. I think my days in this room are numbered. I&#39;ve had nobody to talk to since you left yesterday. I&#39;ve been going out of my skull.&quot;
+
+&quot;Yeah, they&#39;re on their way here now to cut you free,&quot; I said. &quot;Must be sort of a relief, right?&quot;
+
+&quot;Hm,&quot; she said. &quot;Almost.&quot;
+
+(display: &quot;ConversationOptions&quot;)&lt;script&gt;$(&#39;body&#39;).removeClass().addClass(&#39;theatre&#39;)&lt;/script&gt;
+&lt;script&gt;
+pause();
+loadTrackC();
+play();
+&lt;/script&gt;</tw-passagedata>
+</tw-storydata>

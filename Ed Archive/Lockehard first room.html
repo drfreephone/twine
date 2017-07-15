@@ -1,0 +1,132 @@
+<tw-storydata name="Lockehard first room" startnode="1" creator="Twine" creator-version="2.0.11" ifid="CACEAA3A-BC32-4547-8224-AFA44B944E7E" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+</script><tw-passagedata pid="1" name="Start" tags="" position="113,64">Henry&#39;s cell. Sunrise through window. (set: $Matron to 0)
+
+Henry&#39;s eyes open but he doesn&#39;t move to get out of bed.
+
+&quot;This is unfamilliar. Is this... Lockehard? It must be. It&#39;s finally real. Here I am.&quot;
+
+(linkgoto: &quot;lie there&quot;, &quot;liethere&quot;)
+(linkgoto: &quot;get up&quot;, &quot;getup&quot;)
+
+
+NB general note: I think this needs to be a bit more... strange? It would make for a more effective opening if there was something a bit off about the first conversation. It&#39;s what I was aiming for when she mentions devils all the time but it could work better.</tw-passagedata>
+<tw-passagedata pid="2" name="liethere" tags="" position="111,207">&quot;It&#39;s come to this. This is really happening. Maybe it&#39;s a dream. Maybe I can get back to sleep.&quot;
+
+A knocking on the door.
+
+(linkgoto: &quot;lie there&quot;, &quot;liethere2&quot;)
+(linkgoto: &quot;get up and look around room&quot;, &quot;getup&quot;)
+(linkgoto: &quot;get up and open door&quot;, &quot;prompt&quot;)
+</tw-passagedata>
+<tw-passagedata pid="3" name="getup" tags="" position="106,359">Henry gets up. Player takes control.
+
+The room contains various things that can be examined - the bed, the window, the empty shelf, the airbrick.
+
+{(click: &quot;window&quot;)[The workmen are up already. Looks like they&#39;re building some kind of conservatory out there. I wonder why they&#39;re putting it so far away from the rest of the mansion? ]
+(click: &quot;shelf&quot;)[I&#39;ve got nothing to put on it. They didn&#39;t let me bring anything with me when I arrived last night. ]
+(click: &quot;bed&quot;)[It&#39;ll do. (NB would probably work as a hiding place) ]
+(click: &quot;airbrick&quot;)[That&#39;s funny - if I got down on the floor, I&#39;d be able to see right into the next room. ]}
+
+There is a knocking on the door.
+
+(linkgoto:&quot;open it promptly&quot;, &quot;prompt&quot;)
+(link:&quot;keep looking around&quot;)[*Here we meet the limitation of Twine prototyping - this option represents the eventuality that it takes a while to get around to opening the door because you&#39;re too busy looking at the stuff in the room.]</tw-passagedata>
+<tw-passagedata pid="4" name="liethere2" tags="" position="259,202">Henry closes his eyes, then opens them again.
+
+&quot;Nope, still here. It was worth a try, I suppose.&quot;
+
+(linkgoto: &quot;the knocking intensifies&quot;, &quot;knocks&quot;)</tw-passagedata>
+<tw-passagedata pid="5" name="knocks" tags="" position="622,329">A woman&#39;s voice comes through the door.
+
+&quot;Rise and shine, Mr. R_____. No long mornings dozing in this institution, no no no. Now, are you decent? May I come in?&quot;
+
+(linkgoto:&quot;say yes&quot;,&quot;convo&quot;)
+(linkgoto:&quot;say no or remain silent&quot;,&quot;dither&quot;)</tw-passagedata>
+<tw-passagedata pid="6" name="prompt" tags="" position="764,330">The door opens on a tall, broad woman in a white apron. She fills the doorway. (display: &quot;opinionup&quot;)
+
+&quot;Ah! Good morning to you, Mr. R_____. A superb day.&quot;
+
+(display: &quot;convo&quot;)</tw-passagedata>
+<tw-passagedata pid="7" name="dither" tags="" position="486,335">&quot;Oh come now, Mr. R_____. This simply won&#39;t do. I&#39;m coming in right now.&quot; (display: &quot;opiniondown&quot;)
+
+The door opens on a tall, broad woman in a white apron. She fills the doorway.
+
+(display: &quot;convo&quot;)</tw-passagedata>
+<tw-passagedata pid="8" name="convo" tags="" position="623,544">(if: $Matron&gt;0)[The Matron wears a thin smile. &quot;Good morning, Mr. R_____, and a very fine morning it is too. I&#39;m Mrs. Foreman, the head matron, but you can call me Martha. I so pleased you&#39;re here at last. I followed your case in the papers. I&#39;m very pleased to invite you to join our little family.&quot;](else:)[&quot;Now now, Mr. R_____. Let&#39;s not get off on the wrong foot. We&#39;re going to be closer than family, you and I. Tantrums and spats will get short shrift, and when there&#39;s bad blood, the devils on their tiny wings can&#39;t be far away. It&#39;s better if we get along. My name is Mrs. Foreman, and I&#39;m the head matron.&quot;] 
+
+She pauses and looks at you.
+
+&quot;You&#39;re not as tall as I&#39;d imagined. And I must say, in person you can&#39;t see the evidence of your deprivations as clearly as you could in the papers.&quot;
+
+[[What do you mean?|convo2]]
+(link:&quot;Nice to meet you.&quot;)[(display: &quot;opinionup&quot;)(goto: &quot;convo3&quot;)]</tw-passagedata>
+<tw-passagedata pid="9" name="opinionup" tags="" position="164,565">{(if:$Matron is -1)[(set: $Matron to 0)]
+(elseif:$Matron is 0)[(set: $Matron to 1)]}</tw-passagedata>
+<tw-passagedata pid="10" name="opiniondown" tags="" position="39,566">{(if:$Matron is 1)[(set: $Matron to 0)]
+(elseif:$Matron is 0)[(set: $Matron to -1)]}</tw-passagedata>
+<tw-passagedata pid="11" name="convo2" tags="" position="555,694">&quot;Oh, it was clear to see in the newspaper by the lines under your eyes that your affliction was one of the mind and not of the soul. When you work around lunatics you come to recognise these things.&quot;
+
+[[My affliction?|convo4]]
+(link:&quot;Don&#39;t treat me like a fool. I&#39;m perfectly sane.&quot;)[(display:&quot;opiniondown&quot;)(goto:&quot;convo5&quot;)]</tw-passagedata>
+<tw-passagedata pid="12" name="convo3" tags="" position="721,698">&quot;And you too. Well, I can see we&#39;re going to get along splendidly, and that will do well to keep the devils of idleness and peversity far from our windows.&quot;
+
+[[What&#39;s life like here?|convo9]]</tw-passagedata>
+<tw-passagedata pid="13" name="anyquestions" tags="" position="715,1897">(link: &quot;How did I get here? I don&#39;t remember arriving&quot;)[&quot;You were given a sedative on the train to ensure that you were properly rested by the time you got here. I understand you were making a fuss for the constables who were supervising you.&quot;]
+
+(link: &quot;Tell me about yourself.&quot;)[&quot;I&#39;m a humble member of the Presbyterian faith, and I live on the grounds with my husband, Mr. Foreman. He&#39;s the estate&#39;s blacksmith.&quot;]
+
+(link: &quot;What sort of people are locked up here?&quot;)[&quot;Oh, you&#39;ll find out soon enough, don&#39;t you worry about that. Good people, all of them, but every one carries their burdens and is afflicted by the devils on their little wings.&quot;]
+
+(link: &quot;Tell me about Mr. Lockehard.&quot;)[&quot;He&#39;s a very wise and very kind man. I believe his cause is just, although he is somewhat susceptable to the latest wild tomfooleries. His office contains a great many egyptological and mesmerical artifacts, which I do not think befits a Christian or should be present in a house so full of sensetive people. Still, he tries hard to look out for his charges, as a good shepherd should.&quot;]
+
+(link:&quot;What are they building out there on the lawn?&quot;)[&quot;A home for crows and ravens. It is Mr. Lockehard&#39;s latest fancy that these abhorrent beasts might have a therapeutic property, and he intends to breed them. Foolishness, if you ask me.&quot;]</tw-passagedata>
+<tw-passagedata pid="14" name="convo5" tags="" position="555,994">&quot;My dear man, you must understand that you are suffering from a disease. If it wasn&#39;t so, why would the judge in his wisdom have sent you here? This is the path to your salvation, which will be achieved by rest, and frequent eating, and God&#39;s grace.&quot;
+
+[[Nonsense.|convo8]]
+[[Frequent eating?|convo7]]
+(link:&quot;What madness is this?&quot;)[(display:&quot;opiniondown&quot;)(goto:&quot;convo7&quot;)]</tw-passagedata>
+<tw-passagedata pid="15" name="convo6" tags="" position="705,994">&quot;Mr. Lockehard works with the finest medical minds of the generation and subscribes to a wide range of publications that propose cures and treatments for disturbed lunatics such as yourself. We practice the Gospel of Fatness as well as many other innovative treatments.&quot;
+
+[[The Gospel of Fatness?|convo7]]</tw-passagedata>
+<tw-passagedata pid="16" name="convo4" tags="" position="561,834">&quot;It&#39;s plain to see that your perverse actions in the past were caused by your mania. Here at Lockehard, we belive that deviant behaviour is caused by disturbance of the mind. We use modern treatments to bring calm to the disturbed individual, and in some cases cure them of their affliction.&quot;
+
+[[There&#39;s nothing wrong with me.|convo5]]
+[[Treatments?|convo6]]</tw-passagedata>
+<tw-passagedata pid="17" name="convo7" tags="" position="676,1199">&quot;We follow a strict schedule at Lockehard, with seven meals throughout the day and a strict curfew. We rise at five o&#39;clock in the morning and retire at eight in the evening. The day is punctuated by frequent walks around the grounds, and plenty of time for recreation, dancing, music and so on. Rest and nourishment are the best tonics for the soul.&quot; *NB put some actual real info in here*
+
+[[That sounds wonderful.|convo10]]
+[[That sounds horrible.|convo11]]</tw-passagedata>
+<tw-passagedata pid="18" name="convo8" tags="" position="517,1143">(display: &quot;opiniondown&quot;)She regards you silently for a moment.
+
+&quot;Well, perhaps when some time has passed you will begin to see the wisdom in our regime here.&quot;
+
+[[How does the regime work?|convo7]]</tw-passagedata>
+<tw-passagedata pid="19" name="convo9" tags="" position="721,848">&quot;Life here is very pleasant indeed, if you participate willingly in our programme of treatments and mind your manners and treat the other inmates with respect.&quot;
+
+[[I don&#39;t think I&#39;ll be needing treatments.|convo5]]
+[[What do these treatments involve?|convo6]]</tw-passagedata>
+<tw-passagedata pid="20" name="convo10" tags="" position="568,1333">(display: &quot;opinionup&quot;)
+(if: $Matron&gt;0)[&quot;Well, I&#39;m certainly glad to hear you say so. I must say, it&#39;s nice to have a new arrival with such good manners.&quot;]
+(else:)[&quot;Hm.&quot;]
+
+[[So, what now?|convo12]]</tw-passagedata>
+<tw-passagedata pid="21" name="convo11" tags="" position="780,1324">(display: &quot;opiniondown&quot;)
+(if: $Matron is 0)[&quot;Oh, it&#39;s not as bad as all that. Some people have a fine time here. Your attitude is what matters.&quot;]
+(else:)[&quot;I&#39;m afraid with that attitude you might find yourself having a difficult time. I&#39;d recommend you amend it if you don&#39;t wish to be forcibly manhandled.&quot;]
+
+[[I&#39;ll take that into consideration.|convo12]]</tw-passagedata>
+<tw-passagedata pid="22" name="convo12" tags="" position="651,1470">&quot;Well, your first port of call should be the washroom at the end of the corridor. Your father made a generous contribution to the Asylum and so you have the privilege of your own private room and a washroom that you&#39;ll share with only fifteen others.
+
+[[Right...|convo13]]
+
+</tw-passagedata>
+<tw-passagedata pid="23" name="convo13" tags="" position="786,1589">&quot;In half an hour, the duty sisters will arrive to escort your wing down the the main mess hall for your first breakfast of the day. After that, you&#39;ll be escorted through the rest of the day - walks, recreation times, meal times.&quot;
+
+[[Anything else?|convo14]]</tw-passagedata>
+<tw-passagedata pid="24" name="convo14" tags="" position="786,1739">&quot;Oh, yes! The most important thing. You must make sure to visit Mr. Lockehard himself at some point today. He&#39;s always very keen to meet the new guests, especially when they arrive with such infamy. I&#39;m sure he&#39;s very keen to make your aquaintance. After tomorrow he&#39;ll be away for several weeks so you really must be sure to visit today. I&#39;ll make sure that his attendant knows to expect you. Now, do you have any questions?&quot;
+
+[[I was wondering...|anyquestions]] </tw-passagedata>
+</tw-storydata>

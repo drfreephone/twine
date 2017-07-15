@@ -1,0 +1,149 @@
+<tw-storydata name="Room of Trees" startnode="1" creator="Twine" creator-version="2.0.8" ifid="092B01CC-D02E-4F3C-98B7-73E0764F2D3F" format="Harlowe" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+
+
+
+
+
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+
+
+
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="Start" tags="" position="33,10">Notes: For the sake of experiment, I&#x27;m using a variable called FrustS to strack the survivor&#x27;s level of frustration with the player, and a variable called AlarmL to track Lux&#x27;s level of alarm at the player&#x27;s actions. Both start at 5.
+
+The aim of the exercise is to work on branching dialogues and variable-tracking the character&#x27;s attitudes to the player.
+
+If the player does something that antagonises or placates either character, these variables will change and so will their speech. Given that this is an experiment, I&#x27;ll mark on the dialogue options whether they have an effect or not so you can try different approaches. If Lux&#x27;s concern gets too high he might cut in and override the survivor, slowly losing his chill.
+
+I don&#x27;t know how the room puzzle will work as I don&#x27;t really understand the detailed mechanics of the game so for the purposes of experiment, I&#x27;m handwaving all that.
+
+At this stage in the game, it&#x27;s a real Lux but he&#x27;s pretending to be a prerecorded tour so as to be able to manipulate the player.
+
+At this stage in the game, the player has yet to unlock the ability to communicate with the survivor in an uninhibited way so is still stuck on Yes, No, I Don&#x27;t Know.
+
+Lux really cares about the trees.
+
+The survivor would rather the trees went unharmed, but would prefer it if the player hurried up to get to the next room, where there&#x27;s something that matters to her.
+
+Both of them have advised against coming here, but it seems like it&#x27;s the only way forward. The player is, by this time, well aware of the significance of this room.
+
+It&#x27;s impossible to placate both.
+
+(set: $treetell = 0)
+(set: $FrustS to 5)
+(set: $AlarmL to 5)
+(set: $Nano to 0)
+[[Begin]]
+
+
+</tw-passagedata><tw-passagedata pid="2" name="Begin" tags="" position="57,154">
+The door to the Room of Trees opens ahead of you. You can see a row of small stumpy trees on either side of a central walkway. Up on the wall at the far end is the vent you&#x27;re trying to get into! But there&#x27;s no way up there and no obvious way to reach it. A sign on the wall conspicuously says &#x27;No Nanobots to be deployed in this fragile ecosystem&#x27;.
+
+
+[[Enter cautiously and look around-&gt;branch1]]
+
+(link:&quot;Barge right in and start Nanoing stuff&quot;)[(set: $AlarmL += 1)(set: $nano += 1)(goto:&quot;branch1&quot;)]</tw-passagedata><tw-passagedata pid="3" name="branch1" tags="" position="79,298">Lux: &quot;So, this is the Room of Trees. Xeltech are at pains to remind you that this room is only for visitors with maximum priviledge clearance, because the objects in this room are both highly fragile, and highly significant to the history and future of the human race. {(if: $AlarmL &gt;=6)[They&#x27;re also, needless to say, worth an awful lot of money and if anyone were to damage one, they&#x27;d have to answer to Xeltech, and we own a lot of weaponry. But don&#x27;t let that stop you from enjoying the spectacle!](else:)[So, please be careful.]}&quot;
+
+Lux cuts out.
+
+The Survivor chimes in.
+
+&quot;Hey! How&#x27;s it going? Where are you?&quot;
+
+[[Send picture with no good info]]
+(link:&quot;Send picture of trees&quot;)[(set: $FrustS += 2)(goto:&quot;Send picture of trees&quot;)[[Send picture of trees]]]
+(link:&quot;Ignore&quot;)[(set: $FrustS += 3)(goto:&quot;Ignore&quot;)[[Ignore]]]</tw-passagedata><tw-passagedata pid="4" name="branch2" tags="" position="1366,1036">
+[[Look at the computer|branch4]]
+[[nexus1]]</tw-passagedata><tw-passagedata pid="5" name="branch3" tags="" position="1463,599">Down here, you can see the root mass of the trees, each of which is suspended in a large steel framework full of a transparent jellylike substance. These frames are held in place by steel bars attached to mechanical pistons. You can tell from here that one of the trees is, in fact, dead. They all look much the same up top but this one has wrecked, shrivelled roots.
+
+(set: $deadtree to 1)
+[[Back upstairs|Explore]]</tw-passagedata><tw-passagedata pid="6" name="branch4" tags="" position="1486,787">[[Examine the trees|branch2]]
+[[Looks like there&#x27;s some kind of access chamber down below|branch3]]
+[[nexus1]]</tw-passagedata><tw-passagedata pid="7" name="dialoguewithSurvivor" tags="" position="1740,1039">[[words]]</tw-passagedata><tw-passagedata pid="8" name="words" tags="" position="1590,1088">(link:&quot;Keep Nanoing stuff&quot;)[(set: $AlarmL += 1)(set: $nano += 1)(goto:&quot;Nearlysolved&quot;)]
+[[Be careful|Nearlysolved]]
+
+
+
+</tw-passagedata><tw-passagedata pid="9" name="Nearlysolved" tags="" position="1584,1305">(if: $nano &gt;= 2)[Lux: Just a friendly reminder that if you see anyone, even a Xeltech employee, utilising Nano manipulation in this environment, politely and respectfully ask them to stop, because these trees might well be the only ones left on planet Earth, and Nanobots are known to be hazardous to their health.]
+
+
+
+Are the trees all OK?</tw-passagedata><tw-passagedata pid="10" name="nexus1" tags="" position="1699,890">(if: $deadtree is 1)[You know that one of these trees is dead already.]
+
+[[The Survivor gets on the intercom|dialoguewithSurvivor]]</tw-passagedata><tw-passagedata pid="11" name="nexus2" tags="" position="1615,1507">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="12" name="Explore" tags="" position="1244,873">
+
+You notice a computer in the corner and a flight of stairs leading down to a lower level.
+
+[[Examine the trees|branch2]]
+[[Go downstairs|branch3]]
+[[Look at the computer|branch4]]</tw-passagedata><tw-passagedata pid="13" name="Send picture of trees" tags="" position="85,563">(set: $treetell = 1)
+
+&quot;Oh, shit. That&#x27;s the room of trees. That&#x27;s the fucking room of trees! Hey, you shouldn&#x27;t be in there. Those things are delicate. Hey, listen. I&#x27;m serious. Those are the last trees left on earth, dude. For real. They didn&#x27;t make that up for bumpf. The only new trees growing anywhere on the entire planet. The only eight seeds that they&#x27;ve ever been able to sprout. Be careful! It&#x27;s a carefully regulated environment, with climate control and air filters and... and air humitidy desanitisers, and even if someone goes in there at all, they&#x27;re risking it. You should leave. Have you left already? You should leave. Have you left?&quot;
+
+[[Yes]] (lie)
+(link:&quot;No&quot;)[(set: $FrustS += 1)(goto:&quot;No&quot;)[[No]]]
+(link:&quot;I don&#x27;t know&quot;)[(set: $FrustS += 3)(goto:&quot;I don&#x27;t know&quot;)[[I don&#x27;t know]]]</tw-passagedata><tw-passagedata pid="14" name="Send picture with no good info" tags="" position="415,472">(set: $treetell = 0)
+
+&quot;Well, I have no idea where that is. Keep on searching, I guess! But hey, is this a good time to talk?&quot;
+
+(link:&quot;Yes&quot;)[(set: $FrustS -= 1)(goto:&quot;Convo1&quot;)[[Convo1]]]
+(link:&quot;No&quot;)[(set: $FrustS += 1)(goto:&quot;Convo5&quot;)[[Convo5]]]
+[[I don&#x27;t know|Convo2]]</tw-passagedata><tw-passagedata pid="15" name="Ignore" tags="" position="373,239">(set: $treetell = 0)
+&quot;Ugh, come on. I know you can hear me.&quot;
+
+[[Send picture of trees]] 
+[[Send picture with no good info]] 
+(link:&quot;Ignore&quot;)[(set: $FrustS += 3)(goto:&quot;TreesSheKnowsNot&quot;)[[TreesSheKnowsNot]]]</tw-passagedata><tw-passagedata pid="16" name="TreesSheKnows" tags="" position="1093,895">&quot;{(if: $FrustS &gt;=8)[Just be careful, would you? For the most part I wouldn&#x27;t mind if this facility burned to the ground, but these trees are probably the only good thing Xeltech ever made.] (else:)[Well, you&#x27;d better get on with it! But please be careful. Definately don&#x27;t hurt the trees.]}&quot;
+
+[[Explore]]</tw-passagedata><tw-passagedata pid="17" name="TreesSheKnowsNot" tags="" position="1089,760">&quot;{(if: $FrustS &gt;=10)[Still, though. You&#x27;re being an asshole. Of all the people that could have wandered in here, I get this unhelpful jerk.](else:)[Hey, well. I&#x27;ll let you get back to it, then. I&#x27;ll check up on you later.]}&quot;
+
+[[Explore]]</tw-passagedata><tw-passagedata pid="18" name="Convo1" tags="" position="168,1215">Is about trust, and the ingnonimity of being an applied number theorist.
+
+
+Would you trust me?</tw-passagedata><tw-passagedata pid="19" name="Convo2" tags="" position="515,698">&quot;I never know how to respond when you say that. Are you joking, or trying to get me to shut up, or what?&quot;
+
+(link:&quot;Yes&quot;)[(set: $FrustS += 2)(goto:&quot;Convo3&quot;)[[Convo3]]]
+(link:&quot;No&quot;)[(set: $FrustS -= 1)(goto:&quot;Convo4&quot;)[[Convo4]]]
+[[I don&#x27;t know|Convo5]]</tw-passagedata><tw-passagedata pid="20" name="Convo3" tags="" position="964,949">Alright. Well, then, I get the message. I&#x27;ll stop bothering you.
+
+{(if: $treetell is 1)[(link:&quot;Continue&quot;)[(goto:&quot;TreesSheKnows&quot;)]]
+(else:)[(link:&quot;Continue&quot;)[(goto:&quot;TreesSheKnowsNot&quot;)]]}</tw-passagedata><tw-passagedata pid="21" name="Convo4" tags="" position="618,1188">No? Ah, OK. Sorry to blow up. I&#x27;m so goodamn frustrated in here, and this walkie-talkie-3-word-system isn&#x27;t really helping. Sorry. Sorry. 15 months in a pod. It&#x27;ll do that to you. Listen, want to talk?
+
+[[Yes-&gt;Convo1]]
+(link:&quot;No&quot;)[(set: $FrustS += 2)(goto:&quot;Convo3&quot;)[[Convo3]]]
+</tw-passagedata><tw-passagedata pid="22" name="Convo5" tags="" position="964,824">&quot;Well, that&#x27;s unhelpful, but I guess I can&#x27;t tell you what to do.&quot;
+
+{(if: $treetell is 1)[(link:&quot;Continue&quot;)[(goto:&quot;TreesSheKnows&quot;)]]
+(else:)[(link:&quot;Continue&quot;)[(goto:&quot;TreesSheKnowsNot&quot;)]]}</tw-passagedata><tw-passagedata pid="23" name="Yes" tags="" position="10,709">Yes, good. That&#x27;s good. OK, swell. Don&#x27;t go in there again. Hey, do you have time to talk?
+
+(link:&quot;Yes&quot;)[(set: $FrustS -= 1)(goto:&quot;Convo1&quot;)[[Convo1]]]
+(link:&quot;No&quot;)[(set: $FrustS += 1)(goto:&quot;Convo5&quot;)[[Convo5]]]
+[[I don&#x27;t know|Convo2]]</tw-passagedata><tw-passagedata pid="24" name="No" tags="" position="149,809">(the survivor sighs) You&#x27;re just going to ignore me and do whatever you want, aren&#x27;t you.
+
+(link:&quot;Yes&quot;)[(set: $FrustS -= 1)(goto:&quot;Convo1&quot;)[[Convo1]]]
+(link:&quot;No&quot;)[(set: $FrustS += 1)(goto:&quot;Convo5&quot;)[[Convo5]]]
+(link:&quot;I don&#x27;t know&quot;)[(set: $FrustS += 1)(goto:&quot;Convo2&quot;)[[Convo2]]]
+
+
+
+
+//NEXT STEP:(link:&quot;Yes&quot;)[(set: $FrustS -= 1)(goto:&quot;Convo1&quot;)[[Convo1]]]
+(link:&quot;No&quot;)[(set: $FrustS += 1)(goto:&quot;Convo5&quot;)[[Convo5]]]
+[[I don&#x27;t know|Convo2]]//</tw-passagedata><tw-passagedata pid="25" name="I don&#x27;t know" tags="" position="325,895">&quot;What? Listen, this is serious, asshole. Ugh! Ah, fuck. You&#x27;re not going to listen to me anyway. What&#x27;s the use? But be careful of the trees, OK? Aaaaaah. Listen, listen, stop for a second. Can you talk, for a minute? Can you, like, step into the hall or something?&quot;
+
+(link:&quot;Yes&quot;)[(set: $FrustS -= 1)(goto:&quot;Convo1&quot;)[[Convo1]]]
+(link:&quot;No&quot;)[(set: $FrustS += 1)(goto:&quot;Convo5&quot;)[[Convo5]]]
+[[I don&#x27;t know|Convo2]]</tw-passagedata></tw-storydata>

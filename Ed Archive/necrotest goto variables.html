@@ -1,0 +1,329 @@
+<tw-storydata name="necrotest goto variables" startnode="9" creator="Twine" creator-version="2.0.11" ifid="2A00A2C7-B784-4BF2-A3EB-AD2BF87F7660" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="Standard Room" tags="" position="136,32">(print: $room&#39;s announce)
+There is (print: $room&#39;s clutter) on the floor
+{(if: $room&#39;s monsterstatus is 1)[(display: $room&#39;s monster&#39;s name)]
+(if: $room&#39;s monsterstatus is -1)[(display: $room&#39;s monster&#39;s name)]
+(if: $room&#39;s monsterstatus &gt;= 2)[(print: &quot;There is a (Print: $room&#39;s monster&#39;s remains) on the floor.&quot;)]}
+{(if: $room&#39;s monsterstatus is 2)[Search the remains]
+(click-replace: &quot;Search the remains&quot;)[(set: $room&#39;s monsterstatus to 3)You find (print: $room&#39;s monster&#39;s dropitem)(if: $pouch contains ($room&#39;s monster&#39;s dropitem))[(set: $pouch&#39;s ($room&#39;s monster&#39;s dropitem) to it+(random: 1,3))](else:)[
+(set: $pouch to $pouch + (datamap: ($room&#39;s monster&#39;s dropitem), (random: 1,3)))]]}
+
+</tw-passagedata>
+<tw-passagedata pid="2" name="Slave Pit" tags="" position="131,282">(set: $room to $slavepit)
+(display: &quot;Standard Room&quot;)
+{(if: ($pos &lt; $roomdeck&#39;s length) and ($room&#39;s monsterstatus is not 1) and ($room&#39;s monsterstatus is not -1))[(link-goto: &quot;forward&quot;, &quot;Forward&quot;)]
+(else-if: ($pos &lt; $roomdeck&#39;s length) and ($room&#39;s monsterstatus is 1) or ($room&#39;s monsterstatus is -1))[(link: &quot;forward&quot;)[The (print: $room&#39;s monster&#39;s name) is blocking the way]]
+(else-if: ($pos &gt;= $roomdeck&#39;s length) and ($room&#39;s monsterstatus is not 1) and ($room&#39;s monsterstatus is not -1))[(link-goto: &quot;forward&quot;, &quot;Complete&quot;)]}
+(if: $pos &gt; 1)[(link-goto: &quot;backward&quot;, &quot;Back&quot;)]
+</tw-passagedata>
+<tw-passagedata pid="3" name="Cathedral" tags="" position="133,157">(set: $room to $cathedral)
+(display: &quot;Standard Room&quot;)
+{(if: ($pos &lt; $roomdeck&#39;s length) and ($room&#39;s monsterstatus is not 1) and ($room&#39;s monsterstatus is not -1))[(link-goto: &quot;forward&quot;, &quot;Forward&quot;)]
+(else-if: ($pos &lt; $roomdeck&#39;s length) and ($room&#39;s monsterstatus is 1) or ($room&#39;s monsterstatus is -1))[(link: &quot;forward&quot;)[The (print: $room&#39;s monster&#39;s name) is blocking the way]]
+(else-if: ($pos &gt;= $roomdeck&#39;s length) and ($room&#39;s monsterstatus is not 1) and ($room&#39;s monsterstatus is not -1))[(link-goto: &quot;forward&quot;, &quot;Complete&quot;)]}
+(if: $pos &gt; 1)[(link-goto: &quot;backward&quot;, &quot;Back&quot;)]
+</tw-passagedata>
+<tw-passagedata pid="4" name="Forward" tags="" position="498,311">(set: $pos to it+1)
+(goto: $roomdeck&#39;s ($pos))
+
+
+
+
+
+</tw-passagedata>
+<tw-passagedata pid="5" name="Page 1" tags="" position="498,166">You enter the church, and the ground collapses beneath you. You stare up at the ragged hole above you.
+The only way is forward.
+
+[[Begin-&gt;Forward]] 
+</tw-passagedata>
+<tw-passagedata pid="6" name="Back" tags="" position="497,436">(if: $room&#39;s monsterstatus is 1)[(set: $room&#39;s monsterstatus to -1)]
+(if: $pos&gt;1)[(set: $pos to it-1)
+(goto: $roomdeck&#39;s ($pos))]
+(if: $pos is 1)[(link-goto: &quot;Nowhere to flee to&quot;, ($roomdeck&#39;s $pos))]
+
+
+
+
+
+</tw-passagedata>
+<tw-passagedata pid="7" name="Burrow" tags="" position="130,407">(set: $room to $burrow)
+(display: &quot;Standard Room&quot;)
+{(if: ($pos &lt; $roomdeck&#39;s length) and ($room&#39;s monsterstatus is not 1) and ($room&#39;s monsterstatus is not -1))[(link-goto: &quot;forward&quot;, &quot;Forward&quot;)]
+(else-if: ($pos &lt; $roomdeck&#39;s length) and ($room&#39;s monsterstatus is 1) or ($room&#39;s monsterstatus is -1))[(link: &quot;forward&quot;)[The (print: $room&#39;s monster&#39;s name) is blocking the way]]
+(else-if: ($pos &gt;= $roomdeck&#39;s length) and ($room&#39;s monsterstatus is not 1) and ($room&#39;s monsterstatus is not -1))[(link-goto: &quot;forward&quot;, &quot;Complete&quot;)]}
+(if: $pos &gt; 1)[(link-goto: &quot;backward&quot;, &quot;Back&quot;)]
+</tw-passagedata>
+<tw-passagedata pid="8" name="Hallway" tags="" position="134,532">(set: $room to $hallway)
+(display: &quot;Standard Room&quot;)
+{(if: ($pos &lt; $roomdeck&#39;s length) and ($room&#39;s monsterstatus is not 1) and ($room&#39;s monsterstatus is not -1))[(link-goto: &quot;forward&quot;, &quot;Forward&quot;)]
+(else-if: ($pos &lt; $roomdeck&#39;s length) and ($room&#39;s monsterstatus is 1) or ($room&#39;s monsterstatus is -1))[(link: &quot;forward&quot;)[The (print: $room&#39;s monster&#39;s name) is blocking the way]]
+(else-if: ($pos &gt;= $roomdeck&#39;s length) and ($room&#39;s monsterstatus is not 1) and ($room&#39;s monsterstatus is not -1))[(link-goto: &quot;forward&quot;, &quot;Complete&quot;)]}
+(if: $pos &gt; 1)[(link-goto: &quot;backward&quot;, &quot;Back&quot;)]
+</tw-passagedata>
+<tw-passagedata pid="9" name="loadplayer" tags="" position="392,18">(set: $hp to 20)
+(set: $basedex to 3)
+(set: $basedamage to 10)
+(set: $dex to $basedex+$dexmod)
+(set: $damage to $basedamage+$weapondamage)
+(set: $weapon to &quot;sword&quot;)
+(set: $attack to &quot;slash&quot;)
+(set: $weapondamage to 1)
+(set: $pouch to (datamap:))
+(set: $inv to (a: &quot;pouch&quot;, &quot;rusty sword&quot;))
+(set: $dexmod to 1)
+(set: $fearful to 0)
+
+(goto: &quot;loadmonsters&quot;)</tw-passagedata>
+<tw-passagedata pid="10" name="loadmonsters" tags="" position="519,23">(set: $skeleton to (datamap:
+&quot;name&quot;, &quot;skeleton&quot;,
+&quot;appeartexta&quot;, &quot;lurches toward you. You hear the the scrape of bone on stone.&quot;,
+&quot;appeartextb&quot;, &quot;rattles toward you, shedding bone dust.&quot;,
+&quot;bodyparta&quot;, &quot;gnarled hand&quot;,
+&quot;bodypartb&quot;, &quot;death-pale shin bone&quot;,
+&quot;attacktext&quot;, &quot;The fetid jaws dig into you!&quot;,
+&quot;misstext&quot;, &quot;It hisses bone dust as its jaws clamp onto thin air.&quot;,
+&quot;escapetexta&quot;, &quot;Your $attack is deflected!&quot;,
+&quot;escapetextb&quot;, &quot;Your $weapon swings hopelessly as the skeleton lurches out of the way.&quot;,
+&quot;deathtext&quot;, &quot;The skeleton crumbles to dust.&quot;,
+&quot;dropitem&quot;, &quot;bone fragments&quot;,
+&quot;remains&quot;, &quot;pile of bones&quot;,
+&quot;dex&quot;, 7,
+&quot;damage&quot;, 4,
+&quot;hp&quot;, 3,
+&quot;tags&quot;, &quot;none&quot;))
+
+(set: $massofslime to (datamap:
+&quot;name&quot;, &quot;slime blob&quot;,
+&quot;appeartexta&quot;, &quot;glides toward you, its gelatinous form strangely menacing.&quot;,
+&quot;appeartextb&quot;, &quot;drops from out of the dark with a thick gurgle.&quot;,
+&quot;bodyparta&quot;, &quot;jelly-like core&quot;,
+&quot;bodypartb&quot;, &quot;quivering mass&quot;,
+&quot;attacktext&quot;, &quot;It encircles you! You feel the acidic jelly burn your flesh.&quot;,
+&quot;misstext&quot;, &quot;It extends a tendril of slime, but you avoid its clutch.&quot;,
+&quot;escapetexta&quot;, &quot;Your $attack cleaves off a hunk of slime, but the mass is unaffected.&quot;,
+&quot;escapetextb&quot;, &quot;Your $weapon sinks hopelessly into the morass, but the slime doesn&#39;t react.&quot;,
+&quot;deathtext&quot;, &quot;The slime dissipates into water.&quot;,
+&quot;dropitem&quot;, &quot;lumps of slime&quot;,
+&quot;remains&quot;, &quot;viscous fluid&quot;,
+&quot;dex&quot;, 4,
+&quot;damage&quot;, 4,
+&quot;hp&quot;, 9,
+&quot;tags&quot;, &quot;none&quot;))
+
+(set: $giantrat to (datamap:
+&quot;name&quot;, &quot;giant rat&quot;,
+&quot;appeartexta&quot;, &quot;darts toward you, jaws slavering.&quot;, 
+&quot;appeartextb&quot;, &quot;skitters into the light and turns toward you.&quot;,
+&quot;bodyparta&quot;, &quot;crusty paw&quot;,
+&quot;bodypartb&quot;, &quot;matted haunch&quot;,
+&quot;attacktext&quot;, &quot;It slashes at you with its chipped teeth.&quot;,
+&quot;misstext&quot;, &quot;Its teeth graze the air beside you.&quot;,
+&quot;escapetexta&quot;, &quot;Your attack merely nicks its stinking tail.&quot;,
+&quot;escapetextb&quot;, &quot;Your $weapon cuts hopelessly through thin air.&quot;,
+&quot;deathtext&quot;, &quot;The rat&#39;s body leaks blood onto the dirt floor.&quot;,
+&quot;dropitem&quot;, &quot;rat&#39;s teeth&quot;,
+&quot;remains&quot;, &quot;body of a dead rat&quot;,
+&quot;dex&quot;, 6,
+&quot;damage&quot;, 5,
+&quot;hp&quot;, 1,
+&quot;tags&quot;, &quot;easily scared, aggressive&quot;))
+
+(set: $menagerie to (a: $skeleton, $massofslime, $giantrat))
+(set: $monsterdeck to (shuffled: ...$menagerie))
+(goto: &quot;loadrooms&quot;)</tw-passagedata>
+<tw-passagedata pid="11" name="skeleton" tags="" position="0,32">{(set: $monster to $skeleton)
+(if: $room&#39;s monsterstatus is 1)[
+(set: $turn to (either: 0,1))
+(set: $monsterhp to $monster&#39;s hp)
+A (print: $monster&#39;s &quot;name&quot;) (print: (either: $monster&#39;s appeartexta, $monster&#39;s appeartextb))]
+(if: $room&#39;s monsterstatus is -1)[
+(set: $turn to 1)
+The (print: $monster&#39;s &quot;name&quot;) is still here]}
+(link-goto: &quot;fight&quot;, &quot;fight&quot;)
+</tw-passagedata>
+<tw-passagedata pid="12" name="slime blob" tags="" position="0,163">(set: $monster to $massofslime)
+{(if: $room&#39;s monsterstatus is 1)[
+(set: $turn to 0)
+(set: $monsterhp to $monster&#39;s hp)
+A (print: $monster&#39;s &quot;name&quot;) (print: (either: $monster&#39;s appeartexta, $monster&#39;s appeartextb))]
+(if: $room&#39;s monsterstatus is -1)[
+(set: $turn to 1)
+The (print: $monster&#39;s &quot;name&quot;) is still here]}
+(link-goto: &quot;fight&quot;, &quot;fight&quot;)
+</tw-passagedata>
+<tw-passagedata pid="13" name="giant rat" tags="" position="1,294">(set: $monster to $giantrat)
+{(if: $room&#39;s monsterstatus is 1)[
+(set: $turn to 1)
+(set: $monsterhp to $monster&#39;s hp)
+A (print: $monster&#39;s &quot;name&quot;) (print: (either: $monster&#39;s appeartexta, $monster&#39;s appeartextb))]
+(if: $room&#39;s monsterstatus is -1)[
+(set: $turn to 1)
+The (print: $monster&#39;s &quot;name&quot;) is still here]}
+(link-goto: &quot;fight&quot;, &quot;fight&quot;)
+</tw-passagedata>
+<tw-passagedata pid="14" name="loadrooms" tags="" position="651,21">
+(set: $treasure to (a: &quot;gem&quot;, &quot;candlestick&quot;, &quot;potion&quot;))
+(set: $clutter to (a: &quot;glass&quot;, &quot;moss&quot;, &quot;cobwebs&quot;))
+
+
+(set: $throneroom to (datamap:
+&quot;name&quot;, &quot;Throneroom&quot;,
+&quot;announce&quot;, &quot;a large room with a throne at the end&quot;,
+&quot;treasure&quot;, (shuffled: ...$treasure)&#39;s 1st,
+&quot;treasurepresent&quot;, 0,
+&quot;clutter&quot;, (shuffled: ...$clutter)&#39;s 1st,
+&quot;monster&quot;, ($monsterdeck&#39;s 1st),
+&quot;monsterstatus&quot;, 1,
+))
+
+(set: $cathedral to (datamap:
+&quot;name&quot;, &quot;Cathedral&quot;,
+&quot;announce&quot;, &quot;a vaulted cathedral with dusty stained glass&quot;,
+&quot;treasure&quot;, (shuffled: ...$treasure)&#39;s 1st,
+&quot;treasurepresent&quot;, 1,
+&quot;clutter&quot;, (shuffled: ...$clutter)&#39;s 1st,
+&quot;monster&quot;, ($monsterdeck&#39;s 2nd),
+&quot;monsterstatus&quot;, 1))
+
+(set: $slavepit to (datamap:
+&quot;name&quot;, &quot;Slave Pit&quot;,
+&quot;announce&quot;, &quot;chained slaves break rocks in a pit below you&quot;,
+&quot;treasure&quot;, (shuffled: ...$treasure)&#39;s 1st,
+&quot;treasurepresent&quot;, 0,
+&quot;clutter&quot;, (shuffled: ...$clutter)&#39;s 1st,
+&quot;monster&quot;, ($monsterdeck&#39;s 3rd),
+&quot;monsterstatus&quot;, 1))
+
+(set: $burrow to (datamap:
+&quot;name&quot;, &quot;Burrow&quot;,
+&quot;announce&quot;, &quot;a dry earthy tunnel leads downwards&quot;,
+&quot;treasure&quot;, (shuffled: ...$treasure)&#39;s 1st,
+&quot;treasurepresent&quot;, 0,
+&quot;clutter&quot;, (shuffled: ...$clutter)&#39;s 1st,
+&quot;monster&quot;, ($monsterdeck&#39;s 1st),
+&quot;monsterstatus&quot;, 0,
+))
+
+(set: $hallway to (datamap:
+&quot;name&quot;, &quot;Hallway&quot;,
+&quot;announce&quot;, &quot;a dusty passage&quot;,
+&quot;treasure&quot;, (shuffled: ...$treasure)&#39;s 1st,
+&quot;treasurepresent&quot;, 0,
+&quot;clutter&quot;, (shuffled: ...$clutter)&#39;s 1st,
+&quot;monster&quot;, ($monsterdeck&#39;s 1st),
+&quot;monsterstatus&quot;, 0,
+))
+
+(set: $roomdeck to (shuffled: &quot;Cathedral&quot;, &quot;Throneroom&quot;, &quot;Slave Pit&quot;, &quot;Burrow&quot;, &quot;Hallway&quot;))
+(set: $pos to 0)
+
+(goto: &quot;Page 1&quot;)</tw-passagedata>
+<tw-passagedata pid="15" name="fight" tags="" position="898,106">(if: $turn is 0)[You attack with your $weapon!
+{(if: $dex+(random:1,6) &gt;= $monster&#39;s dex)[You $attack the (print: $monster&#39;s name)&#39;s (print: (either: $monster&#39;s bodyparta, $monster&#39;s bodypartb))!(set: $monsterhp to it-($damage+$weaponmod))](else:)[(print: (either: $monster&#39;s escapetexta, $monster&#39;s escapetextb))]}
+(if: $monsterhp&gt;0 and $hp&gt;0)[ 
+[[attack-&gt;fight]] 
+[[run away-&gt;flee]]]
+(if: $monsterhp&lt;=0 and $hp&gt;0)[(print: $monster&#39;s deathtext)
+(set: $room&#39;s monsterstatus to 2)
+(link-goto: &quot;Continue&quot;, &quot;Return&quot;)]
+]
+
+(if: $turn is 1)[The (print: $monster&#39;s name) attacks!
+{(if: $dex+(random:1,6)  &lt;= $monster&#39;s dex)[
+(print: $monster&#39;s attacktext)
+(set: $hp to it-$monster&#39;s damage)](else:)[(print: $monster&#39;s misstext)]}
+(if: $monsterhp&gt;0 and $hp&gt;0)[ 
+[[attack-&gt;fight]] 
+[[run away-&gt;flee]]]
+(if: $monsterhp&gt;0 and $hp&lt;=0)[You are dead
+(link-goto: &quot;Restart&quot;, &quot;loadplayer&quot;)]
+]
+
+(if: $turn is 1)[(set: $turn to 0)](else:)[(set: $turn to 1)]</tw-passagedata>
+<tw-passagedata pid="16" name="flee" tags="" position="899,256">(if: $dex+(random:1,6)  &gt; $monster&#39;s dex)[(link-goto:
+&quot;You escaped&quot;, &quot;Back&quot;)](else:)[
+You turn to run.(print:$monster&#39;s attacktext)(set: $hp to it-$monster&#39;s damage)
+(if: $monsterhp&gt;0 and $hp&lt;=0)[You are dead
+(link-goto: &quot;Restart&quot;, &quot;loadplayer&quot;)](else:)[
+[[fight]]
+[[flee]]
+]]
+</tw-passagedata>
+<tw-passagedata pid="17" name="Return" tags="" position="905,399">(goto: $roomdeck&#39;s ($pos))</tw-passagedata>
+<tw-passagedata pid="18" name="Complete" tags="" position="1120,688">You emerge into the light.
+You have completed Necro Dungeon
+</tw-passagedata>
+<tw-passagedata pid="19" name="Throneroom" tags="" position="133,657">(set: $room to $throneroom)
+(display: &quot;Standard Room&quot;)
+{(if: ($pos &lt; $roomdeck&#39;s length) and ($room&#39;s monsterstatus is not 1) and ($room&#39;s monsterstatus is not -1))[(link-goto: &quot;forward&quot;, &quot;Forward&quot;)]
+(else-if: ($pos &lt; $roomdeck&#39;s length) and ($room&#39;s monsterstatus is 1) or ($room&#39;s monsterstatus is -1))[(link: &quot;forward&quot;)[The (print: $room&#39;s monster&#39;s name) is blocking the way]]
+(else-if: ($pos &gt;= $roomdeck&#39;s length) and ($room&#39;s monsterstatus is not 1) and ($room&#39;s monsterstatus is not -1))[(link-goto: &quot;forward&quot;, &quot;Complete&quot;)]}
+(if: $pos &gt; 1)[(link-goto: &quot;backward&quot;, &quot;Back&quot;)]
+</tw-passagedata>
+<tw-passagedata pid="20" name="status" tags="" position="1125,133">{
+(if: $hp &gt;= 20)[good]
+(else-if: $hp &lt;20 and $hp&gt;=15)[ok]
+(else-if: $hp &lt;15 and $hp&gt;=12)[bruised]
+(else-if: $hp &lt;12 and $hp&gt;=8)[battered]
+(else-if: $hp &lt;8 and $hp&gt;=4)[bloody]
+(else-if: $hp &lt;4 and $hp&gt;=1)[dying]
+}</tw-passagedata>
+<tw-passagedata pid="21" name="inventory" tags="" position="1121,258">{
+(print: $inv.join(&quot;
+&quot;))
+(click-replace: &quot;pouch&quot;)[(print: $pouch)]
+}</tw-passagedata>
+<tw-passagedata pid="22" name="Footer" tags="footer" position="1124,8">the way I feel (click-replace: &quot;the way I feel&quot;)[(display: &quot;status&quot;)]
+the burdens I carry (click-replace: &quot;the burdens I carry&quot;)[(display: &quot;inventory&quot;)]
+
+</tw-passagedata>
+<tw-passagedata pid="23" name="Notes" tags="" position="653,154">$ room&#39;s $ monsterstatus has several states:
+-1 = previously encountered monster present
+0 = no monster
+1 = new monster
+2 = dead body, unlooted
+3 = dead body, no loot
+
+Will this be a useable way of preserving monster hp? at the moment if you leave and re-enter the hp is still reset. figure this out
+
+Turn player into a datamap, and adjust fight/flee for this
+
+work out new options for monster actions, and where to store these
+
+move the cursor to a new line at the end of every passage or it makes the footer show in the wrong place
+
+
+
+</tw-passagedata>
+</tw-storydata>

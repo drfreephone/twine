@@ -1,0 +1,194 @@
+<tw-storydata name="Necro Test 3 Copy" startnode="1" creator="Twine" creator-version="2.0.11" ifid="6FA61E13-EADF-4FA7-A2AD-6FF54C66B0BE" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="init" tags="" position="466,163">(set: $hp to 20)
+(set: $basedex to 3)
+(set: $basedamage to 3)
+(set: $dex to $basedex+$dexmod)
+(set: $damage to $basedamage+$weapondamage)
+(set: $weapon to &quot;sword&quot;)
+(set: $attack to &quot;slash&quot;)
+(set: $weapondamage to 1)
+(set: $pouch to (datamap:))
+(set: $inv to (a: &quot;pouch&quot;, &quot;rusty sword&quot;, &quot;ring of fear&quot;))
+(set: $dexmod to 1)
+(set: $fearful to 0)
+
+(goto: &quot;loadmonsters&quot;)</tw-passagedata>
+<tw-passagedata pid="2" name="main" tags="" position="501,329">You come into a small room. 
+You are safe here.
+There is an old woman guarding the door. She requires payment. 
+[[Venture into the dark-&gt;Continue]]
+(if: ($pouch contains &quot;bone fragments&quot;) and ($pouch contains &quot;lumps of slime&quot;))[ [[Pay the woman]] ]
+feel (click-replace: &quot;feel&quot;)[(display: &quot;status&quot;)]
+carry (click-replace: &quot;carry&quot;)[(display: &quot;inventory&quot;)]
+</tw-passagedata>
+<tw-passagedata pid="3" name="fight" tags="" position="725,682">(if: $turn is 0)[You attack with your $weapon!
+{(if: $dex+(random:1,6) &gt;= $monster&#39;s dex)[You $attack the (print: $monster&#39;s name)&#39;s (print: (either: $monster&#39;s bodyparta, $monster&#39;s bodypartb))!(set: $monsterhp to it-($damage+$weaponmod))](else:)[(print: (either: $monster&#39;s escapetexta, $monster&#39;s escapetextb))]}
+(if: $monsterhp&gt;0 and $hp&gt;0)[ 
+[[attack-&gt;fight]] 
+[[run away-&gt;flee]]]
+(if: $monsterhp&lt;=0 and $hp&gt;0)[(print: $monster&#39;s deathtext)
+(print: &quot;There is $dropamount $dropitem in the remains.&quot;) (click: &quot;remains&quot;)[You pick them up.(if: $pouch contains $dropitem)[(set: $pouch&#39;s $dropitem to it+$dropamount)](else:)[
+(set: $pouch to $pouch + (datamap: $dropitem, $dropamount))]]
+(link-goto: &quot;Leave&quot;, &quot;main&quot;)]
+]
+(if: $turn is 1)[The (print: $monster&#39;s name) attacks!
+{(if: $dex+(random:1,6)  &lt;= $monster&#39;s dex)[
+(print: $monster&#39;s attacktext)
+(set: $hp to it-$monster&#39;s damage)](else:)[(print: $monster&#39;s misstext)]}
+(if: $monsterhp&gt;0 and $hp&gt;0)[ 
+[[attack-&gt;fight]] 
+[[run away-&gt;flee]]]
+(if: $monsterhp&gt;0 and $hp&lt;=0)[You are dead
+(link-goto: &quot;Restart&quot;, &quot;init&quot;)]
+]
+
+(if: $turn is 1)[(set: $turn to 0)](else:)[(set: $turn to 1)]</tw-passagedata>
+<tw-passagedata pid="4" name="onward" tags="" position="610,807">(set: $monsterhp to $monster&#39;s hp)
+A (print: $monster&#39;s &quot;name&quot;) (print: (either: $monster&#39;s appeartexta, $monster&#39;s appeartextb))
+[[fight]]
+[[flee]]
+(if: $fearful is 1)[ [[project fear]] ]</tw-passagedata>
+<tw-passagedata pid="5" name="flee" tags="" position="443,647">(if: $dex+(random:1,6)  &gt; $monster&#39;s dex)[(link-goto:
+&quot;You escaped&quot;, &quot;main&quot;)](else:)[
+You turn to run.(print:$monster&#39;s attacktext)(set: $hp to it-$monster&#39;s damage)
+(if: $monsterhp&gt;0 and $hp&lt;=0)[You are dead
+(link-goto: &quot;Restart&quot;, &quot;init&quot;)](else:)[
+[[fight]]
+[[flee]]
+]]
+</tw-passagedata>
+<tw-passagedata pid="6" name="skeleton" tags="" position="1474,194">(set: $monster to $skeleton)
+(set: $turn to (either: 0,1))
+(set: $dropitem to $skeleton&#39;s &quot;dropitem&quot;)
+(set: $dropamount to (random: 1,3))
+(goto: &quot;onward&quot;)</tw-passagedata>
+<tw-passagedata pid="7" name="Continue" tags="" position="637,328">(display: (either: &quot;giant rat&quot;, &quot;slime blob&quot;, &quot;skeleton&quot;))
+
+
+</tw-passagedata>
+<tw-passagedata pid="8" name="slime blob" tags="" position="1473,319">(set: $monster to $massofslime)
+(set: $dropitem to $massofslime&#39;s dropitem)
+(set: $dropamount to (random:1,3))
+(set: $turn to 0)
+(goto: &quot;onward&quot;)</tw-passagedata>
+<tw-passagedata pid="9" name="giant rat" tags="" position="1472,444">(set: $monster to $giantrat)
+(set: $dropitem to $monster&#39;s dropitem)
+(set: $dropamount to (random: 1,3))
+(set: $turn to 1)
+(goto: &quot;onward&quot;)</tw-passagedata>
+<tw-passagedata pid="10" name="status" tags="" position="598,109">{
+(if: $hp &gt;= 20)[good]
+(else-if: $hp &lt;20 and $hp&gt;=15)[ok]
+(else-if: $hp &lt;15 and $hp&gt;=12)[bruised]
+(else-if: $hp &lt;12 and $hp&gt;=8)[battered]
+(else-if: $hp &lt;8 and $hp&gt;=4)[bloody]
+(else-if: $hp &lt;4 and $hp&gt;=1)[dying]
+}</tw-passagedata>
+<tw-passagedata pid="11" name="inventory" tags="" position="1128,113">{
+(print: $inv.join(&quot;
+&quot;))
+(click-replace: &quot;pouch&quot;)[(print: $pouch)]
+(click-replace: &quot;rusty sword&quot;)[(display: &quot;rusty sword&quot;)]
+(click-replace: &quot;ring of fear&quot;)[(display: &quot;ring of fear&quot;)]
+}
+</tw-passagedata>
+<tw-passagedata pid="12" name="rusty sword" tags="" position="1298,106">{
+A rusty sword
+
+
+
+}
+</tw-passagedata>
+<tw-passagedata pid="13" name="ring of fear" tags="" position="1298,254">{put on
+(click-replace: &quot;put on&quot;)[You emanate dread.(set: $fearful to 1)]}</tw-passagedata>
+<tw-passagedata pid="14" name="project fear" tags="" position="442,800">(if: $monster&#39;s tags contains &quot;easily scared&quot;)[Your eyes blaze, and the (print: $monster&#39;s name) runs away.
+(link-goto: &quot;Continue&quot;, &quot;main&quot;)](else:)[(set: $turn to 1)You strain to appear fearful, but the (print: $monster&#39;s name) moves toward you] (click: &quot;toward you&quot;)[(goto:&quot;fight&quot;)]
+
+</tw-passagedata>
+<tw-passagedata pid="15" name="Pay the woman" tags="" position="501,479">She accepts your meagre offerings.
+
+&lt;h2&gt;Game Over&lt;/h2&gt;</tw-passagedata>
+<tw-passagedata pid="16" name="loadmonsters" tags="" position="1471,50">(set: $skeleton to (datamap:
+&quot;name&quot;, &quot;skeleton&quot;,
+&quot;appeartexta&quot;, &quot;lurches toward you. You hear the the scrape of bone on stone.&quot;,
+&quot;appeartextb&quot;, &quot;rattles toward you, shedding bone dust.&quot;,
+&quot;bodyparta&quot;, &quot;gnarled hand&quot;,
+&quot;bodypartb&quot;, &quot;death-pale shin bone&quot;,
+&quot;attacktext&quot;, &quot;The fetid jaws dig into you!&quot;,
+&quot;misstext&quot;, &quot;It hisses bone dust as its jaws clamp onto thin air.&quot;,
+&quot;escapetexta&quot;, &quot;Your $attack is deflected!&quot;,
+&quot;escapetextb&quot;, &quot;Your $weapon swings hopelessly as the skeleton lurches out of the way.&quot;,
+&quot;deathtext&quot;, &quot;The skeleton crumbles to dust.&quot;,
+&quot;dropitem&quot;, &quot;bone fragments&quot;,
+&quot;dex&quot;, 7,
+&quot;damage&quot;, 4,
+&quot;hp&quot;, 3,
+&quot;tags&quot;, &quot;none&quot;))
+
+(set: $massofslime to (datamap:
+&quot;name&quot;, &quot;slimy mass&quot;,
+&quot;appeartexta&quot;, &quot;glides toward you, its gelatinous form strangely menacing.&quot;,
+&quot;appeartextb&quot;, &quot;drops from out of the dark with a thick gurgle.&quot;,
+&quot;bodyparta&quot;, &quot;jelly-like core&quot;,
+&quot;bodypartb&quot;, &quot;quivering mass&quot;,
+&quot;attacktext&quot;, &quot;It encircles you! You feel the acidic jelly burn your flesh.&quot;,
+&quot;misstext&quot;, &quot;It extends a tendril of slime, but you avoid its clutch.&quot;,
+&quot;escapetexta&quot;, &quot;Your $attack cleaves off a hunk of slime, but the mass is unaffected.&quot;,
+&quot;escapetextb&quot;, &quot;Your $weapon sinks hopelessly into the morass, but the slime doesn&#39;t react.&quot;,
+&quot;deathtext&quot;, &quot;The slime dissipates into water.&quot;,
+&quot;dropitem&quot;, &quot;lumps of slime&quot;,
+&quot;dex&quot;, 4,
+&quot;damage&quot;, 4,
+&quot;hp&quot;, 9,
+&quot;tags&quot;, &quot;none&quot;))
+
+(set: $giantrat to (datamap:
+&quot;name&quot;, &quot;giant rat&quot;,
+&quot;appeartexta&quot;, &quot;darts toward you, jaws slavering.&quot;, 
+&quot;appeartextb&quot;, &quot;skitters into the light and turns toward you.&quot;,
+&quot;bodyparta&quot;, &quot;crusty paw&quot;,
+&quot;bodypartb&quot;, &quot;matted haunch&quot;,
+&quot;attacktext&quot;, &quot;It slashes at you with its chipped teeth.&quot;,
+&quot;misstext&quot;, &quot;Its teeth graze the air beside you.&quot;,
+&quot;escapetexta&quot;, &quot;Your attack merely nicks its stinking tail.&quot;,
+&quot;escapetextb&quot;, &quot;Your $weapon cuts hopelessly through thin air.&quot;,
+&quot;deathtext&quot;, &quot;The rat&#39;s body leaks blood onto the dirt floor.&quot;,
+&quot;dropitem&quot;, &quot;rat&#39;s teeth&quot;,
+&quot;dex&quot;, 6,
+&quot;damage&quot;, 5,
+&quot;hp&quot;, 11,
+&quot;tags&quot;, &quot;easily scared, aggressive&quot;))
+
+(goto: &quot;main&quot;)</tw-passagedata>
+</tw-storydata>

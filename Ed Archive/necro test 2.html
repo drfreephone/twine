@@ -1,0 +1,391 @@
+<tw-storydata name="necro test 2" startnode="1" creator="Twine" creator-version="2.0.11" ifid="0A560C54-4F8C-4C70-B0CD-EA979B4845A8" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">html.nofooter tw-include[type="footer"] {
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="init" tags="no-footer" position="823,28">(display: &quot;Welcome to Necro Dungeon&quot;)
+
+(set: $initialvariable to (random: 1, 10))
+
+(set: $weather to (either: 1,2))
+
+(set: $location to (either: &quot;church&quot;,&quot;cave&quot;))
+
+(set: $coin to 4)
+
+(set: $hp to 10)
+
+(set: $dex to 3)
+
+(set: $damage to 3)
+
+(set: $damagetotal to ($damage+$weapondamage))
+
+(set: $armor to 0)
+
+(set: $monsterdamageroll to (($monsterdamage)+($monsterdieroll)))
+
+(set: $monsterdexroll to ($monsterdex+$monsterdieroll))
+
+(set: $inventory to (a: ))</tw-passagedata>
+<tw-passagedata pid="2" name="Welcome to Necro Dungeon" tags="no-footer" position="999,23">Welcome to Necro Dungeon.
+
+[[Enter]]
+
+</tw-passagedata>
+<tw-passagedata pid="3" name="Enter" tags="no-footer" position="999,173">{
+(if: $weather is 1)[The sun rises over the hills. It&#39;s going to be a beautiful day.]
+(if: $weather is 2)[The rain lashes down. It&#39;s been raining for days.]}
+You dismount from your horse and approach the (if: $location is &quot;church&quot;)[ruined church] (if: $location is &quot;cave&quot;)[cave cut into the rocks].
+
+You feel a sense of dread as you approach.
+Why are you here?
+
+[[for treasure]]
+[[for love]]
+[[for adventure]]
+</tw-passagedata>
+<tw-passagedata pid="4" name="for treasure" tags="no-footer" position="999,323">{
+(set: $reason to &quot;treasure&quot;)
+
+(set: $coin to 2)
+
+You pat your coin purse, and hear the two last gold pieces clink together 
+}
+
+(display: &quot;clothes&quot;)
+
+
+</tw-passagedata>
+<tw-passagedata pid="5" name="for love" tags="no-footer" position="1149,323">{
+(set: $reason to &quot;love&quot;)
+
+(set: $inventory to $inventory + (a: &quot;a love letter&quot;))
+
+You touch your hand over your breast pocket, hearing the rustle of the folded parchment inside it.
+}
+
+(display: &quot;clothes&quot;)</tw-passagedata>
+<tw-passagedata pid="6" name="for adventure" tags="" position="1299,323">{
+(set: $reason to &quot;adventure&quot;)
+
+(set: $inventory to $inventory + (a: &quot;adventuring gear&quot;))
+
+You steel yourself for the path ahead, and grit your teeth.
+}
+
+(display: &quot;clothes&quot;)</tw-passagedata>
+<tw-passagedata pid="7" name="clothes" tags="" position="999,456">{
+(if: $weather is 1)[ The sun beats down on you. It&#39;s getting too hot already. ]
+(if: $weather is 2)[ The rain soaks into your skin. Your clothes offer little protection. ]
+}
+What are you wearing?
+
+[[a tattered and faded robe-&gt;robe]]
+[[a rusty suit of armor-&gt;armor]]
+[[scarred and torn leathers-&gt;leathers]]
+</tw-passagedata>
+<tw-passagedata pid="8" name="robe" tags="" position="999,598">{(if: $weather is 1)[ Your robe flaps in the slight breeze.]
+(if: $weather is 2)[ Your wet robe presses against your skin.] The hood is half torn, the hem in shreds, and the original black has faded to a dirty grey.
+(set: $dex to it+2)
+(set: $clothes to &quot;robe&quot;)
+
+(display: &quot;background&quot;)}
+
+
+
+
+</tw-passagedata>
+<tw-passagedata pid="9" name="armor" tags="" position="1149,597">{(if: $weather is 1)[ You begin to sweat inside the heavy armor.]
+(if: $weather is 2)[ Water drips through the chinks in your armor. More water can&#39;t be good.] The armor is dented across the breastplate and the hinges are rusted, making it difficult to move.
+(set: $armor to it+2)
+(set: $clothes to &quot;armor&quot;)
+
+(display: &quot;background&quot;)
+}
+</tw-passagedata>
+<tw-passagedata pid="10" name="leathers" tags="" position="1299,598">{(if: $weather is 1)[ You notice the sweat forming inside your leather tabard.]
+(if: $weather is 2)[ Your tabard is heavy with water.] Your leathers are scarred from previous battles, and no longer fasten well.
+(set: $dex to it+1)
+(set: $armor to it+1)
+(set: $clothes to &quot;leathers&quot;)
+
+(display: &quot;background&quot;)}
+
+</tw-passagedata>
+<tw-passagedata pid="11" name="background" tags="no-footer" position="1002,724">What has left you in this state?
+
+
+[[cult&lt;-The eyeless cult of Karnak]]
+(if: $reason is not &quot;treasure&quot;)[ [[thieves&lt;-The thieves of the Northern Pass]] ]
+(if: $clothes is &quot;robe&quot;)[ [[Bad magic]] ]
+(if: $clothes is &quot;leathers&quot;)[ [[A hard road]] ]
+(if: $clothes is &quot;armor&quot;)[ [[A long battle]] ]
+</tw-passagedata>
+<tw-passagedata pid="12" name="cult" tags="" position="1002,874">{You blink blind eyes over your gaping eye sockets, and reach for your weapon. You won&#39;t suffer to be imprisoned again.
+
+(display: &quot;weapon&quot;)
+
+(set: $eyeless to 1)
+
+(set: $background to &quot;The cult of Karnak&quot;)}</tw-passagedata>
+<tw-passagedata pid="13" name="Bad magic" tags="" position="1302,874">{You listen to the lingering magical crackle that has surrounded you since the experiement went wrong, and reach for your weapon. You won&#39;t make the same mistakes again.
+
+(display: &quot;weapon&quot;)
+
+(set: $badmagic to 1)
+
+(set: $background to &quot;the failed experiment&quot;)}</tw-passagedata>
+<tw-passagedata pid="14" name="A hard road" tags="" position="1452,874">{You brush dirt from your damaged $clothes, and reach for your weapon. The ride here was hard, and the promise of $reason barely enough to keep you going.
+
+(display: &quot;weapon&quot;)
+
+(set: $mudstained to 1)
+
+(set: $background to &quot;the journey here&quot;)}</tw-passagedata>
+<tw-passagedata pid="15" name="A long battle" tags="" position="1602,874">{You wipe flecks of blood from your $clothes and from your weapon. The battle was hard, and many good fighters died beside you. You won&#39;t die now and disgrace their memory.
+
+(display: &quot;weapon&quot;)
+
+(set: $bloodstained to 1)
+
+(set: $background to &quot;The battle at White Horse&quot;)}</tw-passagedata>
+<tw-passagedata pid="16" name="weapon" tags="" position="1001,999">What weapon do you carry?
+
+[[a wood-axe]]
+[[a chipped and blunted greatsword]]
+[[a butcher&#39;s hatchet]]
+
+(set: $inventory to $inventory + (a: &quot;$weapon&quot;))</tw-passagedata>
+<tw-passagedata pid="17" name="a wood-axe" tags="" position="1001,1149">You feel your axe, more functional than deadly, and grimace.
+
+(display: &quot;proceed&quot;)
+
+(set: $weapondamage to 1)
+
+(set: $weapon to &quot;a wood-axe&quot;)</tw-passagedata>
+<tw-passagedata pid="18" name="a chipped and blunted greatsword" tags="" position="1151,1149">You feel your sword, marred by years of use, and grimace.
+
+(display: &quot;proceed&quot;)
+
+(set: $weapondamage to 2)
+
+(set: $weapon to &quot;a greatsword&quot;)</tw-passagedata>
+<tw-passagedata pid="19" name="a butcher&#39;s hatchet" tags="" position="1301,1149">You feel your hatchet, stained with something&#39;s blood, and grimace.
+
+(display: &quot;proceed&quot;)
+
+(set: $weapondamage to 1)
+
+(set: $weapon to &quot;a hatchet&quot;)</tw-passagedata>
+<tw-passagedata pid="20" name="proceed" tags="" position="441,1068">You face the $location, and steel yourself for what may be to come.
+
+[[Enter the $location-&gt;Enter the location]]
+
+
+(display: &quot;Update&quot;)</tw-passagedata>
+<tw-passagedata pid="21" name="thieves" tags="no-footer" position="877,874">{You feel your empty coin purse, and reach for your weapon. You won&#39;t be surprised again.
+
+(display: &quot;weapon&quot;)
+
+(set: $coin to 0)
+
+(set: $background to &quot;The thieves of the Northern Pass&quot;)}</tw-passagedata>
+<tw-passagedata pid="22" name="Enter the location" tags="" position="440,1225">(if: $weather is 1)[It is cool and dark inside the $location]
+(if: $weather is 2)[It is cold but dry inside the $location]
+You press forward, motivated by the $reason you desire. 
+
+[[The ground gives way beneath you]]</tw-passagedata>
+<tw-passagedata pid="23" name="List of player status tags" tags="" position="303,135">bloodstained
+
+mudstained
+
+eyeless
+
+badmagic
+
+
+
+</tw-passagedata>
+<tw-passagedata pid="24" name="Status" tags="no-footer" position="819,416">{
+(if: $eyeless is 1)[You gaze with futility through your blasted eyesockets.]
+(if: $hp &gt;= 10)[You are weak in the face of nature, but ready to fight for $reason.] 
+(if: $hp &gt;= 7 and  $hp &lt; 10 )[Your weakness threatens to overwhelm you.] 
+(if: $hp &gt;=4  and $hp &lt; 7)[Your frail body struggles to stand](if: $hp &gt;= 1 and &lt; 4)[You are dying an ignoble death in this dungeon.]
+(if: $bloodstained is 1)[Your bloodied body reminds you of the horror of the world you face.]
+(if: $mudstained is 1)[The mud and dirt you wear affronts your sense of right.]
+(if: $bloodstained is not 1 and $mudstained is not 1)[You take some pride in your cleanliness.]
+(if: $badmagic is 1)[The pungent sulphur smell of chemical experimentation scours your nostrils.]
+
+
+
+}</tw-passagedata>
+<tw-passagedata pid="25" name="Inventory" tags="no-footer" position="813,541">You are carrying (if: $inventory&#39;s length &gt; 0)[(print: $inventory.join(&quot;, &quot;)).](else:)[nothing of value.]
+You have $coin coin(if: $coin &gt; 1)[s]
+
+</tw-passagedata>
+<tw-passagedata pid="26" name="Update" tags="" position="818,289">
+(link: &quot;How am I feeling?&quot;)[ (display: &quot;Status&quot;) ]
+(link: &quot;What do I carry?&quot;)[ (display: &quot;Inventory&quot;) ]</tw-passagedata>
+<tw-passagedata pid="27" name="The ground gives way beneath you" tags="" position="440,1375">{(set: $dexroll to (($dex)+(random: 1,3)))
+
+You fall several feet down through the crumbling rock floor, and (if: $dexroll &lt; 5)[land hard on your back. (set:$hp to it-1)
+(set: $prone to 1)]
+(if: $dexroll is 5)[stumble as you land. (set: $prone to 1)] 
+(if: $dexroll &gt; 5)[barely land on your feet.]
+
+(set: $roomorder to (shuffled: &quot;Great Hall&quot;, &quot;Narrow Passage&quot;, &quot;Throne Room&quot;))
+
+
+}
+[[Continue]]
+
+(display: &quot;Update&quot;)
+
+
+
+</tw-passagedata>
+<tw-passagedata pid="28" name="Great Hall" tags="" position="1,387">(set: $roomorder to it-(a: ($roomorder&#39;s 1st)))
+(set: $monstervariable to (random: 0,2))
+You are in a large hall, hewn from rock. Torches are strung irregularly across the walls from rough rope-and-iron fixtures. There is a carved stone table in the centre, laid for a feast of some kind. (if: $monstervariable is 0)[There doesn&#39;t seem to be anyone else in the room.]
+(if: $monstervariable &gt;= 1)[You can hear a noise coming from the shadows]
+
+(if: $monstervariable &gt;= 1)[ [[Investigate the noise]] ]
+[[Investigate the table]]
+[[Look for an exit]]
+
+(display: &quot;Update&quot;)
+
+</tw-passagedata>
+<tw-passagedata pid="29" name="Narrow Passage" tags="" position="163,707">(set: $roomorder to it-(a: ($roomorder&#39;s 1st)))
+(set: $monstervariable to (random: 0,2))
+You are in a narrow passage, barely wider than your shoulders. The air is thin and dry.
+(if: $monstervariable is 1)[(display: &quot;Skeleton&quot;)] 
+(if: $monstervariable is 2)[(display: &quot;Spider&quot;))] 
+[[The passage continues]] 
+ 
+</tw-passagedata>
+<tw-passagedata pid="30" name="Throne Room" tags="" position="5,862">(set: $roomorder to it-(a: ($roomorder&#39;s 1st)))
+(set: $monstervariable to (random: 0,2))
+You are in a large room. One end is brightly lit by a ring of burning torches, suspended above what looks like a huge throne of carved stone.
+
+[[Look for an exit]]
+[[Investigate the Throne Room]]
+</tw-passagedata>
+<tw-passagedata pid="31" name="Investigate the noise" tags="" position="315,537">(display: (either: &quot;Skeleton&quot;, &quot;Spider&quot;))</tw-passagedata>
+<tw-passagedata pid="32" name="Investigate the table" tags="" position="150,537">(if: $monstervariable is 1)[(display: &quot;Skeleton&quot;)] 
+(if: $monstervariable is 2)[(display: &quot;Spider&quot;))] 
+
+(if: $monstervariable is 0)[
+You move toward the table, and realise it is set with serrated knives, and jewelled forks.
+Take a knife.(click: &quot;knife.&quot;)[It is heavy and could be a useful weapon. (set: $inventory to $inventory + (a: &quot;a serrated knife&quot;))]
+Take a fork. (click: &quot;fork.&quot;)[It might be worth something. (set: $inventory to $inventory + (a: &quot;a jewelled fork&quot;))]]
+
+[[Investigate the table]] 
+[[Look for an exit]]
+
+
+
+(display: &quot;Update&quot;)</tw-passagedata>
+<tw-passagedata pid="33" name="Look for an exit" tags="" position="0,535">You look frantically around the tall stone walls for a way out.
+(if: $monstervariable is 1)[(display: &quot;Skeleton&quot;)] 
+(if: $monstervariable is 2)[(display: &quot;Spider&quot;))] 
+(if: $monstervariable is &gt; 0)[ [[Look for an exit]] ]
+
+(if: $monstervariable is 0)[You find a an arched doorway
+
+(link-goto: &quot;Go through the door&quot;, &quot;Continue&quot;)]
+
+
+(display: &quot;Update&quot;)</tw-passagedata>
+<tw-passagedata pid="34" name="Skeleton" tags="" position="436,694">{(set: $monster to &quot;Skeleton&quot;)
+(set: $monsterloop to &quot;Skeleton Loop&quot;)
+(set: $monsterdamage to (random: 1,2))
+(set: $monsterhp to 4)
+(set: $turn to (random: 0,1))
+(set: $monsterdex to 5)}
+A skeleton lurches toward you. You hear the dry scrape of bone on stone.
+(display: $monsterloop)</tw-passagedata>
+<tw-passagedata pid="35" name="Spider" tags="" position="619,694">{(set: $monster to &quot;Spider&quot;)
+(set: $monsterloop to &quot;Spider Loop&quot;)
+(set: $monsterdamage to (random: 1,2))
+(set: $monsterhp to 2)
+(set: $turn to (random: 0,1))
+(set: $monsterdex to 6)}
+A huge spider skitters toward you. You hear the sound of mandibles clicking.
+(if: $badmagic is 1)[It stops and sniffs the air, before turning and rushing away.(set: $monstervariable to 0)]
+(display: $monsterloop)
+</tw-passagedata>
+<tw-passagedata pid="36" name="Flee" tags="" position="353,260">(set: $dexroll to ($dex+(random: 1,3)))
+(if: $dexroll &gt;= $monsterdex)[(link-goto: &quot;You Escape&quot;,&quot;Continue&quot;)]
+
+(else-if: $dexroll &lt; $monsterdex)[
+The $monster slashes at you as you escape! (set: $hp to it-($monsterdamage-1))(if: $hp &gt; 0)[(link-goto: &quot;
+You Escape&quot;, &quot;Continue&quot;)]]
+(if: $hp &lt;=0)[You are dead. (link-goto: &quot;Restart&quot;, &quot;init&quot;)]
+
+</tw-passagedata>
+<tw-passagedata pid="37" name="Attack" tags="" position="445,135">{(set: $dexroll to ($dex+(random: 1,3)))
+(if: $dexroll &gt;= $monsterdex)[
+You slash the $monster with your $weapon!
+(set: $monsterhp to it-$damage)(set: $turn to 0)] 
+(if: $dexroll &lt; $monsterdex)[The $monster escapes your $weapon!(set: $turn to 0)] 
+(display: $monsterloop)}
+
+</tw-passagedata>
+<tw-passagedata pid="38" name="Attacked" tags="" position="346,10">{(set: $dexroll to ($dex+(random: 1,3)))
+(if: $dexroll &gt; $monsterdex)[You narrowly avoid the $monster! (set:$turn to 1)] 
+(if: $dexroll &lt;= $monsterdex)[The $monster slashes you!(set: $hp to it-$monsterdamage) (set: $turn to 1)]}
+(display: &quot;Skeleton Loop&quot;)</tw-passagedata>
+<tw-passagedata pid="39" name="Continue" tags="" position="440,1525">(if: $roomorder&#39;s length &lt;= 0)[You have completed Necro Dungeon]
+(if: $roomorder&#39;s length &gt;= 1)[(goto: ($roomorder&#39;s 1st))]
+</tw-passagedata>
+<tw-passagedata pid="40" name="Spider Loop" tags="" position="621,824">(if: ($hp &gt; 0) and ($turn is 1) and ($monsterhp &gt; 0))[(link: &quot;Attack
+&quot;)[(display: &quot;Attack&quot;)](link: &quot;Flee&quot;)[(display: &quot;Flee&quot;)]]
+(if: $hp &gt; 0 and $turn is 0 and $monsterhp &gt; 0)[(display: &quot;Attacked&quot;)]
+(if: $monsterhp &lt;= 0)[The spider shrieks and bleeds green blood onto the dirt floor. (set: $monstervariable to 0)]
+(if: $hp is &lt;=0)[You are dead. (link-goto: &quot;Restart&quot;, &quot;init&quot;)]</tw-passagedata>
+<tw-passagedata pid="41" name="Skeleton Loop" tags="" position="439,819">(if: ($hp &gt; 0) and ($turn is 1) and ($monsterhp &gt; 0))[(link: &quot;Attack
+&quot;)[(display: &quot;Attack&quot;)](link: &quot;Flee&quot;)[(display: &quot;Flee&quot;)]]
+{(if: $hp &gt; 0 and $turn is 0 and $monsterhp &gt; 0)[(display: &quot;Attacked&quot;)]
+(if: $monsterhp &lt;= 0)[The skeleton crumbles to dust. (set: $monstervariable to 0)]
+(if: $hp is &lt;=0)[You are dead. (link-goto: &quot;Restart&quot;, &quot;init&quot;)]}</tw-passagedata>
+<tw-passagedata pid="42" name="The passage continues" tags="" position="167,855">There is a door at one end. (if: $monstervariable &gt; 0)[The $monster is blocking the path]
+(if: $monstervariable is 1)[(display: &quot;Skeleton&quot;)] 
+(if: $monstervariable is 2)[(display: &quot;Spider&quot;))]
+[[Try again-&gt;The passage continues]] 
+
+(if: $monstervariable is 0)[(link-goto: &quot;Go through the door&quot;, &quot;Continue&quot;)]</tw-passagedata>
+<tw-passagedata pid="43" name="Investigate the Throne Room" tags="" position="11,1147">(if: ($monstervariable &gt;0))[(display: (either: &quot;Skeleton&quot;, &quot;Spider&quot;))]
+
+(if: $monstervariable is 0)[There is nothing useful here. 
+(link-goto: &quot;Leave&quot;, &quot;Continue&quot;)]
+[[Investigate the Throne Room]] </tw-passagedata>
+</tw-storydata>

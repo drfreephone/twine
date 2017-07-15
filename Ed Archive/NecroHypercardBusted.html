@@ -1,0 +1,148 @@
+<tw-storydata name="NecroHypercardBusted" startnode="1" creator="Twine" creator-version="2.0.11" ifid="A9D3462C-D940-4956-9EAE-768591B7D6FA" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+
+
+
+
+
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+
+
+
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="START" tags="" position="830,250">(set: $Location to &quot;&quot;)
+(set: $Monster to &quot;&quot;)
+
+
+(print: $Skeleton1)
+(print: $Wurm1)
+
+(link: &quot;ONE&quot;)[(set: $LocationName to ($R1&#39;s Roomname))(set: $Location to $R1)(goto:&quot;LocationTracker&quot;)]
+
+(link: &quot;TWO&quot;)[(set: $LocationName to ($R2&#39;s Roomname))(set: $Location to $R1)(goto:&quot;LocationTracker&quot;)]</tw-passagedata>
+<tw-passagedata pid="2" name="Burrow" tags="" position="951,496">- Mud clods on the ground stagger the foe
+- There are eggs that hatch and mess you up if you interfere with them
+- A pile of grisly remains makes you filthy if you jump into it but lets you defend yourself with a massive ribcage
+
+(print: $Monster&#39;s Name) (print: $Monster&#39;s Announce)
+
+
+(set: $Burrow to $Location)
+[[Back-&gt;START]]</tw-passagedata>
+<tw-passagedata pid="3" name="Throneroom" tags="" position="732,466">- Get in the throne and the monster has a chance to kneel as if you&#39;re the king
+- Pull the rug out from under the enemy
+
+(if: &quot;Clutter&quot; of $Location is &quot;candles&quot;)[(print: &quot;There are candles here&quot;)]
+
+
+(print: $R1)
+(print: $Monster)
+
+(print: $R1&#39;s Name) (print: $R1&#39;s Announce)
+
+(set: $Throneroom to $Location)
+
+(set: $Location&#39;s Name to &quot;ITWORKED&quot;)
+
+(set: $Location&#39;s VarName to (datamap: &quot;VarName&quot;, $Location&#39;s VarName, &quot;Name&quot;, $Location&#39;s Name, &quot;Announce&quot;, $Location&#39;s Announce))
+
+[[Back-&gt;START]]</tw-passagedata>
+<tw-passagedata pid="4" name="LocationTracker" tags="" position="70,172">THIS STAGE SHOULD ALSO HANDLE UPDATING THE DATAMAPS OF ROOMS. OH WELL. DEAL WITH THIS WHEN PROTOTYPING TRAVERSAL. IT SHOULD ADD THE MONSTER TO THE UR-ROOM, RATHER THAN MERELY (print: $LocationName).
+
+(print: $R1)
+
+{
+(if: (history:) contains $LocationName)[
+
+(set: $Location&#39;s VarName to $Monster)
+
+
+(goto: $Location&#39;s Roomname)
+
+]
+(else:)[
+
+(set: $Monster to $Location&#39;s VarName)
+
+(goto: $Location&#39;s Roomname)
+
+]
+}</tw-passagedata>
+<tw-passagedata pid="5" name="ROOMSTAGS" tags="startup" position="66,31">YO
+{
+(set: $Burrow to
+(datamap: 
+&quot;Features&quot;, &quot;dirt&quot;,
+&quot;Clutter&quot;, (either: &quot;candles&quot;, &quot;broken glass&quot;),
+&quot;Roomname&quot;, &quot;Burrow&quot;,
+&quot;Name&quot;, $Burrow,
+&quot;Cards&quot;, (shuffled: ...(a:&quot;mud&quot;, &quot;eggs&quot;, &quot;ribs&quot;)),
+)
+)
+
+(set: $Throneroom to 
+(datamap: 
+&quot;Features&quot;, &quot;windows&quot;,
+&quot;Clutter&quot;, (either: &quot;candles&quot;, &quot;broken glass&quot;),
+&quot;Roomname&quot;, &quot;Throneroom&quot;,
+&quot;Name&quot;, $Throneroom,
+&quot;Cards&quot;, (shuffled: ...(a:&quot;throne&quot;, &quot;rug&quot;)),
+)
+)
+
+
+}</tw-passagedata>
+<tw-passagedata pid="6" name="MONSTERTAGS" tags="startup" position="222,31">HEY
+{
+(set: $Skeleton1 to 
+(datamap:
+&quot;Name&quot;, (either: &quot;Skellingtonbonez&quot;, &quot;Mr. Frighty&quot;),
+&quot;VarName&quot;, &quot;$Skeleton1&quot;,
+&quot;Cards&quot;, (shuffled: ...(a: &quot;hack&quot;, &quot;hack&quot;, &quot;hack&quot;, &quot;bonerattle&quot;)),
+&quot;Announce&quot;, &quot;shambles around aimlessly&quot;,
+)
+)
+(set: $Wurm1 to 
+(datamap:
+&quot;Name&quot;, (either: &quot;Slippy&quot;, &quot;Tongueman&quot;),
+&quot;VarName&quot;, &quot;$Wurm1&quot;,
+&quot;Cards&quot;, (shuffled: ...(a: &quot;hack&quot;, &quot;hack&quot;, &quot;burrow&quot;, &quot;slurp&quot;)),
+&quot;Announce&quot;, (either: &quot;writhes in the middle of the floor&quot;,&quot;sprawls horribly&quot;,&quot;erupts from the ground&quot;)
+)
+)
+}</tw-passagedata>
+<tw-passagedata pid="7" name="ZINDEX" tags="startup" position="373,22">{
+
+(set: $A to (a: $Skeleton1, $Wurm1))
+(set: $UMonsterlist to (shuffled: ...$A))
+
+(set: $B to (a: $Throneroom, $Burrow))
+(set: $URoomlist to (shuffled: ...$B))
+
+(set: $R1 to &quot;&quot;)
+(set: $R2 to &quot;&quot;)
+
+(move: ($URoomlist&#39;s 1st) into $R1)
+(move: it + ($UMonsterlist&#39;s 1st) into $R1)
+
+(move: ($URoomlist&#39;s 1st) into $R2)
+(move: it + ($UMonsterlist&#39;s 1st) into $R2)
+
+(set: $Index to (a: $R1, $R2, $R3, $R4, $R5, $R6))
+
+}
+
+</tw-passagedata>
+</tw-storydata>

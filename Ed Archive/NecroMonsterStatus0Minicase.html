@@ -1,0 +1,29 @@
+<tw-storydata name="NecroMonsterStatus0Minicase" startnode="1" creator="Twine" creator-version="2.0.11" ifid="F72FF0E6-A85F-43ED-9C5B-4BCB5F37AC41" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="roomload" tags="" position="674,334">(set: $throneroom to (datamap:
+&quot;monsterstatus&quot;, 1,
+))
+
+(goto: &quot;room&quot;)</tw-passagedata>
+<tw-passagedata pid="2" name="room" tags="" position="840,341">(set: $room to $throneroom)
+(print: $room&#39;s monsterstatus)
+[[WILL HE?]]
+(live: 0.8s)[(either: &quot;OH&quot;, &quot;SHIT&quot;, &quot;WHAT?&quot;)]</tw-passagedata>
+<tw-passagedata pid="3" name="WILL HE?" tags="" position="840,491">(set: $room&#39;s monsterstatus to 0)
+
+[[room]] </tw-passagedata>
+</tw-storydata>

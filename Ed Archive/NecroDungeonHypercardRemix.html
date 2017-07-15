@@ -1,0 +1,216 @@
+<tw-storydata name="NecroDungeonHypercardRemix" startnode="1" creator="Twine" creator-version="2.0.11" ifid="A9D3462C-D940-4956-9EAE-768591B7D6FA" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="START" tags="" position="831,250">THE GATE BECKONS
+
+(link: &quot;MARCH ONWARD&quot;)[(set: $Location to $Dungeon&#39;s ($Pos))(goto:&quot;LocationTracker&quot;)]</tw-passagedata>
+<tw-passagedata pid="2" name="Burrow" tags="" position="1001,396">- Mud clods on the ground stagger the foe
+- There are eggs that hatch and mess you up if you interfere with them
+- A pile of grisly remains makes you filthy if you jump into it but lets you defend yourself with a massive ribcage
+
+
+(print: Features of $CL)
+
+(print: $CM&#39;s Name) (print: $CM&#39;s Announce).
+
+
+(display: &quot;TraversalOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="3" name="Throneroom" tags="" position="699,400">- Get in the throne and the monster has a chance to kneel as if you&#39;re the king
+- Pull the rug out from under the enemy
+
+(print: $CM&#39;s Name) (print: $CM&#39;s Announce).
+
+(print: &quot;Clutter&quot; of $CL)
+
+
+
+(display: &quot;TraversalOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="4" name="LocationTracker" tags="" position="57,272">
+
+&lt;!-- Checks where you&#39;re going and loads the correct CL --&gt;
+(if: $Location is &quot;Throneroom&quot;)[(set: $CL to $Throneroom)]
+(if: $Location is &quot;Hallway&quot;)[(set: $CL to $Hallway)]
+(if: $Location is &quot;Burrow&quot;)[(set: $CL to $Burrow)]
+
+&lt;!-- Loads appropriate Monster --&gt;
+(display: &quot;MonsterTracker&quot;)
+
+(goto: $CL&#39;s Roomname)</tw-passagedata>
+<tw-passagedata pid="5" name="ROOMSTAGS" tags="startup" position="56,147">YO
+
+{
+&lt;!-- DON&#39;T FORGET YOUR COMMAS, DICKWAD --&gt;
+(set: $clutter to (shuffled: ...(a:&quot;candles&quot;,&quot;broken glass&quot;,&quot;moss&quot;)))
+
+(set: $Burrow to
+(datamap: 
+&quot;Features&quot;, &quot;dirt&quot;,
+&quot;Clutter&quot;, (shuffled: ...$clutter)&#39;s 1st,
+&quot;Roomname&quot;, &quot;Burrow&quot;,
+&quot;Cards&quot;, (shuffled: ...(a:&quot;mud&quot;, &quot;eggs&quot;, &quot;ribs&quot;)),
+
+&quot;Monster&quot;, &quot;&quot;,
+)
+)
+(set: $Throneroom to 
+(datamap: 
+&quot;Features&quot;, &quot;windows&quot;,
+&quot;Clutter&quot;, (shuffled: ...$clutter)&#39;s 1st,
+&quot;Roomname&quot;, &quot;Throneroom&quot;,
+&quot;Cards&quot;, (shuffled: ...(a:&quot;throne&quot;, &quot;rug&quot;)),
+&quot;Monster&quot;, &quot;&quot;,
+)
+)
+(set: $Hallway to 
+(datamap: 
+&quot;Features&quot;, (a:&quot;dirt&quot;,&quot;windows&quot;),
+&quot;Clutter&quot;, (shuffled: ...$clutter)&#39;s 1st,
+&quot;Roomname&quot;, &quot;Hallway&quot;,
+&quot;Cards&quot;, (shuffled: ...(a:&quot;mud&quot;, &quot;ribs&quot;)),
+&quot;Monster&quot;, &quot;&quot;,
+)
+)
+}</tw-passagedata>
+<tw-passagedata pid="6" name="MONSTERTAGS" tags="startup" position="191,145">
+HEY
+{
+(set: $Skeleton1 to 
+(datamap:
+&quot;Name&quot;, (either: &quot;Skellingtonbonez&quot;, &quot;Mr. Frighty&quot;),
+&quot;Type&quot;, &quot;skeleton&quot;,
+&quot;Cards&quot;, (shuffled: ...(a: &quot;hack&quot;, &quot;hack&quot;, &quot;hack&quot;, &quot;bonerattle&quot;)),
+&quot;Announce&quot;, &quot;shambles around aimlessly&quot;,
+)
+)
+(set: $Wurm1 to 
+(datamap:
+&quot;Name&quot;, (either: &quot;Slippy&quot;, &quot;Tongueman&quot;),
+&quot;Type&quot;, &quot;wurm&quot;,
+&quot;Cards&quot;, (shuffled: ...(a: &quot;hack&quot;, &quot;hack&quot;, &quot;burrow&quot;, &quot;slurp&quot;)),
+&quot;Announce&quot;, (either: &quot;writhes in the middle of the floor&quot;,&quot;sprawls horribly&quot;,&quot;erupts from the ground&quot;)
+)
+)
+(set: $Cultist1 to 
+(datamap:
+&quot;Name&quot;, (either: &quot;Barphamordo&quot;, &quot;Hoden&quot;),
+&quot;Type&quot;, &quot;cultist&quot;,
+&quot;Cards&quot;, (shuffled: ...(a: &quot;hack&quot;, &quot;hack&quot;, &quot;entreaty&quot;, &quot;frenzy&quot;)),
+&quot;Announce&quot;, (either: &quot;fails to meet your gaze&quot;,&quot;writhes in its cloak&quot;,&quot;burbles and stammers&quot;)
+)
+)
+}</tw-passagedata>
+<tw-passagedata pid="7" name="Hallway" tags="" position="842,398">- some stuff from other rooms
+- something about clutter
+
+(print: $CM&#39;s Name) (print: $CM&#39;s Announce).
+
+(display: &quot;TraversalOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="8" name="Z DUNGEON MAPPER" tags="startup" position="129,20">{
+&lt;!-- Put names of all rooms here. Later, this might be several different lists to represent biomes. I think in the final game a lot of tweaking of this generator will be necessary, but this here represents the most basic version of it --&gt;
+(set: $Roomlist to (a: &quot;Hallway&quot;, &quot;Burrow&quot;, &quot;Throneroom&quot;))
+
+&lt;!-- Sets up the main array. There could be several parallel arrays representing different &#39;branches&#39; of the dungeon, and we could set them up to, for example, always put a superhard room last, or to make sure that each branch contains one treasure room, or something --&gt;
+(set: $Dungeon to (shuffled: ...$Roomlist))
+
+&lt;!-- Now we put monsters in rooms. This is where monsters must go to be included in dungeon generation. Could have multiple menageries --&gt;
+(set: $Monsterlist to (a:&quot;Skeleton1&quot;, &quot;Wurm1&quot;, &quot;Cultist1&quot;))
+(set: $Menagerie to (shuffled: ...$Monsterlist))
+(move: $Menagerie&#39;s 1st into $Burrow&#39;s Monster)
+(move: $Menagerie&#39;s 1st into $Throneroom&#39;s Monster)
+(move: $Menagerie&#39;s 1st into $Hallway&#39;s Monster)
+
+&lt;!-- This variable tracks location in the dungeon. May add a second one to check which branch you&#39;re in once I implement multiple branches --&gt;
+(set: $Pos to 1)
+
+&lt;!-- These variables are the datamaps containing the tags for the currently loaded room and monster. Here I just set them up as empty datamaps. It&#39;s short because I anticipate having to type it an awful lot --&gt;
+(set: $CL to (datamap:))
+(set: $CM to (datamap:))
+
+&lt;!-- For debug purposes --&gt;
+(print: $Dungeon)
+}
+
+</tw-passagedata>
+<tw-passagedata pid="9" name="TraversalOptions" tags="" position="122,402">{
+&lt;!-- These options determine if you&#39;re in the first or last room of the branch, or in the middle, and display appropriate links for the rooms before and behind. They could use some situational stuff from the CL to give the links more flavour. In each link, Pos is updated to reflect the new location, and this is used to update the Location tag which tells the LocationTracker which room to load up next --&gt;
+
+(if: $Pos is 1)[
+(link: &quot;MARCH ONWARD to  (print: $Dungeon&#39;s ($Pos+1))&quot;)[
+(set: $Pos to it+1)
+(set: $Location to $Dungeon&#39;s ($Pos))(goto:&quot;LocationTracker&quot;)
+]
+]
+
+(if: 1 &lt; $Pos and $Pos &lt; $Dungeon&#39;s length)[
+(link: &quot;MARCH ONWARD to (print: $Dungeon&#39;s ($Pos+1))&quot;)[
+(set: $Pos to it+1)
+(set: $Location to $Dungeon&#39;s ($Pos))(goto:&quot;LocationTracker&quot;)
+]
+(print:&quot;
+&quot;)
+(link: &quot;MARCH BACKWARD to (print: $Dungeon&#39;s ($Pos-1))&quot;)[
+(set: $Pos to it-1)
+(set: $Location to $Dungeon&#39;s ($Pos))(goto:&quot;LocationTracker&quot;)
+]
+]
+ 
+
+(if: $Pos &gt;= $Dungeon&#39;s length)[
+(link: &quot;MARCH BACKWARD to (print: $Dungeon&#39;s ($Pos-1))&quot;)[
+(set: $Pos to it-1)
+(set: $Location to $Dungeon&#39;s ($Pos))(goto:&quot;LocationTracker&quot;)
+]
+]
+}</tw-passagedata>
+<tw-passagedata pid="10" name="Debug CL list" tags="debug-footer" position="1229,14">
+
+PlaceCL(click-replace: &quot;PlaceCL&quot;)[(print: $CL)]
+MonsterCM(click-replace: &quot;MonsterCM&quot;)[(print: $CM)]</tw-passagedata>
+<tw-passagedata pid="11" name="MonsterTracker" tags="" position="194,271">{
+
+&lt;!-- Does much the same process as the LocationTracker page, but for monsters. First it updates the pool with the currently loaded monster, overwriting the old one. Then it empties the datamap, and then loads the appropriate one for the next room --&gt;
+
+(if: $CL&#39;s Monster is &quot;Wurm1&quot;)[(set: $CM to $Wurm1)]
+(if: $CL&#39;s Monster is &quot;Skeleton1&quot;)[(set: $CM to $Skeleton1)]
+(if: $CL&#39;s Monster is &quot;Cultist1&quot;)[(set: $CM to $Cultist1)]
+
+}</tw-passagedata>
+<tw-passagedata pid="12" name="NEW CONTENT?" tags="" position="1104,12">Location? 
+Update Roomlist in DungeonMapper
+Update LocationTracker
+Put tags in ROOMSTAGS
+
+
+Monster?
+Update Monsterlist in DungeonMapper
+Update MonsterTracker
+Put tags in MONSTERTAGS
+
+Passage?
+Put traversal at the bottom</tw-passagedata>
+</tw-storydata>

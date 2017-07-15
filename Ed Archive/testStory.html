@@ -1,0 +1,101 @@
+<tw-storydata name="testStory" startnode="4" creator="Twine" creator-version="2.0.11" ifid="20C6CC6F-D86A-4B8E-A6D5-9AA1749F2141" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">html {
+	background-image: url(fragmentsBackground.png); 
+	background-position: center; 
+	background-size: 100% 400%; 
+	background-repeat: no-repeat;
+}
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.music = new Audio("06 Everywhere You Turn.mp3");
+
+	window.play = function () {
+		music.volume = 1
+	  music.play();
+	  music.loop = true;
+	};
+
+	window.playNoLoop = function () {
+	  music.play();
+	  music.loop = false;
+	};
+
+	window.pause = function () {
+	  music.pause();
+	};
+
+	window.loadTrackA = function () {
+	  window.music = new Audio("368743__frankum__electronic-pop-sweet-guitar.mp3");
+	};
+
+	window.loadTrackB = function () {
+		window.music = new Audio("365482__caitlin-100__camera-beeps-noises.mp3");
+	};
+
+
+
+
+</script><tw-passagedata pid="1" name="Intro" tags="" position="536,268">&lt;input type=&quot;image&quot; src=&quot;developers-will-resist.gif&quot; onclick=&quot;pause(); loadTrackA(); play()&quot;&gt;
+
+(link: &quot;camera sound&quot;)[(display:&quot;Noise&quot;)]
+
+[[stop the music|NextPage]]
+
+(if: $visitedCrowd is true)[(print: $people&#39;s 4th) is overcome!]</tw-passagedata>
+<tw-passagedata pid="2" name="Noise" tags="" position="845,263">(link: &quot;and again&quot;)[(display:&quot;Noise&quot;)]{
+&lt;script&gt;
+       var audio = new Audio(&quot;365482__caitlin-100__camera-beeps-noises.mp3&quot;);
+       audio.play();
+&lt;/script&gt;
+}</tw-passagedata>
+<tw-passagedata pid="3" name="NextPage" tags="" position="687,553">OK
+&lt;script&gt;
+	pause()
+&lt;/script&gt;
+[[take a photo|NextPageA]]
+[[create people|HumanMaker]]</tw-passagedata>
+<tw-passagedata pid="4" name="SilentStarter" tags="" position="297,234">&lt;script&gt;
+	play();
+&lt;/script&gt;
+(set: $visitedCrowd to false)
+(goto: &quot;Intro&quot;)</tw-passagedata>
+<tw-passagedata pid="5" name="NextPageA" tags="" position="441,550">&lt;script&gt;
+	loadTrackB()
+	playNoLoop()
+&lt;/script&gt;
+
+[[back to start|Intro]]</tw-passagedata>
+<tw-passagedata pid="6" name="HumanMaker" tags="" position="862,559">(set: $people to (a:))
+
+(display: &quot;NameGenerator&quot;)
+
+(set: $people to it + (a: $name))
+
+(display: &quot;NameGenerator&quot;)
+
+(set: $people to it + (a: $name))
+
+(display: &quot;NameGenerator&quot;)
+
+(set: $people to it + (a: $name))
+
+(display: &quot;NameGenerator&quot;)
+
+(set: $people to it + (a: $name))
+
+(goto:&quot;Crowd&quot;)</tw-passagedata>
+<tw-passagedata pid="7" name="Crowd" tags="" position="1024,506">(set: $visitedCrowd to true)
+(print: $people&#39;s 1st) talks to (print: $people&#39;s 2nd).
+(print: $people&#39;s 3rd) is angry.
+Together, they overcome (print: $people&#39;s 4th).
+
+[[back to the start|Intro]]</tw-passagedata>
+<tw-passagedata pid="8" name="NameGenerator" tags="" position="970,739">(set: $firstname to (either: &quot;Jack&quot;, &quot;Bill&quot;, &quot;Time&quot;))
+(set: $lastnamelist to (a:&quot;Harnkess&quot;, &quot;the Destroyer&quot;, &quot;Rebus&quot;))
+(set: $lastnamelist to (shuffled: ...$lastnamelist))
+(set: $lastname to $lastnamelist&#39;s 1st)
+(set: $name to $firstname + &quot; &quot; + $lastname)</tw-passagedata>
+<tw-passagedata pid="9" name="Untitled Passage" tags="" position="699,115">Double-click this passage to edit it.</tw-passagedata>
+</tw-storydata>

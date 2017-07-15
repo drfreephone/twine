@@ -1,0 +1,617 @@
+<tw-storydata name="Fetch Quest" startnode="1" creator="Twine" creator-version="2.0.8" ifid="56D636FB-DB7E-4698-8DAD-24FC0DAF5DD2" format="Harlowe" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+
+
+
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="Start" tags="" position="51,108">Fetch Quest is an attempt to tell the simplest possible RPG sub-plot story, but with a great many different variables that determine what the content of that story looks and feels like. The idea was to get a broad range of different outcomes that emerge from only a handful of decision points. This probably isn&#x27;t the best way to do IF, but it has nevertheless been an interesting experiment in Twine. 
+
+After you finish, try playing it again with a different combination of options. Something very different might happen. Or you might get entirely the same outcome, but with a whole load of superficial differences. Who knows! 
+
+There are about 10,000 words in here and it&#x27;s probably riddled with typos. Apologies if that&#x27;s a problem for you.
+
+I can be contacted on epsibley@gmail.com for corrections, comments, queries, etc.
+
+Enjoy!
+
+[[Next.-&gt;Setting]]
+</tw-passagedata><tw-passagedata pid="2" name="Intro" tags="" position="301,103">The journey took longer than you expected, rumbling across the dirt of $IWorldName. Just you, $IName, and the $IConveyance. You think back to $IQuestGiver$IQuestGiverBumf, rambling at you for hours about this crazy mission. This mission you&#x27;re on right now. This plan that&#x27;s just desperate enough to work. A decisive move that might finally get one over on the $IVillainTeam, {(if: $Setting is 1)[and stop their reign of senseless destruction from taking any more lives.](else-if: $Setting is 2)[which is a sentence you never thought you&#x27;d catch yourself thinking. This is it - a chance to discover out what malevolent secret they&#x27;ve keeping in that vault all these years. Orbulon and his spies have spent years trying to get hold of the blueprint. Last night, months of planning and negotiation came to a head. You were assigned to collect the blueprint from a man in an alley in Zabraxis-6. But things didn&#x27;t play out how you would have liked. Long story short, the deal went south, fast, and the blueprint fell into the hands of a nefarious crime lord, Augustus Duke, who hides out in a long-forgotten pleasure resort halfway across the galaxy.](else:)[and get all that bullion out of the bank in Traceyville. Then you might be able to leave this rotten mess behind you, once and for all. The Dead Eye Gang killed your cousin, they killed John Cole, and they killed little Rosie from the Drug Store. There would never be any justice for any of that, but maybe, just maybe, if you could get that gold, you could just leave without having to spend the rest of your life looking over your shoulder.]}
+
+$IQGg words echo in your ears, over the sound of the $IConveyance. &quot;Go to $IWorldName! Steal the $IQuest! That&#x27;s the only way. I know where it is. It&#x27;s in the $IFacility. Time is short, though. They&#x27;ll be moving out at midnight. You&#x27;ll have to get there before they carry it away. It&#x27;ll be in the chamber at the heart of the $IFacility.&quot;
+
+{(if: $Setting is 1)[He](else-if: $Setting is 2)[He](else:)[She]} went on to explain, at length, that the $IVillainTeam needs the $IQuest {(if: $Setting is 1)[to remain upon the altar of the Immolated God at all times, lest their arcane power and uncanny strength desert them.](else-if: $Setting is 2)[to remain hidden if their plans for intergalactic domination were to succeed. This might well be the only chance going to capture the blueprint once and for all.](else:)[in order to get back the bullion that John Cole stole from them, but they probably haven&#x27;t figured out what they&#x27;re hanging on to yet. Hell, those bastards probably can&#x27;t even read. You figure they&#x27;ve probably found the key by now - it was in his pants pocket, after all - but they&#x27;re not riding out until midnight, so you have until then to find it, and if you can get it off them now, before they realise how important it is... You trust Marya&#x27;s information. She has eyes in places you wouldn&#x27;t believe.]}
+
+Your problem is that the $IQuest is in the hands of $IVillain, known throughout $IWorldName as a masterful {(if: $Setting is 1)[conjurer]
+(else-if: $Setting is 2)[logistician]
+(else:)[bank-robber]} and a bastard to boot. He&#x27;s not one to be tampered with. And what&#x27;s worse, the $IFacility will certainly be guarded and fortified when you arrive.
+
+But you won&#x27;t arrive alone. Riding alongside you, eyes glued to the horizon, is $IName, {(if: $Companion is 1)[your best friend since you were seven years old. There was no way you were coming to $IWorldName without $ISPron. {(if: $Gender is 1)[He has](else-if: $Gender is 2)[She has](else:)[They have]} fine blonde hair, cropped short around the temples, and large blue eyes that used to make you envious as a kid.](else-if: $Companion is 2)[an old-timer who spend most of $IPPron youth living in a hut near $IFacility, sneaking in and out when nobody was looking. You&#x27;re assured that $IPron will be able to find a good way into the heart of the $IFacility. It&#x27;s a shame that {(if: $Gender is 1)[he is](else-if: $Gender is 2)[she is](else:)[they are]} so fragile-looking. You worry that a $IThug is going to take one look at $ISPron and break down laughing. Still, the trials and hardships of the journey here put your concerns at ease. $IName is tough as old nails.](else:)[this brat kid that&#x27;s been following you around for a while. It&#x27;s true that $IPron used to get on your nerves with $ISPron constant chatter, but these days you feel safer knowing that $IName&#x27;s got your back.]}
+
+You remember the first thing $IPron ever said to you, {(if: $Companion is 1)[back when you were seven years old, lying on the floor of the orphanage, that first morning, unable to move for grief. &quot;Hey,&quot; $IPron said. &quot;Hey, don&#x27;t cry. It can&#x27;t be that bad.&quot; {(if: $Gender is 1)[He was](else-if: $Gender is 2)[She was](else:)[They were]}  wrong, of course. In that moment, you were experiencing the purest sadness that you ever felt in your life. But still, you&#x27;ve stuck together ever since, through thick and thin.](else-if: $Companion is 2)[after $IQuestGiver put you in touch with one another. &quot;Jeez,&quot; $IPron said. &quot;They don&#x27;t breed them like they used to.&quot; You just smiled a thin smile.](else:)[whispering &quot;hold onto this for me,&quot; as $IPron pushed past you through a crowd, being pursued by two burly policemen. When you looked to see what $IPron had handed you, it was a single shiny coin that $IPron must have fished out of someone&#x27;s pocket. It seemed like too much trouble, for something so small. When $IPron came back to find you later, you got to talking, and eventually $IPron decided that {(if: $Gender is 1)[he was](else-if: $Gender is 2)[she was](else:)[they were]} going to stick with you, whether you liked it or not. So far, $IPPron utility had outweighed $IPPron propensity for trouble making. So far.]}
+
+[[After a long ride, you arrive.-&gt;Guard]]
+</tw-passagedata><tw-passagedata pid="3" name="Guard" tags="" position="598,103">{(if: $Setting is 1)[$IWorldName is bad country. Not even the most wretched wildlife lives here. All day, you see nothing but scab-flies, three needlers on a carcass, and one of the Northern dragons overhead for a moment. How did it get so bad here? Is it the influence of the cult, the $IQuest, something else? &lt;p&gt;
+
+You stop to rest and make some food in the hottest part of the afternoon. You and $IName don&#x27;t talk much. The water has gone bad, so you have to boil it. You keep the fire as small as you can.&lt;p&gt;
+
+In the evening, you awaken surrounded by ash people. As you rise to your feet, one of them collapses with a thump and disintegrates. The other two drift away over a dune. You shudder. You&#x27;ve always hated ash people. $IName is asleep, and doesn&#x27;t see them.&lt;p&gt;
+
+You feel exposed out here.&lt;p&gt;
+
+Your destination is easy to find: At the centre of Ometh Isle is a pillar of charcoal, two miles high. It&#x27;s a blasted place. The ground around the tree is the colour of ash. And the land reflects the sky, which is the colour of ash also. And what are the ashen tunnels? Those are caves that were its roots. Caked in ash, baked into the earth. What was this tree? It used to reach halfway to heaven. It was an Ash. A World-Ash, in fact. To burn such a tree is a sin.&lt;p&gt;
+
+Amid a maze of dead wood and bones, you find the entrance to the tunnels.](else-if: $Setting is 2)[The desert is crossed by long dead-straight red and white lines, strips of stone and blistered metal scored under the cool gaze of the Zorgox Arbitration beams.&lt;p&gt;
+
+The shadow of the doom of pleasure swells out of the horizon, scarred along its scalp by the rake of another decades-old Arbitration Beam. Despite this, however, the structure seems remarkably intact. The dome has retained its shape, even though much of the glass has been discoloured or broken.&lt;p&gt;
+
+Some time - more than you would like - passes as you scout the circumference of the dome. Everywhere is detritus. The Duke&#x27;s boys have been cleaning the place out. Old styrofoam fixtures, bed frames, a gutted orgasmotron, a pile of rotted old-world tapestries.](else:)[$IWorldName is mis-named, in your opinion. It&#x27;s more like a... what, a mesa? A plateau? In the distance, a shelf of rock rises over the horizon. Pastel stripes of sediment. At the floor of the shelf, the entrance to $IFacility. A bird somewhere makes a noise like an old hinge.]}
+
+In front of the door, a drunken warden takes his ease. He wears a $IGuardClothes and smokes the stub of a two-inch-thick stogie, which protrudes from his beard like a campfire on a thicket. {(if: $Setting is 1)[His helmet shows the insignia of the cult.](else-if: $Setting is 2)[His holo-visor emits red sparks that betray its bootleg jailbreak origins. He must have got it from a Blacktooth trade-orbital. Zabraxis-6 isn&#x27;t far from here. That would do it. That&#x27;s the only planet in this system where you might find tech like that.](else:)[]}
+
+$IName whispers to you &quot;We need to get past this guy. We don&#x27;t have time to waste on caution. Maybe there&#x27;s something around here we can use... (if: $Companion is 1)[Or I could try the ole&#x27; one-two newspaper move, like we used to do back in the orphanage. What do you think?]&quot;
+
+
+(link: &quot;Just whack the guy with your $ICloseUp.&quot;)[(go-to: &quot;Whack&quot;)]
+(link: &quot;Have a quick look around.&quot;)[(go-to: &quot;Investigate&quot;)]
+(if: $Companion is 1)[(link: &quot;Let $IName do the newspaper move.&quot;)[(go-to: &quot;BuddyOption&quot;)]]</tw-passagedata><tw-passagedata pid="4" name="Lockbox" tags="" position="1055,102">(if: $JustHealed is 1)[(set: $Wound -= 1)(set: $JustHealed to 0)The $IItemM is just the ticket. 
+{(if: $Setting is 1)[The poultice smells of ammonia and dung, but $IName looks a little better.](else-if: $Setting is 2)[The nanobots go about their work briskly, and $IName&#x27;s wounds begin to close.](else:)[$IName grimaces as the Whiskey goes down, but after a moment, {(if: $Gender is 1)[he is](else-if: $Gender is 2)[she is](else:)[they are]} back on $IPPron feet.]}]
+
+{(if: $Wound &gt;= 4)[$IName dies!]
+(else-if: $Wound &gt;= 2)[$IName isn&#x27;t looking great. $IPPron face is bloody and you&#x27;re pretty saw $ISPron wince when $IPron stopped just now to adjust $IPPron bag. It looks like $IPPron wounds are more severe than {(if: $Gender is 1)[he is](else-if: $Gender is 2)[she is](else:)[they&#x27;re]}
+letting on.]
+(else-if: $Wound &gt;= 1)[It looked like $IName took a pretty nasty hit back there, but now {(if: $Gender is 1)[he looks](else-if: $Gender is 2)[she looks](else:)[they look]} pretty much fine, except for the tiniest hint of a limp.]
+}
+
+You move inside. Around a corner and down a flight of stairs, you come across a $IBox. It looks newer, cleaner, and more regularly used than any of the other detritus that litters the narrow corridors. The symbol of the $IVillainTeam has been hastily painted on the side. $IName eyes it.
+
+&quot;We don&#x27;t have time waste,&quot; you say. &quot;We have to push onwards.&quot;
+&quot;But wait!&quot; says $IName. &quot;Maybe this is it? Maybe this is box with the $IQuest in it? We know they&#x27;re moving it out tonight. Perhaps they put it in here?&quot;
+
+{(if: $Companion is 1)[{(if: $Gender is 1)[He has]
+(else-if: $Gender is 2)[She has]
+(else:)[They have]} that glint in $IPPron eye that you&#x27;ve come to trust, over the years. Maybe there&#x27;s some sense to that idea.]
+(else-if: $Companion is 2)[$IName has spent most of $IPPron life around this godawful place. $IPron wouldn&#x27;t be suggesting this if $IPron didn&#x27;t think it was sensible. You hesitate.]
+(else:)[{(if: $Gender is 1)[He is]
+(else-if: $Gender is 2)[She is]
+(else:)[They are ]} practically popping out of $IPPron skin with excitement. You&#x27;re nervous.]}
+
+(if: $Companion is 3)[&quot;Ah, this is easy,&quot; says $IName. &quot;I can open this. Let me do it. Thirty seconds with a $IPry. Promise.&quot;]
+
+(link: &quot;Pry it open with your $IPry.&quot;)[(go-to: &quot;Force it&quot;)]
+(link: &quot;Check carefully behind and underneath.&quot;)[(go-to: &quot;Carefully investigate every angle&quot;)]
+(link: &quot;Carry on without stopping.&quot;)[(go-to: &quot;Skip it&quot;)]
+(if: $Item is 6)[(link: &quot;Use the $IItemL&quot;)[(go-to: &quot;Lockpick&quot;)]]
+(if: $Companion is 3)[(link: &quot;Let $IName have a go at the $IBox.&quot;)[(go-to: &quot;Lockpick&quot;)]]</tw-passagedata><tw-passagedata pid="5" name="Maze" tags="" position="1503,105">(if: $JustHealed is 1)[(set: $Wound -= 1)(set: $Item to 0)(set: $JustHealed to 0)The $IItemM is just the ticket. {(if: $Setting is 1)[The poultice smells of ammonia and dung, but $IName looks a little better.](else-if: $Setting is 2)[The nanobots go about their work briskly, and $IName&#x27;s wounds begin to close.](else:)[$IName grimaces as the Whiskey goes down, but after a moment, {(if: $Gender is 1)[he is](else-if: $Gender is 2)[she is](else:)[they are]} back on $IPPron feet.]}]
+
+{
+(if: $Wound &gt;= 4)[$IName dies!]
+(else-if: $Wound is 3)[$IName isn&#x27;t looking great. $IPPron face is bloody and you&#x27;re pretty saw $ISPron wince when $IPron stopped just now to adjust $IPPron bag. It looks like $IPPron wounds are more severe than {(if: $Gender is 1)[he is](else-if: $Gender is 2)[she is](else:)[they&#x27;re]} letting on.]
+(else-if: $Would is 2)[You touch $IName on the arm but {(if: $Gender is 1)[he flinches](else-if: $Gender is 2)[she flinches](else:)[they flinch]} and grit $IPPron teeth. &quot;Not far to go,&quot; you say. No reply.]
+(else-if: $Wound &gt;= 1)[$IName looks a little ropey but {(if: $Gender is 1)[he is](else-if: $Gender is 2)[she is](else:)[they are]} putting a brave face on it.]
+}
+
+It&#x27;s quiet. Aside from the mess, there is little sign of the $IVillainTeam.
+
+As you penetrate deeper into the $IFacility, the light gets thinner. {(if: $Setting is 1)[The walls, previously grey, become black. Cracks appear, and lengthy spears of charcoal litter the ground. The air is thick and bitter. Your eyes begin to water. You get turned around. &quot;The centre of the tunnels.&quot; That&#x27;s where you&#x27;re meant to be going. It now occurs to you how facile that instruction is. How are you supposed to divine the centre from all this mess? This place is awful.&lt;p&gt;
+You remember something else that $IQuestGiver told you. &quot;If you get lost,&quot; he said, &quot;You can always pray to the spirits of the tree. They&#x27;re unpredictable, and probably driven half-mad with age and torment, but they might help. However, unless you&#x27;re desperate, it might be better to let sleeping ghosts lie.&quot;]
+(else-if: $Setting is 2)[A smell of mildew fills the air. Couches and futons, rotten velvet and hyper-silk, bits of clothing, broken bottles. You pass through bars, bedrooms, empty spa pools, cleaning closets, all stripped bare. What a place to settle. A briony has burst its pot and its roots now block your best route forward. You divert, and then divert again as you come across a room full of torched mannequins that seems likewise impassable. Maybe it&#x27;s time to bust out the artillery?]
+(else:)[Busted iron tracks and fallen wooden crossbeams make progress difficult. You briefly consider lighting a lantern but stealth seems more important. Soon, the blackness is complete. It seems ridiculous to you that bandits would choose such a place to lay their heads, but you&#x27;re here now, so you push on. What did they even mine here? Diamonds? Coal? Fossils? Dirt? You have no idea.
+The shaft splits, and you make an educated guess, and then the shaft splits again, and again. You&#x27;re not sure if you&#x27;re moving upward or downward at this point. You could light a lantern, but you&#x27;re nervous about fire with all this rotten TNT lying around the place.]}
+
+&quot;Well, this is absurd,&quot; you say. &quot;We&#x27;re lost. This is taking far too long.&quot;
+{(if: $Companion is 2)[$IName clears $IPPron throat. &quot;I remember this place. Let me take the lead. Don&#x27;t try anything rash. I can get us to the centre.&quot;]
+(else:)[$IName shrugs in the darkness.]}
+(if: $Item is 6)[Just then, you remember the $IBoxItem. It seems worth a try too.]
+
+(link: &quot;Just push on.&quot;)[(go-to: &quot;Fumble&quot;)]
+{(if: $Setting is 1)[(link: &quot;Try invoking the spirits.&quot;)[(go-to: &quot;Wildcard&quot;)]
+]
+(else-if: $Setting is 2)[(link: &quot;Start blasting stuff out of your way.&quot;)[(go-to: &quot;Wildcard&quot;)]
+]
+(else:)[(link: &quot;Light a lantern.&quot;)[(go-to: &quot;Wildcard&quot;)]
+]}
+(if: $Item is 6)[(link: &quot;Use the $IBoxItem.&quot;)[(go-to: &quot;NavigateL&quot;)]]
+(if: $Companion is 2)[(link: &quot;Let $IName take the lead.&quot;)[(go-to: &quot;NavigateC&quot;)]]</tw-passagedata><tw-passagedata pid="6" name="Lacuna" tags="" position="1804,105">(if: $JustHealed is 1)[(set: $Wound -= 1)(set: $Item to 0)(set: $JustHealed to 0)The $IItemM is just the ticket. 
+{(if: $Setting is 1)[The poultice smells of ammonia and dung, but $IName looks a little better.](else-if: $Setting is 2)[The nanobots go about their work briskly, and $IName&#x27;s wounds begin to close.](else:)[$IName grimaces as the Whiskey goes down, but after a moment, {(if: $Gender is 1)[he is](else-if: $Gender is 2)[she is](else:)[they are]} back on $IPPron feet.]}]
+{
+(if: $Wound &gt;= 4)[As you go to open the door, $IName grabs your hand. &quot;I&#x27;m sorry,&quot; {(if: $Gender is 1)[he says.]
+(else-if: $Gender is 2)[she says.]
+(else:)[they say.]}
+&quot;Why?&quot; you ask. But your question answers itself. $IPPron hand, the one holding your wrist, is sticky with blood. $IPPron skin is bleached white, and $IPPron eyes goggle around in $IPPron head. $IName is dying.&lt;p&gt;
+{(if: $Gender is 1)[He slumps]
+(else-if: $Gender is 2)[She slumps]
+(else:)[They slump]} down onto the ground. You try to get $IPPron attention but it&#x27;s no use. It happens fast. There one minute, gone the next. The perils of the $IFacility were to much for $ISPron. You swear under your breath, but now isn&#x27;t the time. You have to move. Looks like you&#x27;re going in alone.]
+(else-if: $Wound &gt;= 2)[$IName isn&#x27;t looking great. $IPPron face is bloody and you&#x27;re pretty sure you saw $ISPron wince when $IPron stopped just now to adjust $IPPron bag. It looks like $IPPron wounds are more severe than {(if: $Gender is 1)[he is](else-if: $Gender is 2)[she is](else:)[they&#x27;re]}
+ letting on.]
+(else-if: $Wound &gt;= 1)[It looked like $IName took a pretty nasty hit back there, but now {(if: $Gender is 1)[he looks](else-if: $Gender is 2)[she looks](else:)[they look]} pretty much fine, except for the tiniest hint of a limp.]
+}
+
+(set: $Score to $GuardExpedient + $MazeExpedient)
+You stand before a pair of wooden doors, intact in spite of all the mess everywhere else. From inside comes the sound of muted chatter. The lair of the $IVillainTeam. $IVillain is in there, with a ton of $IThug cronies. This is it: Do or die.
+
+{
+(if: $Ending is 2)[(link: &quot;Finale&quot;)[(Go-to: &quot;Ambush&quot;)]]
+(else-if: $Ending is 1)[(link: &quot;Finale&quot;)[(Go-to: &quot;Betrayal&quot;)]]
+(else:)[(link: &quot;Finale&quot;)[(Go-to: &quot;Sophie&quot;)]]
+}</tw-passagedata><tw-passagedata pid="7" name="Finale" tags="" position="2066,603">No benefits at Expedient level 0
+Benefits at Expedient level 1
+Huge benefits at Expedient level 2
+
+No problems at Wound level 0
+Problems at Wound level 2
+Huge problems at Wound level 4
+
+Think about how these might play into the different types of ending (eg in Sophie&#x27;s Choice with Would at 3, Companion might say that as they&#x27;re dying, leave them behind)
+
+Each ending should have a consequence for each of these things, even if those consequences are variable and only exist in terms of flavour.
+
+One final set of options determined by expedience and whether the companion is still alive.
+
+E(Print: $GuardExpedient + $MazeExpedient)(set: $Score to $GuardExpedient + $MazeExpedient)
+W$Wound
+REMIND THEM IF THEY GOT HERE QUICKLY
+
+
+
+
+
+
+</tw-passagedata><tw-passagedata pid="8" name="Setting" tags="" position="54,280">What kind of setting are you most interested in?
+
+(link: &quot;Fantasy&quot;)[(set: $Setting to 1)(go-to:&quot;WorldIntro&quot;)]
+(link: &quot;Sci-Fi&quot;)[(set: $Setting to 2)(go-to:&quot;WorldIntro&quot;)]
+(link: &quot;Old West&quot;)[(set: $Setting to 3)(go-to:&quot;WorldIntro&quot;)]</tw-passagedata><tw-passagedata pid="9" name="Companion" tags="" position="54,530">Every fetch quest needs an NPC character to accompany you and give the journey that essential human dimension. What sort would you like?
+
+(link: &quot;Your best friend since childhood.&quot;)[(set: $Companion to 1)(go-to:&quot;Gender&quot;)]
+(link: &quot;An wise older person, whose extensive experience on $IWorldName might be useful.&quot;)[(set: $Companion to 2)(go-to:&quot;Gender&quot;)]
+(link: &quot;A savvy young know-it-all.&quot;)[(set: $Companion to 3)(go-to:&quot;Gender&quot;)]</tw-passagedata><tw-passagedata pid="10" name="Twist" tags="" position="52,781">The other thing it needs is a good twist for the ending. What kind of ending would you like?
+
+(Link:&quot;Randomise my ending.&quot;)[(set: $Ending to (random: 1, 2))(go-to:&quot;Intro&quot;)]
+[[Let me choose.-&gt;Let me choose]]
+
+(set: $AMaleName to (a: &quot;Sylvester&quot;, &quot;Sam&quot;, &quot;Carlo&quot;, &quot;Lewis&quot;, &quot;Jeffrey&quot;, &quot;Harry&quot;, &quot;Joe&quot;, &quot;James&quot;, &quot;Raxatrac&quot;, &quot;Billo&quot;, &quot;Tremaine&quot;))
+(set: $AMaleName to (shuffled: ...$AMaleName))
+(set: $AFemaleName to (a: &quot;Verna&quot;, &quot;Lucille&quot;, &quot;Giselle&quot;, &quot;Liv&quot;, &quot;Veronica&quot;, &quot;Katherine&quot;, &quot;Lexi&quot;, &quot;Amy&quot;, &quot;Priscilla&quot;, &quot;Bertha&quot;, &quot;Anna&quot;))
+(set: $AFemaleName to (shuffled: ...$AFemaleName))
+{
+(if: $Gender is 1)[(set: $IName to $AMaleName&#x27;s 1st)]
+(else-if: $Gender is 2)[(set: $IName to $AFemaleName&#x27;s 1st)]
+(else:)[(set: $IName to (either: $AMaleName&#x27;s 1st, $AFemaleName&#x27;s 1st))]
+}
+(if: $Gender is 1)[(set: $IPron to &quot;he&quot;)(set: $ISPron to &quot;him&quot;)(set: $IPPron to &quot;his&quot;)]
+(if: $Gender is 2)[(set: $IPron to &quot;she&quot;)(set: $ISPron to &quot;her&quot;)(set: $IPPron to &quot;her&quot;)]
+(if: $Gender is 3)[(set: $IPron to &quot;they&quot;)(set: $ISPron to &quot;them&quot;)(set: $IPPron to &quot;their&quot;)]
+
+
+</tw-passagedata><tw-passagedata pid="11" name="Gender" tags="" position="55,655">What pronouns does your companion prefer?
+
+(link: &quot;He, him, his, etc.&quot;)[(set: $Gender to 1)(go-to:&quot;Twist&quot;)]
+(link: &quot;She, her, her, etc.&quot;)[(set: $Gender to 2)(go-to:&quot;Twist&quot;)]
+(link: &quot;They, them, their, etc.&quot;)[(set: $Gender to 3)(go-to:&quot;Twist&quot;)]</tw-passagedata><tw-passagedata pid="12" name="WorldIntro" tags="" position="54,405">Wonderful.
+{
+(if: $Setting is 1)[(set: $IWorldName to &quot;Ometh Isle&quot;)
+(set: $IItemL to &quot;lockpick&quot;)
+(set: $IItemM to &quot;medicinal poultice&quot;)
+(set: $IBoxItem to &quot;Scroll of Finding&quot;)
+(set: $IWeapon to &quot;bow&quot;)
+(set: $IQuest to &quot;Kismet Transfixer&quot;)
+(set: $ICloseUp to &quot;shield&quot;)
+(set: $IFacility to &quot;ashen tunnels&quot;)
+(set: $IBox to &quot;chest&quot;)
+(set: $IPry to &quot;sword&quot;)
+(set: $IVillain to &quot;Peter Van Den Bolbec&quot;)
+(set: $IQGg to &quot;His&quot;)
+(set: $IQuestGiver to &quot;Hairy Moses&quot;)
+(set: $IQuestGiverBumf to &quot;, the dwarven barman at the Sole Regret&quot;)
+(set: $IEnemyWeapon to &quot;bow&quot;)
+(set: $IThug to &quot;frenzied cultist&quot;)
+(set: $IGuardClothes to &quot;battered helmet&quot;)
+(set: $IConveyance to &quot;wagon&quot;)
+(set: $IConveyanceS to &quot;saddlebag&quot;)
+(set: $IDiary to &quot;cloth-bound notebook&quot;)
+(set: $IVillainTeam to &quot;Cult of the Unforgotten Foe&quot;)
+]
+(else-if: $Setting is 2)[(set: $IWorldName to &quot;Planet Pain&quot;)
+(set: $IItemL to &quot;nano-reconfigurer&quot;)
+(set: $IItemM to &quot;Med-X dispenser&quot;)
+(set: $IBoxItem to &quot;holo-map&quot;)
+(set: $IWeapon to &quot;blaster&quot;)
+(set: $IQuest to &quot;blueprint for the Zorox Hypervault of Ometh-Prime&quot;)
+(set: $ICloseUp to &quot;stun-charger&quot;)
+(set: $IFacility to &quot;abandoned pleasure domes&quot;)
+(set: $IBox to &quot;cryo-storage device&quot;)
+(set: $IPry to &quot;vibro-knife&quot;)
+(set: $IVillain to &quot;Archimedes Duke&quot;)
+(set: $IQuestGiver to &quot;Orbulon Promax&quot;)
+(set: $IQuestGiverBumf to &quot;, your contact in the embassy of the Zorox Symposium&quot;)
+(set: $IQGg to &quot;His&quot;)
+(set: $IEnemyWeapon to &quot;tungsten-reinforced thrum-rifle&quot;)
+(set: $IThug to &quot;space cowboy&quot;)
+(set: $IGuardClothes to &quot;cheap AR unit&quot;)
+(set: $IConveyance to &quot;Last Regret&quot;)
+(set: $IConveyanceS to &quot;storage locker&quot;)
+(set: $IDiary to &quot;holo-diary&quot;)
+(set: $IVillainTeam to &quot;Zorox Symposium&quot;)
+]
+(else-if: $Setting is 3)[(set: $IWorldName to &quot;Beady Eye Rock&quot;)(set: $IItemL to &quot;skeleton key&quot;)(set: $IItemM to &quot;bottle of Twisted Finger whiskey&quot;)(set: $IBoxItem to &quot;map of the mine&quot;)(set: $IWeapon to &quot;six-shooter&quot;)(set: $IQuest to &quot;key to John Cole&#x27;s safety deposit box&quot;)
+(set: $ICloseUp to &quot;pistol butt&quot;)
+(set: $IFacility to &quot;Old Owlbear Mines&quot;)
+(set: $IBox to &quot;munitions crate&quot;)
+(set: $IPry to &quot;crowbar&quot;)
+(set: $IVillain to &quot;Eyeball the Cannibal&quot;)
+(set: $IQuestGiver to &quot;Old Mother Marya&quot;)
+(set: $IQuestGiverBumf to &quot;, the toothless old crone who sits by the fireplace in the saloon in Steggerton&quot;)
+(set: $IQGg to &quot;Her&quot;)
+(set: $IEnemyWeapon to &quot;vintage carbine rifle&quot;)
+(set: $IThug to &quot;bow-legged rodeo jockey&quot;)
+(set: $IGuardClothes to &quot;greasy-looking beret&quot;)
+(set: $IConveyance to &quot;wagon&quot;)
+(set: $IConveyanceS to &quot;bedroll&quot;)
+(set: $IDiary to &quot;journal&quot;)
+(set: $IVillainTeam to &quot;Dead Eye Gang&quot;)
+]
+}
+[[Next.-&gt;Companion]] 
+
+
+
+
+
+
+
+</tw-passagedata><tw-passagedata pid="13" name="Let me choose" tags="" position="53,906">(link: &quot;It ends with a betrayal.&quot;)[(set: $Ending to 1)(go-to:&quot;Intro&quot;)]
+(link: &quot;It ends with an ambush.&quot;)[(set: $Ending to 2)(go-to:&quot;Intro&quot;)]</tw-passagedata><tw-passagedata pid="14" name="Whack" tags="" position="474,230">(set: $JustWounded to 1)
+(set: $GuardExpedient to 1)
+
+Speed, that&#x27;s the key. Moving quickly, you close the space between you and the guard. Before he knows what&#x27;s what, you bring your $ICloseUp down on the his $IGuardClothes and...
+
+He looks you in the eye. &quot;Is that the best you&#x27;ve got, kid?&quot; His breath is bitter. And then, moving with a speed that astonishes you, he grabs a $IEnemyWeapon from behind an old crate and levels it at $IName. By the time you are able to get your $ICloseUp round again, he&#x27;s loosed a shot. $IName calls out in pain and crumples to the ground. Still, at least it was over quickly.
+
+[[Carry on.-&gt;GuardResult]] </tw-passagedata><tw-passagedata pid="15" name="GuardResult" tags="" position="602,357">{(if: $JustWounded is 1)[$IName takes a deep breath and gets to $IPPron feet. &quot;Are you OK?&quot; {(if: $Gender is 1)[he asks.](else-if: $Gender is 2)[she asks.](else:)[they ask.]}&lt;p&gt;
+Even with that wound, {(if: $Gender is 1)[he asks](else-if: $Gender is 2)[she asks](else:)[they ask]} about you before seeing to {(if: $Gender is 1)[himself. He is](else-if: $Gender is 2)[herself. She is](else:)[themself. They are]} halfway down the corridor, tearing up an old shirt for a makeshift bandage, before you even have time to reply.(Set: $Wound += 1)(Set: $JustWounded to 0)]
+}
+{(if: $GuardExpedient is 0)[You&#x27;ve wasted valuable time. Better pick up the pace. Time is short.]
+(else:)[You waste no time shoving the guard&#x27;s body into a pile of trash before carrying on.]
+}
+
+The way is open.
+
+{
+(if: ($Item is 5) and ($Wound &gt;=1))[
+(link:&quot;Use the $IItemM to patch up $IName.&quot;)[(set:$JustHealed to 1)(go-to:&quot;Lockbox&quot;)]
+(link:&quot;Save the $IItemM, for now.&quot;)[(go-to: &quot;Lockbox&quot;)]]
+(else:)[(link:&quot;Carry on.&quot;)[(go-to: &quot;Lockbox&quot;)]]
+}</tw-passagedata><tw-passagedata pid="16" name="Investigate" tags="" position="731,229">(set: $GuardExpedient to 0)
+
+Well, the guard is the only person nearby. That much is certain. A sortie around the area reveals what you suspected: There&#x27;s no other way in. You contemplate your options, whispering with $IName from behind a blasted tree-stump. After a minute, you hear a crash. The guard has collapsed to the ground. As you approach, you realise what has happened. He reeks of {(if: $Setting is 1)[elven wine]
+(else-if: $Setting is 2)[Formid Juice, a particularly brutal narcotic]
+(else:)[brandy]}.
+
+&quot;Jeez,&quot; mutters $IName. &quot;He must have been moments from fainting this entire time.&quot;
+
+[[Carry on.-&gt;GuardResult]] </tw-passagedata><tw-passagedata pid="17" name="BuddyOption" tags="" position="602,229">(set: $GuardExpedient to 1)
+
+$IName loves this maneuver. When you were kids, this is how it would work: $IName would pull a rag over $IPPron face. $IPron would take a piece of paper and approach the mark, gabbling incoherently, asking the mark to read the paper, to look at something. $IPron would get the paper right up in the mark&#x27;s face, and then as soon as the mark&#x27;s face was obscured by the paper, you would burst out of nowhere and give the mark a haymaker to the solar plexus. They never saw it coming.
+
+The guard crumples to the ground.
+
+[[Carry on.-&gt;GuardResult]] </tw-passagedata><tw-passagedata pid="18" name="Skip it" tags="" position="1177,354">&quot;No,&quot; you insist. &quot;Time is wasting.&quot;
+
+[[Move on.-&gt;LockboxResult]]</tw-passagedata><tw-passagedata pid="19" name="Lockpick" tags="" position="927,354">
+(set: $BoxExpedient to 1)
+
+&quot;Ha,&quot; says $IName. &quot;Amateur hour or what? Look, they&#x27;ve rigged this thing to explode if you yank this filament. Look.&quot; {(if: $Gender is 1)[He shows]
+(else-if: $Gender is 2)[She shows]
+(else:)[They show]} you a fine wire that extends from the lid of the $IBox, through an eyelet, and down through the floor.
+
+&quot;How can you tell it&#x27;s explosive?&quot; you ask.
+
+&quot;Well, look. The floor here is newer than the rest. It&#x27;s been disturbed. And you remember, back around the corner, we passed a load of empty crates marked {(if: $Setting is 1)[AAS, which stands for arcanists&#x27; alchemical salt]
+(else-if: $Setting is 2)[Lumex Crystals]
+(else:)[TNT, dated way back to the 1700s]}? It&#x27;s textbook trap-making. That stuff is unstable as hell. But it&#x27;s no problem for me.&quot;
+
+You are impressed. You had no idea this $IName kid had so much about $ISPron.
+
+
+[[Carry on.-&gt;LockboxResult]]</tw-passagedata><tw-passagedata pid="20" name="Carefully investigate every angle" tags="" position="1055,228">(set: $JustWounded to 1)
+Aha! Just as you thought, the box is trapped. Behind the box you find a filament of wire connecting the lid of the $IBox to something under the surface of the ground. Something dangerous or explosive, certainly.
+
+However, as you are checking it out, a $IThug appears. Shots are fired. $IName takes a hit. A loud noise rings out. You have no choice but to shoot him(if: $Setting is 1)[ with an arrow].
+
+The $IBox is still there. No time for fiddly disarming procedures: You either have to grit your teeth and open the thing in spite of the trap, or move on.
+
+(link: &quot;Force it.&quot;)[(set: $JustWounded to 2)(set: $BoxExpedient to 1)(go-to: &quot;LockboxResult&quot;)]
+(link: &quot;Skip it.&quot;)[(go-to: &quot;LockboxResult&quot;)]</tw-passagedata><tw-passagedata pid="21" name="Force it" tags="" position="1052,353">(set: $JustWounded to 1)
+(set: $BoxExpedient to 1)
+
+You get your $IPry into the crack where the $IBox&#x27;s lid meets its body. You make one assertive twist, you hear a fine wire go taut and snap, and the room explodes.
+
+[[Carry on.-&gt;LockboxResult]]</tw-passagedata><tw-passagedata pid="22" name="LockboxResult" tags="" position="1057,480">{(if: $JustWounded is 2)[The blast is severe and $IName takes the brunt of it, throwing $IPPron already-bloody body in front of yours to shield you from the shrapnel and debris. It looks incredibly painful.(Set: $Wound +=2)(set: $JustWounded to 0)]
+(else-if: $JustWounded is 1)[You and $IName jump behind some old crates just in time, but $IName gets hit in the leg by a bit of flying shrapnel. (Set: $Wound += 1)(Set: $JustWounded to 0)]
+}
+
+(if: $BoxExpedient is 1)[(set: $Item to (either: 5,6))For your sins, the box lies open. You and $IName lose no time examining its contents. Inside, among some rags and old machine parts, you find a {(if: $Item is 5)[$IItemM](else:)[$IBoxItem]}.]
+(else:)[Nothing else to be done here. You carry on downwards, ever downwards.]
+{
+(if: ($Item is 5) and ($Wound &gt;=1))[
+(link:&quot;Use the $IItemM to patch up $IName.&quot;)[(set:$JustHealed to 1)(go-to:&quot;Maze&quot;)]&lt;p&gt;
+(link:&quot;Save the $IItemM, for now.&quot;)[(go-to: &quot;Maze&quot;)]]
+(else:)[(link:&quot;Carry on.&quot;)[(go-to: &quot;Maze&quot;)]]
+}</tw-passagedata><tw-passagedata pid="23" name="Fumble" tags="" position="1376,231">Opting to play it safe, you make slow progress. It&#x27;s hard to say how much time passes. You&#x27;re tired and dirty by the time you finally arrive at your destination.
+
+[[Carry on.-&gt;MazeResult]]</tw-passagedata><tw-passagedata pid="24" name="Wildcard" tags="" position="1501,230">(set: $JustWounded to 1)
+(set: $MazeExpedient to 1)
+{(if: $Setting is 1)[You kneel. You&#x27;re not sure how best to initiate the summoning, so you go through your pockets. You find an old goblin talisman made of bone and hair that you&#x27;ve been carrying around for a while. It&#x27;s better than nothing. You hang it on a knob of charred earth and begin your entreaty.&lt;p&gt;
+
+After only a moment, the talisman combusts. The smoke is black and tar-like, and as you watch it becomes a fluid and drips onto the floor where it forms a face. The face wears an expression of agony. Nervously, you reach out and touch it. You&#x27;re not sure if this is the right thing to do. You&#x27;re no wizard. Nobody ever taught you the rules of good spirit-conduct.&lt;p&gt;
+
+As your finger makes contact with the glossy face, you are filled with pain. You are a tree that supports all of creation. You are ablaze. You collapse.&lt;p&gt;
+
+You come to, and two things have happened. You know the way to the centre of the tunnels. You just have to follow your roots back to your trunk. But something has happened to $IName. Burns cover $IPPron body, and $IPPron clothes are blackened and smouldering.
+
+&quot;What happened?&quot; you ask.&lt;p&gt;
+
+&quot;You burst into flames,&quot; $IName replies. &quot;I pulled you away from that thing on the floor. It was... painful.&quot;&lt;p&gt;
+
+You&#x27;re stumped for a response, for a moment. Then your head clears, and you apologise tearfully. Your emotions are a mess. You can&#x27;t quite work out how this all fits together.]
+(else-if: $Setting is 2)[It feels good to be making progress again, blasting bolts of hot plasma through whatever crud is in your way. It&#x27;s making a lot of noise, though, and soon enough a group of $IVillainTeam goons have found you. You lay them out in short order but not before $IName takes a hit. The element of surprise seems to be gone.]
+(else:)[The lantern helps, for a while, but there&#x27;s something wrong with this lantern. Embers and smoulder keep dropping off it and falling to the ground. As you round a corner, the inevitable happens. A scrap of burning dust lands on top of an old cardboard box, covered in an oily substance. $IName is quick to react, and pushes you to the ground, and takes the brunt of the explosion.]}
+
+[[Carry on.-&gt;MazeResult]] </tw-passagedata><tw-passagedata pid="25" name="NavigateC" tags="" position="1631,230">You&#x27;re nervous, but it turns out to be a good call. $IName starts marching off ahead of you with a speed that is astonishing for someone that old. At times, you struggle to keep up. It&#x27;s alright, though. This was certainly the best call.
+
+(set: $MazeExpedient to 1)
+
+[[Carry on.-&gt;MazeResult]] </tw-passagedata><tw-passagedata pid="26" name="MazeResult" tags="" position="1504,355">{(if: $JustWounded is 1)[You and $IName dust yourselves off. $IName is starting to look substantially worse for the wear. (Set: $Wound += 1)(Set: $JustWounded to 0)]
+}
+
+{
+(if: $MazeExpedient is 1)[You find, however, that you&#x27;ve arrived, by some miracle, and it didn&#x27;t even take too long.]
+(else:)[All this blind staggering has worn you out, and lord knows how much time  passes until you get to the centre of this maze.]
+}
+
+Eventually, you stand before a pair of wooden doors. This must be it. This must be where they&#x27;re keeping the $IQuest.
+
+{
+(if: ($Item is 5) and ($Wound &gt;=1))[
+(link:&quot;Use the $IItemM to patch up $IName.&quot;)[(set:$JustHealed to 1)(go-to:&quot;Lacuna&quot;)]&lt;p&gt;
+(link:&quot;Save the $IItemM, for now.&quot;)[(go-to: &quot;Lacuna&quot;)]]
+(else:)[(link:&quot;Carry on.&quot;)[(go-to: &quot;Lacuna&quot;)]]
+}</tw-passagedata><tw-passagedata pid="27" name="NavigateI" tags="" position="1633,355">{(if: $Setting &lt;= 2)[The $IBoxItem activates under your fingers and you find your way is illuminated by small spots of floating amber light. The route thus illuminated is direct and gets you to the centre in only a few minutes. Turns out, you were closer than you thought all along.]
+(else:)[$IName&#x27;s night vision is better than yours, so you hand the map to $ISPron. They lead the way. &quot;Look,&quot; {(if: $Gender is 1)[he whispers]
+(else-if: $Gender is 2)[she whispers]
+(else:)[they whisper]}. &quot;We&#x27;re nearly at the main chamber.&quot;]}
+
+[[Carry on.-&gt;MazeResult]] </tw-passagedata><tw-passagedata pid="28" name="Sophie" tags="" position="2192,604">Sophie&#x27;s Choice: 
+
+W4 - They both just shoot you (no time for a mexican standoff)
+
+E0 - You have to make Sophie&#x27;s Choice as one $IThug has his $IEnemyWeapon on the $IQuest, and one has his $IEnemyWeapon on $IName.
+
+W0 - It is sad
+W2 - They beg you to go on without them
+
+E1 or 2 - As you&#x27;re leaving, the two guys appear but you already have the $IQuest so it&#x27;s a gun fight. You can choose to blast them or give up the $IQuest to escape alive.
+
+W0 - You kill them both
+W2 - You have a chance to choose either $IName or the $IQuest.</tw-passagedata><tw-passagedata pid="29" name="Betrayal" tags="" position="2003,229">(if: $Wound is 4)[
+As you walk alone into the inner sanctum, you realise that you&#x27;ve been worrying too much. Empty bottles pile up on the floor. A $IThug snores loudly, splayed over a table. Two more seem to have collapsed into each other&#x27;s arms. You can&#x27;t tell if they were fighting or dancing or hugging or what. {(if: $Setting is 1)[A naked cultist is splayed out on a pentagram that someone has scratched onto the packed-earth floor.]
+(else-if: $Setting is 2)[There is a smell of Formid Juice.]
+(else:)[A cloud of tobacco smoke hangs in the air. One of the bandits coughs and stirs, but doesn&#x27;t wake up.]} $IVillain snores with the $IQuest in his hand. You relieve him of it and make an escape. $IName gave up $IPPron life for this? It seems absurd. What a waste.
+
+[[Carry on.-&gt;BReveal]]
+](else-if: $Score is 0)[
+As you walk into the inner sanctum, you realise that you&#x27;ve been worrying too much. Empty bottles pile up on the floor. A $IThug snores loudly, splayed over a table. Two more seem to have collapsed into each other&#x27;s arms. You can&#x27;t tell if they were fighting or dancing or hugging or what. {(if: $Setting is 1)[A naked cultist is splayed out on a pentagram that someone has scratched onto the packed-earth floor.]
+(else-if: $Setting is 2)[There is a smell of Formid Juice.]
+(else:)[A cloud of tabacco smoke hangs in the air. One of the bandits coughs and stirs, but doesn&#x27;t wake up.]} $IVillain snores with the $IQuest in his hand. You relieve him of it and make an escape.
+
+Just as you&#x27;re making for the door, however, $IName calls out. &quot;Hey.&quot;
+&quot;What?&quot; you say, turning around, and that&#x27;s when you see that $IName is holding a $IWeapon, pointing it straight at your head.
+&quot;Come on now,&quot; you say. &quot;What&#x27;s this?&quot;
+$IPron won&#x27;t meet your eye.
+&quot;Give me the $IQuest,&quot; {(if: $Gender is 1)[he says.]
+(else-if: $Gender is 2)[she says.]
+(else:)[they say.]}
+&quot;What? Hey, put that down, let&#x27;s talk about this.&quot;
+&quot;No. No time for that. Just drop it.&quot; $IName shouts those last words, and shakes the $IWeapon, as though you haven&#x27;t noticed it already.
+
+[[Carry on.-&gt;BOption]]
+](else-if: $Score &gt;= 1)[
+As you walk into the inner sanctum, you realise that you&#x27;ve been worrying too much. Empty bottles pile up on the floor. A $IThug snores loudly, splayed over a table. Two more seem to have collapsed into each other&#x27;s arms. You can&#x27;t tell if they were fighting or dancing or hugging or what. {(if: $Setting is 1)[A naked cultist is splayed out on a pentagram that someone has scratched onto the packed-earth floor.]
+(else-if: $Setting is 2)[There is a smell of Formid Juice.]
+(else:)[A cloud of tobacco smoke hangs in the air. One of the bandits coughs and stirs, but doesn&#x27;t wake up.]} $IVillain snores with the $IQuest in his hand. You relieve him of it and make an escape.
+
+Just as you&#x27;re heading out the door, however, you see $IName reaching for $IPPron $IWeapon. In a few moments, some cogs turn over in your head. Time-honed reflexes kick in and you realise that you have made a stupid mistake in trusting this person. You&#x27;re about to be played for a patsy.
+
+[[Carry on.-&gt;BConfront]]
+]</tw-passagedata><tw-passagedata pid="30" name="Ambush" tags="" position="2004,104">(if: $Score is 0)[
+You bust down the door and wade into the room, expecting a brawl. But... The room is strangely quiet. What happened to the voices you could hear from outside? Across the room, you see the $IQuest. {(if: $Setting is 1)[It is a twisted piece of blood-red metal, floating above an altar of bone. Pillars of charcoal flank the room, and sunlight finds its way in through a hole in the ceiling.]
+(else-if: $Setting is 2)[A blue disc sits on a tidy desk at the end of the room. The room shows signs of recent inhabitation, but nobody seems to be here.]
+(else:)[It hangs from a chain on a nail in the far wall. This must have been a storeroom of some kind. You feel as though you&#x27;re above ground once again - perhaps this was once an alternate entrance to the mines? Sunlight filters in through a grimy pane of glass.]}
+
+You begin to approach the $IQuest. Just then there is a crash, and suddenly {(if: $Setting is 1)[from behind the pillars steps]
+(else-if: $Setting is 2)[a crackle of light in the centre of the room signals the deactivation of a cloaking device.]
+(else:)[Out of the shadows,]} $IVillain emerges. He takes one step towards you, cackling. He has one $IThug on either side of him, and several more are standing at the back of the room. Each holds a $IEnemyWeapon. You&#x27;re out in the open. This isn&#x27;t good.
+
+&quot;Finally,&quot; he says, with a deep and booming voice. &quot;You&#x27;ve arrived. {(if: $Would is 4)[&quot;And you&#x27;ve come alone. What happened to your famous friend, $IName?&quot; You say nothing. &quot;Oh, come now. Don&#x27;t be like that.&quot; You look at the $IEnemyWeapon in the hands of the goon nearest to you and gulp. &quot;$IName is dead,&quot; you say. &quot;How did you know we were coming?&quot;](else:)[&quot;And you&#x27;ve brought $IName. What a splendid surprise. Wonderful. We&#x27;ll make a little more from this deal than we bargained for. &quot;What do you mean?&quot; you ask. &quot;How did you know we were coming?&quot;]}
+
+&quot;Oh, my dear boy,&quot; says $IVillain. &quot;Did you really think it would be as simple as journeying here and wandering out with the $IQuest? No, far from it. You&#x27;ve been a thorn in our side for too long, and now me and $IQuestGiver are working together to do away with you. With you out of the picture, the rest of our plan will be plain sailing.&quot;
+
+&quot;You&#x27;re mad,&quot; you say.
+
+&quot;I know,&quot; he says. &quot;Guards? Light them up.&quot;
+
+There is the sound of several $IEnemyWeapons being fired at once.
+
+{(if: $Wound is 4)[(link:&quot;Carry on.&quot;)[(goto:&quot;ANoHelp&quot;)]]
+(else:)[(link:&quot;Carry on.&quot;)[(goto:&quot;AmbushSprung&quot;)]]}
+]
+(if: $Score is 1)[
+As you kick the door down, the first thing you see is $IVillain, {(if: $Setting is 1)[shuffling behind a pillar.]
+(else-if: $Setting is 2)[messing with a cloaking device. Suddenly, he&#x27;s invisible.]
+(else:)[He sees you coming and skuttles into the shadows at the back of the room.]}
+
+Across the room, you see the $IQuest. {(if: $Setting is 1)[It is a twisted piece of blood-red metal, floating above an altar of bone. Pillars of charcoal flank the room, and sunlight finds its way in through a hole in the ceiling.]
+(else-if: $Setting is 2)[A blue disc sits on a tidy desk at the end of the room. The room shows signs of recent inhabitation, but nobody seems to be here.]
+(else:)[It hangs from a chain on a nail in the far wall. This must have been a storeroom of some kind. You feel as though you&#x27;re above ground once again - perhaps this was once an alternate entrance to the mines? Sunlight filters in through a grimy pane of glass.]}
+
+You weigh your $IWeapon your hand and dive behind a sofa, taking a good defensive position. &quot;It&#x27;s no good, $IVillain,&quot; you say. &quot;I know you&#x27;re hiding. What&#x27;s say we make this easy?&quot;
+
+&quot;Flaming heck,&quot; says a voice from the shadows. &quot;$IQuestGiver said they wouldn&#x27;t get here until midnight. All that preparation for nothing.&quot;
+
+&quot;Ah well,&quot; says the voice of $IVillain. &quot;May as well make the best of it. Attack, my $IThug children!&quot;
+
+{(if: $Wound is 4)[(link:&quot;Carry on.&quot;)[(goto:&quot;ANoHelp&quot;)]]
+(else:)[(link:&quot;Carry on.&quot;)[(goto:&quot;APantsDown&quot;)]]}
+
+]
+(if: $Score is 2)[
+Across the room, you see the $IQuest. {(if: $Setting is 1)[It is a twisted piece of blood-red metal, floating above an altar of bone. Pillars of charcoal flank the room, and sunlight finds its way in through a hole in the ceiling.]
+(else-if: $Setting is 2)[A blue disc sits on a tidy desk at the end of the room. The room shows signs of recent inhabitation, but nobody seems to be here.]
+(else:)[It hangs from a chain on a nail in the far wall. This must have been a storeroom of some kind. You feel as though you&#x27;re above ground once again - perhaps this was once an alternate entrance to the mines? Sunlight filters in through a grimy pane of glass.]}
+
+As you ease your way around the door, you see a figure that can only be $IVillain. He has his back to you. There&#x27;s a $IThug saying something to him, and several more standing around in a ring. They seem to be planning something.
+
+&quot;... and so when they arrive, in about an hour, we&#x27;ll all be hidden. We wait until they&#x27;re in the middle of the room, spring the ambush, and collect the reward from $IQuestGiver. Easy as pie.&quot; They&#x27;re talking about you! Turns out that $IQuestGiver has been plotting with these goons to set you up. Well, no problem. You got through the $IFacility quicker than they were expecting. You&#x27;re here early.
+
+You clear your throat. (if: $Wound &lt;=3)[$IName stands beside you.]
+
+&quot;You guys talking about me?&quot;
+
+{(if: $Wound is 4)[(link:&quot;Carry on.&quot;)[(goto:&quot;ANoHelp&quot;)]]
+(else:)[(link:&quot;Carry on.&quot;)[(goto:&quot;APantsDown&quot;)]]}
+]</tw-passagedata><tw-passagedata pid="31" name="ANoHelp" tags="" position="2205,10">You&#x27;re alone. You wish you weren&#x27;t, but you are. $IName&#x27;s blood cakes around your wrist during the longest moment of your life. You feel the weight of your $IWeapon and feel the breath in your lungs.
+{
+(if: $Score is 2)[Your grip tightens. Look at these fools, sitting in a circle, plotting away. What a bunch of idiots! You can&#x27;t get $IName&#x27;s face out of your head. Before you even have a chance to think about it, you&#x27;re {(if: $Setting is 1)[slashing]
+(else-if: $Setting is 2)[blasting]
+(else:)[blasting]} away. $IVillain falls first, and then one $IThug, and then another, and then another. You&#x27;re possessed. When the dust settles, you&#x27;re the only person left alive for miles around. You shove the $IQuest into your bag and make for the exit.&lt;p&gt;
+
+Outside, the air feels good. You shake the dust out of your hair and clothes and walk back towards the $IConveyance. Only one thing left to do: A quick visit to $IQuestGiver. The $IVillainTeam are dead. So is $IName. It&#x27;s been a long day.&lt;p&gt;
+
+Your footprints bake into the sand. Nothing makes a noise.
+
+GAME OVER]
+(else:)[It&#x27;s over quickly. You&#x27;re no match for $IVillain. A $IThug quickly knocks your $IWeapon out of your hand and another one levels their $IEnemyWeapon at your throat. &quot;Any last words?&quot; asks $IVillain. You keep silent. You won&#x27;t give him the satisfaction.&lt;p&gt;
+
+With a searing pain, death takes you. As you fall, you see a scrap of $IName&#x27;s cloak through the open doors. You&#x27;ll see $ISPron again in just a moment, you think to yourself. Is that what your blood looks like? Guess so.&lt;p&gt;
+
+GAME OVER]
+}</tw-passagedata><tw-passagedata pid="32" name="AmbushSprung" tags="" position="2205,135">You dive for safety but $IName isn&#x27;t quick enough. As {(if: $Gender is 1)[he tries]
+(else-if: $Gender is 2)[she tries]
+(else:)[they try]} to defend {(if: $Gender is 1)[himself]
+(else-if: $Gender is 2)[herself]
+(else:)[themself]}, you realise that this might be your only chance to grab the $IQuest. You sprint across the room, but before you can grab it, $IVillain steps into your path. He grins. Blood drips down his chin. &quot;Bring it,&quot; he says.
+{
+(if: $Wound is 0)[Then, his expression turns glassy, and he drops to the ground, stone cold dead. You spin around. $IName drops a $IEnemyWeapon and smiles at you. For the last time, $IPron has got your back. A $IThug takes his chance and brings a $IPry down on $ISPron head. &quot;No!&quot; You cry out but it&#x27;s too late. The next few moments are a blur, and then you&#x27;re outside. You have the $IQuest in your hand. You&#x27;re shaking. Not pausing to look back, you make it to the $IConveyance. A lone $IThug tries to stop you but you steer the $IConveyance over him. The noise is horrible. You look at the $IQuest. All this death, just for this?&lt;p&gt;
+
+You will never forget what $IName did for you. You briefly consider visiting $IQuestGiver and exacting your revenge, but it seems... Futile, somehow. One more death won&#x27;t make any of this right.&lt;p&gt;
+
+You turn your back on $IWorldName. You won&#x27;t be coming here again.&lt;p&gt;
+
+GAME OVER]
+(else:)[You... You panic. That&#x27;s how you describe it later. $IName falls down dead under a $IPry held by a $IThug. Something foul seems to radiate off $IVillain, and you just... Go.&lt;p&gt;
+
+It&#x27;s hours until you&#x27;ve got enough ground between you and the $IFacility to consider resting. You&#x27;re empty-handed. You were too slow. $IName is dead. $IQuestGiver tricked you. As quickly as you can, you book transit off $IWorldName. You never tell anyone what happened there.&lt;p&gt;
+
+GAME OVER]
+}</tw-passagedata><tw-passagedata pid="33" name="APantsDown" tags="" position="2330,71">(if: ($Score is 2) or (($Score is 1) and ($Wound is 0)))[
+With a nod to $IName, you wade into the brawl. As $IName deals with the $IThug onslaught, you move towards $IVillain, who falls quickly to your $IWeapon. Just a human like the rest, you think.
+
+You&#x27;re impressed. $IName cuts a clean swath and so do you. Neither of you get so much as a scratch. Maybe the $IVillainTeam aren&#x27;t so bad, so unassailable, so deserving of fearful reverie? It&#x27;s a simple matter to grab the $IQuest and get out. Back on the $IConveyance later on, you and $IName discuss whether or not to return to $IQuestGiver for retribution. It all feels so easy, somehow.
+
+Maybe you could be the next $IVillain?
+
+The thought stays with you as you ride off into the sunset.
+
+GAME OVER]
+
+(if: $Score is 1 and $Wound &gt;= 1)[
+With a nod to $IName, you wade into the brawl. As $IName deals with the $IThug onslaught, you move towards $IVillain, who falls quickly to your $IWeapon. Just a human like the rest, you think.
+
+It isn&#x27;t so easy for $IName. You grab the $IQuest and turn around just in time to see $IName vanish amid a goonish scrum. You run over and are able to pull $ISPron out. The two of you beat a hasty retreat. All the way back through the $IFacility, the bastards chase you. You don&#x27;t get a chance to take stock of your wounds until you get back to the $IConveyance.
+
+You&#x27;re pretty beaten up, but you&#x27;ll probably be fine. A lot of cuts and scrapes, but nothing too serious. You&#x27;re relieved. You turn in your seat to tell $IName, and realise that $IPPron face is white, and $IPPron arms are slack at $IPPron sides. How did that happen? You find yourself overtaken by shock, and for some time you can&#x27;t work out what to do. Eventually, you stop the $IConveyance. You climb down, and catch $IName as $IPPron body falls to the ground.
+
+You bury $ISPron. That&#x27;s all there is to say about it. You bury $ISPron, and you ride off alone. You can&#x27;t bare to look at the $IQuest. It makes you feel sick. The whole thing makes you feel sick.
+
+GAME OVER]</tw-passagedata><tw-passagedata pid="34" name="BReveal" tags="" position="2439,495">You escape to the $IConveyance with $IName&#x27;s body and start making tracks. A few miles away, it occurs to you that you should have a look through $IPPron stuff. Perhaps they have a significant other that you could pass their share of the reward money onto? But when you look in $IName&#x27;s $IConveyanceS you find a $IDiary that gives you a cold chill. As you read, you realise that all along, {(if: $Gender is 1)[he was]
+(else-if: $Gender is 2)[she was]
+(else:)[they were]} planning to betray you! {(if: $Gender is 1)[He was]
+(else-if: $Gender is 2)[She was]
+(else:)[They were]} working with $IQuestGiver. If {(if: $Gender is 1)[he&#x27;d]
+(else-if: $Gender is 2)[she&#x27;d]
+(else:)[they&#x27;d]} survived to the end, {(if: $Gender is 1)[he was]
+(else-if: $Gender is 2)[she was]
+(else:)[they were]} going to stab you in the back. What the hell? You&#x27;re disgusted. You haul the body out onto the ground and leave it there for the flies. You feel contested, as you get back on the road. To be honest, you&#x27;re not quite sure what to think. What a fiasco. Damn.
+
+GAME OVER</tw-passagedata><tw-passagedata pid="35" name="BOption" tags="" position="2569,427">You have the $IQuest in your hand. Damnit, this is absurd. Why is $IName doing this? You need this thing. You know that if you hand the $IQuest over, you&#x27;re done for. You&#x27;ll never work again. You&#x27;re still deliberating when you spot a discarded $IEnemyWeapon on the floor by your feet. $IName probably hasn&#x27;t noticed it. You might have a chance. Then again, you might not.
+
+[[Hand it over]]
+[[Attack]]</tw-passagedata><tw-passagedata pid="36" name="BConfront" tags="" position="2438,370">Could it be? Is $IName really about to betray you? You hesitate, just for a moment, and then your fears are confirmed. $IName&#x27;s face is blank and steely, and $IPPron $IWeapon is leveled at you. This is really happening. Your mind races. Before you have a chance to evaluate your situation, you&#x27;ve made a decision.
+
+(if: $Wound &lt;=1)[(link: &quot;Seize the moment&quot;)[(go-to: &quot;BOption&quot;)]]
+(else:)[(link: &quot;Seize the moment&quot;)[(go-to: &quot;BCapitulate&quot;)]]
+[[Get out of there]]
+</tw-passagedata><tw-passagedata pid="37" name="Hand it over" tags="" position="2721,374">&quot;You made the right choice,&quot; drawls $IName. &quot;Now, you stay here. I&#x27;ll be taking the $IConveyance. {(if: $Companion is 1)[I&#x27;m sorry it had to be you, I really am. If I&#x27;d known...&quot; There is a moment of silence. You spit on the ground.&lt;p&gt;
+&quot;Is this what it all comes down to?&quot; you ask. &quot;What about all our adventures together? The times we saved each other?&quot;&lt;p&gt;
+&quot;The times I saved you, more like,&quot; says $IName. &quot;You were always a burden. Even back in the orphanage.&quot; You look at $IPPron face for even a flicker of regret, but detect none. &quot;Law of the jungle, I&#x27;m afraid,&quot; 
+{(if: $Gender is 1)[he says.]
+(else-if: $Gender is 2)[she says.]
+(else:)[they say.]} &quot;See you in the next life, I suppose. Don&#x27;t come looking for me. It won&#x27;t end well.&quot; And with that, $IName walks out of the door, and out of your life. You don&#x27;t give chase. You just stand there, looking at that doorway, until a $IThug stirs behind you and you start to run.&lt;p&gt;
+
+GAME OVER]
+(else-if: $Companion is 2)[I&#x27;ve been looking for this for fifteen years, and I won&#x27;t be saddled with your incompetence any longer. See you round, kid.&quot; And with that, $IName walks out of the door. What a bastard! You have to admit, you weren&#x27;t expecting a play like that. Guess they really don&#x27;t breed them like they used to.&lt;p&gt;
+
+GAME OVER]
+(else:)[This will get a fortune on the black market. You&#x27;re mad, I know. I can see it in your face. You&#x27;re pissed off, and rightly so. But listen - this is a whole new life for me. This is the end of squalour. This is the end of stealing bread to feed my sick cousin. Me and my mother, we&#x27;re going to live in a real house now! So that&#x27;s that. I&#x27;m going. Catch you later, old-timer.&quot; And with that, $IName walks out of the door. Goddamn kids. You kick a $IThug to relieve your stress, and then step outside yourself. The $IConveyance is a speck on the horizon already. You start walking. That kid&#x27;s going to pay.&lt;p&gt;
+
+GAME OVER]}</tw-passagedata><tw-passagedata pid="38" name="Attack" tags="" position="2722,499">Before you have a chance to overthink it, you grab the $IEnemyWeapon from the floor and fire.
+
+(if: $Wound is 0)[$IName takes the hit and for a moment you think you&#x27;ve won. You&#x27;re wrong, though, and in a moment {(if: $Gender is 1)[he straightens]
+(else-if: $Gender is 2)[she straightens]
+(else:)[they straighten]} up and a smirk crosses $IPPron face.
+
+&quot;So be it,&quot; {(if: $Gender is 1)[he says.]
+(else-if: $Gender is 2)[she says.]
+(else:)[they say.]} The $IWeapon in $IPPron hand flashes. It&#x27;s the last thing you ever see.
+
+GAME OVER]
+
+(if: $Wound &gt;= 1)[$IName topples over, dead. $IPPron wounds were already pretty severe from the journey though that damn $IFacility. You think about how desperate $IPron must have been to try a stunt like that. {(if: $Companion is 1)[Your mind glibly draws you a picture of the two of you as teenagers, hanging out in alleyways, picking pockets, and then as adults, signing on for military service together, and the battles you fought and the people you left behind. $IName had always been there. Always! You walk over to $IPPron body and close $IPPron eyelids. You swallow a lump in your throat. Then you sigh, and sling your bag across your back, and step out into the cold evening air of $IWorldName. It&#x27;s a long journey home. No time to look back. Got to carry on.&lt;p&gt;
+
+GAME OVER]
+(else-if: $Companion is 2 or 3)[You&#x27;re annoyed, but not especially surprised. It&#x27;s a dangerous business, messing with the $IVillainTeam and hunting for something as valuable as the $IQuest. $IName probably isn&#x27;t the last so-called ally you&#x27;ll have to kill before this business is over. You sigh, and sling your bag across your back, and step out into the cold evening air of $IWorldName. It&#x27;s a long journey back.&lt;p&gt;
+
+GAME OVER]}]</tw-passagedata><tw-passagedata pid="39" name="Get out of there" tags="" position="2566,302">You feint putting the $IQuest on the ground, but use the opportunity to fling a handful of dust into $IName&#x27;s face and whilst {(if: $Gender is 1)[he curses and rubs his eyes]
+(else-if: $Gender is 2)[she curses and rubs her eyes]
+(else:)[they curse and rub their eyes]}, you make a dash for the door. A projectile whizzes past your ear but you scramble over dirt and broken crap and eventually arrive at the $IConveyance. $IName is chasing after you but too slowly. Soon, the $IFacility and $IName are disappearing over the horizon behind you. You look at the loot in your hand, and wonder what you&#x27;ll do if you meet $IName again. You think about it all afternoon. Eventually, though, you just forget about it.
+
+GAME OVER</tw-passagedata><tw-passagedata pid="40" name="BCapitulate" tags="" position="2437,245">You don&#x27;t flinch. In seconds, your own $IWeapon is in your hand. 
+
+&quot;Now, don&#x27;t do anything rash,&quot; you say in soothing tones. &quot;You&#x27;ve taken a few hits today. Let&#x27;s not start a fight you can&#x27;t finish, OK?&quot;
+
+$IName visibly deflates, and drops $IPPron $IWeapon. As you go to pick it up, you deftly twist and deliver a blow to $IName&#x27;s head with your $ICloseUp. 
+{(if: $Gender is 1)[He crumples]
+(else-if: $Gender is 2)[She crumples]
+(else:)[They crumple]} to the ground, unconscious. Now that is some irresponsible behaviour, you think to yourself. If you weren&#x27;t such a scrupulous person, you might be inclined to leave $ISPron here, and let the $IVillainTeam deal with $ISPron when they all wake up, which could be any minute now. The $IQuest is yours, after all. That&#x27;s what you came for. No need for extra baggage, {(if: $Companion is 1)[even if that baggage is your oldest friend.]
+(else-if: $Companion is 2)[especially when that baggage seems to be one hundred years old and smells of cabbage.]
+(else:)[especially when that baggage is this idiot kid with a deathwish.]} Yep, you could totally leave $ISPron here and be free of a great many headaches. Especially given that $IPron just tried to rob you.
+
+Good thing you&#x27;re not that kind of person.
+
+Are you?
+
+GAME OVER</tw-passagedata></tw-storydata>

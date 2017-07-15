@@ -1,0 +1,233 @@
+<tw-storydata name="NecroArchitecture" startnode="1" creator="Twine" creator-version="2.0.11" ifid="437DEA39-C4E6-49D8-85B4-E6A4EB2F9F54" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="Initialisation" tags="" position="631,24">&lt;!-- States are &quot;active&quot; or &quot;responsive&quot;, describing the state the game is currently in. Most scene-to-scene transitions are routed through a state manager that deals with these. --&gt;
+&lt;!-- The responsive state is divided into fResponsive for fights, cResponsive for conversations, sResponsive for sneaking and hResponsive for dangerous hazards. --&gt;
+
+(set: $state to &quot;active&quot;)
+
+(set: $entrance to (datamap:
+&quot;name&quot;, &quot;entrance&quot;,
+&quot;passable&quot;, true,
+&quot;connections&quot;, (a:&quot;hallway&quot;),
+&quot;dangerousEntry&quot;, false,
+))
+
+(set: $hallway to (datamap:
+&quot;name&quot;, &quot;hallway&quot;,
+&quot;passable&quot;, false,
+&quot;connections&quot;, (a:&quot;entrance&quot;, &quot;dangerroom&quot;),
+&quot;dangerousEntry&quot;, false,
+))
+
+(set: $dangerroom to (datamap:
+&quot;name&quot;, &quot;dangerroom&quot;,
+&quot;passable&quot;, true,
+&quot;connections&quot;, (a:&quot;hallway&quot;, &quot;&quot;),
+&quot;dangerousEntry&quot;, true,
+))
+
+(set: $sneakDestination to &quot;&quot;)
+
+(set: $fightDeck to &quot;&quot;)
+(set: $sneakDeck to &quot;&quot;)
+(set: $convoDeck to &quot;&quot;)
+(set: $hazardDeck to &quot;&quot;)
+
+(set: $currentRoom to $entrance)
+
+
+(goto: &quot;StateManager&quot;)</tw-passagedata>
+<tw-passagedata pid="2" name="StateManager" tags="" position="639,186">(if: $state is &quot;active&quot;)[(goto: &quot;GenericRoom&quot;)]
+(if: $state is &quot;fResponsive&quot;)[(goto: &quot;FightPlanner&quot;)]
+(if: $state is &quot;cResponsive&quot;)[(goto: &quot;ConvoPlanner&quot;)]
+(if: $state is &quot;sResponsive&quot;)[(goto: &quot;SneakPlanner&quot;)]
+(if: $state is &quot;hResponsive&quot;)[(goto: &quot;HazPlanner&quot;)]</tw-passagedata>
+<tw-passagedata pid="3" name="entrance" tags="" position="275,544">(set: $traversable to true)
+There is a note pinned to the (link: &quot;wall&quot;)[(goto: &quot;entrancewall&quot;)].</tw-passagedata>
+<tw-passagedata pid="4" name="GenericActions" tags="" position="290,334">how I look
+how I feel
+what I carry
+what I know</tw-passagedata>
+<tw-passagedata pid="5" name="cTalk" tags="" position="1209,64">&quot;Oh hello.&quot;</tw-passagedata>
+<tw-passagedata pid="6" name="cSneer" tags="" position="1209,189">&quot;You&#39;re pathetic.&quot;</tw-passagedata>
+<tw-passagedata pid="7" name="fSwing" tags="" position="1337,61">It swings!</tw-passagedata>
+<tw-passagedata pid="8" name="fGurgle" tags="" position="1338,188">It gurgles angrily.</tw-passagedata>
+<tw-passagedata pid="9" name="sGlance" tags="" position="1471,59">It glances around.</tw-passagedata>
+<tw-passagedata pid="10" name="sDoze" tags="" position="1472,187">It falls asleep!</tw-passagedata>
+<tw-passagedata pid="11" name="hFloor" tags="" position="1605,62">The floor crumbles!</tw-passagedata>
+<tw-passagedata pid="12" name="GenericRoom" tags="" position="423,336">&lt;!-- displays the contents of the specified page. In reality this will be more nuanced as considerations should be made for different text if the room is passable or not. The level of description should be light if there&#39;s a pressing situation.
+OH WAIT better idea is if these rooms assume there&#39;s no monster there, but each room also has a light sketch-description that gets loaded by the encounterplanner if you enter a room and are straight into a fight.--&gt;
+(display: &quot;name&quot; of $currentRoom)
+
+(if: &quot;passable&quot; of $currentRoom is true)[(display: &quot;TraversalOptions&quot;)]
+
+(display: &quot;GenericActions&quot;)
+
+
+ginfo (click-replace: &quot;ginfo&quot;)[
+N.B. This is the genericroom. It&#39;s the room that the State Manager sends you to if you&#39;re in the Active (i.e. not in initiative) state. It has the traversal options for that room as well as the generic actions (inventory, etc) and above those it displays a &quot;room&quot; passage, which might have links and descriptive text and stuff in it. It&#39;s basically a template for your general-purpose environment+upkeep panels.
+
+These are the rooms that the procedural generator places. They&#39;re &#39;generic&#39; in the sense that they all have a datamap with their information and they all obey a simillar format and when you come out of a fight or something, you&#39;ll always be plonked into one of these. The game has an index of them that it uses to build the world. Or rather, it will do eventually.
+
+Note that not every passage has to be a genericroom - it&#39;s fine for passages to link to other passages connected to them without routing through the StateManager. A room might have a machine to investigate over there and a mural to check over there and an annex at the back, and they can all just be passages of their own that link together with straightforward link: macros. The only thing to consider then is that those rooms won&#39;t by default have access to the inventory or the traversal options. If those things are needed, you can just display: them manually.
+
+One final thought: A biome might be laid out as follows. Consider a biome that is a creature&#39;s burrow. The first room is the entrance. That would be a GenericRoom, with options to leave to any other connected rooms. Then you might move through some standalone passages - a hole to squeeze through, a scrap of paper in the mouth of a skull, an encounter with the creature that lives here, etc. - and eventually get where you were headed, which is the far end of the burrow where they&#39;ve burrowed into the basement of a dilapidated shack. This would be another GenericRoom, which would display the traversal options for wherever the shack connected to.]</tw-passagedata>
+<tw-passagedata pid="13" name="hallway" tags="" position="444,543">(if: &quot;passable&quot; of $currentRoom is false)[
+There is a skellington here!
+Better deal with it!
+
+(link:&quot;Fight&quot;)[(set: $state to &quot;fResponsive&quot;)(goto: &quot;StateManager&quot;)]
+{&lt;!-- This bit of API should have reference to both previousroom and connections, in order to make the sneak options work properly, and it should go in a displayable called SneakOptions that&#39;s displayed in impassable rooms --&gt;}
+(link:&quot;Sneak to Dangerroom&quot;)[(set: $state to &quot;sResponsive&quot;)(set: $sneakDestination to $dangerroom)(goto: &quot;StateManager&quot;)]
+(link:&quot;Sneak to Entrance&quot;)[(set: $state to &quot;sResponsive&quot;)(set: $sneakDestination to $entrance)(goto: &quot;StateManager&quot;)]
+{
+&lt;!-- Likewise there should just be a TalkOptions that gets displayed if there&#39;s something to talk to. --&gt;}
+(link:&quot;Talk&quot;)[(set: $state to &quot;cResponsive&quot;)(goto: &quot;StateManager&quot;)]
+
+einfo (click-replace: &quot;einfo&quot;)[
+This room is a genericroom with an encounter. This section of the passage is displayed if the player is in a room with a conspicuous hazard but isn&#39;t necessarily in immediate peril. For example, being in a room with a creature that doesn&#39;t pay any attention to you, like a blind monk or a rat eating a corpse. You&#39;ll need to negotiate that situation somehow, and it might involve going to the fight planner or the sneak planner or something.
+If there was immediate peril, we&#39;d do a state change. If that was the case, we&#39;d be straight into a fight or sneak situation (presumably when it comes to entering a new room you have some option about whether to smash the door down or open it quietly or whatever, so you may be immediately into a situation (smash a door if you don&#39;t have the key, but they&#39;ll know you&#39;re coming. Conversely, sneak in if you want but you&#39;ll be at a disadvantage if discovered). 
+If there&#39;s no hazard, a longer bit of descriptive text is displayed (replete with options to examine stuff, places to go, etc) to reflect the fact that you can have a proper look at the place.
+This is how rooms should be formatted if they&#39;re going to contain a monster to fight.]]
+
+
+(else:)[Nothing bad here! No skeleton to worry about! You notice a shiny gemstone on the floor.]
+
+</tw-passagedata>
+<tw-passagedata pid="14" name="TraversalOptions" tags="" position="289,208">(if: &quot;connections&quot; of $currentRoom contains &quot;hallway&quot;)[
+(link: &quot;Advance to Hallway&quot;)[(set: $currentRoom to $hallway)(set: $state to &quot;active&quot;)(goto: &quot;StateManager&quot;)]]
+
+(if: &quot;connections&quot; of $currentRoom contains &quot;dangerroom&quot;)[
+(link: &quot;Advance to Danger Room&quot;)[(set: $currentRoom to $dangerroom)(if: &quot;dangerousEntry&quot; of $currentRoom is true)[(set: $state to &quot;hResponsive&quot;)(goto: &quot;StateManager&quot;)]
+(else:)[(set: $state to &quot;active&quot;)(goto: &quot;StateManager&quot;)]]]
+
+(if: &quot;connections&quot; of $currentRoom contains &quot;entrance&quot;)[
+(link: &quot;Advance to Entrance&quot;)[(set: $currentRoom to $entrance)(set: $state to &quot;active&quot;)(goto: &quot;StateManager&quot;)]]
+
+&lt;!-- These could contain information too. For example, the dangerroom traversal might have an if: statement to determine if the floor has collapsed current
+current
+or not. If it has, then we stay in Active mode.
+
+Or, more interestingly, if we have a reference that we keep somehow to $previousRoom then we can have different hazards trigger depending on the way you go about entering a room, such as the cauldron situation.--&gt;</tw-passagedata>
+<tw-passagedata pid="15" name="dangerroom" tags="" position="605,545">Rubble is everywhere.</tw-passagedata>
+<tw-passagedata pid="16" name="entrancewall" tags="" position="277,675">The note is a drawing of an arse!
+
+(link: &quot;Look away&quot;)[(goto: &quot;StateManager&quot;)]
+(link: &quot;Look underneath&quot;)[(goto: &quot;entranceunderneath&quot;)]
+
+(display: &quot;GenericActions&quot;)
+
+info (click-replace: &quot;info&quot;)[As opposed to a genericroom, this is a standalone panel. It&#39;s a note on a wall but it might be another room connected to the main one, or a treasure chest, or any other static thing. There could be a character to talk to here, even, or it could represent an ambush and redirect you to the StateManager for a fight, or a trap that redirects you off to a hazard routine, or makes you do a check of some kind, or any damn thing.
+Note that here I&#39;m displaying the generic actions too, but that&#39;s arbitrary. You don&#39;t have to. The next passage doesn&#39;t.]</tw-passagedata>
+<tw-passagedata pid="17" name="entranceunderneath" tags="" position="279,801">Oh shit, there&#39;s a secret passage here to the dangerroom!
+
+(link: &quot;Go in&quot;)[(set: $currentRoom to $dangerroom)(set: $state to &quot;hResponsive&quot;)(set: $hazard to &quot;floorcollapse&quot;)(goto: &quot;StateManager&quot;)]
+(link: &quot;Nah&quot;)[(goto:&quot;StateManager&quot;)]
+
+info (click-replace: &quot;info&quot;)[This room sends you to a different room but it also triggers a hazard that you&#39;ll have to negotiate before you get there. Consider that there are options here. We could enter the same room in different ways and get different hazards. Sliding down a chute on your ass? Might fall into the cauldron at the bottom. Entering that same room through the door? The cauldrom isn&#39;t going to be a problem for you.]</tw-passagedata>
+<tw-passagedata pid="18" name="ToDo" tags="" position="70,21">- put the planners in, make them work in some sensible way.
+
+- import some of the fight stuff from the previous big build into this architecture
+- build some sample rooms to explore concepts of genericroom, hazards, sneaking, panels, standard-monster-interaction-options, etc.
+- concept of monsters
+- concept of items
+
+-conversations: each character has a datamap of what is known (rats live in holes, rats eat cheese, rats smell of shit, etc) and when they tell you something, it gets added into an &#39;already mentioned&#39; datamap (or else its index does or something but it&#39;s probably not an issue).
+- each character has a datamap where they store things you&#39;ve told them. At this stage, this is all strings, generated out of a corupus.
+- issue: your list of &#39;things to ask about&#39; will be structured in much the same way as their list of responses, so it might feel a bit less prone to excitement. Sometimes they should synthesize stories about what the rats did, etc.</tw-passagedata>
+<tw-passagedata pid="19" name="FightPlanner" tags="" position="1061,374">(set: $fightDeck to (a:&quot;fSwing&quot;,&quot;fGurgle&quot;))
+
+(goto: &quot;FightManager&quot;)</tw-passagedata>
+<tw-passagedata pid="20" name="FightManager" tags="" position="1058,499">(display: $fightDeck&#39;s 1st)
+
+(link: &quot;next&quot;)[(set: $fightDeck to (rotated: 1, ...$fightDeck))(goto: &quot;FightManager&quot;)]
+(link: &quot;end&quot;)[(goto: &quot;FightExit&quot;)]</tw-passagedata>
+<tw-passagedata pid="21" name="ConvoPlanner" tags="" position="1191,371">(set: $convoDeck to (a:&quot;cTalk&quot;,&quot;cSneer&quot;))
+
+(goto: &quot;ConvoManager&quot;)</tw-passagedata>
+<tw-passagedata pid="22" name="ConvoManager" tags="" position="1192,496">(display: $convoDeck&#39;s 1st)
+
+(link: &quot;next&quot;)[(set: $convoDeck to (rotated: 1, ...$convoDeck))(goto: &quot;ConvoManager&quot;)]
+(link: &quot;end&quot;)[(goto: &quot;ConvoExit&quot;)]</tw-passagedata>
+<tw-passagedata pid="23" name="FightExit" tags="" position="1056,624">(set: $FightDeck to &quot;&quot;)
+
+(set: $state to &quot;active&quot;)
+(set: &quot;passable&quot; of $currentRoom to true)
+(goto: &quot;StateManager&quot;)</tw-passagedata>
+<tw-passagedata pid="24" name="ConvoExit" tags="" position="1193,621">(set: $convoDeck to &quot;&quot;)
+
+(set: $state to &quot;active&quot;)
+(goto: &quot;StateManager&quot;)</tw-passagedata>
+<tw-passagedata pid="25" name="SneakExit" tags="" position="1340,615">(set: $sneakDeck to &quot;&quot;)
+
+(if: &quot;dangerousEntry&quot; of $sneakDestination is true)[
+(set: $state to &quot;hResponsive&quot;)
+(set: $currentRoom to $sneakDestination)
+(set: $sneakDestination to &quot;&quot;)
+(goto: &quot;StateManager&quot;)]
+
+(else:)[
+(set: $state to &quot;active&quot;)
+(set: $currentRoom to $sneakDestination)
+(set: $sneakDestination to &quot;&quot;)
+(goto: &quot;StateManager&quot;)]</tw-passagedata>
+<tw-passagedata pid="26" name="SneakManager" tags="" position="1336,490">(display: $sneakDeck&#39;s 1st)
+
+(link: &quot;next&quot;)[(set: $sneakDeck to (rotated: 1, ...$sneakDeck))(goto: &quot;SneakManager&quot;)]
+(link: &quot;end&quot;)[(goto: &quot;SneakExit&quot;)]</tw-passagedata>
+<tw-passagedata pid="27" name="SneakPlanner" tags="" position="1331,364">(set: $sneakDeck to (a:&quot;sGlance&quot;,&quot;sDoze&quot;))
+
+(goto: &quot;SneakManager&quot;)
+
+&lt;!-- If a room has something desirable like an item, the sneak system should leverage that as a chance to tempt the player into making bad mistakes. --&gt;</tw-passagedata>
+<tw-passagedata pid="28" name="HazPlanner" tags="" position="1477,364">&lt;!-- This page will need some variables in the room datamap to interface with. Sometimes a given entry to a room might have a certain hazard assosciated, like how entering the hut through the chimney triggers a cauldron hazard. However, this behaviour might vary from place to place. This script should have some things it can check, like previous room, and whether a hazard has already happened, and so on. --&gt;
+
+(set: $hazDeck to (a:&quot;hFloor&quot;, &quot;hArse&quot;))
+
+(goto: &quot;HazManager&quot;)</tw-passagedata>
+<tw-passagedata pid="29" name="HazManager" tags="" position="1474,495">(display: $hazDeck&#39;s 1st)
+
+(link: &quot;next&quot;)[
+(if: $hazDeck&#39;s length is 1)[(goto: &quot;HazExit&quot;)]
+(else:)[(set: $hazDeck to (subarray: $hazDeck, 2, $hazDeck&#39;s length))(goto: &quot;HazManager&quot;)]]</tw-passagedata>
+<tw-passagedata pid="30" name="HazExit" tags="" position="1474,620">
+(set: $hazDeck to &quot;&quot;)
+(set: &quot;dangerousEntry&quot; of $currentRoom to false)
+
+(set: $state to &quot;active&quot;)
+(goto: &quot;StateManager&quot;)</tw-passagedata>
+<tw-passagedata pid="31" name="hArse" tags="" position="1603,187">You land on your arse.</tw-passagedata>
+<tw-passagedata pid="32" name="Debug Header" tags="debug-header" position="48,173">Current room:
+(print: $currentRoom)
+
+Sneak Destination:
+(print: $sneakDestination)</tw-passagedata>
+</tw-storydata>

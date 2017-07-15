@@ -1,0 +1,36 @@
+<tw-storydata name="Datamap macro test" startnode="3" creator="Twine" creator-version="2.0.11" ifid="79E04AF5-CC70-4F35-8D45-9AECEF319345" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="Display" tags="" position="673,334">(set: $ra to &quot;&quot;)
+(set: $test to (datamap: 
+&quot;hello&quot;, 
+&quot;It&#39;s done&quot; + &#39;(replace: &quot;Foo&quot;)[Bar]&#39;,
+
+&quot;the skull&quot;,
+&quot;Hi&quot; + &#39;(replace: &quot;Foo&quot;)[(set: $ra to (datamap:&quot;p&quot;,&quot;q&quot;))]&#39;
+
+))
+
+Foo
+
+(link:&quot;do it&quot;)[(print: &quot;the skull&quot; of $test)(print: $ra)]
+</tw-passagedata>
+<tw-passagedata pid="2" name="ClickAppendTest" tags="" position="866,346">Word
+
+(clickappend: &quot;Word&quot;)[Yo]
+(clickappend: &quot;Word&quot;)[Me too]</tw-passagedata>
+<tw-passagedata pid="3" name="Passage macro test" tags="" position="1086,359">(if: (datanames: (passage: &quot;FooBarPassage&quot;)) contains &quot;name&quot;)[FooBarPassage exists]
+(if: (datanames: (passage: &quot;Fuss&quot;)) contains &quot;name&quot;)[FooBarPassage exists]</tw-passagedata>
+<tw-passagedata pid="4" name="FooBarPassage" tags="" position="1161,505">Double-click this passage to edit it.</tw-passagedata>
+</tw-storydata>

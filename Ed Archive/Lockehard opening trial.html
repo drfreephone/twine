@@ -1,0 +1,118 @@
+<tw-storydata name="Lockehard opening trial" startnode="12" creator="Twine" creator-version="2.0.11" ifid="F0CA00FB-C424-4F73-B7A5-9C21E31B8EEF" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="1" tags="" position="560,83">PART 1
+
+It was a midsummer garden party in 1811 that Henry was first shown Josephine. His father placed his hands on Henry&#39;s shoulders as introductions were made. She was, by all accounts, conventionally beautiful. They were married in the Autumn. For reasons that were neither Henry&#39;s fault nor hers, he never loved her.
+
+(link: &quot;In fact, I resented her.&quot;)[(set: $PWarmth to 0)(goto: &quot;2&quot;)]
+(link: &quot;But we still became good friends.&quot;)[(set: $PWarmth to 1)(goto: &quot;2&quot;)]</tw-passagedata>
+<tw-passagedata pid="2" name="2" tags="" position="560,225">The next summer, their first child was born. Another followed swiftly behind. The births were straightforward and the children were beautiful. Father was satisfied. Once their work was done, Josephine and Henry drifted ever-further apart. Sometimes he would hear her, moving around in an upstairs drawing room, or riding in her carriage down the drive. They slept in bedrooms at opposite ends of the manor. They rarely spoke.
+
+(link: &quot;Sometimes I missed her.&quot;)[(goto: &quot;3&quot;)]
+(link: &quot;It was better this way.&quot;)[(goto: &quot;3&quot;)]</tw-passagedata>
+<tw-passagedata pid="3" name="Untitled Passage" tags="" position="92,128">
+$PWarmth - his feelings on J
+
+$PLenient - did he ask for lenience from his father?
+
+$PMan - soldier or painter?
+
+$PCare - was he careful to avoid detection in his orgy world?
+
+$PParty - did he to to the orgy world or the chill romance?</tw-passagedata>
+<tw-passagedata pid="4" name="3" tags="" position="563,356">One evening, Henry was in London. He was by himself, drowining his sorrows in a folorn establishment of low repute. 
+
+He met a man.
+
+(link:&quot;He was a soldier.&quot;)[(set: $PMan to &quot;soldier&quot;)(goto: &quot;4&quot;)]
+(link:&quot;He was a painter.&quot;)[(set: $PMan to &quot;painter&quot;)(goto: &quot;4&quot;)]</tw-passagedata>
+<tw-passagedata pid="5" name="4" tags="" position="703,86">The frustration and regret of the last two years faded away as Henry looked at him. This was the feeling described by the poets. This was love. Of course, Henry&#39;s adolescence at boarding school had prepared me for this. Long afternoons in the hayloft with the blonde-haired prefect... (if: $PMan is &quot;soldier&quot;)[The soldier laughed at Henry&#39;s retiscence, and placed a gnarled hand upon his wrist. His manner was rough but his smile was boyish and guileless.](else:)[The painter didn&#39;t say much, but his eyes went right through Henry, and he had a devil&#39;s smile.] 
+
+(link:&quot;He invited me to a party he knew about.&quot;)[(set: $PParty to 1)(goto: &quot;4a&quot;)]
+(if: $PMan is &quot;soldier&quot;)[(link:&quot;We invited me to visit his lodgings.&quot;)[(set: $PParty to 0)(goto: &quot;4b&quot;)]]
+(else:)[(link:&quot;We invited me to visit his studio.&quot;)[(set: $PParty to 0)(goto: &quot;4b&quot;)]]</tw-passagedata>
+<tw-passagedata pid="6" name="5" tags="" position="704,228">PART 2
+
+After a while, Henry realised that a man was following him. He wore a grimy black suit and a kinked hat. Henry spotted him on multiple occasions both in London and in the village by the estate, always engaged in some harmless occupation - reading a newspaper, waiting for the mail carriage - but always with one eye on Henry. (if: $PCare is 0)[Henry didn&#39;t care. He had grown feckless. He had nothing to lose, and he was in love. So what if one of father&#39;s toadies was stalking him?](else:)[He grew to be petrified of this man. The merest sight of him would send Henry into paroxysms of panic. He deployed diverse strategems to elude him, but to no avail. He feared that he was working for his father.]
+
+(link: &quot;Things stayed that way for a long time.&quot;)[(goto: &quot;6&quot;)]</tw-passagedata>
+<tw-passagedata pid="7" name="6" tags="" position="705,353">And so his life continued, for a while. He would spend several days in London with his $PMan, and then he would return to his home, exhausted. Always he would be met by the loving embrace of the children. Such bright young things, even so young! He loved them dearly. (if: $PWarmth is 1)[Sometimes he would see Josephine. They might eat dinner together, awkwardly. His secrets would pile up behind him and he would look at her and wonder who she was. Where were her secrets? They had been friends once.](else:)[He never laid eyes on Josephine. She was like a ghost. The manor was large enough that they never needed to hazard crossing paths. The children knew that something was wrong, of course they did, but they stopped short of asking what it was. Their parent&#39;s world was one to be spoken of only in whispers.]
+
+(if: $PParty is 1)[(link: &quot;One night, in Soho, I was awoken by the Police.&quot;)[(goto: &quot;7&quot;)]]
+(else:)[(link: &quot;One night, in the $PMan&#39;s attic, there was a knocking on the door.&quot;)[(goto: &quot;7a&quot;)]]</tw-passagedata>
+<tw-passagedata pid="8" name="7" tags="" position="832,86">Henry saw his $PMan carried away in chains. The host begged the constables to leave, and tried to bribe them. One officer punched him in the side of the head and he fell to the ground. There was no such rough treatment for Henry. They knew who he was. They told him that they had been sent by his father. Later, in jail, Henry&#39;s father came in person.
+
+(link: &quot;I begged his forgiveness.&quot;)[(set: $PLenient to 1)(goto: &quot;8&quot;)]
+(link: &quot;I spat on the ground when I saw him.&quot;)[(set: $PLenient to 0)(goto: &quot;8&quot;)]</tw-passagedata>
+<tw-passagedata pid="9" name="8" tags="" position="838,226">(if: $PLenient is 1)[He frowned down at Henry and told him that his old life was over. The matter was in the hands of the Constabulary. Henry would be tried for obscenity. When he asked if he would be allowed to see his children, his father smirked, and then his face became stern. He told Henry flatly that he would never see his home again.]
+(else:)[He merely frowned, and told Henry that he would see him at the trial. Henry lunged at the door of the cell, kicking it in a rage. His father stepped back and regarded him in silence for some minutes, before departing.] Through the bars, Henry watched the coachman drive his father&#39;s carriage out of the gate.
+
+(if: $PWarmth is 1)[(link: &quot;Joesphine visited me in jail.&quot;)(set: $PVisit to 1)[(goto: &quot;9&quot;)]]
+(else:)[(link: &quot;I sent Josephine a spiteful letter.&quot;)[(goto: &quot;9&quot;)]]
+(link: &quot;I never heard from Josephine again.&quot;)[(goto: &quot;10&quot;)]</tw-passagedata>
+<tw-passagedata pid="10" name="9" tags="" position="832,351">(if: $PVisit is 1)[She hid her face behind a veil, although it was an abominably hot summer. She stood across the bars from Henry, amid all that foul smell, passing on trivial news about the children, and about the workers on the estate. Nothing she said had any bearing on the situation - the incarceration, the looming trail. It was as though this wasn&#39;t happening. Henry had not had a chance to change his clothes from the ones that he&#39;d been wearing on the night of the arrest. All he could think, as he stood there, was that the hem of Jospehine&#39;s dress would be filthy after dragging across the jailhouse floor. The laundry girl would have to take extra attention over it. And all on his account, so he could hear his wife mumble pleasantries one final time in that grey-yellow light.]
+(else:)[Dear Joesphine,
+
+When you next see my father, please pass him my compliments for the extraordinary decorum with which he has handled this affair these past months, and the delicacy and fatherly affection with which he has treated me, his son. I trust that the two of you will be very happy together while I spend the rest of my life in a cell, for the simple crime of pursuing my own happiness. You have always been supportive of me, as befits a wife, and I will always look fondly on our many happy years together. All that remains is for me to decry you for your heartlessness, shallow taste and mendacity. We will be reunited in hell, have no doubt about that.
+
+Respectfully yours,
+Your husband]
+
+(if: $PVisit is 1)[(linkgoto:&quot;Time passed.&quot;, &quot;10&quot;)]
+(else:)[(linkgoto:&quot;Needless to say, I never heard from her again.&quot;, &quot;10&quot;)]</tw-passagedata>
+<tw-passagedata pid="11" name="10" tags="" position="968,86">PART 3
+
+He didn&#39;t learn the fate of the $PMan but he feared the worst. Henry had been kept in a cell by himself, and his social rank had protected him from the worst excesses of thuggish policemen. In jail, he suffered little worse than a sneer and an occasional yelled obscenity. Eventually he managed to beg the guard to lend him his newspaper, but by that time his story had fallen out of the news, and the only reference he found to himself or his scandal was in the announcements section, where his court date was posted.
+
+(linkgoto: &quot;The day of the trial arrived.&quot;, &quot;11&quot;)</tw-passagedata>
+<tw-passagedata pid="12" name="Initial narration" tags="" position="348,22">How did I come to be here? Well. In 18XX, following a police raid on a Soho brothel where I was spending the night, I was tried for criminal sodomy and gross indecency. The legal proceedings were a farce. Ultimately, I was found not guilty by dint of what my lawyer called &#39;a defect of reason&#39;. The lawyer had been instructed by my father to deploy a textbook insanity plea, and the judge accepted it. I knew perfectly well that I was no lunatic, but I went along with the suggestion of the lawyer because I considered that it might mitigate the shame I had brought to my children. I didn&#39;t put on any performance of lunacy, and I did not have to, for madness is somewhat like drunkenness in this respect: Once a bystander has it in their head that a given person is mad, anything they say or any gesture they make will be read as further evidence of madness. There is nothing you can do to shake the label of &#39;madman&#39; once it has stuck. Arguing for your sanity or accepting your fate with temperance both seem, in that light, like the proper behaviour of madness. I am not mad. I know this. I am merely unfortunate. I was sentenced to lifelong incarceration in a recently-opened sanatorium run by a certain Mr. Lockehard, a philanthropist of good repute and a friend of the judge. Following my sentencing, I was taken by train to Lockehard Manor, a fine old pile in rural Kent. I believed, foolishly, that this train journey would mark the end of my troubles. Ha! I was wrong, of course.
+
+I was pleased to be here, at first. It sounds bad, Lockehard, but actually it was a breath of welcome peace and quiet after the indignant hurly-burly of the jail where they kept me during the trial. I was given a room by myself at the end of a corridor, and allowed outside, and the food wasn’t so bad, really. Shortly after my admission, I received a short, cruel letter from my father, where he told me in no more words than necessary that he would have me kept here for as long as it was within his power to do so, and that I should reconcile myself to the idea that I would never see my children again. This pained me greatly, and for many days I was irreconcilable. Around that time, small pills started to appear on white saucers next to my meals, although I would not eat them, and after a while the saucers vanished. I suspect now that the medicine is in the food itself. The nurses refer often to my ‘condition’, and comment on whether they think I am improving or getting worse. And it is certainly true that my mood does oscillate dramatically now, and that some days I am strongly disinclined to talk to my fellow human beings. They claim that this is my condition worsening, but in reality it is simply my harmless act of defiance. The nurses are good people but they do not wish to understand me.
+But this is not the strangest thing. You see, there is a young woman in the room next to me. Late at night we are able to talk without fear of interruption through a small airbrick under my bed. She tells me all kinds of things, and although the things she tells me are often impossible, I also accept on faith that they are true. She does not sound like a liar. Everything she says is consistent, and plausible. She tells a troubling story of a plague that killed everyone in the world, and about Lockehard itself, and how this building was a crucible or an axis around which this disaster turned, and when I ask her when all this happened she names a year that is yet half a century hence. But still, for reasons I cannot articulate, I believe her. I believe that what she says is true. Her voice is quiet but without hesitation, and reaches my room undiminished by the thickness of the walls around me, or the restless sounds of the other patients. It is like soft wind passing through a fishing net, or fine lace.
+After these conversations I often lie in silence, alone with my terror. I must get out of this place. I must see my children again. I cannot survive for long here. Although I was sane when I arrived, I fear in this environment that I may not be able to continue thus indefinitely.
+
+(linkgoto: &quot;case notes&quot;, &quot;1&quot;)</tw-passagedata>
+<tw-passagedata pid="13" name="11" tags="" position="969,227">Henry spent most of the trial in a kind of stupour, watching through his fingers as a parade of experts and witnesses were presented to the judge to explain, in plain English, the nature of his crime. The court heard from the publican in whose establishment Henry first met the $PMan, and from the man in the kinked hat, whose nose ran constantly and whose frank dislike of Henry underwrote every answer he gave to the lawyers. His father watched everything from the gallery. Henry&#39;s lawyer pleaded insanity, as everyone expected him to.
+
+(linkgoto:&quot;I acted the part.&quot;,&quot;12&quot;)
+(linkgoto:&quot;I clung on to my dignity.&quot;,&quot;12&quot;)
+</tw-passagedata>
+<tw-passagedata pid="14" name="12" tags="" position="971,352">(if: $PLenient is 1)[Before sentencing, he was permitted to wash himself, and given a fresh set of simple clothes. He stood in the prison yard for a few minutes, smoking some tabacco that he scrounged off a guard, enjoying the feeling of the sun on his face. Abruptly, he became aware of someone standing next to him. It was his father. He recoiled, but before he could say anything his father pointed out of the gate and across the street. Henry squinted through the bars and across the traffic, and then he saw them: His children, dressed up in Sunday best, waving at him. He smiled, and then his smile faded as they were ushured into a carriage.
+&quot;Why?&quot; he asked, when the carriage was gone.
+&quot;Josephine wanted them to see you before you left, so they wouldn&#39;t go out of their minds with worry.&quot; He paused. &quot;It isn&#39;t their fault that their father is a degenerate.&quot;
+That was the last time he saw them.]
+(else:)[Henry awoke on the morning of the sentencing and found himself unable to feel any particular strong emotion. As he rolled over on the bench and stretched the previous night&#39;s knots out of his shoulders, he saw his father standing in the corridor outside, watching him. He almost fell off the bench. There beside the old man were his children. They stood nervously beside their grandfather and looked at their father in his cell. Henry&#39;s clothes were caked in grime and his arms were in manacles. Henry looked up at his father in dismay.
+&quot;Why have you brought them here?&quot; he asked. 
+&quot;To give them a cautionary lesson,&quot; his father replied.
+&quot;I&#39;m sorry, children,&quot; said Henry, through gritted teeth. &quot;Please... Take them away. This isn&#39;t fair. It isn&#39;t fair for them to see me like this.&quot;
+His father obliged. That was the last time he saw them.]
+
+(linkgoto: &quot;I was declared insane.&quot;, &quot;13&quot;)</tw-passagedata>
+<tw-passagedata pid="15" name="13" tags="" position="1102,228">Before the sentence was read, the judge asked Henry if he had anything to say.
+(if: $PWarmth is 1)[&quot;I curse my mistakes. I should have kept faith with Josephine. I should have told her about my unhappiness, and explained my feelings about my beautiful $PMan to her. I should have been honest. The idea would have seemed absurd at the time, but by now, the entire affair seems absurd. After all, which was more outlandish? That I should admit my emotions to my wife, or that I should be jailed for obscenity? Perhaps we could have come to some arrangement.&quot; The court murmured. It was only then that he realised how much he had lost.]
+(else:)[&quot;I regret nothing. What have I thrown away? Trinkets and baubles. At least I lived honestly, for a while.&quot; He didn&#39;t mean it.]</tw-passagedata>
+<tw-passagedata pid="16" name="4a" tags="" position="276,222">He led Henry into a secret world of coded knocks, dark parlours, masked men who smelled of earth... 
+
+(link:&quot;I threw myself into this world with reckless abandon.&quot;)[(set: $PCare to 0)(goto: &quot;5&quot;)]
+(link:&quot;It was too much for me, and I never returned.&quot;)[(set: $PCare to 1)(set: $PParty to 0)(goto: &quot;5&quot;)]</tw-passagedata>
+<tw-passagedata pid="17" name="4b" tags="" position="404,222">The $PMan&#39;s lodgings were positively squalid compared to what Henry was used to, but Henry didn&#39;t notice. The $PMan had a bottle of gin secreted beneath a floorboard. Henry was nervous of this companionship at first, but the $PMan&#39;s earnest manner won him over. That night, they slept on the roof, curled up together on a straw mat. Just Henry, his $PMan, and the city of London spread out beneath them like a picnic blanket.
+
+(link:&quot;I was careful, and only visited him occasionally.&quot;)[(set: $PCare to 1)(goto: &quot;5&quot;)]
+(link:&quot;My other commitments faded away, and I spent every hour I could spare in that garret.&quot;)[(set: $PCare to 0)(goto: &quot;5&quot;)]</tw-passagedata>
+<tw-passagedata pid="18" name="7a" tags="" position="276.0001,349">Two police constables stood at the top of the rickety staircase that led to the attic. At first, they put on a pretense that their invasion was benign, and asked Henry and the $PMan what their business was together at so late an hour. In a fluster, Henry pressed his forhead against a cool windowpane and as he did so, he saw the man in the kinked hat leaning against a carriage outside. Then he heard a shout, and as he span around he saw the policeman swing his bat into the $PMan&#39;s gut, and the other officer knocked him down with a blow to the back of the head. There was no such rough treatment for Henry. They knew who he was. They had been paid off by his father. Later, in jail, Henry&#39;s father came in person.
+
+(link: &quot;I begged his forgiveness.&quot;)[(set: $PLenient to 1)(goto: &quot;8&quot;)]
+(link: &quot;I spat on the ground when I saw him.&quot;)[(set: $PLenient to 0)(goto: &quot;8&quot;)]</tw-passagedata>
+</tw-storydata>

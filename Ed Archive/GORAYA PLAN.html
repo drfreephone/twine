@@ -1,0 +1,100 @@
+<tw-storydata name="GORAYA PLAN" startnode="1" creator="Twine" creator-version="2.0.11" ifid="CD90CFAE-7CF4-471F-B7B4-15D51F689DCC" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+
+
+
+</script><tw-passagedata pid="1" name="Untitled Passage" tags="" position="673,333">GORAYA PLAN
+
+-- THEY PROPOSE THE PLAN
+
+
+-- THEN THERE&#39;S THREE &#39;LIKE, WE ALREADY KNOW X&#39; OPTIONS AND ONE &#39;GO GATHER SOME INTEL&#39; OPTION FOR IF YOU&#39;VE GOT NONE OF THE OPTIONS 
+(WILL ALSO NEED EVENTUALITY FOR IF YOU HAVE ANIMUS AND ONE OF THE OTHERS)
+(as well as eventuality for all possible combinations)
+
+
+TASK FORCE MAIN HOTLINE:
+--PROGRESS REPORT
+--OPTIONS FOR EACH OF THE HANDINS
+--REWARD INFORMANTS (SOME DUDE WANTS TO TALK TO YOU)
+-- NEED A &#39;HANDED IN&#39; STORYSWITCH FOR EACH SO WE CAN INCREMENT THE COUNTER WHEN YOU CALL INTO THE TASK FORCE
+
+
+
+-- adds the informant on a delay with each thing that&#39;s handed in
+</tw-passagedata>
+<tw-passagedata pid="2" name="Untitled Passage 1" tags="" position="822,453">The hotline:
+
+can check handed_in storyswitches versus informant storyswitches to see if you need informants
+
+var dining_club = false;
+var animus = false;
+var hiding_out = false;
+var something_new = false;
+
+if (ds_map_exists(global.storyswitch, &quot;goraya_dining_club&quot;) &amp;&amp; !ds_map_exists(global.storyswitch, &quot;goraya_dining_club_recieved&quot;)) {dining_club = true}
+
+if (ds_map_exists(global.storyswitch, &quot;goraya_animus&quot;) &amp;&amp; !ds_map_exists(global.storyswitch, &quot;goraya_animus_recieved&quot;)) {animus = true}
+
+if (ds_map_exists(global.storyswitch, &quot;goraya_hiding_out&quot;) &amp;&amp; !ds_map_exists(global.storyswitch, &quot;goraya_hiding_out_recieved&quot;)) {hiding_out = true}
+
+
+if dining_club || animus || hiding_out{
+something_new = true
+}
+
+Do you have anything new?
+
+if something_new then YES
+
+else NO
+
+
+
+on that yes screen: 
+
+if animus then ____ (each of these assigns a storyswitch, which should recalculate the booleans because it runs the script again (and do a delayed event for an informer)
+else if dining_club then ____
+else if hiding_out then ____
+
+after each page, do a &quot;Anything else?&quot; bit which checks something_new again (should be up to date if scr_call_storyswitch has been called)
+Sends you back to that Yes screen if so
+Or else gives you the &#39;nope, sorry&#39; option.
+
+Then:
+
+Some kind of status update thing, with some random content. Stuff like &#39;The photograph is already causing some hot debates.&#39;
+Make sarcy joke about online discourse.
+
+</tw-passagedata>
+<tw-passagedata pid="3" name="Untitled Passage 2" tags="" position="947,497">once two storyswitches are delivered, that person triggers the attack on miniFACT event (maybe there&#39;s a watcher object on the map?)
+
+man, woman, old woman
+
+recondite about being a narc
+furtive at first
+
+hatred of Goraya
+I work in #industry (use new clue script)
+
+never thought I&#39;d see the day when colluding with miniLAW would help the movement
+
+sending useful ops records/safehouse locations/product manifests/protection reciepts
+we keep this shit secret because we know how miniFACT operates
+you can use your metadata telemetry
+
+bad in the short term, but like chemo to burn out the cancer in the movement
+
+goraya must go, that means I have to cooperate
+
+minifact will bring you in and scrape everything you know
+for the best in the long run
+I know</tw-passagedata>
+</tw-storydata>

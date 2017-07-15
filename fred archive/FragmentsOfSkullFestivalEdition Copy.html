@@ -1,0 +1,1020 @@
+<tw-storydata name="FragmentsOfSkullFestivalEdition Copy" startnode="" creator="Twine" creator-version="2.0.11" ifid="437DEA39-C4E6-49D8-85B4-E6A4EB2F9F54" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Cinzel|Oldenburg');
+
+
+html {
+	font-family: 'Oldenburg', serif;
+	background-color: rgba(221, 173, 125, 255);
+	background-image: url(fragmentsBackground.png); 
+	background-position: center; 
+	background-size: 100% 400%; 
+	background-repeat: no-repeat;
+}
+
+.Normal {
+	font-family: 'Oldenburg', serif;
+	font-weight: normal;
+}
+
+.Title {
+		font-family: 'Cinzel', serif;
+		font-size: 2em;
+}
+
+.Fancy {
+	font-family: 'Cinzel', serif;
+	font-weight: bold;
+}
+
+.Fancy, tw-link {
+	color: rgb(168, 20, 20)
+	font-family: 'Cinzel', serif;	
+}
+
+
+.Boxout {	
+	border: double #000 0.25em; 
+	border-radius: 0.02em;
+	
+	float: right;
+	width: 45%;
+	
+	padding: 1em;
+	
+	box-shadow: #000 0.05em 0.05em 0;
+	
+	color: rgb(168, 20, 20)
+	
+	font-family: font-family: 'Cinzel', serif;
+	font-size: 1.3em
+}
+
+tw-story {
+	font-size: 1.1em;
+}
+
+tw-passage {
+	color: rgb(60,60,60)
+}
+
+tw-sidebar {
+display: none;	
+}
+
+tw-link {
+	color: rgb(168, 20, 20)
+}
+
+tw-link, .enchantment-link {
+	color: rgb(168, 20, 20)
+}
+
+
+.enchantment-link:hover, tw-link:hover {
+	color: rgb(112, 13, 41);
+}
+
+.enchantment-link.visited:hover, tw-link.visited:hover {
+	color: rgb(142, 43, 71);
+}
+
+tw-link.visited {
+	color: rgb(112, 13, 41)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="Initialisation" tags="" position="312,2">
+(set: $playerTags to (a:))
+(set: $inv to (a:&quot;waterskin&quot;))
+
+(set: $health to 5)
+(set: $filth to 1)
+(set: $timeindungeon to 1)
+
+(set: $clothing to (datamap:
+&quot;head&quot;, &quot;&quot;,
+&quot;torso&quot;, &quot;dusty robe&quot;,
+&quot;feet&quot;, &quot;sandals&quot;,
+&quot;hands&quot;, &quot;&quot;,
+))
+
+(set: $headDescription to &quot;Your face is drawn and reddened by the sun.&quot;)
+(set: $torsoDescription to &quot;Your robe is tattered and bleached from months on the road.&quot;)
+(set: $feetDescription to &quot;Ragged sandals adorn your feet.&quot;)
+(set: $handsDescription to &quot;Your hands are empty.&quot;)
+
+(set: $playerJourney to &quot;&quot;)
+
+(set: $knowledge to (datamap:
+&quot;people&quot;, (datamap:),
+&quot;places&quot;, (datamap:),
+&quot;history&quot;, (datamap:),
+))
+
+(goto:&quot;InitialiseConversation&quot;)</tw-passagedata>
+<tw-passagedata pid="2" name="GenericActions" tags="" position="1094,28">&lt;div class = &quot;Boxout&quot;&gt;\
+how I look
+how I feel
+what I carry
+what I know\
+\
+(click: &quot;how I feel&quot;)[(goto: &quot;Feelings&quot;)]
+(click: &quot;how I look&quot;)[(goto: &quot;Appearance&quot;)]\
+(click: &quot;what I carry&quot;)[(goto: &quot;InventoryExplorer&quot;)]\
+(click: &quot;what I know&quot;)[(goto: &quot;KnowledgeExplorer&quot;)]\
+&lt;/div&gt;</tw-passagedata>
+<tw-passagedata pid="3" name="ToDo" tags="" position="68,19">-- develop filth and water (add filth description to appearance)
+-- Add a rummage pile of items (use a push-your-luck mechanic)
+-- Add a way to hang out in the library
+-- Add a situation where you must evade the Pit Crew
+-- Apply nice CSS to conversation system
+
+-- Threads to develop: Pit crew, strange symbols, whispering keepers, woman on the roof, locket, burial sites
+
+-- some option to remove clothing (eg to uncover face)
+-- concept of Filth, which should be attached to clothing rather than to the player generally. Think how this interacts with the 
+-- Conversation system needs the following: options for silence or threatening behvaiour
+-- some more procedural stuff for use in conversations (the hag will be the first place to really explore this I reckon)
+-- explore concept of &#39;bring knowledge up to a certain point&#39; passages for (display)ing when new information is gained and there are various cases for what needs bringing to what point
+
+-- ways to escape cell: wait for transferral to the Pit, use broken glass to cut bonds, persuade jailer using Ledger conversation, or else perhaps using knowledge of the Whispering Keepers?
+
+- consider possible variations on ending: Reach the Depths either via the Pit (by escaping the slavers/making them dig in the right place) or via the Comb (by overcoming the monster that lives there). Also, you should be able to simply escape from the skull through some other means, either contacting the Whispering Keepers or via the roof somehow. However, before you can leave either of those ways you should have to encounter the FACT of the ledger and its unbelievable power, and learn something that makes you think that YOU might be able to access it (that isn&#39;t just the fact that you&#39;re the protagonist of the game). Perhaps your ability to read differentiates you, and you could use the library?
+
+
+
+- Traveller&#39;s Friend -&gt; her real role? Involves luring people to the skull, bamboozling them into making the wrongheaded decision to enter? She&#39;s definitely not aligned to any of the agents at work within the skull, however. Her role might be to disrupt whatever&#39;s happening in there. Perhaps her story contains some personal tragedy. Perhaps she is very ancient indeed.
+
+
+
+-some characters might refuse to talk to you about certain topics until criteria are met. For example, someone might need bribing with items or some such thing. This is easy to do - just add extra elements to their conversation database when appropritate, and remove these same things from their &#39;list of things asked already&#39; array to allow those topics to be revisited.
+</tw-passagedata>
+<tw-passagedata pid="4" name="Debug Footer" tags="debug-footer" position="64,160">(print: $croachOpinion)
+
+(link:&quot;log&quot;)[(display:&quot;log&quot;)]</tw-passagedata>
+<tw-passagedata pid="5" name="Intro1" tags="" position="613,151">The skull rises above the bone-bare plain. The sheer ivory walls reveal no windows, doors or gates. Above the walls, the structure is ribbed by gantries, walkways, and flying buttresses. It squats, pallid in the cold afternoon sun.
+
+Light glints off something moving along a cloister. The temple&#39;s cathedral-deep eye sockets stare, blind and hollow, across the desert. A lick of smoke emerges from somewhere behind the dome of the skull and curls into the sky.
+
+[[you have strayed too close|Intro1b]]</tw-passagedata>
+<tw-passagedata pid="6" name="Intro2" tags="" position="477,664">You bid farewell to the shrouded stranger and her gaunt horse and begin the long walk toward the monument. Dust eddies between the lifeless rocks.
+
+You lose an hour picking your way around the base of a vast rampart. The stone is foreign to this land. Was it from some far continent, borne here on the backs of countless long-dead slaves? You stare upwards, admiring the way that the flying buttresses seem to form a diadem around the temples of the skull.
+{(set: $playerTags to it + (a:&quot;curious&quot;))}
+[[night falls quickly in this part of the world|Intro5]]</tw-passagedata>
+<tw-passagedata pid="7" name="Intro3" tags="" position="616,668">You bid farewell to the gaunt horse and its owner and begin the long walk toward the monument. Dust eddies between the lifeless rocks.
+
+Against the advice of a memory now fading, you tread a path across the plateau, meaning to keep a mile or more between you and the accursed heap. What is it that draws you toward it? No matter how many times you adjust your course away from the thing, it seems always to grow larger, coming between you and the setting sun, until you find yourself in its shadow, a mere stones throw from its base.
+{(set: $playerTags to it + (a:&quot;impetuous&quot;))}
+[[night falls quickly in this part of the world|Intro5]]</tw-passagedata>
+<tw-passagedata pid="8" name="Intro4" tags="" position="806,676">You take a farewell drink with the kindly woman and begin the long march. It&#39;s a fine day for it.
+
+You yomp across the plain, full of confrontations. The evening sunlight spills behind rounded domes and elevated cornices until you stand at the base of the long, high wall that&#39;s the first barrier between you and the skull.
+{(set: $playerTags to it + (a:&quot;drunk&quot;))
+(set: $inv to it + (a:&quot;empty wine bottle&quot;))}
+[[i&#39;m going to be sick|Intro4a]]
+[[a noisome yell|Intro4b]]</tw-passagedata>
+<tw-passagedata pid="9" name="Intro5" tags="" position="468,1000">As the darkness sets in, you cast about for somewhere you can lay your head. This is no place to spend a night out in the open. You curse aloud the chain of events that led you on this journey.
+
+[[i had a wedding to attend|Intro6]]
+[[a census had been called in the city of my birth|Intro7]]
+[[i am an exile|Intro8]]</tw-passagedata>
+<tw-passagedata pid="10" name="Intro0" tags="" position="610,1">&lt;span class = &quot;Title&quot;&gt;
+
+[[Fragments of Skull|Intro1]]&lt;/span&gt;
+by Fred Francis and Ed Sibley
+
+
+
+(display: &quot;Devcon&quot;)</tw-passagedata>
+<tw-passagedata pid="11" name="Intro4a" tags="" position="736,816">You heave the last of your wine in a red yawn into the dirt. The chalk-white dust turns grape-skin purple to blood. You fall gently into the filth. The sun sets behind you. It&#39;s been a tough road.
+(set: $filth to it + 1)
+[[night falls quickly in this part of the world|Intro5b]]</tw-passagedata>
+<tw-passagedata pid="12" name="Intro4b" tags="" position="888,816">{(set: $playerTags to it + (a:&quot;noisy&quot;))} You shout yourself hoarse, and once you almost fancy that you hear a yell responding to your own. You stop and listen, but you hear nothing else. A dismal place to find yourself at the end of a dismal journey.
+
+[[night falls quickly in this part of the world|Intro5b]]</tw-passagedata>
+<tw-passagedata pid="13" name="Intro6" tags="" position="420,1223">(set: $playerJourney to &quot;wedding&quot;)The penalties for failing to attend a licensed wedding are severe. What crippled family you have left will not suffer at the hands of the Record-Keepers by your failing.
+
+[[so i must present myself for the marriage to which i am bound|Intro6a]]
+[[so again i must bear witness to the binding of another pair of wretches|Intro6b]]</tw-passagedata>
+<tw-passagedata pid="14" name="Intro7" tags="" position="620,1239">(set: $playerJourney to &quot;census&quot;)And with you halfway across the continent. But, the consequences for your family if you were not registered are too severe to contemplate. If you are absent on the day that the Notariser-General visits the seat of your birth, your father will be found in Contempt of Rigour, and your sister deprived of her right to marry.
+
+Still, six months should have been plenty of time to make the journey.
+
+[[but the journey went awry|Intro9]]</tw-passagedata>
+<tw-passagedata pid="15" name="Intro8" tags="" position="820,1216">{(set: $playerTags to it + (a:&quot;exile&quot;))
+(set: $playerJourney to &quot;exile&quot;)}In choosing exile, you spared your family the more egregious consequences of the wrath of the State. Of course, your disgrace will cast a shadow over them forever. But at least they still have a License to Possess Currency, and a Designated Homestead. It could have been much worse for them.
+
+[[So, it seems the life of the monastery is the fate I have been cast|Intro8a]]
+[[So, I must learn to glean some succour from this barren land and establish a farm far from the watchful writ of the State|Intro8b]]</tw-passagedata>
+<tw-passagedata pid="16" name="Intro9" tags="" position="621,1583">{(if: $playerJourney is &quot;wedding&quot;)[At first, you travelled in style. You had a good horse, plenty of money, and made good time. ]
+(if: $playerJourney is &quot;exile&quot;)[You left the city through the Unmarked Gate and turned your back on everything you&#39;d ever known. This was bad country, and you were sustained only by the fickle kindness of others. Much of the time, you lacked the energy to travel, and slumped by the roadside in a scrap of shade until someone took pity. It took some time for the charity of a generous stranger to put you on your feet, with a little money and a good horse under you. ]
+(if: $playerJourney is &quot;census&quot;)[The start of your journey was delayed by several days as the Gate Warden was taken ill and your travelling permit could not be validated. Your rode hard, at first, to make up for lost time. ]
+
+(if: $playerTags contains &quot;curious&quot;)[However, one afternoon you observed a curious marking on the hand of a beggar. He wore the blackened garb of those without Documentation, and he took exception to your questions about his tattoo. That evening, you were assailed in your sleep and drugged. You awoke in a stone circle atop a windy hill covered in bruises and devoid of possessions, saving the clothes on your back.]
+(elseif: $playerTags contains &quot;impetuous&quot;)[However, you soon found yourself travelling with companions who proved less than competent. They proposed to save three days of riding by taking a shortcut across a river that they assured you was easily fordable. They were all of them swept away, and you barely escaped the surge with your life. It took you over a week to find the main road again.]
+(elseif: $playerTags contains &quot;drunk&quot;)[However, your journey was measured in stops at public houses. Whole days were lost to revels in dusty shacks by the roadside, and your gold reserves dwindled day-by-day. You fell foul of a group of ruffians with rancid breath who beat you and relieved you of your supplies.]}
+
+Without money or any evidence of social standing, you were forced to travel cross-country, on foot. This was dangerous.
+
+(if: $playerJourney is &quot;wedding&quot; or $playerJourney is &quot;census&quot;)[[[time was short|Intro10]]](else:)[[[your destination seemed further away than ever|Intro10]]]</tw-passagedata>
+<tw-passagedata pid="17" name="Intro6a" tags="" position="340,1420">As the end of your eleven-year betrothment approached, you found your attention diverted by a sudden threat to your mother&#39;s business interests. The expedition to the mining colony and back shouldn&#39;t have taken more than a month or so. You curse into the frigid air.
+{(set: $inv to it + (a:&quot;locket&quot;))}
+[[Blight the gods who wrote this journey into my life!|Intro9]]</tw-passagedata>
+<tw-passagedata pid="18" name="Intro6b" tags="" position="496,1364">You last saw this pair over a decade ago, when you were present at the solemnisation of their betrothment. When you recieved the summons, so many years after you saw them last, you had virtually forgotten about the responsibility. Little time remained - you quickly packed a bag and set out on the road, towards the city of your birth.
+
+[[Alas, that damned journey too went awry|Intro9]]
+[[What will have become of the poor pair, withering through their Committal?|Intro6c]]</tw-passagedata>
+<tw-passagedata pid="19" name="Intro8a" tags="" position="688,1364">You had heard tell of an order of exiles who live in the mountains to the West who have foresworn the intrusion of the written word. These apostates, barely tolerated by virtue of their remoteness, pass on the secrets of their religion by whispering in the ears of initiates in darkened rooms far above the ground. That sounded like a good place.
+{
+(set: $playerTags to it + (a:&quot;spiritual&quot;))
+(set: &quot;people&quot; of $knowledge to it + (datamap: &quot;Whispering Keepers&quot;,&quot;An isolated order who hold a heretical ideology - that the written word is not inviolate, and that the secret history of the world can only be truly told in whispers&quot;))
+}
+[[Could I not have been offered a final journey through the land of my birth without obstruction?|Intro9]]</tw-passagedata>
+<tw-passagedata pid="20" name="Intro8b" tags="" position="896,1416">You would plough your field wherever the soil looked less than dead. You would pitch a tent somewhere with a view away from the land that had cast you out, and build a lodge for yourself to whatever specification you pleased. You&#39;d cut down trees, un-notarised, and with the plants you&#39;d grow, you&#39;d cook whatever you wanted.
+{(set: $inv to it + (a:&quot;seed-bag&quot;))}
+[[But, there is nothing it this land that does not fail at the first step|Intro9]]</tw-passagedata>
+<tw-passagedata pid="21" name="Intro10" tags="" position="619,1708">{
+(if: $playerJourney is &quot;wedding&quot;)[(set: $tmp to &quot;the city you seek&quot;)]
+(if: $playerJourney is &quot;census&quot;)[(set: $tmp to &quot;the city of your birth&quot;)]
+(if: $playerJourney is &quot;exile&quot;)[(set: $tmp to &quot;the distant South&quot;)]
+}If the ancient Traveller&#39;s-Friend with the shrouded face had not happened upon you, you would have starved trying to cross the long desert. Days passed, barely broken by a fleeting, crescent-mooned night. Your lips cracked, your skin blistered, you realised that you were due to die. And then! You felt the dry rasp of her finger across your jaw, and the taste of brackish water in your mouth. She lay you across her horse, and fed you, and eventually you were well enough to walk beside her. 
+
+She led you across the desert, until you reached this bone-bare plain and the strange towering structure that now looms above your head. The track that leads to the Golden Road to $tmp lies far to the East, in the lee of a mountain whose peak you can just make out in the distance.
+
+You recall the last words you exchanged with the Traveller&#39;s Friend.
+
+[[&#39;all this time, and I have yet to ask your name...&#39;|IntroTutorialConv]]
+[[&#39;i will go now. you have my gratitude.&#39;|Intro10a]]</tw-passagedata>
+<tw-passagedata pid="22" name="Intro1b" tags="" position="613,288">A withered hand reaches out to your reins and stays your mare; a puff of ashen-white dust blusters from her hooves. You turn to your travelling companion. Scraps of winding-sheet hood and mask her and protect her from the dust. It strikes you that you can no longer remember her name. Did you ever know it?
+
+Her voice is muffled by the shroud.
+
+&#39;These slow bones will go no further. I must leave you. Will you cross this desert alone?&#39;
+
+[[&#39;i wish to see the famous structure near-at-hand.&#39;|Intro2]]
+[[&#39;my shortest route leads across the plain.&#39;|Intro3]]
+[[&#39;i am flush with the courage of drink, and will brook no objection.&#39;|Intro4]]
+(link-goto: &quot;&#39;i will not. i shall heed your advice, rest here awhile and return.&#39;&quot;, &quot;gameover&quot;)</tw-passagedata>
+<tw-passagedata pid="23" name="IntroTutorialConv" tags="" position="421,1752">A gust of wind made devils in the sand. Something in the distance rattled.\
+(set: $playerTags to it + (a:&quot;friendswitholdwoman&quot;))\
+
+&quot;I will not tell you my name,&quot; she said after a moment. &quot;It is foresworn. I have helped you. What else would you ask of me?&quot;
+
+(set: $interlocutor to $friend)\
+(display: &quot;ConversationInitialise&quot;)\
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="24" name="gameover" tags="" position="783,11">enter game over text here</tw-passagedata>
+<tw-passagedata pid="25" name="Intro5b" tags="" position="764,1012">You tilt into blackness, propped against the chalky wall. After a time, you are half-waked as the wall burns with the desert cold. You draw a ragged cloak around your shoulders and begin to recount the events that led you here in an effort to pass the time.
+
+[[i had a wedding to attend|Intro6]]
+[[a census had been called in the city of my birth|Intro7]]
+[[i am an exile|Intro8]]</tw-passagedata>
+<tw-passagedata pid="26" name="Intro6c" tags="" position="416,1560">You have spent many any hour wondering this on the lonely journey. Will their lavish vestments have decayed to tattered rags? Will their rosy skin have taken the ashen pallor of the dead? It is comforting to think that even the successful cannot be immune to the cruel vissicitudes that are the daily life of the people of this land. 
+
+(set: $playerTags to it + (a:&quot;weddingfriends&quot;))
+
+[[For even I have not been able to escape trials on this journey|Intro9]]</tw-passagedata>
+<tw-passagedata pid="27" name="InitialiseConversation" tags="" position="318,136">(set: $interlocutor to (datamap:))
+
+(display: &quot;InitialiseFriend&quot;)
+
+(display: &quot;InitialiseJailer&quot;)
+
+(display: &quot;InitialiseShad&quot;)
+
+(display: &quot;InitialiseCroach&quot;)
+
+(goto: &quot;InitialiseKnowledge&quot;)</tw-passagedata>
+<tw-passagedata pid="28" name="InitialiseKnowledge" tags="" position="319,261">(set: &quot;people&quot; of $knowledge to it + (datamap:
+&quot;Traveller&#39;s Friend&quot;, &quot;A woman wrapped in winding sheets who brought you to this place.&quot;,
+&quot;Arbiters&quot;, &quot;Those whose rigid governance maintains the order upon which your old life was built.&quot;,
+
+))
+
+(set: &quot;places&quot; of $knowledge to it + (datamap:
+&quot;the bone-bare plain&quot;, &quot;At the edge of the map, orthogonal to every road, avoided by those who know their business, blasted.&quot;,
+
+&quot;the skull&quot;, &quot;It would take days to walk all the way around its outer wall. Its provenance is unknown. You are somewhere within it.&quot;,
+&quot;my destination&quot;,&quot;Past the mountain range that rises in the east of this plain is a pass that leads to the Great Gold Road, and thence to the object of your journey.&quot;,
+))
+
+(set: &quot;history&quot; of $knowledge to it + (datamap:
+&quot;the Administration&quot;, &quot;A bureaucracy as old as written records. Every detail of your life - the time of your birth, the positions of the planets on your coming-of-age, the projected date of your death - is stored in rolls somewhere below the Capital.&quot;,
+))
+
+(set: $trash to (datamap:))
+(goto: &quot;InitialiseFeelings&quot;)</tw-passagedata>
+<tw-passagedata pid="29" name="KnowledgeExplorer" tags="" position="1105,181">People:
+
+&lt;span class = &quot;Fancy&quot;&gt;(print: (datanames: &quot;people&quot; of $knowledge).join(&quot;
+&quot;))\
+&lt;/span&gt;\
+(set: $peopleNumber to (datanames: (&quot;people&quot; of $knowledge))&#39;s length)\
+(set: $i to 0)\
+[(display: &quot;PeopleKnowledgeLooper&quot;)]&lt;peopleLoop|
+
+Places:
+
+&lt;span class = &quot;Fancy&quot;&gt;(print: (datanames: &quot;places&quot; of $knowledge).join(&quot;
+&quot;))\
+&lt;/span&gt;\
+(set: $placesNumber to (datanames: (&quot;places&quot; of $knowledge))&#39;s length)\
+(set: $i to 0)\
+[(display: &quot;PlacesKnowledgeLooper&quot;)]&lt;placesLoop|
+
+History:
+
+&lt;span class = &quot;Fancy&quot;&gt;(print: (datanames: &quot;history&quot; of $knowledge).join(&quot;
+&quot;))\
+&lt;/span&gt;\
+(set: $historyNumber to (datanames: (&quot;history&quot; of $knowledge))&#39;s length)\
+(set: $i to 0)\
+[(display: &quot;HistoryKnowledgeLooper&quot;)]&lt;historyLoop|
+
+(link: &quot;return&quot;)[(goto:(history:)&#39;s last)]</tw-passagedata>
+<tw-passagedata pid="30" name="PeopleKnowledgeLooper" tags="" position="1240,183">(if: $i &lt; $peopleNumber)[\
+(set: $name to (datanames: &quot;people&quot; of $knowledge)&#39;s ($i))\
+(set: $value to $knowledge&#39;s (&quot;people&quot;)&#39;s ($name))\
+(set: $link to &#39;(clickappend: &quot;&#39; + $name + &#39;&quot;)[&lt;span class = &quot;Normal&quot;&gt; - &#39; + $value + &#39;&lt;/span&gt;
+]&#39;)\
+(print: $link)\
+(set: $i to it + 1)\
+(replace: ?peopleLoop)[(display: &quot;PeopleKnowledgeLooper&quot;)]\
+]</tw-passagedata>
+<tw-passagedata pid="31" name="PlacesKnowledgeLooper" tags="" position="1365,181">(if: $i &lt; $placesNumber)[\
+(set: $name to (datanames: &quot;places&quot; of $knowledge)&#39;s ($i))\
+(set: $value to $knowledge&#39;s (&quot;places&quot;)&#39;s ($name))\
+(set: $link to &#39;(clickappend: &quot;&#39; + $name + &#39;&quot;)[&lt;span class = &quot;Normal&quot;&gt; - &#39; + $value + &#39;&lt;/span&gt;
+]&#39;)\
+(print: $link)\
+(set: $i to it + 1)\
+(replace: ?placesLoop)[(display: &quot;PlacesKnowledgeLooper&quot;)]\
+]</tw-passagedata>
+<tw-passagedata pid="32" name="HistoryKnowledgeLooper" tags="" position="1491,181">(if: $i &lt; $historyNumber)[\
+(set: $name to (datanames: &quot;history&quot; of $knowledge)&#39;s ($i))\
+(set: $value to $knowledge&#39;s (&quot;history&quot;)&#39;s ($name))\
+(set: $link to &#39;(clickappend: &quot;&#39; + $name + &#39;&quot;)[&lt;span class = &quot;Normal&quot;&gt; - &#39; + $value + &#39;&lt;/span&gt;
+]&#39;)\
+(print: $link)\
+(set: $i to it + 1)\
+(replace: ?historyLoop)[(display: &quot;HistoryKnowledgeLooper&quot;)]\
+]</tw-passagedata>
+<tw-passagedata pid="33" name="relevant strings" tags="" position="60,418">KNOWLEDGE
+People:
+Traveller&#39;s Friend
+Arbiters
+Whispering Keepers
+stooped figures //replacable with Pit Crew//
+Pit Crew
+the betrothed woman
+Croach
+Shad
+the maggot
+
+Places:
+the bone-bare plain
+the skull
+what&#39;s below //replacable with whatever that is//
+the cell
+the library
+skull burial site
+hips burial site //currently unimplemented, but this is the burial site that marks the real location of the ledger (it is below here, but the pit crew could excavate it//
+
+History:
+the Administration
+the Bitten Tongue
+Strange symbol of teeth // Should be replaced with both Whispering Keepers (people) and The Bitten Tongue (history) if investigated somehow inside the dungeon. This might be a mechanism we use to develop knowledge - sometimes you&#39;ll gain incomplete knowledge and you&#39;ll get a placeholder entry in the knowledge bank like this, which is overwritten later. See Intro11 for an example of what I mean.//
+Children&#39;s Song
+the ledger //you don&#39;t know what this is yet//
+The Black Ledger //you know what this is and it&#39;s dangerous knowledge to admit to//
+sign of linked circles
+strange spectral attire
+location of the Ledger //currently unimplemented. Represents the point at which you know that the ledger is under the hips burial site. If you have this knowledge as well as hips burial site, you can try to convince the pit crew that they&#39;re digging in the wrong place.//
+
+player tags:
+
+curious
+impetuous
+drunk
+noisy
+exile
+spiritual
+weddingfriends
+friendswitholdwoman
+boundhands
+thirsty
+released //for if you&#39;re out of jail//
+
+unchained //for if you&#39;re out of the chain gang//
+revolution //for if Croach has been overthrown//
+manacles //for if you&#39;re wearing manacles//
+shoulderchains //for if you&#39;re in the Pit Crew with their chains//
+
+journey tags:
+
+wedding
+census
+exile
+
+inventory items:
+
+empty wine bottle
+waterskin
+sandals
+dusty robe
+locket
+seed-bag
+winding sheet
+bone brooch
+shard of green glass
+rope
+
+body parts:
+
+head
+torso
+feet
+hands
+
+environmental actions:
+///$broochonfloor///
+///$ropeinhallway///</tw-passagedata>
+<tw-passagedata pid="34" name="Intro11" tags="" position="468,2207">The ceiling of the shelter is a rotten board, wedged into ragged cracks the stonework. The space is larger than it seemed from outside. The walls in the shelter are tacked with talismans of bone and hair, and something large and rotten is bundled up in the crook of the corner. There is a patterned mat of reeds spread across the floor. On the far wall, glistening, is a series of angular markings that depict a fleshy tongue, impaled on a series of long triangles. 
+
+You gaze at it, transfixed.
+
+(if: (datanames: &quot;people&quot; of $knowledge) contains &quot;Whispering Keepers&quot;)[It is the icon of the Whispering Keepers, the order of monks that you seek. This sign is used by others to refer to them. What is it doing here? You know it to be a heretical sign, but then this is a place avoided by most, so perhaps here, of all places, it is not too unexpected to see it. You fear that it designates a warning.
+(set: &quot;history&quot; of $knowledge to it + (datamap:&quot;The Bitten Tongue&quot;,&quot;An icon that depicts a tongue protruding between sharpened teeth. It is used to refer to the Whispering Monks, and has been daubed (perhaps in warning) on the wall of a shack, leaning up against the exterior of the skull.&quot;))]
+(else:)[You&#39;ve never seen anything like it.(set: &quot;history&quot; of $knowledge to it + (datamap:&quot;Strange symbol of teeth&quot;, &quot;A marking spotted outside the Skull, depicting a tongue clamped tight between sharp fangs.&quot;))]
+
+It&#39;s the last thing you see before the grit beneath your feet starts to shift, and the ground gives way, and you begin to fall into the ground. 
+
+[[i bid my freedom goodbye|Entrance0]]</tw-passagedata>
+<tw-passagedata pid="35" name="Intro12" tags="" position="633,2145">You attempt to sleep. With the darkness comes an intense cold, and through the veil of half-waking you hear voices, and the sound of a campfire. Inchoate, you rise and walk towards the light. You are shaking with cold, but you are surrounded by voices of encouragement and welcome, so you keep moving forwards towards the flickering light of more fortunate campers. Hands touch your back and your neck as you are brought into the fold. Their touch is dry, like that of the Traveller&#39;s Friend.
+
+(if: $playerJourney is &quot;wedding&quot;)[Things are fine here. The voices are warm. You are invited to sit down. Such comfort - so unlike the treatment you will, in all likelihood, receive upon the completion of your journey. The thin gruel, the sour wine of the wedding feast are as nothing to the repast at this desert campfire.]
+
+Something gives way beneath you. You begin to fall. This is bad. Something very bad is happening. (if: $inv contains &quot;winding-sheet&quot;)[The winding-sheet flaps in the updraft as you plummet. As you land in a pile of straw, it falls across your face. You faint.]
+
+[[i bid my freedom goodbye|Entrance0]]</tw-passagedata>
+<tw-passagedata pid="36" name="Intro13" tags="" position="788,2098">A jagged outcrop of rocks, shafting the sky with daggers that would rend its woollen flesh if they could but reach. The rocks offer a little shelter from the wind and you curl up. Exhaustion overtakes you, and you fall into a fitful sleep. 
+
+(if: ($playerTags contains &quot;drunk&quot;) is false)[You awaken to see a figure standing over you, stoop-shouldered, hooded against the wind. Chains glitter in the moonlight, linking its neck and arms. It shouts something, but you can&#39;t hear its voice. It reaches down and clubs you over the head. The world goes black.(set: &quot;people&quot; of $knowledge to it + (datamap:&quot;stooped figures&quot;,&quot;You were abducted by a figure in a hood with a crooked back and heavy chains threaded between its neck and wrists.&quot;))]\
+(else:)[You dream of choppy seas, and pits full of bones, and of a grinning skull many miles high which opens its jaws wide and consumes you.]
+
+(set: $playerTags to it + (a:&quot;boundhands&quot;))\
+[[i bid my freedom goodbye|Entrance0]]</tw-passagedata>
+<tw-passagedata pid="37" name="Intro14" tags="" position="920,1997">You carry on around the skull, scanning the horizon for the mountain that is your destination, black on navy blue. (if: $playerTags contains &quot;noisy&quot;)[It feels good to sing. Your voice travels far across the plain. The dangers of the road are nothing to you as you bawl the story of the harlot and the reeve at the top of your lungs.](else:)[Before long, you realise that your footsteps are not the only ones you can hear. And then, a voice, whispering not quietly enough - 
+&#39;Yes, we&#39;ll take this one in now, and leave it in the usual place.&#39; You cast about for a rock, a branch, some kind of weapon, but too late. You risk a glance behind you, and see a hunched silhouette, with metal glinting on its shoulders. It looks like it is wearing chains.(set: &quot;people&quot; of $knowledge to it + (datamap:&quot;stooped figures&quot;,&quot;You were abducted by a figure in a hood with a crooked back and heavy chains threaded between its neck and wrists.&quot;))]
+
+A net erupts from the sand beneath your feet and raises you into the air. A rope creaks above you. You sway backwards and forwards, wishing that you had a knife. 
+&#39;Oh yes, this one will make good repast for what&#39;s below,&#39; yells a voice nearby. 
+&#39;Its hunger will be well-sated, I&#39;ve no doubt.&#39;(set: &quot;places&quot; of $knowledge to it + (datamap:&quot;something below&quot;,&quot;Your abuductors mentioned something dwelling down below, which they intended to feed you to.&quot;)) The net goes slack, and you drop towards the ground, hard. A rock meets the back of your neck, and you go limp.
+
+(set: $playerTags to it + (a:&quot;boundhands&quot;))\
+[[i bid my freedom goodbye|Entrance0]]</tw-passagedata>
+<tw-passagedata pid="38" name="Entrance1" tags="" position="1243,2343">You awaken to the sharp touch of icy water, stinging your forhead in fat drops. Light comes in through a rectangular opening in the ceiling above you, slanting down through the chamber where you lie in a pile of straw.
+(if: $playerTags contains &quot;boundhands&quot;)[Your hands are bound.]
+
+[[Pull yourself together-&gt;Entrance2]]</tw-passagedata>
+<tw-passagedata pid="39" name="OldConversationOptions" tags="" position="1936,340">ask about (print: (datanames: &quot;people&quot; of $knowledge).join(&quot;
+ask about &quot;))
+ask about (print: (datanames: &quot;places&quot; of $knowledge).join(&quot;
+ask about &quot;))
+ask about (print: (datanames: &quot;history&quot; of $knowledge).join(&quot;
+ask about &quot;))
+(linkgoto: &quot;say farewell&quot;,&quot;playerExit&quot; of $interlocutor)
+{
+(set: $peopleNumber to (datanames: (&quot;people&quot; of $knowledge))&#39;s length)\
+(set: $i to 0)\
+[(display: &quot;PeopleConversationLooper&quot;)]&lt;peopleLoop|
+(set: $placesNumber to (datanames: (&quot;places&quot; of $knowledge))&#39;s length)\
+(set: $i to 0)\
+[(display: &quot;PlacesConversationLooper&quot;)]&lt;placesLoop|
+(set: $historyNumber to (datanames: (&quot;history&quot; of $knowledge))&#39;s length)\
+(set: $i to 0)\
+[(display: &quot;HistoryConversationLooper&quot;)]&lt;historyLoop|
+}</tw-passagedata>
+<tw-passagedata pid="40" name="ConversationResponse" tags="" position="1216,476">(set: $displayInterjections to true)\
+(if: $patience &gt; 0)[{
+(set: $topicsDiscussed to it + (a: $query))
+(if: &quot;opinions&quot; of $interlocutor contains $query)[
+(set: $patience to it + $query of &quot;opinions&quot; of $interlocutor)]
+
+(if: $patience &gt; 3)[
+(set: $tic to (string:&quot;warm&quot; + (string:(either: 1, 2))))]
+(elseif: $patience &gt; 1)[
+(set: $tic to (string:&quot;cool&quot; + (string:(either: 1, 2))))]
+(else:)[
+(set: $tic to (string:&quot;cold&quot; + (string:(either: 1, 2))))]
+
+}(print: $tic of &quot;attitudes&quot; of $interlocutor)
+
+(if: &quot;responses&quot; of $interlocutor contains $query)[(print: $query of &quot;responses&quot; of $interlocutor)]\
+(else:)[(print: $iDontKnow&#39;s 1st)(set: $iDontKnow to (rotated: 1, ...$iDontKnow))(set: $patience to it - 2)]
+\
+(set: $interjections to (rotated: 1, ...$interjections))\
+\
+(display: &quot;ConversationResponseStage2&quot;)
+]\
+(else:)[(display: &quot;exit&quot; of $interlocutor)]</tw-passagedata>
+<tw-passagedata pid="41" name="PeopleConversationLooper" tags="" position="1504,428">(if: $i &lt; $peopleNumber)[\
+(set: $name to (datanames: &quot;people&quot; of $knowledge)&#39;s ($i))\
+(if: ($topicsDiscussed contains $name) is false)[
+(set: $link to &#39;(click: &quot;&#39; + $name + &#39;&quot;)[
+(set: $query to &quot;&#39; + $name + &#39;&quot;)(goto: &quot;ConversationResponse&quot;)
+]&#39;)\
+(print: $link)\
+]
+(set: $i to it + 1)\
+(replace: ?peopleLoop)[(display: &quot;PeopleConversationLooper&quot;)]\
+]</tw-passagedata>
+<tw-passagedata pid="42" name="PlacesConversationLooper" tags="" position="1628,428">(if: $i &lt; $placesNumber)[\
+(set: $name to (datanames: &quot;places&quot; of $knowledge)&#39;s ($i))\
+(if: ($topicsDiscussed contains $name) is false)[
+(set: $link to &#39;(click: &quot;&#39; + $name + &#39;&quot;)[
+(set: $query to &quot;&#39; + $name + &#39;&quot;)(goto: &quot;ConversationResponse&quot;)
+]&#39;)\
+(print: $link)\
+]
+(set: $i to it + 1)\
+(replace: ?placesLoop)[(display: &quot;PlacesConversationLooper&quot;)]\
+]</tw-passagedata>
+<tw-passagedata pid="43" name="HistoryConversationLooper" tags="" position="1752,428">(if: $i &lt; $historyNumber)[\
+(set: $name to (datanames: &quot;history&quot; of $knowledge)&#39;s ($i))\
+(if: ($topicsDiscussed contains $name) is false)[
+(set: $link to &#39;(click: &quot;&#39; + $name + &#39;&quot;)[
+(set: $query to &quot;&#39; + $name + &#39;&quot;)(goto: &quot;ConversationResponse&quot;)
+]&#39;)\
+(print: $link)\
+]
+(set: $i to it + 1)\
+(replace: ?historyLoop)[(display: &quot;HistoryConversationLooper&quot;)]\
+]
+</tw-passagedata>
+<tw-passagedata pid="44" name="skullResponse" tags="" position="386,3718">&#39;There is a rhyme about this place. It goes like this:
+All is known to the maid atop the dome,
+Apart from the fate of the maggot in the heart,
+And the beast that curls about the feet.
+Children sing it. It chills my old blood. I dread to get too close.&#39; (set: $knowledge&#39;s (&quot;history&quot;) to it + (datamap: &quot;Children&#39;s Song&quot;, &quot;It goes like this:
+All is known to the maid atop the dome,
+Apart from the fate of the maggot in the heart,
+And the beast that curls about the feet.&quot;))</tw-passagedata>
+<tw-passagedata pid="45" name="Intro10b" tags="" position="636,1985">Now you are alone again, and your journey is far from over. It is nightfall. You find yourself stood at the base of this preposterous fortress, hundreds of miles from anywhere you want to be. Exhaustion dogs you.
+
+(if: $playerTags contains &quot;spiritual&quot; and (either: true, false))[
+[[i spot a sagging shelter in the angle between a butress and the wall and move into it
+|Intro11]]]\
+(if: $inv contains &quot;winding-sheet&quot;)[
+[[i wrap myself in the sheet the old woman dropped and try to sleep
+|Intro12]]]\
+(if: $playerJourney is &quot;wedding&quot; and (either: true, false))[
+[[i try to distract myself from my present plight by imagining, for the hundredth time, the celebrations i will enjoy on my return
+|Intro12]]]\
+(if: $playerTags contains &quot;impetuous&quot; or (either: true, false))[
+[[i curl up at the bottom of the wall and look up at the stars
+|Intro13]]]\
+(if: $playerTags contains &quot;drunk&quot; and (either: true, false))[
+[[my head aches and my stomach churns, so i rest for a moment on a rock
+|Intro13]]]\
+(if: $playerTags contains &quot;noisy&quot; and (either: true, false))[
+[[i keep myself awake by singing a bawdy song as i stroll on around the parapet
+|Intro14]]]\
+(if: (either: true, false))[
+[[i feel that exercise will keep exhaustion at bay, so i keep exploring the perimeter of the fortress
+|Intro14]]]\
+(else:)[
+[[i wander beneath the stars and consider my situation
+|Intro14]]]</tw-passagedata>
+<tw-passagedata pid="46" name="Intro10a" tags="" position="796,1734">She nodded at you, and without saying another word she turned and rode back the way you came.
+[[Intro10b]]</tw-passagedata>
+<tw-passagedata pid="47" name="TFCoughs" tags="" position="515,3991">She stopped, then, and took a rattling breath. Her body twisted, sinuous, and was wracked with coughs. Red droplets, indistinct, blotted through the sheet that covered her mouth.
+
+[[&#39;you are sick. i should stay with you.&#39;|TFCoughsA]]
+[[&#39;i hope your illness is not contagious.&#39;|TFCoughsB]]</tw-passagedata>
+<tw-passagedata pid="48" name="ConversationTutorialExit" tags="" position="415,1877">As she shrank into the distance, a length of sheet came away from her figure and drifted towards you in the wind. 
+
+(link: &quot;you caught it&quot;)[(set: $inv to it + (a:&quot;winding sheet&quot;))(goto:&quot;Intro10b&quot;)]
+[[you let it blow away|Intro10b]]</tw-passagedata>
+<tw-passagedata pid="49" name="TFCoughsA" tags="" position="450,4116">She turned sharply in her saddle and looked directly at you. A rare gesture.
+
+&#39;No,&#39; she said. &#39;Foolishness. How dare you? After the miles we have walked together, you would squander my goodwill on the ministrations of a nursemaid? Pah. I would not brook it.&#39; (set: $patience to it - 2)
+
+(display:&quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="50" name="TFCoughsB" tags="" position="586,4116">She laughed, and you heard blood gargling in her mouth.
+
+&#39;Fear not, child. You will do just fine. Yes, you will do very well.&#39; (set: $patience to it + 2)
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="51" name="TFBrushOff" tags="" position="370,3991">A silence fell between you.
+
+&#39;Did you have aught else to say? I detest prolonged farewells.&#39;
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="52" name="TFExit" tags="" position="316,3858">Her stick-thin arm reached across and she touched your shoulder.
+
+&#39;Enough,&#39; she said. &#39;Here is where our paths diverge. Perhaps we will see one another again, but I think it is unlikely. I would wish you luck, but those who need recourse to luck in a world such as this are lost already. So I will say only farewell.&#39;
+
+(display: &quot;ConversationExit&quot;)\
+(display: &quot;ConversationTutorialExit&quot;)</tw-passagedata>
+<tw-passagedata pid="53" name="TFExitPlayer" tags="" position="461,3858">&#39;It is the time,&#39; she says. &#39;Your fate is now yours to direct. Your destination is known to you.&#39;
+
+Her fingers tightened on the reins.
+
+&#39;Until the next life, then.&#39;
+
+(display: &quot;ConversationExit&quot;)\
+(display: &quot;ConversationTutorialExit&quot;)</tw-passagedata>
+<tw-passagedata pid="54" name="TFQuestion" tags="" position="241,3988">She scratched her lower back with a bony finger.
+
+&#39;Now, let me ask you something. Is there anyone in this world that you care about, truly? If the worn tapestry of this tattered world were one day rent asunder, would your final thought be of yourself, or of some other person?&#39;
+
+[[&#39;i would regret only the wine i left undrunk.&#39;|TFQuestionA]]
+[[&#39;truly, there is another who is often in my thoughts.&#39;|TFQuestionB]]</tw-passagedata>
+<tw-passagedata pid="55" name="TFQuestionA" tags="" position="175,4128">The woman&#39;s laugh is brief and sharp.
+
+&#39;I am glad I saved you, stranger. Truly I am. So many lonely travellers disappoint me.&#39;
+
+[[&#39;what is it in these people that disappoints you so?&#39;|TFQuestionC]]
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="56" name="TFQuestionB" tags="" position="315,4121">&#39;Hm,&#39; she said. &#39;Then I will think on your beloved in my reveries.&#39; You thought you heard something malign in her tone, but you couldn&#39;t be sure.
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="57" name="TFQuestionC" tags="" position="140,4271">&#39;They often fail to devliver my expectations. I ask for so little in return for my friendship.&#39;
+
+[[&#39;what kind of charity is this, that comes with such conditions?&#39;|TFQuestionD]]
+[[&#39;is there something you would have of me?|TFQuestionE]]
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="58" name="TFQuestionD" tags="" position="220,4406">&#39;Whoever said my intentions were charitable?&#39;
+
+(display: &quot;TFExit&quot;)</tw-passagedata>
+<tw-passagedata pid="59" name="TFQuestionE" tags="" position="81,4398">&#39;We will probably never cross paths again. However, if we do, I will ask something small of you. Only something small. Better not to think of it.&#39;
+
+(display: &quot;ConversationOptions&quot;)</tw-passagedata>
+<tw-passagedata pid="60" name="ConversationInitialise" tags="" position="1091,348">{(set: $topicsDiscussed to (a:))
+(set: $interjections to &quot;interjections&quot; of $interlocutor)
+(set: $interjections to (shuffled: ...$interjections))
+(set: $iDontKnow to &quot;iDontKnow&quot; of $interlocutor)
+(set: $iDontKnow to (shuffled: ...$iDontKnow))
+
+(if: $timeindungeon&gt;(&quot;timelastmet&quot; of $interlocutor))[
+(set: &quot;patience&quot; of $interlocutor to it+($timeindungeon-(&quot;timelastmet&quot; of $interlocutor)))]
+
+&lt;!-- could maybe do something here with modifying patience based on items of clothing, etc --&gt;
+
+(if: (&quot;patience&quot; of $interlocutor)&gt;(&quot;maxpatience&quot; of $interlocutor))[(set: (&quot;patience&quot; of $interlocutor) to (&quot;maxpatience&quot; of $interlocutor))]
+
+(if: (datanames: $interlocutor) contains &quot;specialPatienceLevel&quot;)[(display:&quot;specialPatienceLevel&quot; of $interlocutor)]
+
+(set: $patience to &quot;patience&quot; of $interlocutor)
+
+}</tw-passagedata>
+<tw-passagedata pid="61" name="ConversationExit" tags="" position="1091,473">{(set: $interlocutor&#39;s &quot;topicsDiscussed&quot; to (a:) + $topicsDiscussed)
+(set: $interlocutor&#39;s &quot;timelastmet&quot; to $timeindungeon)
+(set: $interlocutor to (datamap:))
+}</tw-passagedata>
+<tw-passagedata pid="62" name="InventoryExplorer" tags="" position="1076,740">(set: $inv to it - (a: &quot;&quot;))
+(print: $inv.join(&quot;
+&quot;))\
+(set: $invNumber to $inv&#39;s length)\
+(set: $i to 0)\
+[(display: &quot;ItemsLooper&quot;)]&lt;itemsLoop|
+
+(link: &quot;Done&quot;)[(goto: (history:)&#39;s last)]</tw-passagedata>
+<tw-passagedata pid="63" name="ItemsLooper" tags="" position="1211,736">(if: $i &lt; $invNumber)[\
+(set: $name to (string:$inv&#39;s ($i)))\
+(set: $link to &#39;(click: &quot;&#39; + $name + &#39;&quot;)[(goto: &quot;&#39; + $name + &#39;&quot;)]&#39;)\
+(print: $link)\
+\
+(set: $i to it + 1)\
+(replace: ?itemsLoop)[(display: &quot;ItemsLooper&quot;)]\
+]</tw-passagedata>
+<tw-passagedata pid="64" name="waterskin" tags="" position="71,1016">The waterskin is empty.
+
+(link: &quot;Done&quot;)[(goto: (history:)&#39;s 2ndlast)]</tw-passagedata>
+<tw-passagedata pid="65" name="SYSTEMS!" tags="" position="52,285">Some notes on the main systems in the game. Note - to keep the code here from firing (and messing up the actual game, possibly) I&#39;m nesting it in little `` markers that basically neuter it and stop it from having magic code power.
+
+//Tags and Variables//
+NB - if you want to change a tag or variable, do it in a silent passage where possible. Doing it in a passage which has the generic actions means it runs every time you go back to it, which causes all kinds of problems
+
+//Relevant strings//
+There&#39;s a passage called relevant strings under this one where I&#39;m keeping a record of every string that we use for items, tags, knowledge datanames, etc. I think this is important because all these `(if:)` comparisons are case-sensitive and having the wrong capitalisation or punctuation can throw them off, so the version of a string in the relevant strings passage should be what you refer to when you&#39;re putting checks in the game. Update it whenever you add a new tag or whatever. Given that Twine doesn&#39;t have the concept of a Enum, this is the best way to keep the code nice and sanitary.
+
+//Knowledge//
+This is a datamap that contains three sub-datamaps for people, places and history. To add to it, use a set macro like this:
+
+`(set: &quot;history&quot; of $knowledge to it + (datamap:&quot;The Great Schism&quot;,&quot;Whatever this is.&quot;))`
+
+You can also check if something is known or not using something like this:
+
+`(if: (datanames: &quot;history&quot; of $knowledge) contains &quot;The Great Schism&quot;)[You recognise the depiction of the Great Schism on the wall.]
+(else:)[It&#39;s not clear what this mural depicts, but it involves people burning books and scholars wailing. A shadowy figure presides over all.]`
+
+Sometimes a bit of knowledge might make a previous entry irrelevant or obsolete. For example, in Intro11, if you know about the Whispering Keepers, you recognise their mark and get a knowledge entry about The Bitten Tongue. Otherwise, you get a placeholder enrty called &#39;strange symbol of teeth&#39; that might be updated later on if you talk to someone, or some such thing.
+
+//Conversation//
+NOTE: The Traveller&#39;s Friend dialogue is in the past tense but the rest ought to be in the present.
+
+To create a person who can be talked to, do the following:
+
+1) First, add an entry for them to the InitialiseConversations passage. The datamap contains values for &quot;patience&quot;, &quot;maxpatience&quot;, &quot;timelastmet&quot;, &quot;responses&quot;, &quot;opinions&quot;, &quot;attitudes&quot;, &quot;interjections&quot;, &quot;iDontKnow&quot;, &quot;playerExit&quot;, &quot;exit&quot; and &quot;topicsDiscussed&quot;.
+
+Here&#39;s what those things are:
+
+patience - number - the &#39;HP&#39; of the conversation. When it gets to zero, the NPC ends the conversation. If we want characters who are going to recur or be visitable more than once, we&#39;ll need to work out how to top it back up after sufficient time is passed (SEE BELOW). It gets stored in a variable called $patience during the conversation itself so you don&#39;t have to keep typing (set: &quot;patience&quot; of $interlocutor to it - 1).
+
+maxpatience - the maximum value of patience for this character
+
+timelastmet - this is a record of the player variable $timeindungeon. it&#39;s set in the ConversationExit passage to whatever $timeindungeon was at that point. When a conversation happens, the conversation intialise passage checks if $timeindungeon is higher than timelastmet. If so, it tops up &quot;patience&quot; accordingly, but won&#39;t go above maxpatience (so meeting new characters will always be at their maxpatience). Should be set to 0 in intialisation 
+
+responses - datamap of either strings or macros - The main feature of this whole system. This is the list of their responses to things you might ask them about. The datanames in this datamap must be spelled and capitalised exatctly the same as their counterparts the datanames in the &quot;knowledge&quot; datamap. The value that comes afterwards can be one of two things - either a string, if you want their response to just be text, or else a `(display:)` macro referring to a passage if you want their response to trigger some code (for example, to add an entry to the knowledge datamap). See the &quot;skullResponse&quot; passage for an example of this. If you want the response to exit the conversation entirely (for example, if someone takes you somewhere, or pushes you down a hole) then make sure you put a `(display: &quot;ConversationExit&quot;)` macro in there somewhere. Also, this doesn&#39;t need to contain an entry for every single thing in the knowledge datamap. If you ask an NPC about something that they don&#39;t know about, they&#39;ll display something from the &quot;iDontKnow&quot; entry instead. 
+NEW CHANGE HERE**********************
+If you want a passage-response to display ONLY itself and not the interjection or options underneath, you&#39;re advised to add this line (for example if you want the passage to lead OUT of the conversation and you don&#39;t want a mid-page link with some irrelevant stuff under it:
+(set: $displayInterjections to false)\
+See jailerLedgerResponse for example usage.
+*********************************
+
+opinions - datamap of numbers - This contains a list of numbers that tell you how the patience value should change in response to what you ask them about. So, everything in the &#39;responses&#39; section should also be represented here. In the tutorial conversation, the woman likes talking about the Skull and the Children&#39;s Song, but hates talking about the Arbiters. 
+
+attitudes - datamap of strings - This contains a bunch of flavourtext that indicates how the person feels at a given moment (attitudes in the sense of &#39;she struck a diffident attitude&#39; - not very well-named probably). They are divided into warm1, warm2, cool1, cool2, cold1, cold2.
+
+interjections - array of passage names - I wanted the conversations to be a bit more organic than just &#39;ask them lots of questions until they say go away&#39; so this was my solution to that problem. Each character can have any number of passages (must be at least one) that get displayed after they answer your question. For the Traveller&#39;s Friend these are TFBrushOff, TFQuestions and TFCoughs. These let the characters talk about something they want to talk about, by asking you questions or whatever. The brushoff one is just some flavourtext but the other two conversations affect the Friend&#39;s patience with you and also offer some insight into her character. The nice thing about this way of arranging the conversations is we can have little mini-flowchart-trees that let the dialogue go off in a direction. The only consideration here is that each branch of conversation needs to end with (display: &quot;ConversationOptions&quot;) or else the game will get stuck.
+
+iDontKnow - array of strings - Just a couple of options for stuff the NPC says if you ask them something they don&#39;t know about (can be any length).
+
+playerExit - string (passage title) - If the player terminates the conversation by saying farewell, what happens? For example, see TFExitPlayer. This passage should either (display:) or else have a link to somewhere on the main story tree. It must also contain (display: &quot;ConversationExit&quot;).
+
+exit - string (passage title) - The passage that gets displayed if they become impatient with you and end the dialogue. Simillar to above. Example is TFExit. It must also contain (display: &quot;ConversationExit&quot;) and link back to the main story tree.
+
+topicsDiscussed - an empty array - Just needs to be there to keep track of what you&#39;ve said to whom.
+
+specialPatienceLevel - passage name string - if you want to have the patience of the person set by some special means other than the normal system, include this field and put a passage name in it. The passage named here should set `&quot;patience&quot; of $interlocutor` using whatever criteria (such as what clothes you&#39;re wearing or how hard you&#39;ve been working in the mine that day). Can also use it to stack the interjections deck, if you want (see Shad).
+
+2) So by the time you&#39;ve put all that stuff together, you&#39;ve pretty much written the NPC. All that remains is to put the section into the main game tree that links into the conversation. To start a conversation, all you do is the following:
+
+`(set: $interlocutor to $friend)\
+(display: &quot;ConversationInitialise&quot;)\
+(display: &quot;ConversationOptions&quot;)`
+
+The first bit loads the right datamap into the $interlocutor variable, the second bit sets up some other code that helps it all to hang together, and the third bit displays the initial list of conversation options.
+
+That&#39;s all! Simple.
+
+//Items//
+Remember to make a note of all items in the relevant strings passage. Each item has a passage associated with it (with the same name as the inventory string). That passage contains relevant bits and bobs. The important thing about these is that leaving their page, you want to (goto: (history:)&#39;s 2ndlast) as that&#39;ll correspond to wherever you were on the main tree ((history:)&#39;s last would take you to the inventory menu itself, but this should be avoided as it&#39;ll mean that any other page you visit from the inventory will send you to the wrong place).
+
+The inventory is an array of strings, and the $clothing datamap contains slots for various body parts that could have clothes on them. Clothes you&#39;re wearing aren&#39;t in the inventory because that&#39;s conventional. We need an option for removing clothes. When you put a piece of clothing in, it is removed from the inventory and whatever was in its slot is put into the inventory. Each body part is assosciated with a variable that contains a string, such as $feetDescription or $headDescription, and these variables should be updated when you put a piece of clothing on so that the &#39;How I Look&#39; thing reads accurately. This system isn&#39;t ideal (because it won&#39;t play well with filth) but I&#39;m loathe to complicate it further at this stage.
+
+//feelings//
+any variable that&#39;s a number that stores information about the player, such as $health or $timeindungeon can be exploited for a sliding scale or feelings, as well as making use of the $playerTags section. 
+
+In the InitialiseFeelings passage are arrays containing strings that describe each stage as the variable progresses. It&#39;s important that these are in a progressive order, and that the order matches the way the number for the associated value changes (eg. in the $healthfeeling array higher is better, but in the $timeindungeonfeeling array lower is better). the Feelings passage then calls e.g. `$healthfeeling&#39;s $health` to show the string that corresponds to the current health variable. Any more variables then simply need to be added to the playerinit, a corresponding array of progressive descriptions added to the FeelingsInit passage, and print: macro added to the Feelings passage.
+NB: for this to work, variables must not go into numbers that couldn&#39;t relate to an array length. therefore, $filth can&#39;t go below 1, for example (and we&#39;ll have to have system t keep health within a certain range that&#39;s matched by the array). this is good practice anyway though. 
+
+To make use of playertags, simply use an if:contains inside the Feelings passage
+
+
+//knowledge appender//
+
+This is for when you want to add a new dimension to some knowledge without replacing the entire category (for example, when you get some more information about something but not enough to warrant creating a whole new entry in that table). The kind of block I was having to write can be seen in Ghosts1, and a sample of this new system can be seen in Ghosts2. This system replaces that horrid mess with something like the following:
+
+`
+(set: $knowledgeCategory to &quot;history&quot;)
+(set: $knowledgeName to &quot;what&#39;s below&quot;)
+(set: $appendedKnowledge to &quot;whatever you want added&quot;)
+(set: $newKnowledge to &quot;whatever you want the entry to say if this is the first part of it&quot;)
+(display: &quot;KnowledgeAppender&quot;)
+`
+
+The script thus called first checks if &quot;what&#39;s below&quot; is already in the knowledge database, and then either appends something new to it or makes a new entry if there isn&#39;t one there already.
+Note: currently not working for some reason.
+
+
+//environmental actions//
+
+a list in relevant strings of variables that can be true or false. use these when a change in the environment matters, so that changes are recorded. really simple. REMEMBER TO SET HOW YOU WANT A THING TO BE IN THE INITIALISE DUNGEON PASSAGE</tw-passagedata>
+<tw-passagedata pid="66" name="sandals" tags="" position="66,1151">This was a fine pair of sandals, once. You wouldn&#39;t think so to look at them now.
+
+(link: &quot;put them on&quot;)[\
+(set: $inv to it + (a:&quot;feet&quot; of $clothing))\
+(set: $inv to it - (a:&quot;sandals&quot;))
+(set: &quot;feet&quot; of $clothing to &quot;sandals&quot;)\
+(set: $feetDescription to &quot;Ragged sandals adorn your feet.&quot;)\
+(goto: (history:)&#39;s 2ndlast)]
+(link: &quot;done&quot;)[(goto: (history:)&#39;s 2ndlast)]</tw-passagedata>
+<tw-passagedata pid="67" name="dusty robe" tags="" position="71,1296">This robe has seen far better days. The unrelenting sun has turned it pale. Dust falls out of every crease in the fabric.
+
+(link: &quot;put it on&quot;)[\
+(set: $inv to it + (a:&quot;torso&quot; of $clothing))\
+(set: $inv to it - (a:&quot;dusty robe&quot;))
+(set: &quot;torso&quot; of $clothing to &quot;dusty robe&quot;)\
+(set: $torsoDescription to &quot;Your robe is tattered and bleached from months on the road.&quot;)\
+(goto: (history:)&#39;s 2ndlast)]
+(link: &quot;done&quot;)[(goto: (history:)&#39;s 2ndlast)]</tw-passagedata>
+<tw-passagedata pid="68" name="seed-bag" tags="" position="68,1436">You gathered these seeds carefully from reedbeds and verges and from the dirt beneath the stalls of fruit-sellers during your weeks on the road. There are many different types. If even one in twenty of them grow to maturity, you will never be hungry again.
+
+(link: &quot;Done&quot;)[(goto: (history:)&#39;s 2ndlast)]</tw-passagedata>
+<tw-passagedata pid="69" name="locket" tags="" position="66,1571">This person was once significant to you: In your betrothal, you guaranteed yourself good social standing and full complicity with breeding regulations. Now, the face in the locket is as a stranger. You barely recognise it.
+
+(link: &quot;close the locket&quot;)[(goto: (history:)&#39;s 2ndlast)]</tw-passagedata>
+<tw-passagedata pid="70" name="winding sheet" tags="" position="66,1701">The Traveller&#39;s Friend dropped this length of sheet when she left your company. When you hold it close to your face, the smell of tombs is unignorable.
+
+(link: &quot;use it to cover your head&quot;)[\
+(set: $inv to it + (a:&quot;head&quot; of $clothing))\
+(set: $inv to it - (a:&quot;winding sheet&quot;))
+(set: &quot;head&quot; of $clothing to &quot;winding sheet&quot;)\
+(set: $headDescription to &quot;Your face is obscured by a stinking cloth.&quot;)\
+(goto: (history:)&#39;s 2ndlast)]
+(link: &quot;done&quot;)[(goto: (history:)&#39;s 2ndlast)]</tw-passagedata>
+<tw-passagedata pid="71" name="example" tags="" position="61,1841">This is a pair of stylish Examples.
+
+(link: &quot;put them on&quot;)[\
+(set: $inv to it + (a:&quot;feet&quot; of $clothing))\
+(set: $inv to it - (a:&quot;example&quot;))
+(set: &quot;feet&quot; of $clothing to &quot;example&quot;)\
+(set: $feetDescription to &quot;Your feet are encased in some nice Examples.&quot;)\
+(goto: (history:)&#39;s 2ndlast)]
+(link: &quot;done&quot;)[(goto: (history:)&#39;s 2ndlast)]</tw-passagedata>
+<tw-passagedata pid="72" name="Appearance" tags="" position="1448,708">(print: $headDescription) (print: $torsoDescription) (print: $feetDescription) (print: $handsDescription) (if: $playerTags contains &quot;boundhands&quot;)[Your hands are roughly bound with course rope.] (if: $playerTags contains &quot;manacles&quot;)[Manacles bind your feet, attached to a length of chain.] (if: $playerTags contains &quot;shoulderchains&quot;)[Loops of chain go from your neck to your arms, weighing you down but affording you some freedom.]
+
+(link: &quot;done&quot;)[(goto: (history:)&#39;s last)]</tw-passagedata>
+<tw-passagedata pid="73" name="Feelings" tags="" position="1573,706">(print: $healthfeeling&#39;s $health)
+(if: $filth&gt;$filthfeeling&#39;s length)[(print: $hfilthfeeling&#39;s last)](else:)[(print: $filthfeeling&#39;s $filth)]
+(if: $timeindungeon&gt;$timeindungeonfeeling&#39;s length)[(print: $timeindungeonfeelings&#39;s last)](else:)[(print: $timeindungeonfeeling&#39;s $timeindungeon)]
+
+(if: $playerTags contains &quot;drunk&quot;)[I am bouyed by the spirits of the bottle. ]\
+(if: $playerTags contains &quot;thirsty&quot;)[I am desperately thirsty. ]\
+(if: $playerTags contains &quot;boundhands&quot;)[Ropes chafe my wrists. ]
+
+(link: &quot;done&quot;)[(goto: (history:)&#39;s last)]</tw-passagedata>
+<tw-passagedata pid="74" name="InitialiseFeelings" tags="" position="316,386">(set: $healthfeeling to (a: 
+&quot;My exertions have left me near death&quot;,
+&quot;I am exhausted by my travails&quot;,
+&quot;I am weary, but can continue&quot;,
+&quot;I am beginning to feel the strain my endeavours&quot;,
+&quot;I have energy enough to continue&quot;,
+))
+
+(set: $healthfeeling2 to (a: 
+&quot;You are close to collapse, close to death.&quot;,
+&quot;Your trials have left you exhausted.&quot;,
+&quot;Your muscles ache but you have some small strength left.&quot;,
+&quot;Your hardships are wearing you down, gradually.&quot;,
+&quot;You have as much strength as you could hope for.&quot;,
+))
+
+(set: $filthfeeling to (a:
+&quot;I am clean as can be hoped for&quot;,
+&quot;I should wash soon&quot;,
+&quot;I dislike being dirty&quot;,
+&quot;I am filthy and must soon wash away my sins&quot;,
+&quot;I am distressed by my appearance. I must look like a sewer-dwelling troglodyte&quot;,
+))
+
+(set: $timeindungeonfeeling to (a:
+&quot;I find this place intriguing&quot;,
+&quot;My time in this place has begun to change me&quot;,
+&quot;I feel the atmosphere of this place seep into my bones&quot;,
+&quot;I can hardly keep the dry death of this place from breaking my spirit&quot;,
+&quot;I fear I shall soon become another dry corpse, trapped in this frightful charnal-house for all eternity&quot;,
+))
+
+(goto: &quot;InitialiseGhosts&quot;)</tw-passagedata>
+<tw-passagedata pid="75" name="Entrance0" tags="" position="1102,2316">(if: $playerTags contains &quot;drunk&quot;)[(set: $playerTags to it - (a:&quot;drunk&quot;))(set: $playerTags to it+(a:&quot;thirsty&quot;))]
+(set: $tallymarks to 0)
+(set: &quot;places&quot; of $knowledge to it + (datamap: &quot;the cell&quot;, &quot;A stinking room where you awoke. The walls are scored with tally-marks.&quot;))
+(set: $songStorylet to false)
+(goto: &quot;Entrance1&quot;)
+
+///when going through places, a silent passage to change tags and variables is necessary otherwise they change when you go back to a passage from the inventory passage///</tw-passagedata>
+<tw-passagedata pid="76" name="Entrance2" tags="" position="1485,2343">(if: not ((history:)&#39;s (range:1,((history:)&#39;s length-1)) contains &quot;Entrance2&quot;))[By the time you&#39;ve realised where you are, and checked yourself and your possessions, the icy water has stopped. The last faint traces of moisture in the air offer scant relief against the dry and acrid smell of the cell. The straw you&#39;re lying on has its own musty animal odour that doesn&#39;t help much either. Or is it a human odour? Perhaps you aren&#39;t the first to be trapped in this place.](else:)[The straw still reeks. The walls are still oppressive.]
+
+The studded wooden door opposite you has a small barred window. The black, domed outline of a balding human head blocks the wan light. 
+
+[[investigate the straw-&gt;Entrance2a]]
+[[investigate the cell-&gt;Entrance2b]]
+[[approach the door-&gt;Entrance3]]
+(if: not ($playerTags contains &quot;released&quot;))[\
+(if: $tallymarks&gt;0)[[[make a tally mark in the cell wall-&gt;Entrance2d]]
+]\
+(if: ($playerTags contains &quot;noisy&quot; or $playerTags contains &quot;impetuous&quot;) and $songStorylet is false)[[[sing a song|Entrance5]]
+]]\
+(else:)[(goto:&quot;Entrance2Alt&quot;)
+]\
+
+(display: &quot;GenericActions&quot;)</tw-passagedata>
+<tw-passagedata pid="77" name="Entrance2a" tags="" position="1643,2023">(if: $playerTags contains &quot;boundhands&quot;)[You make an attempt to rummage through the straw, but it&#39;s too difficult with your hands tied like this. The smell of human sweat and fear that emanates from the disturbed bedding is palpable.]
+(else-if: ($inv contains &quot;bone brooch&quot;) is false)[You scrabble through the bedding, desperate for any sign of another life. A small brooch, carved from bone, drops from a dry and musty handful of straw. (set: $broochonfloor to true)]
+(else:)[You dig through the straw, but now you find nothing but disappointment]
+
+{
+(if: $broochonfloor is true)[
+(link: &quot;pick up the brooch&quot;)[You pick it up(set: $broochonfloor to false)(set: $inv to it+(a:&quot;bone brooch&quot;))]
+]}
+[[sit back|Entrance2]]</tw-passagedata>
+</tw-storydata>

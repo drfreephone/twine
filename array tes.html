@@ -1,0 +1,20 @@
+<tw-storydata name="array tes" startnode="2" creator="Twine" creator-version="2.0.11" ifid="829BFEA5-B4F5-438A-9DB0-AC3ABA7B2A3C" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Untitled Passage" tags="" position="506,290">(set: $oldarray to (a: &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;))
+(set: $newarray to (a: $oldarray&#39;s (range: 1, 4)))
+(set: $oldarray to (a: it-$oldarray&#39;s (range: 1, 4)))
+
+
+(print: $oldarray)
+(print: $newarray)</tw-passagedata>
+<tw-passagedata pid="2" name="Untitled Passage 1" tags="" position="631,256">(set: $healthlosstexts to (a:
+&quot;You don&#39;t feel good&quot;,
+&quot;You feel like you might be sick&quot;,
+&quot;You feel the life ebbing from you&quot;,
+&quot;Your body shakes with weakness&quot;,))
+
+
+
+[[next]]</tw-passagedata>
+<tw-passagedata pid="3" name="next" tags="" position="631,406">(print: $healthlosstexts&#39;s (random: 1,4))
+ 
+ [[next]]</tw-passagedata>
+</tw-storydata>

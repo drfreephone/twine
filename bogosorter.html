@@ -1,0 +1,33 @@
+<tw-storydata name="bogosorter" startnode="1" creator="Twine" creator-version="2.0.11" ifid="7FAAC1CA-9D71-4F15-A8F3-D1225B4F04CC" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+</script><tw-passagedata pid="1" name="Init" tags="" position="631,310">(set: $list to (a: 1, 2, 3, 4, 5,))
+(set: $shuffledlist to (shuffled:...$list))
+(set: $count to 1)
+(set: $pos to 1)
+
+(print: &quot;The list is $shuffledlist&quot;)
+
+(link-goto: &quot;Sort into ascending order&quot;, &quot;sorter&quot;)
+
+</tw-passagedata>
+<tw-passagedata pid="2" name="sorter" tags="" position="635,450">(if:$shuffledlist&#39;s $pos&lt;=$shuffledlist&#39;s ($pos+1) and ($pos+1)&gt;=$shuffledlist&#39;s length)[
+(print: &quot;The list is $shuffledlist&quot;)
+(print: &quot;This took $count tries&quot;)]
+
+(else-if: $shuffledlist&#39;s $pos&lt;=$shuffledlist&#39;s ($pos+1) and ($pos+1)&lt;$shuffledlist&#39;s length)[
+(set: $pos to it+1)
+(goto: &quot;sorter&quot;)]
+
+(else-if: $shuffledlist&#39;s $pos&gt;$shuffledlist&#39;s ($pos+1))[
+(set: $pos to 1)
+(set: $count to it+1)
+(set: $shuffledlist to (shuffled:...$shuffledlist))
+(goto: &quot;sorter&quot;)]
+
+</tw-passagedata>
+<tw-passagedata pid="3" name="Untitled Passage" tags="" position="220,404"></tw-passagedata>
+</tw-storydata>

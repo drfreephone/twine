@@ -1,0 +1,93 @@
+<tw-storydata name="necrodungeonquest test1" startnode="1" creator="Twine" creator-version="2.0.11" ifid="F506A274-471F-45F2-8DCC-830EFD6D2962" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+</script><tw-passagedata pid="1" name="init" tags="" position="100,0">(set: $roomrecord to (datamap:
+&quot;room1&quot;, &quot;draw&quot;,
+&quot;room2&quot;, &quot;draw&quot;,
+&quot;room3&quot;, &quot;draw&quot;,))
+
+(set: $roomtilepos to 0)
+(set: $roomtiles to (a: &quot;room1&quot;, &quot;room2&quot;, &quot;room3&quot;))
+(set: $roomtiles to (shuffled: ...$roomtiles))
+
+(set: $roomdeckpos to 1)
+(set: $roomdeck to (a: &quot;roomcard1&quot;, &quot;roomcard2&quot;, &quot;roomcard3&quot;))
+(set: $roomdeck to (shuffled: ...$roomdeck))
+
+(set: $monsterdeckpos to 1)
+(set: $monsterdeck to (a: &quot;monstercard1&quot;, &quot;monstercard2&quot;, &quot;monstercard3&quot;))
+(set: $monsterdeck to (shuffled: ...$monsterdeck))
+
+(set: $trapdeckpos to 1)
+(set: $trapdeck to (a: &quot;trapcard1&quot;, &quot;trapcard2&quot;, &quot;trapcard3&quot;))
+(set: $trapdeck to (shuffled: ...$trapdeck))
+
+(set: $treasuredeckpos to 1)
+(set: $treasuredeck to (a: &quot;treasurecard1&quot;, &quot;treasurecard2&quot;, &quot;treasurecard3&quot;))
+(set: $treasuredeck to (shuffled: ...$treasuredeck))
+
+
+
+(goto: &quot;start page&quot;)</tw-passagedata>
+<tw-passagedata pid="2" name="start page" tags="" position="308,16">
+[[begin-&gt;dungeonstart]] </tw-passagedata>
+<tw-passagedata pid="3" name="forwardcode" tags="" position="100,200">(if: $roomtilepos&lt;$roomtiles&#39;s length)[
+(set: $roomtilepos to it+1)
+(set: $currenttile to $roomtiles&#39;s $roomtilepos)
+(goto: $currenttile)]
+
+(else:)[
+(goto: &quot;dungeoncomplete&quot;)]</tw-passagedata>
+<tw-passagedata pid="4" name="backwardcode" tags="" position="100,300">(if: $roomtilepos&gt;1)[
+(set: $roomtilepos to it-1)
+(set: $currenttile to $roomtiles&#39;s $roomtilepos)
+(goto: $currenttile)]
+(else:)[
+(goto: &quot;dungeonstart&quot;)]</tw-passagedata>
+<tw-passagedata pid="5" name="room1" tags="" position="600,100">Room 1
+(display: &quot;roomtilecode&quot;)
+
+(unless: $roomrecord&#39;s $currenttile is &quot;draw&quot;)[
+(link: &quot;forward&quot;)[(display: &quot;forwardcode&quot;)]
+(link: &quot;backward&quot;)[(display: &quot;backwardcode&quot;)]]</tw-passagedata>
+<tw-passagedata pid="6" name="room2" tags="" position="600,200">Room 2
+(display: &quot;roomtilecode&quot;)
+
+(unless: $roomrecord&#39;s $currenttile is &quot;draw&quot;)[
+(link: &quot;forward&quot;)[(display: &quot;forwardcode&quot;)]
+(link: &quot;backward&quot;)[(display: &quot;backwardcode&quot;)]]</tw-passagedata>
+<tw-passagedata pid="7" name="room3" tags="" position="600,300">Room 3
+(display: &quot;roomtilecode&quot;)
+
+(unless: $roomrecord&#39;s $currenttile is &quot;draw&quot;)[
+(link: &quot;forward&quot;)[(display: &quot;forwardcode&quot;)]
+(link: &quot;backward&quot;)[(display: &quot;backwardcode&quot;)]]</tw-passagedata>
+<tw-passagedata pid="8" name="roomcard1" tags="" position="800,100">monster
+(display: $monsterdeck&#39;s 1)</tw-passagedata>
+<tw-passagedata pid="9" name="roomcard2" tags="" position="800,200">trap
+(display: $trapdeck&#39;s 1)</tw-passagedata>
+<tw-passagedata pid="10" name="roomcard3" tags="" position="800,300">treasure
+(display: $treasuredeck&#39;s 1)</tw-passagedata>
+<tw-passagedata pid="11" name="roomtilecode" tags="" position="100,400">(if: $roomrecord&#39;s $currenttile is &quot;draw&quot;)[
+(display: &quot;roomdeckcode&quot;)]
+</tw-passagedata>
+<tw-passagedata pid="12" name="dungeonstart" tags="" position="309,140">(link: &quot;Enter the dungeon&quot;)[(display: &quot;forwardcode&quot;)]
+</tw-passagedata>
+<tw-passagedata pid="13" name="dungeoncomplete" tags="" position="304,266">(link-goto: &quot;Go back in&quot;, $roomtiles&#39;s last)</tw-passagedata>
+<tw-passagedata pid="14" name="roomdeckcode" tags="" position="100,500">(display: $roomdeck&#39;s 1st)
+
+(link: &quot;done&quot;)[
+(set: $roomdeck to it-(a:$roomdeck&#39;s 1st))
+(set: $roomrecord&#39;s $currenttile to &quot;empty&quot;)
+(goto: $currenttile)]</tw-passagedata>
+<tw-passagedata pid="15" name="monstercard1" tags="" position="1000,100">goblin</tw-passagedata>
+<tw-passagedata pid="16" name="trapcard1" tags="" position="1200,100">trapdoor</tw-passagedata>
+<tw-passagedata pid="17" name="treasurecard1" tags="" position="1400,100">gold</tw-passagedata>
+<tw-passagedata pid="18" name="monstercard2" tags="" position="1000,200">orc</tw-passagedata>
+<tw-passagedata pid="19" name="monstercard3" tags="" position="1000,300">skeleton</tw-passagedata>
+<tw-passagedata pid="20" name="trapcard2" tags="" position="1200,200">tripwire</tw-passagedata>
+<tw-passagedata pid="21" name="trapcard3" tags="" position="1200,300">arrows</tw-passagedata>
+<tw-passagedata pid="22" name="treasurecard2" tags="" position="1400,200">jewels</tw-passagedata>
+<tw-passagedata pid="23" name="treasurecard3" tags="" position="1400,300">gems</tw-passagedata>
+</tw-storydata>

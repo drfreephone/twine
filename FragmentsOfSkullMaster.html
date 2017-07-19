@@ -147,7 +147,9 @@ tw-link.visited {
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
 
 
 
@@ -507,7 +509,7 @@ History:
 (set: $i to it + 1)\
 (replace: ?historyLoop)[(display: &quot;HistoryKnowledgeLooper&quot;)]\
 ]</tw-passagedata>
-<tw-passagedata pid="33" name="relevant strings" tags="" position="35,423">KNOWLEDGE
+<tw-passagedata pid="33" name="relevant strings" tags="" position="34,423">KNOWLEDGE
 People:
 Traveller&#39;s Friend
 Arbiters
@@ -2412,7 +2414,7 @@ You have to stoop inside a low cave, where torches burn in brackets on the walls
 
 [[advance cautiously-&gt;Middens2a]] 
 [[walk boldly-&gt;Middens2b]] </tw-passagedata>
-<tw-passagedata pid="235" name="hallway 2d" tags="" position="2578,3340">A tall shaft between giant rock faces. The space is angled, and a silvery light beams down above you, offering scant illumination. A set of rough-hewn steps leads down to a rotting wooden door, roughly set into the stone on one side. A chute in the ground descends into darkness. The rim of the chute is smeared with blood. 
+<tw-passagedata pid="235" name="hallway 2d" tags="" position="2579,3340">A tall shaft between giant rock faces. The space is angled, and a silvery light beams down above you, offering scant illumination. A set of rough-hewn steps leads down to a rotting wooden door, roughly set into the stone on one side. A chute in the ground descends into darkness. The rim of the chute is smeared with blood. 
 
 [[slide down the chute-&gt;CorpseChute0]]
 [[head for the door-&gt;Hallway-Middens]]
@@ -2864,8 +2866,8 @@ One of the men begins talking before you&#39;ve even taken your seat.
 Gradually, you come to. You must have been under the darkness for some time. Your head feels like an army of demonoids are scratching at your skull-flesh, and the stench of rotting meat fills your nostrils. What must be your own heartbeat pounds loud in your ears.
 
 [[open your eyes-&gt;the body cellar]]</tw-passagedata>
-<tw-passagedata pid="284" name="investigate the corpses" tags="" position="2653,3718">Discover the secret of the betrothed woman, who is down here. If you have the brooch, do something. Able to go back and confront the MiddensPubWoman</tw-passagedata>
-<tw-passagedata pid="285" name="look for a way out" tags="" position="3021,3823">The only obvious way out is far above you. You stumble around in the filth and darkness, nearly slipping on wet blood more than once. The cavern is larger than it first seems, and the size is making the thudding noise echo and seem louder than it should. Feeling gradually around the walls, you discover a sconce hidden in shadow, and the bulbous form of an oil lamp bracketed to the wall. It feels like there&#39;s a small amount of wick left, but it&#39;s long cold.
+<tw-passagedata pid="284" name="investigate the corpses" tags="" position="2653,3673">Discover the secret of the betrothed woman, who is down here. If you have the brooch, do something. Able to go back and confront the MiddensPubWoman</tw-passagedata>
+<tw-passagedata pid="285" name="look for a way out" tags="" position="3021,3823">The only obvious way out is the light of the hatch far above you. You stumble around in the filth and darkness, nearly slipping on wet blood more than once. The cavern is larger than it first seems, and the size is making the thudding noise echo and seem louder than it should. Feeling gradually around the walls, you discover a sconce hidden in shadow, and the bulbous form of an oil lamp bracketed to the wall. It feels like there&#39;s a small amount of wick left, but it&#39;s long cold.
 
 (if: $inv contains &quot;matches&quot; and $matches&gt;0)[[[try and light the lamp-&gt;light lamp]]]
 [[try and climb towards the opening above-&gt;climb to hatch]]
@@ -2879,7 +2881,7 @@ Gradually, you come to. You must have been under the darkness for some time. You
 <tw-passagedata pid="286" name="lie here a while" tags="" position="2861,3824">You close your eyes, and the let the regular thudding fill your ears. You can feel the weight of this place beginning to drag you down. Wouldn&#39;t it be better just to give in to the horror you&#39;ve seen, and stay here forever? You could wallow in the filth like swine in a slaughterhouse. The blood coating the floor begins to seep through your clothes and coat your skin. You are becoming one of them. Another one of the suffering masses who make their home in the Skull. You are becoming one of them. 
 
 [[open your eyes-&gt;body cellar encounter]]
-[[give up-&gt;servants approach]] 
+[[the end of the pain-&gt;servants approach]] 
 
 </tw-passagedata>
 <tw-passagedata pid="287" name="light lamp" tags="" position="3021,3973">(set: $matches to it-1)
@@ -2894,22 +2896,48 @@ Pushing yourself to search for a way out of this abject hell, you notice a spot 
 [[give up-&gt;lie here a while]] 
 
 (display: &quot;GenericActions&quot;)</tw-passagedata>
-<tw-passagedata pid="288" name="climb to hatch" tags="" position="3171,3973">Double-click this passage to edit it.</tw-passagedata>
-<tw-passagedata pid="289" name="body cellar tunnel" tags="" position="3021,4123">Double-click this passage to edit it.</tw-passagedata>
-<tw-passagedata pid="290" name="servants approach" tags="" position="2859,4122"></tw-passagedata>
+<tw-passagedata pid="288" name="climb to hatch" tags="" position="3171,3973">You position yourself directly under the hatch, and immediately realise it&#39;s going to require all the heart you have left. The square of light illuminates the chute that leads down from the hatch. The chute ends more than a body&#39;s length above the ground, and is slick with blood. The blood is fresh, and some drips from the edge of the chute onto your face as you stand there. You could try and make a leap to grab the ledge and scramble up the chute, or perhaps you could stack some corpses and body bags and reach the chute that way. 
+
+(if: $inv contains &quot;rope&quot;)[[[use your rope-&gt;use your rope]]]
+[[a running leap-&gt;leapcodepage]]
+[[stack up corpses-&gt;servants approach]]
+[[give up-&gt;lie here a while]] 
+
+(display: &quot;GenericActions&quot;)</tw-passagedata>
+<tw-passagedata pid="289" name="body cellar tunnel" tags="" position="3028,4267">Double-click this passage to edit it.</tw-passagedata>
+<tw-passagedata pid="290" name="servants approach" tags="" position="2857,4177">whatever you&#39;re doing is interupted because the servants of the heart come to get you.</tw-passagedata>
 <tw-passagedata pid="291" name="body cellar encounter" tags="" position="2694,3851">Looking upwards, you notice a shadow pass across the small square of light above you. A rough grunting noise filters down the chute. Could there be someone up there? 
 
 [[call out]]
 [[keep quiet]]</tw-passagedata>
-<tw-passagedata pid="292" name="call out" tags="" position="2523,3982">Double-click this passage to edit it.</tw-passagedata>
+<tw-passagedata pid="292" name="call out" tags="" position="2533,3863">Double-click this passage to edit it.</tw-passagedata>
 <tw-passagedata pid="293" name="keep quiet" tags="" position="2686,3987">You instinctively hold your breath and try and shrink into the floor, although part of you knows you&#39;re already so caked in blood and filth there&#39;s no chance anybody at that distance would notice you among all the other abandoned carcasses. 
 
 The grunting stops, and you hear a strange noise as though something is approaching at an incredible speed.(if: $sawbodydrop is true)[you realise another hessian sack is sliding down the chute. You roll to one side just in time, as a bag of flesh and bones lands with a sickening crack just where you were. Gore is forced through the weave of the sack as it lands, and a red mist explodes outwards then sinks to the ground.](else:)[Still weak, you realise what it is too late, and the sack of body parts slams into your torso in a cloud of pink mist. The pain is overwhelming (set: $health to it-1)]
 
-(if: $health&lt;1)[(link-goto: &quot;the impact is too much for your frail body&quot;, &quot;body cellar death&quot;)
+(if: $health&lt;1)[(link-goto: &quot;the impact is too much for your frail body&quot;, &quot;body cellar death&quot;)]
 (else:)
 [[stunned, you begin to get up-&gt;servants approach]] </tw-passagedata>
-<tw-passagedata pid="294" name="body cellar death" tags="" position="3230,3760">dead among the corpses
+<tw-passagedata pid="294" name="body cellar death" tags="" position="2681,4171">dead among the corpses
 
 ENDGAME</tw-passagedata>
+<tw-passagedata pid="295" name="use your rope" tags="" position="3325,3976">You knot a loose loop into one end of the rope, and make a couple of practice throws snagging shin-bones and jagged boulders on the floor of the cavern. When you&#39;re confident, you toss the rope up the chute, aiming for a spar of rock sticking out halfway up. On the second try, it catches. 
+
+You haul yourself painfully up the slippery chute, step by aching step. Once, your foot skids on the blood and you nearly lose yourself, desperate not to return to the horror below. As you gain ground above the jagged rock, you realise you will have to abandon the rope in order to keep your grip on the walls of the passage.
+
+Your fingertips grip to the edge of the chute and you pull yourself into the light. 
+(set: $inv to it-(a: &quot;rope&quot;))
+(link-goto: &quot;you tumble, breathlessly, over the edge of the body chute&quot;, &quot;hallway 2d&quot;)</tw-passagedata>
+<tw-passagedata pid="296" name="a running leap" tags="" position="3398,4112">You begin with the grim task of clearing a path for a run-up, carelessly tossing body-parts to one side. You feel yourself becoming inured to the continual agonies required to survive in the Skull. Once a path is cleared, you practice the run twice, taking five steps and leaping. Your fingertips barely graze the ledge. You pace backwards, and prepare to exert yourself to your full extent.
+
+(if: $leapscore&gt;5)[As you leap, your fingers grasp the edge of the chute firmly. You hang there for a second, before hauling yourself upwards. The chute is slick with blood, but you scramble up bit by bit, willing yourself away from the the horror below
+
+(link-goto: &quot;you tumble, breathlessly, over the edge of the body chute&quot;, &quot;hallway 2d&quot;)]
+(if: $leapscore&lt;=5)[This leap is no better than before. You feel your fingers grasping in futility at the edge of the chute, before you fall forwards onto a pile of rotten corpses. 
+
+[[try again-&gt;servants approach]] 
+[[give up-&gt;lie here a while]] ]</tw-passagedata>
+<tw-passagedata pid="297" name="leapcodepage" tags="" position="3266,4122">(set: $leapscore to $health+(random:1,4))
+(if: $playerTags contains &quot;drunk&quot;)[(set: $leapscore to it-1)]
+(goto: &quot;a running leap&quot;)</tw-passagedata>
 </tw-storydata>
